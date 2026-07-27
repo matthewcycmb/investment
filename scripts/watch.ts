@@ -200,8 +200,17 @@ if (!found.length && !FORCE) {
 } else if (!process.env.AI_GATEWAY_API_KEY) {
   console.log('AI_GATEWAY_API_KEY not set — events recorded, council skipped');
 } else {
-  const tickers = [...new Set(found.flatMap((e) => e.tickers))].slice(0, 60);
-  const pool = tickers.length ? tickers : [...byTicker.keys()].slice(0, 40);
+  // --force with nothing new re-examines the most recent real signals, so the demo
+  // button always has genuine material rather than an empty event list.
+  const review = found.length ? found : log.events.slice(0, 12);
+  const tickers = [...new Set(review.flatMap((e: any) => e.tickers ?? []))].slice(0, 60);
+  // With --force and no new events, fall back to the current screened watchlist
+  // rather than an arbitrary slice of the universe.
+  const latestCand = lsJSON(`${ROOT}data/candidates`).pop();
+  const watchlist: string[] = latestCand
+    ? readJSON<any>(`${ROOT}data/candidates/${latestCand}`, { candidates: [] }).candidates.map((c: any) => c.ticker)
+    : [];
+  const pool = tickers.length ? tickers : watchlist.slice(0, 20);
 
   const priced: string[] = [];
   for (const t of pool.slice(0, 25)) {
@@ -224,21 +233,21 @@ RULES:
 - Every claim you put in "evidence" must come from the material below, not from memory.
 - "risk" must be the strongest argument AGAINST your own verdict.
 
-EVENTS (${found.length}):
-${found.slice(0, 25).map((e) => `- [${e.source}] ${e.title}${e.detail ? `\n    ${e.detail}` : ''}`).join('\n')}
+EVENTS (${review.length}):
+${review.slice(0, 25).map((e) => `- [${e.source}] ${e.title}${e.detail ? `\n    ${e.detail}` : ''}`).join('\n')}
 
 ALLOWED TICKERS:
 ${priced.join('\n')}`;
 
   notify(
     'Council deciding now',
-    `${found.length} event(s) -> ${ARMS.length} specialists reviewing ${pool.length} ticker(s). No trade placed yet.`,
+    `${review.length} event(s) -> ${ARMS.length} specialists reviewing ${pool.length} ticker(s). No trade placed yet.`,
   );
 
   // Event kind drives step 2 weighting: a policy specialist counts for more on policy.
-  const counts = found.reduce((a: Record<string, number>, e) => ({ ...a, [e.source]: (a[e.source] ?? 0) + 1 }), {});
+  const counts = review.reduce((a: Record<string, number>, e) => ({ ...a, [e.source]: (a[e.source] ?? 0) + 1 }), {});
   const top = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-  const kind: any = !top.length ? 'mixed' : (top[0][1] / found.length >= 0.6 ? top[0][0] : 'mixed');
+  const kind: any = !top.length ? 'mixed' : (top[0][1] / review.length >= 0.6 ? top[0][0] : 'mixed');
 
   const valid = new Set(pool.map((t) => t.toUpperCase()));
   const { results, verdicts, debated, armsLive } = await convene(BRIEF, valid, kind);
@@ -263,14 +272,14 @@ ${priced.join('\n')}`;
         buys.map((v) => `${v.ticker} (${(v.agreement * 100).toFixed(0)}% agreement, conf ${v.meanConfidence})`).join(', '));
     } else {
       notify('Council decided: no trade',
-        `Reviewed ${found.length} event(s). Nothing reached ${Math.round(ACT_MIN_AGREEMENT * 100)}% agreement on BUY.`);
+        `Reviewed ${review.length} event(s). Nothing reached ${Math.round(ACT_MIN_AGREEMENT * 100)}% agreement on BUY.`);
     }
 
     invested = {
       date: today, ts: NOW, study: false,
       eventKind: kind, fallback: FALLBACK,
       horizonTradingDays: LIVE_HORIZON,
-      trigger: found.slice(0, 25).map((e) => ({ source: e.source, title: e.title, url: e.url })),
+      trigger: review.slice(0, 25).map((e) => ({ source: e.source, title: e.title, url: e.url })),
       rubric: {
         steps: ['verify evidence', 'weight votes', 'measure agreement', 'investigate credible disagreement'],
         actMinAgreement: ACT_MIN_AGREEMENT, actMinVotes: ACT_MIN_VOTES,
@@ -297,11 +306,16 @@ if (DRY) {
   writeJSON(eventsPath, log);
   state.seen = [...seen].slice(-5000);
   writeJSON(STATE_PATH, state);
-  if (invested?.council?.length) {
+  // Every session that reached a verdict is recorded, including sessions that
+  // decided NOT to trade. A council that declines is a result, not a non-event,
+  // and dropping those would leave only the trades on the public record.
+  if (invested) {
     const stamp = NOW.replace(/[:.]/g, '-').slice(0, 19);
     writeJSON(`${ROOT}data/live/${stamp}.json`, invested);
-    console.log(`\nAUTO-INVESTED: ${invested.council.map((p: any) => p.ticker).join(', ')} -> data/live/${stamp}.json`);
-  } else if (invested) {
-    console.log('\ncouncil found no qualifying opportunity — no position opened (this is a valid outcome)');
+    if (invested.council?.length) {
+      console.log(`\nAUTO-INVESTED: ${invested.council.map((p: any) => p.ticker).join(', ')} -> data/live/${stamp}.json`);
+    } else {
+      console.log(`\nno qualifying opportunity — session recorded, no position opened -> data/live/${stamp}.json`);
+    }
   }
 }

@@ -1,6 +1,17 @@
 {
   "events": [
     {
+      "id": "filing:NWS:0001564708",
+      "ts": "2026-07-27T12:48:39.951Z",
+      "source": "filing",
+      "title": "News Corp (Class B) filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001564708&type=8-K",
+      "tickers": [
+        "NWS"
+      ],
+      "detail": "NWS · Communication Services"
+    },
+    {
       "id": "headline:CPRT:Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and",
       "ts": "2026-07-27T11:25:48.361Z",
       "source": "headline",

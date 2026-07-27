@@ -1,0 +1,689 @@
+{
+  "date": "2026-07-27",
+  "ts": "2026-07-27T12:53:20.843Z",
+  "study": false,
+  "eventKind": "mixed",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "filing",
+      "title": "News Corp (Class B) filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001564708&type=8-K"
+    },
+    {
+      "source": "headline",
+      "title": "Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and AI Focus",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/copart-announces-promotion-jane-pocock-203000140.html?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-q2-earnings-preview-expect-145910983.html?.tsrc=rss"
+    },
+    {
+      "source": "filing",
+      "title": "Baker Hughes filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001701605&type=8-K"
+    },
+    {
+      "source": "filing",
+      "title": "Expand Energy filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000895126&type=8-K"
+    },
+    {
+      "source": "filing",
+      "title": "TransDigm Group filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001260221&type=8-K"
+    },
+    {
+      "source": "headline",
+      "title": "Jim Cramer Discussed A Surprise For International Business Machines Corporation (NYSE:IBM) CEO",
+      "url": "https://www.fool.com/investing/2026/07/24/big-banks-cash-in-ibm-crashes-out/?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "Is Digital Realty Trust (DLR) Fully Priced As Higher Guidance Lifts Optimism?",
+      "url": "https://finance.yahoo.com/technology/ai/articles/freeport-mcmoran-inc-fcx-digital-104751465.html?.tsrc=rss"
+    },
+    {
+      "source": "shock",
+      "title": "IBM moved +3.6% on 2026-07-24"
+    },
+    {
+      "source": "headline",
+      "title": "IBM CEO makes bold AI strategy claim",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/international-business-machines-corporation-ibm-084616985.html?.tsrc=rss"
+    },
+    {
+      "source": "shock",
+      "title": "DLR moved +11.0% on 2026-07-24"
+    },
+    {
+      "source": "headline",
+      "title": "SpaceX initiated, PayPal upgraded: Wall Street's top analyst calls",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-digital-realty-trust-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "ACN",
+    "DLR"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 29169,
+      "revised": false,
+      "findings": [
+        {
+          "ticker": "IBM",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "IBM moved +3.6% on 2026-07-24 (206.65 → 214.19)",
+            "Accompanying items are CEO/AI commentary headlines, not disclosed revenue, margin or cash-flow figures"
+          ],
+          "risk": "The gap likely reflects a real results beat, and post-print upward drift on improving software mix could outpace SPY.",
+          "reasoning": "No verifiable revenue, margin, free-cash-flow or accounting detail is provided; the catalysts are narrative CEO/AI claims which I am instructed to discount. Without an earnings-quality read, a 3.6% pop is not an actionable fundamental edge."
+        },
+        {
+          "ticker": "CPRT",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "Incoming CEO Jay Adair signals a growth push with M&A and AI focus",
+            "Stock up 2.7% on the day"
+          ],
+          "risk": "A credible capital-deployment shift at a high-return, cash-generative operator could be re-rated quickly by the market.",
+          "reasoning": "Stated M&A intent is a future capital-allocation signal with no announced deal, price, or accretion math; it changes neither near-term revenue, margins nor reported earnings. Historically, M&A pivots pressure incremental returns rather than lift them."
+        },
+        {
+          "ticker": "TDG",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "TransDigm filed an 8-K flagged only as a material corporate event with no disclosed content",
+            "Shares up 1.9% on the day"
+          ],
+          "risk": "8-Ks at TDG often precede debt raises or special dividends that materially alter leverage and per-share economics.",
+          "reasoning": "An unspecified 8-K provides no readable impact on revenue, aftermarket margins, leverage or free cash flow. Without the substance of the filing there is no fundamental basis to take either side over five sessions."
+        },
+        {
+          "ticker": "ACN",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "The only ACN-tagged item is an MCO Q2 earnings-beat headline, i.e. a keyword collision with no Accenture financials",
+            "No ACN revenue, bookings, margin or cash-flow data appears anywhere in the material",
+            "ACN already moved +5.9% in one session with no documented company-specific cause"
+          ],
+          "risk": "The 5.9% move may reflect a genuine ACN-specific bookings or margin catalyst absent from this material, in which case post-event drift continues and HOLD forfeits the gain.",
+          "reasoning": "Qwen's thematic read-across from Moody's analytics demand to Accenture consulting is not an earnings-impact claim I can size: no revenue, margin or backlog figure is supplied. Buying a stock already up 5.9% on an unattributed move is a valuation bet with no numerator. HOLD stands."
+        },
+        {
+          "ticker": "DLR",
+          "verdict": "SELL",
+          "confidence": 4,
+          "evidence": [
+            "DLR gapped +11.0% in a single session on 2026-07-24 (179.34 → 199.08)",
+            "The tagged catalyst is a guidance raise plus an analyst upgrade note",
+            "The tagged headline itself frames the question as whether DLR is 'fully priced'"
+          ],
+          "risk": "Guidance raises for capital-intensive data-centre REITs often trigger a multi-day upgrade cycle and positive post-announcement drift, which can extend outperformance versus SPY through the exit open.",
+          "reasoning": "The drift counter-argument is fair but does not fix the arithmetic: an 11% equity repricing implies a step-change in FFO or cap-rate assumptions far beyond one quarter's guidance increment for an externally-funded REIT. Entry is after the gap, so I buy the multiple, not the earnings. SELL held at low size."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Causal reasoning, source verification and adversarial counter-case",
+      "ok": true,
+      "error": null,
+      "latencyMs": 37066,
+      "revised": false,
+      "findings": [
+        {
+          "ticker": "IBM",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "IBM rose 3.6%, from 206.65 to 214.19, on 2026-07-24.",
+            "One headline says IBM's CEO made a bold AI strategy claim.",
+            "Another headline only says Jim Cramer discussed a surprise for IBM's CEO."
+          ],
+          "risk": "A credible AI strategy disclosure could attract follow-through buying and outperform SPY.",
+          "reasoning": "The material supplies no details connecting the CEO commentary to earnings or cash flow. The move alone does not prove durable momentum or overreaction."
+        },
+        {
+          "ticker": "CPRT",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Incoming CEO Jay Adair signaled a growth push and focus on M&A and AI.",
+            "CPRT's listed one-day move was 2.7%."
+          ],
+          "risk": "A credible acquisition or AI-led growth plan could trigger a near-term rerating.",
+          "reasoning": "Management themes are not quantified and no transaction, forecast, or financial impact is provided. That is insufficient for a five-session relative-performance trade."
+        },
+        {
+          "ticker": "ACN",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "The earnings-beat headline names MCO, not Accenture.",
+            "The supplied material reports ACN up 5.9% for the day.",
+            "No ACN-specific earnings, guidance, bookings or margin information is provided."
+          ],
+          "risk": "ACN's 5.9% rise may reflect a genuine company-specific catalyst omitted from the material, allowing momentum to continue.",
+          "reasoning": "The council's causal critique is decisive: a Moody's headline cannot substantiate an Accenture trade. The unexplained move alone supports neither continuation nor reversal over five sessions versus SPY."
+        },
+        {
+          "ticker": "DLR",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "DLR rose 11.0%, from 179.34 to 199.08, on 2026-07-24.",
+            "A headline says higher guidance lifted optimism while asking whether DLR is fully priced.",
+            "The supplied material gives no guidance figures or valuation metrics."
+          ],
+          "risk": "Higher guidance may trigger continued positive repricing and further outperformance versus SPY.",
+          "reasoning": "The guidance catalyst may be genuine, but the 11% reaction occurred before entry. Without guidance magnitude or valuation evidence, claims of either post-event drift or mean reversion are speculative; the SELL case overstates what the material proves."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "China and Hong Kong context, policy and market sentiment",
+      "ok": true,
+      "error": null,
+      "latencyMs": 71840,
+      "revised": true,
+      "findings": [
+        {
+          "ticker": "IBM",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "IBM moved +3.6% on 2026-07-24, closing at 214.19",
+            "IBM CEO makes bold AI strategy claim",
+            "Jim Cramer discussed a surprise for IBM CEO"
+          ],
+          "risk": "A 3.6% move on CEO AI rhetoric without concrete earnings or revenue data may fade as the market digests the claim and demands follow-through.",
+          "reasoning": "IBM's move is driven by CEO AI narrative and media attention, not hard financials. The 3.6% gap may partially sustain but lacks a clear catalyst for further upside within 5 days. HOLD as the risk/reward is balanced."
+        },
+        {
+          "ticker": "ACN",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "The headline 'MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances' references Moody's (MCO), not Accenture (ACN).",
+            "There is zero ACN-specific revenue, margin, backlog, or guidance data in the supplied material.",
+            "The ACN match is a keyword collision on 'earnings beat' with no direct catalyst documented."
+          ],
+          "risk": "The 5.9% single-day move may reflect a genuine ACN-specific catalyst (e.g., AI consulting bookings repricing) omitted from the supplied material, in which case momentum drift could carry ACN past SPY over 5 days.",
+          "reasoning": "The headline is mis-attributed to MCO, not ACN. No ACN-specific fundamental data exists in the material. Chasing a 5.9% move without a verifiable catalyst is unjustified. HOLD is the only defensible position."
+        },
+        {
+          "ticker": "DLR",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "DLR moved +11.0% on 2026-07-24, closing at 199.08 from 179.34.",
+            "Headline asks 'Is Digital Realty Trust (DLR) Fully Priced As Higher Guidance Lifts Optimism?'",
+            "DLR was tagged in a 'Wall Street's top analyst calls' upgrade headline."
+          ],
+          "risk": "Higher guidance plus analyst upgrades can trigger multi-day positive post-announcement drift and further re-rating, especially if AI datacenter leasing momentum sustains institutional buying beyond the initial gap.",
+          "reasoning": "The 11% gap already capitalizes the guidance raise and upgrade. The headline itself questions whether DLR is fully priced. Over 5 days, post-gap consolidation and profit-taking are the base case, making outperformance vs SPY unlikely. Neither continued upside nor reversal is strongly evidenced."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "specialty": "Long-document synthesis and second-order consequences",
+      "ok": true,
+      "error": null,
+      "latencyMs": 242177,
+      "revised": false,
+      "findings": [
+        {
+          "ticker": "IBM",
+          "verdict": "BUY",
+          "confidence": 5,
+          "evidence": [
+            "IBM shocked +3.6% to 214.19 alongside two CEO/AI headlines in one session",
+            "Headlines: 'IBM CEO makes bold AI strategy claim' and a Cramer segment on an IBM CEO surprise",
+            "Same session, DLR raised guidance on what its own headline frames as lifted optimism — corroborating enterprise AI demand"
+          ],
+          "risk": "Both IBM headlines are substance-free — a TV segment and a 'claim' with no numbers; if buyers fade the hype, IBM surrenders the pop and lags SPY.",
+          "reasoning": "A headline cluster plus a 3.6% move signals accumulation, not exhaustion. Crucially, DLR's guidance raise independently validates the AI-demand story IBM's CEO is selling — cross-event confirmation that gives the narrative fundamental ballast for continued 5-day drift vs SPY."
+        },
+        {
+          "ticker": "CPRT",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "Headline: 'Incoming CEO Jay Adair Signals Growth Push, M&A and AI Focus'",
+            "CPRT already moved +2.7% on the day"
+          ],
+          "risk": "If a specific acquisition target or deal chatter emerges inside the window, Copart could gap well beyond SPY.",
+          "reasoning": "A leadership-transition narrative with no targets, figures, or dates is largely captured by the 2.7% pop. M&A intent cuts both ways — deal upside versus overpayment/integration risk — netting to no edge against SPY over five sessions."
+        },
+        {
+          "ticker": "ACN",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "The only tagged item is the headline 'MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances' — an MCO event caught by an 'earnings beat' keyword match, not an ACN event",
+            "ACN last 146.99 with a +5.9% one-day move, but no ACN-specific filing, headline or shock exists anywhere in the material",
+            "The feed shows a broader AI-complex re-rating (IBM +3.6% on a bold AI strategy claim, DLR +11.0% on guidance), making the analytics read-across plausible but unverified for ACN"
+          ],
+          "risk": "If the +5.9% reflects a genuine AI-services repricing — the IBM AI claim and DLR datacenter surge suggest sector-wide re-rating is live — momentum carries ACN past SPY and HOLD forfeits the gain.",
+          "reasoning": "The tagged catalyst belongs to MCO; the ACN move's cause is undocumented in the feed. Second-order sympathy (analytics demand -> AI consulting) is the one genuine tailwind the fundamentals lens missed, but the move is already in the price and unverifiable. Chasing an unattributable spike or shorting sector momentum both lack edge vs SPY. I hold."
+        },
+        {
+          "ticker": "DLR",
+          "verdict": "SELL",
+          "confidence": 5,
+          "evidence": [
+            "DLR shocked +11.0% on 2026-07-24, close 179.34 -> 199.08 — an extreme single-session move for a capital-intensive REIT",
+            "The headline itself asks 'Is Digital Realty Trust (DLR) Fully Priced As Higher Guidance Lifts Optimism?' — the guidance raise is the known, priced news",
+            "DLR matched 'upgrade' in a Wall Street analyst-calls headline, confirming the re-rating catalyst is public and largely absorbed"
+          ],
+          "risk": "Guidance raises trigger multi-day analyst upgrade cycles and positive post-announcement drift; the upgrade headline shows that cycle has begun, and AI-datacenter momentum could extend DLR past SPY.",
+          "reasoning": "The +11% gap already capitalizes the guidance raise. Second-order point the council missed: externally-funded datacenter REITs typically raise equity into price pops — an issuance overhang the market hasn't priced. SPY rises with the same AI complex, so DLR must extend a historic REIT move to win. Consolidation/profit-taking is the base case; I side with the sellers."
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "ACN",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 4,
+      "meanConfidence": 7.25,
+      "invest": false,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.6,
+          "evidence": [
+            "The only ACN-tagged item is an MCO Q2 earnings-beat headline, i.e. a keyword collision with no Accenture financials",
+            "No ACN revenue, bookings, margin or cash-flow data appears anywhere in the material",
+            "ACN already moved +5.9% in one session with no documented company-specific cause"
+          ],
+          "risk": "The 5.9% move may reflect a genuine ACN-specific bookings or margin catalyst absent from this material, in which case post-event drift continues and HOLD forfeits the gain.",
+          "reasoning": "Qwen's thematic read-across from Moody's analytics demand to Accenture consulting is not an earnings-impact claim I can size: no revenue, margin or backlog figure is supplied. Buying a stock already up 5.9% on an unattributed move is a valuation bet with no numerator. HOLD stands.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "specialty": "Causal reasoning, source verification and adversarial counter-case",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 1.08,
+          "evidence": [
+            "The earnings-beat headline names MCO, not Accenture.",
+            "The supplied material reports ACN up 5.9% for the day.",
+            "No ACN-specific earnings, guidance, bookings or margin information is provided."
+          ],
+          "risk": "ACN's 5.9% rise may reflect a genuine company-specific catalyst omitted from the material, allowing momentum to continue.",
+          "reasoning": "The council's causal critique is decisive: a Moody's headline cannot substantiate an Accenture trade. The unexplained move alone supports neither continuation nor reversal over five sessions versus SPY.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.96,
+          "evidence": [
+            "The headline 'MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances' references Moody's (MCO), not Accenture (ACN).",
+            "There is zero ACN-specific revenue, margin, backlog, or guidance data in the supplied material.",
+            "The ACN match is a keyword collision on 'earnings beat' with no direct catalyst documented."
+          ],
+          "risk": "The 5.9% single-day move may reflect a genuine ACN-specific catalyst (e.g., AI consulting bookings repricing) omitted from the supplied material, in which case momentum drift could carry ACN past SPY over 5 days.",
+          "reasoning": "The headline is mis-attributed to MCO, not ACN. No ACN-specific fundamental data exists in the material. Chasing a 5.9% move without a verifiable catalyst is unjustified. HOLD is the only defensible position.",
+          "revised": true
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K3",
+          "specialty": "Long-document synthesis and second-order consequences",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1.3,
+          "weight": 0.65,
+          "evidence": [
+            "The only tagged item is the headline 'MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances' — an MCO event caught by an 'earnings beat' keyword match, not an ACN event",
+            "ACN last 146.99 with a +5.9% one-day move, but no ACN-specific filing, headline or shock exists anywhere in the material",
+            "The feed shows a broader AI-complex re-rating (IBM +3.6% on a bold AI strategy claim, DLR +11.0% on guidance), making the analytics read-across plausible but unverified for ACN"
+          ],
+          "risk": "If the +5.9% reflects a genuine AI-services repricing — the IBM AI claim and DLR datacenter surge suggest sector-wide re-rating is live — momentum carries ACN past SPY and HOLD forfeits the gain.",
+          "reasoning": "The tagged catalyst belongs to MCO; the ACN move's cause is undocumented in the feed. Second-order sympathy (analytics demand -> AI consulting) is the one genuine tailwind the fundamentals lens missed, but the move is already in the price and unverifiable. Chasing an unattributable spike or shorting sector momentum both lack edge vs SPY. I hold.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "CPRT",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 3,
+      "meanConfidence": 6.33,
+      "invest": false,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "Incoming CEO Jay Adair signals a growth push with M&A and AI focus",
+            "Stock up 2.7% on the day"
+          ],
+          "risk": "A credible capital-deployment shift at a high-return, cash-generative operator could be re-rated quickly by the market.",
+          "reasoning": "Stated M&A intent is a future capital-allocation signal with no announced deal, price, or accretion math; it changes neither near-term revenue, margins nor reported earnings. Historically, M&A pivots pressure incremental returns rather than lift them.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "specialty": "Causal reasoning, source verification and adversarial counter-case",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.63,
+          "evidence": [
+            "Incoming CEO Jay Adair signaled a growth push and focus on M&A and AI.",
+            "CPRT's listed one-day move was 2.7%."
+          ],
+          "risk": "A credible acquisition or AI-led growth plan could trigger a near-term rerating.",
+          "reasoning": "Management themes are not quantified and no transaction, forecast, or financial impact is provided. That is insufficient for a five-session relative-performance trade.",
+          "revised": false
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K3",
+          "specialty": "Long-document synthesis and second-order consequences",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.3,
+          "weight": 0.585,
+          "evidence": [
+            "Headline: 'Incoming CEO Jay Adair Signals Growth Push, M&A and AI Focus'",
+            "CPRT already moved +2.7% on the day"
+          ],
+          "risk": "If a specific acquisition target or deal chatter emerges inside the window, Copart could gap well beyond SPY.",
+          "reasoning": "A leadership-transition narrative with no targets, figures, or dates is largely captured by the 2.7% pop. M&A intent cuts both ways — deal upside versus overpayment/integration risk — netting to no edge against SPY over five sessions.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "TDG",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 1,
+      "meanConfidence": 6,
+      "invest": false,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "TransDigm filed an 8-K flagged only as a material corporate event with no disclosed content",
+            "Shares up 1.9% on the day"
+          ],
+          "risk": "8-Ks at TDG often precede debt raises or special dividends that materially alter leverage and per-share economics.",
+          "reasoning": "An unspecified 8-K provides no readable impact on revenue, aftermarket margins, leverage or free cash flow. Without the substance of the filing there is no fundamental basis to take either side over five sessions.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "IBM",
+      "action": "HOLD",
+      "agreement": 0.819,
+      "weightedShare": {
+        "BUY": 0.181,
+        "SELL": 0,
+        "HOLD": 0.819
+      },
+      "votes": 3,
+      "meanConfidence": 6,
+      "invest": false,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "IBM moved +3.6% on 2026-07-24 (206.65 → 214.19)",
+            "Accompanying items are CEO/AI commentary headlines, not disclosed revenue, margin or cash-flow figures"
+          ],
+          "risk": "The gap likely reflects a real results beat, and post-print upward drift on improving software mix could outpace SPY.",
+          "reasoning": "No verifiable revenue, margin, free-cash-flow or accounting detail is provided; the catalysts are narrative CEO/AI claims which I am instructed to discount. Without an earnings-quality read, a 3.6% pop is not an actionable fundamental edge.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "specialty": "Causal reasoning, source verification and adversarial counter-case",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.7,
+          "evidence": [
+            "IBM rose 3.6%, from 206.65 to 214.19, on 2026-07-24.",
+            "One headline says IBM's CEO made a bold AI strategy claim.",
+            "Another headline only says Jim Cramer discussed a surprise for IBM's CEO."
+          ],
+          "risk": "A credible AI strategy disclosure could attract follow-through buying and outperform SPY.",
+          "reasoning": "The material supplies no details connecting the CEO commentary to earnings or cash flow. The move alone does not prove durable momentum or overreaction.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.72,
+          "evidence": [
+            "IBM moved +3.6% on 2026-07-24, closing at 214.19",
+            "IBM CEO makes bold AI strategy claim",
+            "Jim Cramer discussed a surprise for IBM CEO"
+          ],
+          "risk": "A 3.6% move on CEO AI rhetoric without concrete earnings or revenue data may fade as the market digests the claim and demands follow-through.",
+          "reasoning": "IBM's move is driven by CEO AI narrative and media attention, not hard financials. The 3.6% gap may partially sustain but lacks a clear catalyst for further upside within 5 days. HOLD as the risk/reward is balanced.",
+          "revised": true
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K3",
+          "specialty": "Long-document synthesis and second-order consequences",
+          "verdict": "BUY",
+          "confidence": 5,
+          "verified": 0.33,
+          "relevance": 1.3,
+          "weight": 0.433,
+          "evidence": [
+            "IBM shocked +3.6% to 214.19 alongside two CEO/AI headlines in one session",
+            "Headlines: 'IBM CEO makes bold AI strategy claim' and a Cramer segment on an IBM CEO surprise",
+            "Same session, DLR raised guidance on what its own headline frames as lifted optimism — corroborating enterprise AI demand"
+          ],
+          "risk": "Both IBM headlines are substance-free — a TV segment and a 'claim' with no numbers; if buyers fade the hype, IBM surrenders the pop and lags SPY.",
+          "reasoning": "A headline cluster plus a 3.6% move signals accumulation, not exhaustion. Crucially, DLR's guidance raise independently validates the AI-demand story IBM's CEO is selling — cross-event confirmation that gives the narrative fundamental ballast for continued 5-day drift vs SPY.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "DLR",
+      "action": "HOLD",
+      "agreement": 0.543,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.457,
+        "HOLD": 0.543
+      },
+      "votes": 2,
+      "meanConfidence": 6,
+      "invest": false,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 4,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.48,
+          "evidence": [
+            "DLR gapped +11.0% in a single session on 2026-07-24 (179.34 → 199.08)",
+            "The tagged catalyst is a guidance raise plus an analyst upgrade note",
+            "The tagged headline itself frames the question as whether DLR is 'fully priced'"
+          ],
+          "risk": "Guidance raises for capital-intensive data-centre REITs often trigger a multi-day upgrade cycle and positive post-announcement drift, which can extend outperformance versus SPY through the exit open.",
+          "reasoning": "The drift counter-argument is fair but does not fix the arithmetic: an 11% equity repricing implies a step-change in FFO or cap-rate assumptions far beyond one quarter's guidance increment for an externally-funded REIT. Entry is after the gap, so I buy the multiple, not the earnings. SELL held at low size.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "specialty": "Causal reasoning, source verification and adversarial counter-case",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 0.33,
+          "relevance": 1.2,
+          "weight": 0.64,
+          "evidence": [
+            "DLR rose 11.0%, from 179.34 to 199.08, on 2026-07-24.",
+            "A headline says higher guidance lifted optimism while asking whether DLR is fully priced.",
+            "The supplied material gives no guidance figures or valuation metrics."
+          ],
+          "risk": "Higher guidance may trigger continued positive repricing and further outperformance versus SPY.",
+          "reasoning": "The guidance catalyst may be genuine, but the 11% reaction occurred before entry. Without guidance magnitude or valuation evidence, claims of either post-event drift or mean reversion are speculative; the SELL case overstates what the material proves.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.7,
+          "evidence": [
+            "DLR moved +11.0% on 2026-07-24, closing at 199.08 from 179.34.",
+            "Headline asks 'Is Digital Realty Trust (DLR) Fully Priced As Higher Guidance Lifts Optimism?'",
+            "DLR was tagged in a 'Wall Street's top analyst calls' upgrade headline."
+          ],
+          "risk": "Higher guidance plus analyst upgrades can trigger multi-day positive post-announcement drift and further re-rating, especially if AI datacenter leasing momentum sustains institutional buying beyond the initial gap.",
+          "reasoning": "The 11% gap already capitalizes the guidance raise and upgrade. The headline itself questions whether DLR is fully priced. Over 5 days, post-gap consolidation and profit-taking are the base case, making outperformance vs SPY unlikely. Neither continued upside nor reversal is strongly evidenced.",
+          "revised": true
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K3",
+          "specialty": "Long-document synthesis and second-order consequences",
+          "verdict": "SELL",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 1.3,
+          "weight": 0.65,
+          "evidence": [
+            "DLR shocked +11.0% on 2026-07-24, close 179.34 -> 199.08 — an extreme single-session move for a capital-intensive REIT",
+            "The headline itself asks 'Is Digital Realty Trust (DLR) Fully Priced As Higher Guidance Lifts Optimism?' — the guidance raise is the known, priced news",
+            "DLR matched 'upgrade' in a Wall Street analyst-calls headline, confirming the re-rating catalyst is public and largely absorbed"
+          ],
+          "risk": "Guidance raises trigger multi-day analyst upgrade cycles and positive post-announcement drift; the upgrade headline shows that cycle has begun, and AI-datacenter momentum could extend DLR past SPY.",
+          "reasoning": "The +11% gap already capitalizes the guidance raise. Second-order point the council missed: externally-funded datacenter REITs typically raise equity into price pops — an issuance overhang the market hasn't priced. SPY rises with the same AI complex, so DLR must extend a historic REIT move to win. Consolidation/profit-taking is the base case; I side with the sellers.",
+          "revised": false
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 1,
+    "armsLive": 4
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "date": "2026-07-27",
+  "ts": "2026-07-27T12:51:46.099Z",
+  "study": false,
+  "eventKind": "mixed",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 3609,
+      "revised": false,
+      "findings": []
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Causal reasoning, source verification and adversarial counter-case",
+      "ok": true,
+      "error": null,
+      "latencyMs": 2597,
+      "revised": false,
+      "findings": []
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "China and Hong Kong context, policy and market sentiment",
+      "ok": true,
+      "error": null,
+      "latencyMs": 7406,
+      "revised": false,
+      "findings": []
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "specialty": "Long-document synthesis and second-order consequences",
+      "ok": true,
+      "error": null,
+      "latencyMs": 12663,
+      "revised": false,
+      "findings": []
+    }
+  ],
+  "verdicts": [],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": null,
+    "armsLive": 4
+  }
+}

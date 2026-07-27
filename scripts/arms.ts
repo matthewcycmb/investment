@@ -9,6 +9,9 @@
 //   3. Measure agreement        - weighted share held by the leading verdict
 //   4. Investigate disagreement - one debate round, ONLY when the split is credible
 import { streamObject, generateText } from 'ai';
+
+// Reasoning models reject `temperature`; the SDK logs a warning per call and ignores it.
+(globalThis as any).AI_SDK_LOG_WARNINGS = false;
 import { z } from 'zod';
 
 export const MAX_FINDINGS = 8;
