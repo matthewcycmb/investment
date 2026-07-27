@@ -100,6 +100,16 @@ dated. Constituents are not updated mid-study.
    `min(ratio, 3)`. 8-K filings are the SEC-mandated disclosure of material corporate events and
    are used here as a free, auditable proxy for news flow.
 
+**Known limitation of component (1), recorded before any pick.** The `P` code does not distinguish
+discretionary conviction buying from routine director stock-purchase or deferred-compensation plans.
+The first screen run surfaced SPG with 11 officer/director "buyers" purchasing 33–187 shares each at
+an identical price on the same day — almost certainly a plan, not eleven independent judgements, yet
+it scored 22 against a next-best of 4.7. A minimum-dollar threshold would filter this, but the
+criterion as written implements exactly what was specified, and adding a threshold *after seeing
+which names it surfaces* is the tuning this document exists to prevent. **The rule is left
+unchanged.** This limitation is disclosed rather than fixed, and any future change to it must wait
+for a separate, separately pre-registered study.
+
 Total score = (1) + (2). The top 20 by score become candidates; ties broken by ticker alphabetically.
 Tickers with zero insider purchases **and** a disclosure ratio below 1.0 are never eligible.
 
