@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.local
+.DS_Store
+
+# Generated site output — rebuilt from data/ on every deploy.
+public/index.html
+
+# Local Form 4 XML parse cache. Rebuildable from EDGAR; not part of the record.
+data/form4-cache.json

@@ -1,0 +1,22 @@
+{
+  "name": "ai-stock-council",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Public pre-registered forward test: can an LLM council beat SPY?",
+  "scripts": {
+    "universe": "node scripts/universe.ts",
+    "screen": "node scripts/screen.ts",
+    "council": "node scripts/council.ts",
+    "settle": "node scripts/settle.ts",
+    "render": "node scripts/render.ts",
+    "selfcheck": "node scripts/lib.ts"
+  },
+  "dependencies": {
+    "ai": "^6.0.0",
+    "zod": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

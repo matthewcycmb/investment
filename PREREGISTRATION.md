@@ -102,11 +102,27 @@ or removed by hand.**
 | A | Single frontier model, deciding alone — **pre-declared as the control** |
 | B | Second frontier model, deciding alone |
 | C | Third frontier model, deciding alone |
-| **Council** | Synthesis over the outputs of A, B, C — **the arm the primary test measures** |
+| **Council** | Deterministic vote aggregation over A, B, C — **the arm the primary test measures** |
 
-Each arm returns its top 8 picks with a written thesis. The exact gateway model ID for every arm is
-recorded in every pick file. If a provider deprecates a model mid-study, the replacement ID is
-recorded and the substitution noted; the study continues rather than restarting.
+Each arm returns its top 8 picks, ranked, with a written thesis. The exact gateway model ID for
+every arm is recorded in every pick file. If a provider deprecates a model mid-study, the
+replacement ID is recorded and the substitution noted; the study continues rather than restarting.
+
+**Council aggregation is mechanical, not model-driven.** For each ticker:
+- `votes` = number of arms (of A, B, C) that selected it
+- `rankPoints` = mean of `9 − rank` over the arms that selected it (a 1st-place pick scores 8)
+
+Council picks are the top 8 by `votes` descending, then `rankPoints` descending, then ticker
+alphabetically. No language model performs the synthesis.
+
+*Rationale, recorded in advance: if an LLM were the synthesizer, whichever model filled that role
+would bias the Council arm toward its own reasoning style — a confound sitting directly on the
+primary test. A fixed arithmetic rule cannot be tuned after seeing outcomes. This aggregation was
+specified before any pick existed; verify with `git log`.*
+
+Each arm also emits a 1–10 confidence per pick. **Confidence is recorded but never used for
+position sizing** — every position is equal-weight regardless. It exists only as exploratory data
+on whether models know when they are right.
 
 **Position rules — no discretion after entry.**
 - Equal notional weight on every pick
