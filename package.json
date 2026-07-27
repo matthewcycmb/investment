@@ -9,14 +9,15 @@
     "screen": "node --env-file-if-exists=.env scripts/screen.ts",
     "council": "node --env-file-if-exists=.env scripts/council.ts",
     "settle": "node --env-file-if-exists=.env scripts/settle.ts",
-    "render": "node --env-file-if-exists=.env scripts/render.ts",
+    "render": "node --env-file-if-exists=.env scripts/render.ts && node --env-file-if-exists=.env scripts/stockpage.ts",
     "selfcheck": "node --env-file-if-exists=.env scripts/lib.ts",
     "watch": "node --env-file-if-exists=.env scripts/watch.ts",
     "watch:once": "npm run --silent watch && npm run --silent settle && npm run --silent quotes && npm run --silent render",
     "watch:loop": "while true; do npm run --silent watch:once; echo '--- next check in 5 min ---'; sleep 300; done",
     "demo": "node --env-file-if-exists=.env scripts/watch.ts --force && npm run --silent settle && npm run --silent quotes && npm run --silent render",
     "models": "node --env-file-if-exists=.env scripts/council.ts --models",
-    "quotes": "node --env-file-if-exists=.env scripts/quotes.ts"
+    "quotes": "node --env-file-if-exists=.env scripts/quotes.ts",
+    "stockpage": "node --env-file-if-exists=.env scripts/stockpage.ts"
   },
   "dependencies": {
     "ai": "^6.0.0",

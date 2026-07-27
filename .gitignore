@@ -11,3 +11,4 @@ data/form4-cache.json
 
 # Local watcher runtime state (rebuildable; would churn the audit trail if tracked).
 data/watch-state.json
+public/s/

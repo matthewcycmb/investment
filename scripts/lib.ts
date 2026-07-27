@@ -58,7 +58,7 @@ export const secText = async (url: string) =>
 
 // ---------- prices ----------
 
-export type Bar = { date: string; open: number; close: number };
+export type Bar = { date: string; open: number; high: number; low: number; close: number; volume: number };
 
 /**
  * Daily bars from Yahoo's chart endpoint. Sessions with a null open are dropped,
@@ -74,10 +74,38 @@ export async function bars(symbol: string, range = '1y'): Promise<Bar[]> {
     .map((t: number, i: number) => ({
       // US sessions open 13:30/14:30 UTC, so the UTC date equals the ET session date.
       date: new Date(t * 1000).toISOString().slice(0, 10),
-      open: q.open[i],
-      close: q.close[i],
+      open: q.open[i], high: q.high[i], low: q.low[i], close: q.close[i], volume: q.volume[i] ?? 0,
     }))
     .filter((b: Bar) => b.open != null && b.close != null);
+}
+
+/** Chart metadata Yahoo exposes without auth (52-week range, day range, volume). */
+export async function quoteMeta(symbol: string): Promise<any> {
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1y`;
+  const res = await get(url, { key: 'yahoo', minGapMs: 220, headers: { 'User-Agent': 'Mozilla/5.0' } });
+  return (await res.json())?.chart?.result?.[0]?.meta ?? {};
+}
+
+/** Simple moving average; null until enough history exists. */
+export const sma = (xs: number[], p: number): (number | null)[] =>
+  xs.map((_, i) => (i < p - 1 ? null : xs.slice(i - p + 1, i + 1).reduce((a, b) => a + b, 0) / p));
+
+/** Wilder's RSI. */
+export function rsi(closes: number[], p = 14): (number | null)[] {
+  const out: (number | null)[] = [null];
+  let g = 0, l = 0;
+  for (let i = 1; i < closes.length; i++) {
+    const d = closes[i] - closes[i - 1];
+    const up = Math.max(d, 0), dn = Math.max(-d, 0);
+    if (i <= p) {
+      g += up; l += dn;
+      out.push(i < p ? null : 100 - 100 / (1 + (g / p) / ((l / p) || 1e-9)));
+    } else {
+      g = (g * (p - 1) + up) / p * 1; l = (l * (p - 1) + dn) / p * 1;
+      out.push(100 - 100 / (1 + g / (l || 1e-9)));
+    }
+  }
+  return out;
 }
 
 // ---------- json io ----------

@@ -71,13 +71,13 @@ function spark(series: number[] | undefined, trend: string): string {
 /** Watchlist row: ticker, sector, sparkline, price, day change. */
 const quoteRow = (q: any, i: number) => {
   const d = dir(q.changePct);
-  return `<div class="r" style="--i:${Math.min(i, 14)}">
+  return `<a class="r" href="s/${esc(q.ticker)}.html" style="--i:${Math.min(i, 14)}">
   <div class="r__n"><span class="tk">${esc(q.ticker)}${q.buyers > 0 ? '<i class="ins" title="insider buying"></i>' : ''}</span>
   <span class="sb">${esc(q.name)}</span></div>
   ${spark(q.spark, d)}
   <div class="r__p"><span class="px">${q.last != null ? q.last.toFixed(2) : '\u00b7'}</span></div>
   <span class="pl pl--${d}">${sign(q.changePct)}</span>
-</div>`;
+</a>`;
 };
 
 /** Trade row: ticker, holding dates, sparkline, price, performance vs S&P 500. */
