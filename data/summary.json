@@ -1,12 +1,15 @@
 {
-  "updated": "2026-07-27T08:22:50.766Z",
-  "nClosedCouncil": 0,
+  "updated": "2026-07-27T08:32:52.435Z",
+  "timezone": "Asia/Hong_Kong",
+  "nClosedStudy": 0,
   "nTarget": 100,
   "evaluated": false,
+  "liveOpen": 0,
+  "eventsSeen": 31,
   "primary": null,
   "interim": {
     "naive": null,
     "clustered": null,
-    "note": "NOT a result; the test evaluates once at n=100"
+    "note": "NOT a result; read once at n=100"
   }
 }

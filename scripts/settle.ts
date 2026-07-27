@@ -99,7 +99,9 @@ for (const f of files) {
     if (!series.length) continue;
 
     const r = resolve(series, pickDate, horizon);
-    const base = { arm: e.arm, study: f.study, horizon, pickDate, ticker: e.ticker, rank: e.rank, weekKey: weekKey(pickDate) };
+    // Last 30 closes power the inline sparkline; bars are already in memory.
+    const spark = series.slice(-30).map((b) => Number(b.close.toFixed(2)));
+    const base = { arm: e.arm, study: f.study, horizon, pickDate, ticker: e.ticker, rank: e.rank, weekKey: weekKey(pickDate), spark };
 
     if (r.status === 'pending') { pending++; positions.push({ ...base, status: 'pending' }); continue; }
 
