@@ -1,7 +1,11 @@
 // Shared helpers: polite HTTP, price bars, JSON io, and the statistics the
 // primary test depends on. Run `node scripts/lib.ts` to execute the self-checks.
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { dirname } from 'node:path';
+
+/** Sorted .json filenames in a directory; empty if the directory does not exist yet. */
+export const lsJSON = (dir: string): string[] =>
+  existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).sort() : [];
 
 export const SEC_UA = 'AI-Council-Research jchanh@gmail.com';
 export const ROOT = new URL('..', import.meta.url).pathname;

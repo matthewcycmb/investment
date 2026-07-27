@@ -1,0 +1,60 @@
+name: Weekly picks
+
+# Sunday 20:00 ET (00:00 UTC Monday) — before Monday's open, so entry is always
+# the next session's open and never a price that already existed.
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: picks
+  cancel-in-progress: false
+
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      # Fail loudly before spending tokens if the maths is broken.
+      - name: Self-checks
+        run: |
+          node scripts/lib.ts
+          node scripts/settle.ts --selfcheck
+
+      - name: Screen
+        run: node scripts/screen.ts
+
+      - name: Council
+        env:
+          AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+          ARM_A: ${{ vars.ARM_A }}
+          ARM_B: ${{ vars.ARM_B }}
+          ARM_C: ${{ vars.ARM_C }}
+        run: node scripts/council.ts
+
+      - name: Settle and render
+        run: |
+          node scripts/settle.ts
+          node scripts/render.ts
+
+      - name: Commit
+        run: |
+          git config user.name  "council-bot"
+          git config user.email "council-bot@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet && echo "no changes" && exit 0
+          git commit -m "picks: $(date -u +%Y-%m-%d)
+
+          Committed by CI before any outcome existed. See PREREGISTRATION.md."
+          git push

@@ -1,0 +1,12 @@
+{
+  "updated": "2026-07-27T07:27:21.375Z",
+  "nClosedCouncil": 0,
+  "nTarget": 100,
+  "evaluated": false,
+  "primary": null,
+  "interim": {
+    "naive": null,
+    "clustered": null,
+    "note": "NOT a result; the test evaluates once at n=100"
+  }
+}

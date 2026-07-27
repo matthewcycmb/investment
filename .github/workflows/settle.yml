@@ -1,0 +1,45 @@
+name: Daily settle
+
+# 22:00 UTC Tue-Sat covers every US session close (Mon-Fri ET).
+on:
+  schedule:
+    - cron: '0 22 * * 2-6'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: picks
+  cancel-in-progress: false
+
+jobs:
+  settle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Self-checks
+        run: |
+          node scripts/lib.ts
+          node scripts/settle.ts --selfcheck
+
+      - name: Settle and render
+        run: |
+          node scripts/settle.ts
+          node scripts/render.ts
+
+      - name: Commit
+        run: |
+          git config user.name  "council-bot"
+          git config user.email "council-bot@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet && echo "no changes" && exit 0
+          git commit -m "settle: $(date -u +%Y-%m-%d)"
+          git push

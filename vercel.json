@@ -1,0 +1,6 @@
+{
+  "buildCommand": "node scripts/render.ts",
+  "outputDirectory": "public",
+  "framework": null,
+  "installCommand": "npm ci"
+}
