@@ -58,6 +58,23 @@ const seen = new Set(state.seen);
 const today = NOW.slice(0, 10);
 const runsToday = state.councilRuns[today] ?? 0;
 
+/** RSS fields arrive XML-escaped; decode once so the renderer does not double-escape them. */
+const decodeEntities = (t: string): string => String(t).replace(
+  /&(#\d+|#x[0-9a-fA-F]+|amp|lt|gt|quot|apos|nbsp);/g,
+  (m, e) => {
+    const k = String(e).toLowerCase();
+    if (k === 'amp') return '&';
+    if (k === 'lt') return '<';
+    if (k === 'gt') return '>';
+    if (k === 'quot') return '"';
+    if (k === 'apos') return "'";
+    if (k === 'nbsp') return ' ';
+    if (k.startsWith('#x')) return String.fromCodePoint(parseInt(k.slice(2), 16));
+    if (k.startsWith('#')) return String.fromCodePoint(parseInt(k.slice(1), 10));
+    return m;
+  },
+);
+
 const found: Event[] = [];
 const note = (m: string) => console.error(`  ${m}`);
 
@@ -132,12 +149,12 @@ const watchTickers: string[] = [...new Set<string>(
       )).text();
       const items = [...rss.matchAll(/<item>[\s\S]*?<title>([\s\S]*?)<\/title>[\s\S]*?<link>([\s\S]*?)<\/link>/g)];
       for (const [, rawTitle, link] of items.slice(0, 8)) {
-        const title = rawTitle.replace(/<!\[CDATA\[|\]\]>/g, '').trim();
+        const title = decodeEntities(rawTitle.replace(/<!\[CDATA\[|\]\]>/g, '').trim());
         const hit = HEADLINE_KEYWORDS.find((k) => title.toLowerCase().includes(k));
         if (!hit) continue;
         const id = `headline:${t}:${title.slice(0, 60)}`;
         if (seen.has(id)) continue;
-        found.push({ id, ts: NOW, source: 'headline', title, url: link.trim(), tickers: [t], detail: `${t} · matched "${hit}"` });
+        found.push({ id, ts: NOW, source: 'headline', title, url: decodeEntities(link.trim()), tickers: [t], detail: `${t} · matched "${hit}"` });
       }
     } catch { /* RSS is flaky by nature; never let it stop the cycle */ }
 

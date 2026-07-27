@@ -261,6 +261,7 @@ footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--ln);color:var
 /** Standalone page wrapper written to public/s/<TICKER>.html */
 function page(q: any): string {
   return `<title>${esc(q.ticker)} · ${esc(q.name)}</title>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>${BASE_CSS}${DETAIL_CSS}</style>
 <main class="dt">

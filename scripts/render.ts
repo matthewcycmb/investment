@@ -13,6 +13,8 @@ const outcomes = readJSON<any>(`${ROOT}data/outcomes.json`, { positions: [] });
 const positions: any[] = outcomes.positions ?? [];
 const eventLog: any[] = readJSON<any>(`${ROOT}data/events.json`, { events: [] }).events ?? [];
 const watchState = readJSON<any>(`${ROOT}data/watch-state.json`, { councilRuns: {} });
+const pf = outcomes.portfolio ?? { equity: 100000, totalReturnPct: 0, openPositions: 0, cash: 100000, realized: 0, unrealized: 0 };
+const money = (x: number) => `$${Math.round(x).toLocaleString()}`;
 const quotes: any[] = readJSON<any>(`${ROOT}data/quotes.json`, { quotes: [] }).quotes ?? [];
 
 // Most recent council deliberation: live event-driven run if there is one, else the weekly study run.
@@ -166,6 +168,23 @@ function councilView(d: any): string {
   return session + cards;
 }
 
+const decisions: any[] = (deliberation?.councilAll ?? deliberation?.council ?? []);
+const boughtSet = new Set((deliberation?.council ?? []).map((p: any) => p.ticker));
+const councilBanner = decisions.length
+  ? `<div class="cb">
+      <div class="cb__h"><b>LATEST COUNCIL DECISION</b><time>${esc(hktStamp(deliberation.ts ?? deliberation.date))}</time></div>
+      <div class="cb__r">${decisions.slice(0, 10).map((p: any) => {
+        const won = boughtSet.has(p.ticker);
+        return `<label class="cd cd--${won ? 'up' : 'flat'}" for="t4">
+          <span class="cd__t">${esc(p.ticker)}</span>
+          <span class="cd__v">${p.votes} of ${(deliberation.arms ?? []).filter((a: any) => a.ok).length || (deliberation.arms ?? []).length} agree · conf ${p.meanConfidence}</span>
+          <span class="cd__s">${won ? 'BOUGHT' : 'PASSED'}</span>
+        </label>`;
+      }).join('')}</div>
+    </div>`
+  : `<div class="cb cb--idle"><div class="cb__h"><b>COUNCIL</b><time>standing by</time></div>
+     <div class="cb__i">No session yet. Four models vote the moment a signal qualifies.</div></div>`;
+
 const verdictText = evaluated
   ? ((clustered?.p ?? 1) < 0.05 ? 'BEAT MARKET' : 'NO EDGE')
   : `${n}/${N_TARGET}`;
@@ -174,6 +193,7 @@ const verdictTone = evaluated ? ((clustered?.p ?? 1) < 0.05 ? 'up' : 'down') : '
 // ---------- page ----------
 
 const html = `<title>AI Stock Council</title>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="refresh" content="60">
 <style>
@@ -200,7 +220,7 @@ border-bottom:1px solid var(--ln);margin:0 -12px 0}
 .kpi span{font-size:10px;color:var(--mu);letter-spacing:.04em;text-transform:uppercase;margin-top:2px;display:block}
 .kpi .wait b{color:var(--am)} .kpi .up b{color:var(--up)} .kpi .down b{color:var(--dn)}
 
-input[name=tab]{position:absolute;opacity:0;pointer-events:none}
+input[name=tab],input[name=stk]{position:absolute;width:0;height:0;opacity:0;pointer-events:none}
 .tabs{display:flex;gap:2px;padding:12px 0 10px;border-bottom:1px solid var(--ln);overflow-x:auto}
 .tabs label{flex:none;padding:6px 13px;border-radius:7px;font-size:13px;font-weight:600;
 color:var(--mu);cursor:pointer;white-space:nowrap;user-select:none}
@@ -274,6 +294,20 @@ padding:11px 12px;cursor:pointer;list-style:none}
 .nil{padding:44px 16px;text-align:center;color:var(--dm);font-size:12.5px;border-top:1px solid var(--ln)}
 footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--ln);color:var(--dm);font-size:10.5px;line-height:1.6}
 footer a{border-bottom:1px solid var(--ln)}
+.cb{border-bottom:1px solid var(--ln);padding:12px 0 13px}
+.cb__h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px}
+.cb__h b{font:700 10px var(--mo);letter-spacing:.11em;color:var(--ac)}
+.cb__h time{font:10.5px var(--mo);color:var(--dm);margin-left:auto}
+.cb__r{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px}
+.cb__i{font-size:12.5px;color:var(--dm)}
+.cd{flex:none;display:grid;gap:2px;padding:9px 12px;border-radius:9px;background:var(--pn);
+border:1px solid var(--ln);cursor:pointer;min-width:150px}
+.cd:hover{background:var(--pn2)}
+.cd--up{border-color:rgba(14,203,129,.4);background:linear-gradient(180deg,rgba(14,203,129,.08),var(--pn))}
+.cd__t{font:700 16px var(--sa);letter-spacing:-.01em}
+.cd__v{font:10.5px var(--mo);color:var(--mu)}
+.cd__s{font:700 9.5px var(--mo);letter-spacing:.07em;margin-top:3px}
+.cd--up .cd__s{color:var(--up)}.cd--flat .cd__s{color:var(--dm)}
 .split{display:grid;grid-template-columns:270px 1fr;gap:1px;background:var(--ln);border-top:1px solid var(--ln)}
 .wl{background:var(--bg);max-height:80vh;overflow-y:auto;overscroll-behavior:contain}
 .wr{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px 10px 9px 8px;
@@ -304,11 +338,13 @@ ${DETAIL_CSS}
 <time>${esc(hktFull(new Date().toISOString()))} HKT</time></div>
 
 <div class="kpi">
-  <div><b>${quotes.length}</b><span>watching</span></div>
-  <div><b>${eventsToday}</b><span>events today</span></div>
-  <div><b>${runsToday}</b><span>AI votes</span></div>
+  <div><b>${money(pf.equity)}</b><span>portfolio</span></div>
+  <div class="${dir(pf.totalReturnPct)}"><b>${sign(pf.totalReturnPct)}</b><span>total return</span></div>
+  <div><b>${pf.openPositions}</b><span>open positions</span></div>
   <div class="${verdictTone}"><b>${verdictText}</b><span>verdict</span></div>
 </div>
+
+${councilBanner}
 
 <input type="radio" name="tab" id="t1" checked><input type="radio" name="tab" id="t2"><input type="radio" name="tab" id="t3"><input type="radio" name="tab" id="t4">
 <nav class="tabs">

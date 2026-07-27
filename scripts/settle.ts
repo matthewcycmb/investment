@@ -69,9 +69,10 @@ const sources = [
   { dir: `${ROOT}data/live`, study: false },
 ];
 const files = sources.flatMap((s) => lsJSON(s.dir).map((f) => ({ path: `${s.dir}/${f}`, study: s.study })));
-if (!files.length) { console.log('no picks yet'); process.exit(0); }
 
-const spy = await bars('SPY', '2y');
+// With no picks the loop is a no-op, but outcomes.json is still written so the
+// dashboard can show the opening balance rather than nothing at all.
+const spy = files.length ? await bars('SPY', '2y') : [];
 const spyByDate = new Map(spy.map((b) => [b.date, b]));
 const seriesCache = new Map<string, Bar[]>();
 
@@ -138,7 +139,30 @@ for (const f of files) {
   }
 }
 
+// ---------- simulated portfolio ----------
+// Equal-weight stake per auto-invested position. Buying debits cash, the horizon
+// exit credits it back with P/L. No leverage, no partial fills, no fees.
+const START_EQUITY = 100_000, STAKE = 10_000;
+const live = positions.filter((p) => p.study === false && p.status !== 'pending');
+let realized = 0, unrealized = 0, openCount = 0;
+for (const p of live) {
+  if (p.status === 'closed') realized += STAKE * p.ret;
+  else if (p.markPrice && p.entryPrice) { unrealized += STAKE * (p.markPrice / p.entryPrice - 1); openCount++; }
+}
+const portfolio = {
+  startEquity: START_EQUITY, stakePerPosition: STAKE,
+  cash: Number((START_EQUITY - openCount * STAKE + realized).toFixed(2)),
+  invested: Number((openCount * STAKE + unrealized).toFixed(2)),
+  equity: Number((START_EQUITY + realized + unrealized).toFixed(2)),
+  realized: Number(realized.toFixed(2)),
+  unrealized: Number(unrealized.toFixed(2)),
+  totalReturnPct: Number((((realized + unrealized) / START_EQUITY) * 100).toFixed(3)),
+  openPositions: openCount,
+  closedPositions: live.filter((p) => p.status === 'closed').length,
+};
+
 writeJSON(`${ROOT}data/outcomes.json`, {
+  portfolio,
   updated: new Date().toISOString(),
   horizonTradingDays: HORIZON,
   rule: 'entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions',

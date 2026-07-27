@@ -1,0 +1,23 @@
+{
+  "portfolio": {
+    "startEquity": 100000,
+    "stakePerPosition": 10000,
+    "cash": 100000,
+    "invested": 0,
+    "equity": 100000,
+    "realized": 0,
+    "unrealized": 0,
+    "totalReturnPct": 0,
+    "openPositions": 0,
+    "closedPositions": 0
+  },
+  "updated": "2026-07-27T09:15:41.322Z",
+  "horizonTradingDays": 10,
+  "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
+  "counts": {
+    "closed": 0,
+    "open": 0,
+    "pending": 0
+  },
+  "positions": []
+}
