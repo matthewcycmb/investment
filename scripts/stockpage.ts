@@ -32,7 +32,7 @@ const shortModel = (m: string) => String(m ?? '').split('/').pop() ?? '';
 
 // ---------- candlestick + volume chart ----------
 
-function candles(bars: any[], ma: any): string {
+export function candles(bars: any[], ma: any): string {
   if (!bars || bars.length < 2) return '<div class="nil">No chart data</div>';
   const W = 900, PH = 250, VH = 60, GAP = 14, H = PH + GAP + VH;
   const hi = Math.max(...bars.map((b) => b.h)), lo = Math.min(...bars.map((b) => b.l));
@@ -72,9 +72,10 @@ function candles(bars: any[], ma: any): string {
 ${grid}${sticks}${line(ma?.ma5 ?? [], 'm5')}${line(ma?.ma10 ?? [], 'm10')}${line(ma?.ma20 ?? [], 'm20')}${vols}</svg>`;
 }
 
-// ---------- page ----------
+// ---------- shared detail fragment ----------
 
-function page(q: any): string {
+/** Price header, stats, chart, council verdict and insider filings for one stock. */
+export function detailPanel(q: any): string {
   const d = dir(q.changePct);
   const chg = q.last != null && q.prevClose != null ? q.last - q.prevClose : null;
 
@@ -142,100 +143,11 @@ function page(q: any): string {
 
   const held = positions.filter((p) => p.ticker === q.ticker && p.status !== 'pending');
 
-  return `<title>${esc(q.ticker)} · ${esc(q.name)}</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-:root{--bg:#0a0b0d;--pn:#121419;--pn2:#171a21;--ln:#1f2430;--fg:#eaecef;--mu:#767f8c;--dm:#4d5561;
---up:#0ecb81;--dn:#f6465d;--am:#f0b90b;--ac:#4a8cff;
---mo:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
---sa:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 var(--sa);-webkit-font-smoothing:antialiased}
-main{max-width:1020px;margin:0 auto;padding:0 12px 56px}
-a{color:inherit;text-decoration:none}
-.up{color:var(--up)}.down{color:var(--dn)}.flat{color:var(--mu)}
-
-.bar{position:sticky;top:0;z-index:9;display:flex;align-items:center;gap:10px;padding:13px 2px;
-background:rgba(10,11,13,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
-.bk{font:12px var(--mo);color:var(--mu);padding:3px 8px;border:1px solid var(--ln);border-radius:5px}
-.bk:hover{color:var(--fg)}
-.bar b{font-size:14px;letter-spacing:.02em}
-.bar span{color:var(--mu);font-size:12px}
-.bar time{margin-left:auto;font:11px var(--mo);color:var(--dm)}
-
-.hero{padding:18px 2px 14px;border-bottom:1px solid var(--ln)}
-.hero .p{font:700 38px var(--mo);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
-.hero .c{font:600 15px var(--mo);margin-top:6px;font-variant-numeric:tabular-nums}
-.hero .as{font:11px var(--mo);color:var(--dm);margin-top:5px}
-
-.rng{margin:14px 0 0}
-.rng__b{position:relative;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--dn),var(--am),var(--up));opacity:.55}
-.rng__b i{position:absolute;top:-3px;width:2px;height:10px;background:var(--fg);border-radius:1px}
-.rng__l{display:flex;justify-content:space-between;margin-top:5px;font:10.5px var(--mo);color:var(--dm)}
-.rng__l b{color:var(--mu);font-weight:400}
-
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ln);
-border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);margin:0 -12px}
-.s{background:var(--bg);padding:11px 12px}
-.s span{display:block;font-size:10px;color:var(--dm);text-transform:uppercase;letter-spacing:.05em}
-.s b{display:block;font:15px var(--mo);font-weight:500;font-variant-numeric:tabular-nums;margin-top:2px}
-
-h2{font-size:14px;font-weight:680;margin:26px 0 4px;letter-spacing:.01em}
-.hint{font-size:11.5px;color:var(--dm);margin:0 0 10px}
-
-.ck{width:100%;height:auto;display:block;background:var(--pn);border:1px solid var(--ln);border-radius:10px}
-.gl{stroke:var(--ln);stroke-width:1;vector-effect:non-scaling-stroke}
-.gt{fill:var(--dm);font:10px var(--mo)}
-.wk{stroke-width:1;vector-effect:non-scaling-stroke}
-.wk.u,.bd.u{stroke:var(--up)}.wk.d,.bd.d{stroke:var(--dn)}
-.bd.u{fill:var(--up)}.bd.d{fill:var(--dn)}
-.vb.u{fill:var(--up);opacity:.4}.vb.d{fill:var(--dn);opacity:.4}
-.ma{fill:none;stroke-width:1.4;vector-effect:non-scaling-stroke}
-.m5{stroke:#f0b90b}.m10{stroke:#4a8cff}.m20{stroke:#c084fc}
-.lg{display:flex;gap:14px;font:10.5px var(--mo);color:var(--mu);margin-top:7px;flex-wrap:wrap}
-.lg i{display:inline-block;width:9px;height:2px;vertical-align:middle;margin-right:4px}
-
-.vd{display:flex;align-items:center;gap:12px;padding:12px;background:var(--pn);
-border:1px solid var(--ln);border-radius:10px;margin-bottom:1px}
-.vd--up{border-color:rgba(14,203,129,.35)}
-.vd__v{font:600 14px var(--mo)}.vd__c{font:12px var(--mo);color:var(--mu)}
-.pl{margin-left:auto;font:600 11px var(--mo);padding:5px 10px;border-radius:5px;color:#fff}
-.pl--up{background:var(--up)}.pl--flat{background:#333a46}
-.op{background:var(--pn);border:1px solid var(--ln);border-top:0;padding:11px 12px}
-.op--no{opacity:.4}
-.op__m{font:600 10.5px var(--mo);color:var(--ac);letter-spacing:.03em}
-.op__r{font:10.5px var(--mo);color:var(--mu);margin-left:8px}
-.op__c{font:10.5px var(--mo);color:var(--am);margin-left:6px}
-.op p{margin:5px 0 0;font-size:12.5px;line-height:1.5;color:var(--mu)}
-
-.tb{width:100%;border-collapse:collapse;background:var(--pn);border:1px solid var(--ln);border-radius:10px;overflow:hidden}
-.tb th{text-align:left;font-size:10px;color:var(--dm);text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;border-bottom:1px solid var(--ln)}
-.tb td{padding:9px 12px;font-size:12.5px;border-bottom:1px solid var(--ln)}
-.tb tr:last-child td{border-bottom:0}
-.tb .n{font-family:var(--mo);text-align:right;font-variant-numeric:tabular-nums}
-
-.e{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:baseline;padding:10px 12px;
-background:var(--pn);border:1px solid var(--ln);border-top:0;font-size:12.5px}
-.e:first-of-type{border-top:1px solid var(--ln);border-radius:10px 10px 0 0}
-.e time{font:10.5px var(--mo);color:var(--dm);white-space:nowrap}
-.tg{font:700 9px var(--mo);letter-spacing:.06em;padding:3px 5px;border-radius:3px;color:#fff}
-.tg--policy{background:#8b5cf6}.tg--filing{background:#3b82f6}
-.tg--headline{background:#0ecb81}.tg--shock{background:#f6465d}
-.nil{padding:22px 14px;text-align:center;color:var(--dm);font-size:12px;
-background:var(--pn);border:1px solid var(--ln);border-radius:10px}
-footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--ln);color:var(--dm);font-size:10.5px;line-height:1.6}
-@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.hero .p{font-size:31px}}
-</style>
-
-<main>
-<div class="bar"><a class="bk" href="../index.html">&lsaquo; Back</a>
-<b>${esc(q.ticker)}</b><span>${esc(q.name)}</span>
-<time>${esc(q.asOf ?? '')}</time></div>
-
+  return `
 <div class="hero">
   <div class="p ${d}">${num(q.last)}</div>
   <div class="c ${d}">${chg == null ? '·' : `${chg >= 0 ? '+' : ''}${chg.toFixed(2)}`} &nbsp; ${sign(q.changePct)}</div>
-  <div class="as">${esc(q.sector)} · close ${esc(q.asOf ?? '')} · USD</div>
+  <div class="as">${esc(q.name)} · ${esc(q.sector)} · close ${esc(q.asOf ?? '')} · USD</div>
   ${pos}
 </div>
 
@@ -264,8 +176,97 @@ ${held.length ? `<h2>Simulated position</h2>${held.map((p) => `<div class="vd">
   <span class="vd__v">${esc(p.entryDate ?? p.pickDate)}${p.exitDate ? ` to ${esc(p.exitDate)}` : ' · open'}</span>
   <span class="vd__c">entry ${num(p.entryPrice)}</span>
   <span class="pl pl--${dir(p.excess ?? p.markExcess)}">${sign((p.excess ?? p.markExcess) * 100)} vs S&amp;P</span>
-</div>`).join('')}` : ''}
+</div>`).join('')}` : ''}`;
+}
 
+export const DETAIL_CSS = `
+.dt .up{color:var(--up)}.dt .down{color:var(--dn)}.dt .flat{color:var(--mu)}
+.dt .hero{padding:16px 0 12px;border-bottom:1px solid var(--ln)}
+.dt .hero .p{font:700 34px var(--mo);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.dt .hero .c{font:600 14px var(--mo);margin-top:6px;font-variant-numeric:tabular-nums}
+.dt .hero .as{font:11px var(--mo);color:var(--dm);margin-top:5px}
+.dt .rng{margin:13px 0 0}
+.dt .rng__b{position:relative;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--dn),var(--am),var(--up));opacity:.55}
+.dt .rng__b i{position:absolute;top:-3px;width:2px;height:10px;background:var(--fg);border-radius:1px}
+.dt .rng__l{display:flex;justify-content:space-between;margin-top:5px;font:10.5px var(--mo);color:var(--dm)}
+.dt .rng__l b{color:var(--mu);font-weight:400}
+.dt .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ln);
+border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);margin-top:14px}
+.dt .s{background:var(--bg);padding:10px 11px}
+.dt .s span{display:block;font-size:9.5px;color:var(--dm);text-transform:uppercase;letter-spacing:.05em}
+.dt .s b{display:block;font:14px var(--mo);font-weight:500;font-variant-numeric:tabular-nums;margin-top:2px}
+.dt h2{font-size:13.5px;font-weight:680;margin:22px 0 3px;letter-spacing:.01em}
+.dt .hint{font-size:11px;color:var(--dm);margin:0 0 9px}
+.dt .ck{width:100%;height:auto;display:block;background:var(--pn);border:1px solid var(--ln);border-radius:10px}
+.dt .gl{stroke:var(--ln);stroke-width:1;vector-effect:non-scaling-stroke}
+.dt .gt{fill:var(--dm);font:10px var(--mo)}
+.dt .wk{stroke-width:1;vector-effect:non-scaling-stroke}
+.dt .wk.u,.dt .bd.u{stroke:var(--up)}.dt .wk.d,.dt .bd.d{stroke:var(--dn)}
+.dt .bd.u{fill:var(--up)}.dt .bd.d{fill:var(--dn)}
+.dt .vb.u{fill:var(--up);opacity:.4}.dt .vb.d{fill:var(--dn);opacity:.4}
+.dt .ma{fill:none;stroke-width:1.4;vector-effect:non-scaling-stroke}
+.dt .m5{stroke:#f0b90b}.dt .m10{stroke:#4a8cff}.dt .m20{stroke:#c084fc}
+.dt .lg{display:flex;gap:14px;font:10.5px var(--mo);color:var(--mu);margin-top:7px;flex-wrap:wrap}
+.dt .lg i{display:inline-block;width:9px;height:2px;vertical-align:middle;margin-right:4px}
+.dt .vd{display:flex;align-items:center;gap:12px;padding:11px 12px;background:var(--pn);
+border:1px solid var(--ln);border-radius:9px;margin-bottom:1px;flex-wrap:wrap}
+.dt .vd--up{border-color:rgba(14,203,129,.35)}
+.dt .vd__v{font:600 13px var(--mo)}.dt .vd__c{font:11.5px var(--mo);color:var(--mu)}
+.dt .pl{margin-left:auto;font:600 10.5px var(--mo);padding:5px 9px;border-radius:5px;color:#fff}
+.dt .pl--up{background:var(--up)}.dt .pl--down{background:var(--dn)}.dt .pl--flat{background:#333a46}
+.dt .op{background:var(--pn);border:1px solid var(--ln);border-top:0;padding:10px 12px}
+.dt .op--no{opacity:.4}
+.dt .op__m{font:600 10.5px var(--mo);color:var(--ac);letter-spacing:.03em}
+.dt .op__r{font:10.5px var(--mo);color:var(--mu);margin-left:8px}
+.dt .op__c{font:10.5px var(--mo);color:var(--am);margin-left:6px}
+.dt .op p{margin:5px 0 0;font-size:12px;line-height:1.5;color:var(--mu)}
+.dt .tb{width:100%;border-collapse:collapse;background:var(--pn);border:1px solid var(--ln);border-radius:9px;overflow:hidden}
+.dt .tb th{text-align:left;font-size:9.5px;color:var(--dm);text-transform:uppercase;letter-spacing:.05em;padding:8px 11px;border-bottom:1px solid var(--ln)}
+.dt .tb td{padding:8px 11px;font-size:12px;border-bottom:1px solid var(--ln)}
+.dt .tb tr:last-child td{border-bottom:0}
+.dt .tb .n{font-family:var(--mo);text-align:right;font-variant-numeric:tabular-nums}
+.dt .e{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:baseline;padding:9px 11px;
+background:var(--pn);border:1px solid var(--ln);border-top:0;font-size:12px}
+.dt .e:first-of-type{border-top:1px solid var(--ln);border-radius:9px 9px 0 0}
+.dt .e time{font:10px var(--mo);color:var(--dm);white-space:nowrap}
+.dt .tg{font:700 9px var(--mo);letter-spacing:.06em;padding:3px 5px;border-radius:3px;color:#fff}
+.dt .tg--policy{background:#8b5cf6}.dt .tg--filing{background:#3b82f6}
+.dt .tg--headline{background:#0ecb81}.dt .tg--shock{background:#f6465d}
+.dt .nil{padding:20px 14px;text-align:center;color:var(--dm);font-size:12px;
+background:var(--pn);border:1px solid var(--ln);border-radius:9px}
+@media(max-width:760px){.dt .grid{grid-template-columns:repeat(2,1fr)}.dt .hero .p{font-size:29px}}
+`;
+
+/** Base chrome used only by the standalone stock pages. */
+const BASE_CSS = `
+:root{--bg:#0a0b0d;--pn:#121419;--pn2:#171a21;--ln:#1f2430;--fg:#eaecef;--mu:#767f8c;--dm:#4d5561;
+--up:#0ecb81;--dn:#f6465d;--am:#f0b90b;--ac:#4a8cff;
+--mo:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+--sa:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 var(--sa);-webkit-font-smoothing:antialiased}
+main{max-width:1020px;margin:0 auto;padding:0 12px 56px}
+a{color:inherit;text-decoration:none}
+.bar{position:sticky;top:0;z-index:9;display:flex;align-items:center;gap:10px;padding:13px 2px;
+background:rgba(10,11,13,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+.bk{font:12px var(--mo);color:var(--mu);padding:3px 8px;border:1px solid var(--ln);border-radius:5px}
+.bk:hover{color:var(--fg)}
+.bar b{font-size:14px;letter-spacing:.02em}.bar span{color:var(--mu);font-size:12px}
+.bar time{margin-left:auto;font:11px var(--mo);color:var(--dm)}
+footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--ln);color:var(--dm);font-size:10.5px;line-height:1.6}
+`;
+
+/** Standalone page wrapper
+
+/** Standalone page wrapper written to public/s/<TICKER>.html */
+function page(q: any): string {
+  return `<title>${esc(q.ticker)} · ${esc(q.name)}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>${BASE_CSS}${DETAIL_CSS}</style>
+<main class="dt">
+<div class="bar"><a class="bk" href="../index.html">&lsaquo; Back</a>
+<b>${esc(q.ticker)}</b><span>${esc(q.name)}</span><time>${esc(q.asOf ?? '')}</time></div>
+${detailPanel(q)}
 <footer>
 Simulated positions only. No real money, no orders, no brokerage account. Not investment advice.
 Prices from public market data, delayed. Insider filings from SEC EDGAR.
@@ -273,15 +274,17 @@ P/E, market cap, order-book depth and money-flow breakdowns are deliberately abs
 data feeds, and this project does not estimate numbers it cannot source.
 <a href="${REPO}" rel="noopener" style="border-bottom:1px solid var(--ln)">Source</a> · times HKT.
 </footer>
-</main>
-`;
+</main>`;
 }
 
-mkdirSync(`${ROOT}public/s`, { recursive: true });
-let count = 0;
-for (const q of quotes) {
-  if (q.last == null) continue;
-  writeFileSync(`${ROOT}public/s/${q.ticker}.html`, page(q));
-  count++;
+// Only write files when run directly; render.ts imports detailPanel from here.
+if (import.meta.filename === process.argv[1]) {
+  mkdirSync(`${ROOT}public/s`, { recursive: true });
+  let count = 0;
+  for (const q of quotes) {
+    if (q.last == null) continue;
+    writeFileSync(`${ROOT}public/s/${q.ticker}.html`, page(q));
+    count++;
+  }
+  console.log(`rendered ${count} stock pages -> public/s/`);
 }
-console.log(`rendered ${count} stock pages -> public/s/`);

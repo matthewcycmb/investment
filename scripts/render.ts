@@ -3,6 +3,7 @@
 // Usage: node scripts/render.ts
 import { readJSON, writeJSON, ROOT, lsJSON, tTestNaive, tTestClustered } from './lib.ts';
 import { writeFileSync, mkdirSync } from 'node:fs';
+import { detailPanel, DETAIL_CSS } from './stockpage.ts';
 
 const N_TARGET = 100;
 const TZ = 'Asia/Hong_Kong';
@@ -92,6 +93,17 @@ const tradeRow = (p: any, i: number) => {
   <div class="r__p"><span class="px">${price ? Number(price).toFixed(2) : '\u00b7'}</span></div>
   <span class="pl pl--${d}">${change == null ? '\u00b7' : sign(change * 100)}</span>
 </div>`;
+};
+
+/** Compact row in the left-hand watchlist of the split view. */
+const sideRow = (q: any, i: number) => {
+  const d = dir(q.changePct);
+  return `<label class="wr" for="k${i}">
+    <span class="wr__l"><span class="tk">${esc(q.ticker)}${q.buyers > 0 ? '<i class="ins" title="insider buying"></i>' : ''}</span>
+    <span class="sb">${esc(q.name)}</span></span>
+    <span class="wr__r"><span class="px">${q.last != null ? q.last.toFixed(2) : '\u00b7'}</span>
+    <span class="pl pl--${d}">${sign(q.changePct)}</span></span>
+  </label>`;
 };
 
 const TAG: Record<string, string> = { policy: 'GOV', filing: 'SEC', headline: 'NEWS', shock: 'MOVE' };
@@ -262,6 +274,20 @@ padding:11px 12px;cursor:pointer;list-style:none}
 .nil{padding:44px 16px;text-align:center;color:var(--dm);font-size:12.5px;border-top:1px solid var(--ln)}
 footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--ln);color:var(--dm);font-size:10.5px;line-height:1.6}
 footer a{border-bottom:1px solid var(--ln)}
+.split{display:grid;grid-template-columns:270px 1fr;gap:1px;background:var(--ln);border-top:1px solid var(--ln)}
+.wl{background:var(--bg);max-height:80vh;overflow-y:auto;overscroll-behavior:contain}
+.wr{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px 10px 9px 8px;
+border-bottom:1px solid var(--ln);cursor:pointer;border-left:2px solid transparent}
+.wr:hover{background:var(--pn)}
+.wr__l{min-width:0;overflow:hidden}
+.wr__r{display:grid;gap:3px;justify-items:end}
+.wr .px{font-size:12.5px}
+.wr .pl{font-size:10.5px;padding:3px 6px;min-width:58px}
+.dt{background:var(--bg);padding:0 16px 26px;min-width:0}
+.dp{display:none}
+${quotes.map((_, i) => `#k${i}:checked~.split .dp${i}{display:block}#k${i}:checked~.split label[for=k${i}]{background:var(--pn2);border-left-color:var(--ac)}`).join('')}
+${DETAIL_CSS}
+@media(max-width:860px){.split{grid-template-columns:1fr}.wl{max-height:44vh}.dt{padding:0 10px 26px}}
 @media(max-width:760px){
 .grid{grid-template-columns:1fr}
 .hd:nth-of-type(2){display:none}
@@ -294,9 +320,11 @@ footer a{border-bottom:1px solid var(--ln)}
 
 <div class="panes">
   <div class="pane p1">
-    ${quotes.length ? `<div class="grid">${
-      '<div class="hd"><span>Symbol</span><span>30d</span><span>Price</span><span>Today</span></div>'.repeat(2)
-    }${quotes.map(quoteRow).join('')}</div>` : none('Run npm&nbsp;run&nbsp;screen')}
+    ${quotes.length ? `${quotes.map((_, i) => `<input type="radio" name="stk" id="k${i}"${i === 0 ? ' checked' : ''}>`).join('')}
+    <div class="split">
+      <aside class="wl">${quotes.map(sideRow).join('')}</aside>
+      <div class="dt">${quotes.map((q, i) => `<div class="dp dp${i}">${detailPanel(q)}</div>`).join('')}</div>
+    </div>` : none('Run npm&nbsp;run&nbsp;screen')}
   </div>
 
   <div class="pane p2">
