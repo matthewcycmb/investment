@@ -308,8 +308,9 @@ border:1px solid var(--ln);cursor:pointer;min-width:150px}
 .cd__v{font:10.5px var(--mo);color:var(--mu)}
 .cd__s{font:700 9.5px var(--mo);letter-spacing:.07em;margin-top:3px}
 .cd--up .cd__s{color:var(--up)}.cd--flat .cd__s{color:var(--dm)}
-.split{display:grid;grid-template-columns:270px 1fr;gap:1px;background:var(--ln);border-top:1px solid var(--ln)}
-.wl{background:var(--bg);max-height:80vh;overflow-y:auto;overscroll-behavior:contain}
+.split{display:grid;grid-template-columns:270px 1fr;align-items:start;border-top:1px solid var(--ln)}
+.wl{background:var(--bg);border-right:1px solid var(--ln);max-height:calc(100vh - 60px);
+overflow-y:auto;overscroll-behavior:contain;position:sticky;top:52px}
 .wr{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px 10px 9px 8px;
 border-bottom:1px solid var(--ln);cursor:pointer;border-left:2px solid transparent}
 .wr:hover{background:var(--pn)}
@@ -321,7 +322,7 @@ border-bottom:1px solid var(--ln);cursor:pointer;border-left:2px solid transpare
 .dp{display:none}
 ${quotes.map((_, i) => `#k${i}:checked~.split .dp${i}{display:block}#k${i}:checked~.split label[for=k${i}]{background:var(--pn2);border-left-color:var(--ac)}`).join('')}
 ${DETAIL_CSS}
-@media(max-width:860px){.split{grid-template-columns:1fr}.wl{max-height:44vh}.dt{padding:0 10px 26px}}
+@media(max-width:860px){.split{grid-template-columns:1fr}.wl{max-height:42vh;position:static;border-right:0;border-bottom:1px solid var(--ln)}.dt{padding:0 10px 26px}}
 @media(max-width:760px){
 .grid{grid-template-columns:1fr}
 .hd:nth-of-type(2){display:none}
