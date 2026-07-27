@@ -54,7 +54,7 @@ const SPECIALISTS: Arm[] = [
     specialty: 'Causal reasoning, source verification and adversarial counter-case',
     role: 'You are the SKEPTIC. For every bullish reading, state the strongest counter-case. '
       + 'Check whether the claimed cause actually drives the price or is coincidence, and whether the '
-      + 'evidence given genuinely supports the conclusion. Recommending HOLD is a success, not a failure.',
+      + 'evidence given genuinely supports the conclusion. When the evidence does hold up, say BUY.',
     relevance: { headline: 1.5, shock: 1.3, filing: 1.0, policy: 1.0, mixed: 1.2 },
   },
   {

@@ -112,7 +112,7 @@ export function detailPanel(q: any): string {
       : `<div class="vd vd--${vd.invest ? 'up' : 'flat'}">
           <span class="vd__v">${esc(vd.action)} · ${(vd.agreement * 100).toFixed(0)}% agreement</span>
           <span class="vd__c">${vd.votes} of ${(vd.opinions ?? []).length} · confidence ${vd.meanConfidence}${vd.debated ? ' · debated' : ''}</span>
-          <span class="pl pl--${vd.invest ? 'up' : 'flat'}">${vd.invest ? 'BOUGHT' : 'PASSED'}</span>
+          <span class="pl pl--${vd.invest ? 'up' : 'flat'}">${vd.invest ? 'BOUGHT' : 'NO TRADE'}</span>
         </div>` +
         (vd.opinions ?? []).map((o: any) => `<div class="op">
           <span class="op__m">${esc(o.name)}</span>

@@ -39,6 +39,10 @@ const HEADLINE_KEYWORDS = [
   'ceo', 'resign', 'layoff', 'settlement', 'antitrust', 'probe', 'warning',
 ];
 
+
+/** 9.01 is exhibits; 7.01/8.01 alone are routine. An 8-K of only these says nothing. */
+const BOILERPLATE_8K = new Set(['9.01', '7.01', '8.01']);
+
 type Event = {
   id: string; ts: string; source: 'policy' | 'filing' | 'headline' | 'shock';
   title: string; url?: string; tickers: string[]; detail?: string;
@@ -105,16 +109,33 @@ try {
     'https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=8-K&company=&dateb=&owner=include&count=100&output=atom',
   );
   let n = 0;
-  for (const [, title] of atom.matchAll(/<title>8-K[^<]*\((\d{7,10})\)[^<]*<\/title>/g)) {
+  const entries = [...atom.matchAll(/<entry>([\s\S]*?)<\/entry>/g)].map((m) => m[1]);
+  for (const entry of entries) {
+    const cikStr = /<title>8-K[^<]*\((\d{7,10})\)/.exec(entry)?.[1];
+    if (!cikStr) continue;
     n++;
-    const c = byCik.get(String(Number(title)));
+    const c = byCik.get(String(Number(cikStr)));
     if (!c) continue; // not an S&P 500 constituent
-    const id = `filing:${c.ticker}:${title}`;
+
+    // EDGAR's summary already spells out what the filing reported, HTML-escaped.
+    const summary = decodeEntities(/<summary[^>]*>([\s\S]*?)<\/summary>/.exec(entry)?.[1] ?? '');
+    const acc = /AccNo:\s*([\d-]+)/.exec(summary)?.[1] ?? '';
+    const items = [...summary.matchAll(/Item\s+(\d+\.\d+):\s*([^<\n]+)/g)]
+      .map((m) => ({ code: m[1], text: m[2].replace(/\s+/g, ' ').trim().replace(/[;,]\s*$/, '') }));
+    const meaningful = items.filter((i) => !BOILERPLATE_8K.has(i.code));
+    if (items.length && !meaningful.length) continue; // exhibits or routine disclosure only
+
+    const id = `filing:${c.ticker}:${acc || cikStr}`;
     if (seen.has(id)) continue;
+
+    const what = meaningful.map((i) => i.text).join('; ').slice(0, 220);
     found.push({
-      id, ts: NOW, source: 'filing', title: `${c.name} filed an 8-K (material corporate event)`,
-      url: `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${c.cik}&type=8-K`,
-      tickers: [c.ticker], detail: `${c.ticker} · ${c.sector}`,
+      id, ts: NOW, source: 'filing',
+      title: what ? `${c.name}: ${what}` : `${c.name} filed an 8-K`,
+      url: /<link[^>]*href="([^"]+)"/.exec(entry)?.[1]
+        ?? `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${c.cik}&type=8-K`,
+      tickers: [c.ticker],
+      detail: `${c.ticker} · ${c.sector}${meaningful.length ? ` · SEC 8-K item ${meaningful.map((i) => i.code).join(', ')}` : ''}`,
     });
   }
   note(`filings: ${n} 8-Ks checked`);
@@ -150,6 +171,13 @@ const watchTickers: string[] = [...new Set<string>(
         const title = decodeEntities(rawTitle.replace(/<!\[CDATA\[|\]\]>/g, '').trim());
         const hit = HEADLINE_KEYWORDS.find((k) => title.toLowerCase().includes(k));
         if (!hit) continue;
+        // A ticker's RSS feed returns sector stories about other companies. Only tag
+        // the headline to this ticker if it actually names it; otherwise it is a
+        // keyword collision and the models correctly refuse to act on it.
+        const firstWord = String(c?.name ?? '').split(/[\s,.]+/)[0];
+        const namesIt = new RegExp(`\\b${t}\\b`, 'i').test(title)
+          || (firstWord.length > 3 && title.toLowerCase().includes(firstWord.toLowerCase()));
+        if (!namesIt) continue;
         const id = `headline:${t}:${title.slice(0, 60)}`;
         if (seen.has(id)) continue;
         found.push({ id, ts: NOW, source: 'headline', title, url: decodeEntities(link.trim()), tickers: [t], detail: `${t} · matched "${hit}"` });
@@ -228,8 +256,9 @@ RULES:
 - Equal weight. No stop-losses, no early exits.
 - Measured against SPY over the same window. A stock that rises less than SPY is a loss.
 - Only name tickers from the allowed list below.
-- Verdict is BUY, SELL or HOLD. HOLD is a real answer and is often the correct one.
-  Return an EMPTY findings array if nothing here is worth a view. Do not invent a trade.
+- Verdict is BUY, SELL or HOLD. All three are real answers.
+  Do not invent a trade to look useful, and do not default to HOLD to look cautious.
+  Return an EMPTY findings array only if the material genuinely supports no view at all.
 - Every claim you put in "evidence" must come from the material below, not from memory.
 - "risk" must be the strongest argument AGAINST your own verdict.
 

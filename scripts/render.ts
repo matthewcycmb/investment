@@ -164,7 +164,7 @@ function councilView(d: any): string {
         <span class="vb vb--${VERDICT_CLS[v.action] ?? 'flat'}">${esc(v.action)}</span>
         <span class="dl__v">${(v.agreement * 100).toFixed(0)}% agreement · ${v.votes} of ${(v.opinions ?? []).length}</span>
         ${v.debated ? '<span class="dbt">DEBATED</span>' : ''}
-        <span class="pl pl--${v.invest ? 'up' : 'flat'}">${v.invest ? 'BOUGHT' : 'PASSED'}</span>
+        <span class="pl pl--${v.invest ? 'up' : 'flat'}">${v.invest ? 'BOUGHT' : 'NO TRADE'}</span>
       </summary>
       <div class="shb">${bar}</div>
       <div class="sum">${['BUY', 'HOLD', 'SELL'].filter((k) => (shares[k] ?? 0) > 0.001).map((k) => {
