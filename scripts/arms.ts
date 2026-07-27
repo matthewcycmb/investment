@@ -22,6 +22,13 @@ export const AGREEMENT_OK = 0.75;
 export const ACT_MIN_AGREEMENT = 0.60;
 /** Minimum specialists voting the winning verdict for the council to act. */
 export const ACT_MIN_VOTES = 2;
+/**
+ * Per-specialist wall-clock cap. Measured latencies vary widely (Claude ~30s,
+ * Kimi 77-242s), so one slow model must not hold the whole council open. A
+ * specialist that times out is recorded as unavailable and the rubric proceeds
+ * with the rest, exactly as it would for an API failure.
+ */
+export const SPECIALIST_TIMEOUT_MS = Number(process.env.SPECIALIST_TIMEOUT_MS ?? 210_000);
 
 export type EventKind = 'policy' | 'filing' | 'headline' | 'shock' | 'mixed';
 
@@ -97,6 +104,17 @@ Reply with ONLY a JSON object, no prose and no markdown fence:
 {"findings":[{"ticker":"XXX","verdict":"BUY","confidence":7,"evidence":["..."],"risk":"...","reasoning":"..."}]}
 An empty findings array is valid.`;
 
+/** Rejects if the specialist has not finished within the cap. */
+function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout>;
+  return Promise.race([
+    p.finally(() => clearTimeout(timer)),
+    new Promise<T>((_, reject) => {
+      timer = setTimeout(() => reject(new Error(`timed out after ${Math.round(ms / 1000)}s (${label})`)), ms);
+    }),
+  ]);
+}
+
 async function callModel(model: string, prompt: string) {
   if (FALLBACK) {
     const { text, usage } = await generateText({ model, prompt: prompt + JSON_TAIL, temperature: 0 });
@@ -116,7 +134,8 @@ export async function runSpecialists(evidence: string, valid: Set<string>): Prom
     const t0 = Date.now();
     const base = { id: arm.id, model: arm.model, name: arm.name, specialty: arm.specialty };
     try {
-      const { object, usage } = await callModel(arm.model, `${arm.role}\n\n${evidence}`);
+      const { object, usage } = await withTimeout(
+        callModel(arm.model, `${arm.role}\n\n${evidence}`), SPECIALIST_TIMEOUT_MS, arm.name);
       const findings = object.findings
         .map((f) => ({ ...f, ticker: f.ticker.toUpperCase() }))
         .filter((f) => valid.has(f.ticker));
@@ -259,7 +278,8 @@ behaviour, and so is refusing to.`;
     if (!r.ok) return r;
     const arm = ARMS.find((a) => a.id === r.id)!;
     try {
-      const { object } = await callModel(arm.model, `${arm.role}\n\n${prompt}`);
+      const { object } = await withTimeout(
+        callModel(arm.model, `${arm.role}\n\n${prompt}`), SPECIALIST_TIMEOUT_MS, arm.name);
       const revisedFindings = object.findings
         .map((f) => ({ ...f, ticker: f.ticker.toUpperCase() }))
         .filter((f) => valid.has(f.ticker) && contestedSet.has(f.ticker));
