@@ -153,7 +153,7 @@ function councilView(d: any): string {
         <span class="op__m">${esc(o.name)}</span>
         <span class="op__s">${esc(o.specialty)}</span>
         <span class="vb vb--${VERDICT_CLS[o.verdict] ?? 'flat'}">${esc(o.verdict)}</span>
-        <span class="op__n">conf ${o.confidence}/10 · verified ${(o.verified * 100).toFixed(0)}% · relevance ×${o.relevance} · <b>weight ${o.weight}</b>${o.revised ? ' · <em>revised</em>' : ''}</span>
+        <span class="op__n">${o.confidence}/10 sure · verified ${(o.verified * 100).toFixed(0)}% · relevance ×${o.relevance} · <b>weight ${o.weight}</b>${o.revised ? ' · <em>revised</em>' : ''}</span>
       </div>
       <p>${esc(o.reasoning)}</p>
       ${(o.evidence ?? []).length ? `<ul class="evd">${o.evidence.map((e: string) => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
@@ -165,6 +165,7 @@ function councilView(d: any): string {
         <span class="tk">${esc(v.ticker)}</span>
         <span class="vb vb--${VERDICT_CLS[v.action] ?? 'flat'}">${esc(v.action)}</span>
         <span class="dl__v">${(v.agreement * 100).toFixed(0)}% agreement · ${v.votes} of ${(v.opinions ?? []).length}</span>
+        ${v.panel != null && v.panel < 3 ? `<span class="dbt" style="border-color:rgba(246,70,93,.4);background:rgba(246,70,93,.12);color:var(--dn)">PANEL ${v.panel}/4</span>` : ''}
         ${v.debated ? '<span class="dbt">DEBATED</span>' : ''}
         <span class="pl pl--${v.invest ? 'up' : 'flat'}">${v.invest ? 'BOUGHT' : 'NO TRADE'}</span>
       </summary>

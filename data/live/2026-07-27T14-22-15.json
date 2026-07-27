@@ -1,0 +1,482 @@
+{
+  "date": "2026-07-27",
+  "ts": "2026-07-27T14:22:15.717Z",
+  "study": false,
+  "eventKind": "shock",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "shock",
+      "title": "CPRT moved +4.2% on 2026-07-27"
+    },
+    {
+      "source": "headline",
+      "title": "CRCL Stock Rallies After Circle Acquires Nearly 1,000 Blockchain Patents From IBM",
+      "url": "https://investorshub.advfn.com/market-news/article/32741/circle-shares-rise-after-acquiring-ibms-blockchain-patent-portfolio?.tsrc=rss"
+    },
+    {
+      "source": "shock",
+      "title": "ADBE moved +4.8% on 2026-07-27"
+    },
+    {
+      "source": "shock",
+      "title": "ADSK moved +5.2% on 2026-07-27"
+    },
+    {
+      "source": "shock",
+      "title": "FDXF moved -3.8% on 2026-07-27"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "ADBE",
+    "CPRT",
+    "FDXF",
+    "ADSK"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 37559,
+      "revised": true,
+      "findings": [
+        {
+          "ticker": "IBM",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "IBM sold nearly 1,000 blockchain patents to Circle",
+            "IBM shares up only 2.1% on the news",
+            "Transaction size not disclosed in the material"
+          ],
+          "risk": "If proceeds are large, the near-zero carrying value of legacy patents means almost all cash drops to pre-tax income, producing an outsized one-off EPS beat.",
+          "reasoning": "Monetizing non-core, largely fully-amortized IP is high-margin cash but almost certainly immaterial against IBM's revenue and cash flow base. No change to recurring software/consulting economics, no balance-sheet inflection disclosed. Nothing here re-rates earnings power over five sessions."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "SELL",
+          "confidence": 3,
+          "evidence": [
+            "Close moved 225.11 → 236.02 (+4.8%) on 2026-07-27 with no disclosed earnings, ARR or margin change",
+            "Last price 236.11, i.e. the entire move is multiple expansion on unchanged reported fundamentals",
+            "No cash-flow or guidance revision appears anywhere in the material"
+          ],
+          "risk": "Adobe's free cash flow and buyback capacity mean a 5% re-rate can still leave it cheap versus its own history, and the move may front-run a disclosed beat not in this material.",
+          "reasoning": "The momentum counter-argument is explicitly outside my mandate: 'institutional demand' is not an earnings input. Enterprise value rose ~5% with zero change to reported digital-media revenue or margin, so cost basis worsened per unit of cash flow. Low conviction only because the move is sector-clustered, not idiosyncratic."
+        },
+        {
+          "ticker": "ADSK",
+          "verdict": "SELL",
+          "confidence": 4,
+          "evidence": [
+            "Close 209.75 → 220.57 (+5.2%), the largest single-day move in the group",
+            "No revenue, billings, subscription ARR or free-cash-flow disclosure accompanies the move",
+            "Last 220.54, so the gain has not yet faded"
+          ],
+          "risk": "The gap may be front-running a genuine billings/ARR beat, in which case estimate revisions validate the higher multiple and it extends.",
+          "reasoning": "I hold. The opposing case rests entirely on 'aggressive buying' — a flow observation, not an earnings one — and even that specialist concedes ADSK is most exposed to mean reversion. Paying 5% more for identical disclosed fundamentals is worse risk/reward on a 5-day horizon."
+        },
+        {
+          "ticker": "CPRT",
+          "verdict": "SELL",
+          "confidence": 3,
+          "evidence": [
+            "Close 27.94 → 29.10 (+4.2%) with no reported change to unit volumes, service revenue or margins",
+            "Last 29.13, move fully retained",
+            "Event is tagged a price shock with no accompanying disclosure in the material"
+          ],
+          "risk": "Copart's asset-light, high-margin auction model and net-cash balance sheet support a persistently premium multiple that rarely mean-reverts on a fixed schedule.",
+          "reasoning": "I hold, but this is my weakest short. The counter-case is pure momentum inference ('likely institutional accumulation'), which my lens cannot price. A premium-multiple name adding 4.2% of valuation on static earnings has the thinnest margin of safety of the group."
+        },
+        {
+          "ticker": "FDXF",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "Close 158.00 → 152.04 (-3.8%) with no disclosed change to tonnage, yield or operating ratio",
+            "No guidance cut, cash-flow revision or accounting item appears in the material",
+            "Last 152.04, no recovery yet"
+          ],
+          "risk": "If the drop is correctly discounting an unreported tonnage or yield downgrade, LTL operating leverage means the earnings cut is far larger than 3.8% and the stock keeps de-rating.",
+          "reasoning": "I move off BUY. The counter I underweighted is real: LTL operating leverage means a small volume or pricing miss swings the operating ratio disproportionately, so a 3.8% price cut is not necessarily excess versus the earnings revision it implies. Symmetric logic fails when the earnings base itself is unstable."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Causal reasoning, source verification and adversarial counter-case",
+      "ok": false,
+      "error": "timed out after 210s (ChatGPT 5.6 Sol)",
+      "latencyMs": 209997,
+      "revised": false,
+      "findings": []
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "China and Hong Kong context, policy and market sentiment",
+      "ok": true,
+      "error": null,
+      "latencyMs": 81126,
+      "revised": false,
+      "findings": [
+        {
+          "ticker": "IBM",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "CRCL Stock Rallies After Circle Acquires Nearly 1,000 Blockchain Patents From IBM",
+            "IBM matched on 'acquire' keyword",
+            "IBM last price 218.68, 1d change +2.1%"
+          ],
+          "risk": "IBM is the seller, not the acquirer—divesting patents may signal IBM is exiting blockchain rather than monetizing it, which could be interpreted negatively by the market.",
+          "reasoning": "IBM divesting ~1,000 blockchain patents to Circle generates cash and signals strategic focus. The headline drove CRCL higher but IBM benefits from the sale proceeds and reduced R&D drag. IBM already moved +2.1%, suggesting the market views this positively. Further upside likely as analysts digest the deal's financial impact over coming sessions."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "ADBE moved +4.8% on 2026-07-27, close 225.11 → 236.02",
+            "No China/HK exposure or policy headwind flagged in the material",
+            "Move is consistent with clustered sector-wide tech buying (ADSK +5.2%, IBM +2.1%)"
+          ],
+          "risk": "A +4.8% shock move may exhaust near-term buying interest, and without a specific catalyst identified in the material, the rally could be a sector-sympathy move that reverses over 5 sessions.",
+          "reasoning": "Claude's valuation argument assumes static fundamentals, but a 4.8% gap on no disclosed negative news signals institutional accumulation, not just multiple expansion. As policy/sentiment analyst, I see no China/HK headwind and strong sector momentum. The counter that cash generation absorbs the move actually supports BUY—cheap starting valuation plus momentum favors continuation over fade."
+        },
+        {
+          "ticker": "CPRT",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "CPRT moved +4.2% on 2026-07-27, close 27.94 → 29.10",
+            "No China/HK policy headwind flagged in the material for this Industrials name",
+            "Shock rally signals positive institutional momentum"
+          ],
+          "risk": "A single-day shock move of +4.2% may mean the catalyst is already priced in, leaving limited upside over a 5-day horizon as momentum fades and mean reversion takes hold.",
+          "reasoning": "Claude argues multiple expansion on static earnings, but Copart's premium multiple is structural, not cyclical. From a policy/sentiment lens, there is no trade or supply-chain headwind flagged, and the +4.2% gap indicates accumulation. Institutional momentum in Industrials without policy risk supports continuation vs SPY over 5 sessions."
+        },
+        {
+          "ticker": "FDXF",
+          "verdict": "SELL",
+          "confidence": 7,
+          "evidence": [
+            "FDXF moved -3.8% on 2026-07-27, close 158.00 → 152.04",
+            "As a freight/industrials name, the decline could reflect trade policy or supply chain concerns",
+            "Negative shock signals distribution and institutional selling pressure"
+          ],
+          "risk": "A -3.8% single-day drop may represent an overreaction that bounces back, especially if the broader Industrials sector stabilizes over the 5-day window and no fundamental downgrade materializes.",
+          "reasoning": "Claude's BUY case assumes unchanged fundamentals make FDXF cheaper, but as policy/sentiment analyst I flag that freight names are acutely exposed to trade policy and supply chain shifts—the -3.8% gap likely discounts information not yet public. Distribution on no disclosed good news is bearish. The counter-argument of a bounce fails because institutional unwinding in freight typically persists over several sessions."
+        },
+        {
+          "ticker": "ADSK",
+          "verdict": "BUY",
+          "confidence": 5,
+          "evidence": [
+            "ADSK moved +5.2% on 2026-07-27, close 209.75 → 220.57, the largest shock in the group",
+            "No China/HK policy risk flagged in the material for this Information Technology name",
+            "Aggressive buying signals strong institutional demand and possible front-running of estimate revisions"
+          ],
+          "risk": "The strongest single-day gainer at +5.2% is most vulnerable to mean reversion and profit-taking over the 5-day horizon, especially if no earnings revision validates the gap.",
+          "reasoning": "Claude's SELL case treats the gap as unearned multiple expansion, but the counter that it may front-run a subscription/billings beat is credible. As policy analyst, I see no China/HK headwind and strong sector momentum (ADBE +4.8%, IBM +2.1%). However, the magnitude of +5.2% introduces real profit-taking risk, so confidence is moderate. Momentum continuation is probable but not assured."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "specialty": "Long-document synthesis and second-order consequences",
+      "ok": false,
+      "error": "timed out after 210s (Kimi K3)",
+      "latencyMs": 209997,
+      "revised": false,
+      "findings": []
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "ADBE",
+      "action": "BUY",
+      "agreement": 0.69,
+      "weightedShare": {
+        "BUY": 0.69,
+        "SELL": 0.31,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 4.5,
+      "invest": false,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 3,
+          "verified": 0.33,
+          "relevance": 0.9,
+          "weight": 0.18,
+          "evidence": [
+            "Close moved 225.11 → 236.02 (+4.8%) on 2026-07-27 with no disclosed earnings, ARR or margin change",
+            "Last price 236.11, i.e. the entire move is multiple expansion on unchanged reported fundamentals",
+            "No cash-flow or guidance revision appears anywhere in the material"
+          ],
+          "risk": "Adobe's free cash flow and buyback capacity mean a 5% re-rate can still leave it cheap versus its own history, and the move may front-run a disclosed beat not in this material.",
+          "reasoning": "The momentum counter-argument is explicitly outside my mandate: 'institutional demand' is not an earnings input. Enterprise value rose ~5% with zero change to reported digital-media revenue or margin, so cost basis worsened per unit of cash flow. Low conviction only because the move is sector-clustered, not idiosyncratic.",
+          "revised": true
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.33,
+          "relevance": 1,
+          "weight": 0.4,
+          "evidence": [
+            "ADBE moved +4.8% on 2026-07-27, close 225.11 → 236.02",
+            "No China/HK exposure or policy headwind flagged in the material",
+            "Move is consistent with clustered sector-wide tech buying (ADSK +5.2%, IBM +2.1%)"
+          ],
+          "risk": "A +4.8% shock move may exhaust near-term buying interest, and without a specific catalyst identified in the material, the rally could be a sector-sympathy move that reverses over 5 sessions.",
+          "reasoning": "Claude's valuation argument assumes static fundamentals, but a 4.8% gap on no disclosed negative news signals institutional accumulation, not just multiple expansion. As policy/sentiment analyst, I see no China/HK headwind and strong sector momentum. The counter that cash generation absorbs the move actually supports BUY—cheap starting valuation plus momentum favors continuation over fade.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "CPRT",
+      "action": "BUY",
+      "agreement": 0.69,
+      "weightedShare": {
+        "BUY": 0.69,
+        "SELL": 0.31,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 4.5,
+      "invest": false,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 3,
+          "verified": 0,
+          "relevance": 0.9,
+          "weight": 0.135,
+          "evidence": [
+            "Close 27.94 → 29.10 (+4.2%) with no reported change to unit volumes, service revenue or margins",
+            "Last 29.13, move fully retained",
+            "Event is tagged a price shock with no accompanying disclosure in the material"
+          ],
+          "risk": "Copart's asset-light, high-margin auction model and net-cash balance sheet support a persistently premium multiple that rarely mean-reverts on a fixed schedule.",
+          "reasoning": "I hold, but this is my weakest short. The counter-case is pure momentum inference ('likely institutional accumulation'), which my lens cannot price. A premium-multiple name adding 4.2% of valuation on static earnings has the thinnest margin of safety of the group.",
+          "revised": true
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0,
+          "relevance": 1,
+          "weight": 0.3,
+          "evidence": [
+            "CPRT moved +4.2% on 2026-07-27, close 27.94 → 29.10",
+            "No China/HK policy headwind flagged in the material for this Industrials name",
+            "Shock rally signals positive institutional momentum"
+          ],
+          "risk": "A single-day shock move of +4.2% may mean the catalyst is already priced in, leaving limited upside over a 5-day horizon as momentum fades and mean reversion takes hold.",
+          "reasoning": "Claude argues multiple expansion on static earnings, but Copart's premium multiple is structural, not cyclical. From a policy/sentiment lens, there is no trade or supply-chain headwind flagged, and the +4.2% gap indicates accumulation. Institutional momentum in Industrials without policy risk supports continuation vs SPY over 5 sessions.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "FDXF",
+      "action": "SELL",
+      "agreement": 0.66,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.66,
+        "HOLD": 0.34
+      },
+      "votes": 1,
+      "meanConfidence": 5.5,
+      "invest": false,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0,
+          "relevance": 0.9,
+          "weight": 0.18,
+          "evidence": [
+            "Close 158.00 → 152.04 (-3.8%) with no disclosed change to tonnage, yield or operating ratio",
+            "No guidance cut, cash-flow revision or accounting item appears in the material",
+            "Last 152.04, no recovery yet"
+          ],
+          "risk": "If the drop is correctly discounting an unreported tonnage or yield downgrade, LTL operating leverage means the earnings cut is far larger than 3.8% and the stock keeps de-rating.",
+          "reasoning": "I move off BUY. The counter I underweighted is real: LTL operating leverage means a small volume or pricing miss swings the operating ratio disproportionately, so a 3.8% price cut is not necessarily excess versus the earnings revision it implies. Symmetric logic fails when the earnings base itself is unstable.",
+          "revised": true
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "SELL",
+          "confidence": 7,
+          "verified": 0,
+          "relevance": 1,
+          "weight": 0.35,
+          "evidence": [
+            "FDXF moved -3.8% on 2026-07-27, close 158.00 → 152.04",
+            "As a freight/industrials name, the decline could reflect trade policy or supply chain concerns",
+            "Negative shock signals distribution and institutional selling pressure"
+          ],
+          "risk": "A -3.8% single-day drop may represent an overreaction that bounces back, especially if the broader Industrials sector stabilizes over the 5-day window and no fundamental downgrade materializes.",
+          "reasoning": "Claude's BUY case assumes unchanged fundamentals make FDXF cheaper, but as policy/sentiment analyst I flag that freight names are acutely exposed to trade policy and supply chain shifts—the -3.8% gap likely discounts information not yet public. Distribution on no disclosed good news is bearish. The counter-argument of a bounce fails because institutional unwinding in freight typically persists over several sessions.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "IBM",
+      "action": "BUY",
+      "agreement": 0.609,
+      "weightedShare": {
+        "BUY": 0.609,
+        "SELL": 0,
+        "HOLD": 0.391
+      },
+      "votes": 1,
+      "meanConfidence": 6,
+      "invest": false,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.33,
+          "relevance": 0.9,
+          "weight": 0.3,
+          "evidence": [
+            "IBM sold nearly 1,000 blockchain patents to Circle",
+            "IBM shares up only 2.1% on the news",
+            "Transaction size not disclosed in the material"
+          ],
+          "risk": "If proceeds are large, the near-zero carrying value of legacy patents means almost all cash drops to pre-tax income, producing an outsized one-off EPS beat.",
+          "reasoning": "Monetizing non-core, largely fully-amortized IP is high-margin cash but almost certainly immaterial against IBM's revenue and cash flow base. No change to recurring software/consulting economics, no balance-sheet inflection disclosed. Nothing here re-rates earnings power over five sessions.",
+          "revised": true
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.33,
+          "relevance": 1,
+          "weight": 0.467,
+          "evidence": [
+            "CRCL Stock Rallies After Circle Acquires Nearly 1,000 Blockchain Patents From IBM",
+            "IBM matched on 'acquire' keyword",
+            "IBM last price 218.68, 1d change +2.1%"
+          ],
+          "risk": "IBM is the seller, not the acquirer—divesting patents may signal IBM is exiting blockchain rather than monetizing it, which could be interpreted negatively by the market.",
+          "reasoning": "IBM divesting ~1,000 blockchain patents to Circle generates cash and signals strategic focus. The headline drove CRCL higher but IBM benefits from the sale proceeds and reduced R&D drag. IBM already moved +2.1%, suggesting the market views this positively. Further upside likely as analysts digest the deal's financial impact over coming sessions.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "ADSK",
+      "action": "BUY",
+      "agreement": 0.581,
+      "weightedShare": {
+        "BUY": 0.581,
+        "SELL": 0.419,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 4.5,
+      "invest": false,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 4,
+          "verified": 0.33,
+          "relevance": 0.9,
+          "weight": 0.24,
+          "evidence": [
+            "Close 209.75 → 220.57 (+5.2%), the largest single-day move in the group",
+            "No revenue, billings, subscription ARR or free-cash-flow disclosure accompanies the move",
+            "Last 220.54, so the gain has not yet faded"
+          ],
+          "risk": "The gap may be front-running a genuine billings/ARR beat, in which case estimate revisions validate the higher multiple and it extends.",
+          "reasoning": "I hold. The opposing case rests entirely on 'aggressive buying' — a flow observation, not an earnings one — and even that specialist concedes ADSK is most exposed to mean reversion. Paying 5% more for identical disclosed fundamentals is worse risk/reward on a 5-day horizon.",
+          "revised": true
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "BUY",
+          "confidence": 5,
+          "verified": 0.33,
+          "relevance": 1,
+          "weight": 0.333,
+          "evidence": [
+            "ADSK moved +5.2% on 2026-07-27, close 209.75 → 220.57, the largest shock in the group",
+            "No China/HK policy risk flagged in the material for this Information Technology name",
+            "Aggressive buying signals strong institutional demand and possible front-running of estimate revisions"
+          ],
+          "risk": "The strongest single-day gainer at +5.2% is most vulnerable to mean reversion and profit-taking over the 5-day horizon, especially if no earnings revision validates the gap.",
+          "reasoning": "Claude's SELL case treats the gap as unearned multiple expansion, but the counter that it may front-run a subscription/billings beat is credible. As policy analyst, I see no China/HK headwind and strong sector momentum (ADBE +4.8%, IBM +2.1%). However, the magnitude of +5.2% introduces real profit-taking risk, so confidence is moderate. Momentum continuation is probable but not assured.",
+          "revised": false
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 1,
+    "armsLive": 2
+  }
+}

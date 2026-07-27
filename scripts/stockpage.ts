@@ -117,7 +117,7 @@ export function detailPanel(q: any): string {
         (vd.opinions ?? []).map((o: any) => `<div class="op">
           <span class="op__m">${esc(o.name)}</span>
           <span class="op__r">${esc(o.specialty)}</span>
-          <span class="op__c">${esc(o.verdict)} ${o.confidence}/10 · weight ${o.weight}</span>
+          <span class="op__c">${esc(o.verdict)}, ${o.confidence}/10 sure · weight ${o.weight}</span>
           <p>${esc(o.reasoning)}</p>
           ${o.risk ? `<p style="opacity:.7">Counter-case: ${esc(o.risk)}</p>` : ''}
         </div>`).join('');

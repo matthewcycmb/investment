@@ -22,13 +22,16 @@ export const AGREEMENT_OK = 0.75;
 export const ACT_MIN_AGREEMENT = 0.60;
 /** Minimum specialists voting the winning verdict for the council to act. */
 export const ACT_MIN_VOTES = 2;
+/** Minimum specialists that must have responded before the council may open a position. */
+export const ACT_MIN_PANEL = 3;
 /**
  * Per-specialist wall-clock cap. Measured latencies vary widely (Claude ~30s,
  * Kimi 77-242s), so one slow model must not hold the whole council open. A
  * specialist that times out is recorded as unavailable and the rubric proceeds
- * with the rest, exactly as it would for an API failure.
+ * with the rest, exactly as it would for an API failure. Set above the slowest
+ * observed real run (Kimi at 242s) so this fires only on a genuine hang.
  */
-export const SPECIALIST_TIMEOUT_MS = Number(process.env.SPECIALIST_TIMEOUT_MS ?? 210_000);
+export const SPECIALIST_TIMEOUT_MS = Number(process.env.SPECIALIST_TIMEOUT_MS ?? 330_000);
 
 export type EventKind = 'policy' | 'filing' | 'headline' | 'shock' | 'mixed';
 
@@ -192,6 +195,7 @@ export type TickerVerdict = {
   votes: number;
   meanConfidence: number;
   invest: boolean;
+  panel: number;
   debated: boolean;
   opinions: Opinion[];
 };
@@ -199,6 +203,7 @@ export type TickerVerdict = {
 /** Steps 1-3: verify, weight, measure. Pure arithmetic, no model involved. */
 export function score(results: ArmResult[], kind: EventKind): TickerVerdict[] {
   const live = results.filter((r) => r.ok);
+  const panelHealthy = live.length >= ACT_MIN_PANEL;
   const tickers = [...new Set(live.flatMap((r) => r.findings.map((f) => f.ticker)))];
 
   return tickers.map((ticker) => {
@@ -237,7 +242,8 @@ export function score(results: ArmResult[], kind: EventKind): TickerVerdict[] {
       ),
       votes,
       meanConfidence: Number((opinions.reduce((a, o) => a + o.confidence, 0) / opinions.length).toFixed(2)),
-      invest: action === 'BUY' && agreement >= ACT_MIN_AGREEMENT && votes >= ACT_MIN_VOTES,
+      invest: panelHealthy && action === 'BUY' && agreement >= ACT_MIN_AGREEMENT && votes >= ACT_MIN_VOTES,
+      panel: live.length,
       debated: false,
       opinions,
     };
@@ -391,6 +397,25 @@ if (import.meta.filename === process.argv[1]) {
   const sell = score([mk('A', 'SELL', 9, ['guidance cut']), mk('B', 'SELL', 9, ['guidance cut'])], 'filing');
   assert.equal(sell[0].action, 'SELL');
   assert.equal(sell[0].invest, false);
+
+  // A two-model panel must not commit capital, however strongly it agrees.
+  const degraded = score([
+    mk('A', 'BUY', 9, ['earnings beat consensus materially']),
+    mk('B', 'BUY', 9, ['earnings beat consensus materially']),
+  ], 'filing');
+  assert.equal(degraded[0].action, 'BUY');
+  assert.equal(degraded[0].agreement, 1);
+  assert.equal(degraded[0].panel, 2);
+  assert.equal(degraded[0].invest, false, 'a 2-of-4 panel must not open a position');
+
+  // Three responding specialists in agreement may act.
+  const healthy = score([
+    mk('A', 'BUY', 9, ['earnings beat consensus materially']),
+    mk('B', 'BUY', 9, ['earnings beat consensus materially']),
+    mk('C', 'BUY', 8, ['earnings beat consensus materially']),
+  ], 'filing');
+  assert.equal(healthy[0].panel, 3);
+  assert.equal(healthy[0].invest, true, 'a healthy panel in agreement must act');
 
   console.log('council rubric self-checks passed');
 }

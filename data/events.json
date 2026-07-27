@@ -1,6 +1,78 @@
 {
   "events": [
     {
+      "id": "shock:ACN:2026-07-27",
+      "ts": "2026-07-27T14:30:44.346Z",
+      "source": "shock",
+      "title": "ACN moved +4.2% on 2026-07-27",
+      "tickers": [
+        "ACN"
+      ],
+      "detail": "close 146.99 → 153.17"
+    },
+    {
+      "id": "headline:JPM:JPMorgan and Goldman Posted Record Quarters — Their Own CEOs",
+      "ts": "2026-07-27T14:30:44.346Z",
+      "source": "headline",
+      "title": "JPMorgan and Goldman Posted Record Quarters — Their Own CEOs Aren’t Sure It Lasts",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/invested-1000-jpmorgan-chase-co-123002913.html?.tsrc=rss",
+      "tickers": [
+        "JPM"
+      ],
+      "detail": "JPM · matched \"ceo\""
+    },
+    {
+      "id": "shock:FDXF:2026-07-27",
+      "ts": "2026-07-27T14:22:15.717Z",
+      "source": "shock",
+      "title": "FDXF moved -3.8% on 2026-07-27",
+      "tickers": [
+        "FDXF"
+      ],
+      "detail": "close 158.00 → 152.04"
+    },
+    {
+      "id": "shock:ADSK:2026-07-27",
+      "ts": "2026-07-27T14:22:15.717Z",
+      "source": "shock",
+      "title": "ADSK moved +5.2% on 2026-07-27",
+      "tickers": [
+        "ADSK"
+      ],
+      "detail": "close 209.75 → 220.57"
+    },
+    {
+      "id": "shock:ADBE:2026-07-27",
+      "ts": "2026-07-27T14:22:15.717Z",
+      "source": "shock",
+      "title": "ADBE moved +4.8% on 2026-07-27",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "close 225.11 → 236.02"
+    },
+    {
+      "id": "headline:IBM:CRCL Stock Rallies After Circle Acquires Nearly 1,000 Blockc",
+      "ts": "2026-07-27T14:22:15.717Z",
+      "source": "headline",
+      "title": "CRCL Stock Rallies After Circle Acquires Nearly 1,000 Blockchain Patents From IBM",
+      "url": "https://investorshub.advfn.com/market-news/article/32741/circle-shares-rise-after-acquiring-ibms-blockchain-patent-portfolio?.tsrc=rss",
+      "tickers": [
+        "IBM"
+      ],
+      "detail": "IBM · matched \"acquire\""
+    },
+    {
+      "id": "shock:CPRT:2026-07-27",
+      "ts": "2026-07-27T14:22:15.717Z",
+      "source": "shock",
+      "title": "CPRT moved +4.2% on 2026-07-27",
+      "tickers": [
+        "CPRT"
+      ],
+      "detail": "close 27.94 → 29.10"
+    },
+    {
       "id": "filing:NWS:0001564708",
       "ts": "2026-07-27T12:48:39.951Z",
       "source": "filing",
