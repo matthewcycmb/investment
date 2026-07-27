@@ -79,6 +79,22 @@ dated. Constituents are not updated mid-study.
    days. Codes `A` (grant), `M` (option exercise), `F` (tax withholding) and `S` (sale) are
    excluded — only genuine open-market buying counts. Score contribution: `2 × distinct_buyers`.
 
+   A reporting owner counts only if **both** hold:
+   - the filing's `<issuerTradingSymbol>` equals the ticker being screened, and
+   - that owner's `<reportingOwnerRelationship>` has `isOfficer` or `isDirector` true.
+
+   This excludes filings by corporate entities, affiliates, and pure 10%-owners, and excludes
+   filings that cover a different security than the one being screened. "Insider buying" means an
+   officer or director buying *that company's* stock; the officer/director subset is also the one
+   with documented predictive power in the literature, whereas 10%-owner buying is far weaker.
+
+   *Correction note: the initial implementation counted every reporting owner on a qualifying
+   Form 4. Inspection of the first screen output showed this crediting corporate entities as
+   "insiders" — e.g. `PRUDENTIAL FINANCIAL INC` against PRU, and a Blackstone fund's own shares
+   (≈$26) against BX (≈$150). That is a defect relative to the stated intent, not a threshold
+   choice, and it was corrected before any pick existed. No outcome data existed at the time of
+   this correction; verify with `git log`.*
+
 2. **Abnormal disclosure volume.** Count of `8-K` filings by the issuer in the trailing 35 days,
    divided by that issuer's mean 35-day 8-K rate over the trailing 365 days. Score contribution:
    `min(ratio, 3)`. 8-K filings are the SEC-mandated disclosure of material corporate events and

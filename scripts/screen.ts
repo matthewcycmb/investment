@@ -17,12 +17,25 @@ const CUTOFF_TXN = daysAgo(WINDOW_DAYS);
 const CUTOFF_FILED = daysAgo(WINDOW_DAYS + 10); // Form 4 is due within 2 business days; pad for weekends
 const CUTOFF_YEAR = daysAgo(365);
 
-type Form4 = { owners: string[]; purchases: { date: string; shares: number; price: number }[] };
+const CACHE_VERSION = 2; // bump whenever parseForm4's output shape changes
 
-/** Extract open-market purchases (transactionCode P) and reporting owners from a Form 4. */
+type Owner = { name: string; isDirector: boolean; isOfficer: boolean };
+type Form4 = { symbol: string; owners: Owner[]; purchases: { date: string; shares: number; price: number }[] };
+
+/**
+ * Extract open-market purchases (transactionCode P) plus each reporting owner's
+ * relationship to the issuer. The relationship flags are what separate a real
+ * officer/director purchase from a corporate-entity or 10%-owner filing.
+ */
 function parseForm4(xml: string): Form4 {
-  const owners = [...xml.matchAll(/<rptOwnerName>([^<]*)<\/rptOwnerName>/g)]
-    .map((m) => m[1].trim().toUpperCase()).filter(Boolean);
+  const symbol = (/<issuerTradingSymbol>\s*([^<\s]*)/.exec(xml)?.[1] ?? '').toUpperCase();
+  const owners: Owner[] = [];
+  for (const [, who] of xml.matchAll(/<reportingOwner>([\s\S]*?)<\/reportingOwner>/g)) {
+    const name = /<rptOwnerName>([^<]*)<\/rptOwnerName>/.exec(who)?.[1]?.trim().toUpperCase();
+    if (!name) continue;
+    const flag = (tag: string) => /^(true|1)$/i.test((new RegExp(`<${tag}>\\s*([^<]*)`).exec(who)?.[1] ?? '').trim());
+    owners.push({ name, isDirector: flag('isDirector'), isOfficer: flag('isOfficer') });
+  }
   const purchases: Form4['purchases'] = [];
   for (const [, block] of xml.matchAll(/<nonDerivativeTransaction>([\s\S]*?)<\/nonDerivativeTransaction>/g)) {
     const code = /<transactionCoding>[\s\S]*?<transactionCode>\s*([A-Z])\s*<\/transactionCode>/.exec(block)?.[1];
@@ -33,14 +46,19 @@ function parseForm4(xml: string): Form4 {
       price: Number(/<transactionPricePerShare>\s*<value>\s*([\d.]+)/.exec(block)?.[1] ?? 0),
     });
   }
-  return { owners, purchases };
+  return { symbol, owners, purchases };
 }
 
 const universe = readJSON<{ constituents: any[] }>(`${ROOT}data/universe.json`, { constituents: [] });
 if (!universe.constituents.length) throw new Error('run `npm run universe` first');
 
 const CACHE_PATH = `${ROOT}data/form4-cache.json`;
-const cache = readJSON<Record<string, Form4>>(CACHE_PATH, {});
+const cacheFile = readJSON<{ version?: number; forms?: Record<string, Form4> }>(CACHE_PATH, {});
+// A parser change invalidates every cached parse; refetch rather than mix shapes.
+const cache: Record<string, Form4> = cacheFile.version === CACHE_VERSION ? (cacheFile.forms ?? {}) : {};
+if (cacheFile.version !== undefined && cacheFile.version !== CACHE_VERSION) {
+  console.error(`  cache v${cacheFile.version} != v${CACHE_VERSION}; reparsing all filings`);
+}
 const cacheSizeBefore = Object.keys(cache).length;
 
 const targets = universe.constituents.slice(0, LIMIT);
@@ -87,7 +105,7 @@ for (const c of targets) {
         `https://www.sec.gov/Archives/edgar/data/${Number(c.cik)}/${bare}/${file}`,
       ));
     } catch {
-      cache[acc] = { owners: [], purchases: [] }; // unparseable filing counts as no purchase
+      cache[acc] = { symbol: '', owners: [], purchases: [] }; // unparseable filing counts as no purchase
     }
   }
 
@@ -95,10 +113,16 @@ for (const c of targets) {
   const purchases: any[] = [];
   for (const a of accessions) {
     const f = cache[a.split('|')[0]];
-    const recent = f?.purchases.filter((p) => p.date >= CUTOFF_TXN) ?? [];
+    if (!f) continue;
+    // Filing must cover the security being screened, not an affiliate's own shares.
+    if (f.symbol && f.symbol !== c.ticker.toUpperCase()) continue;
+    const recent = f.purchases.filter((p) => p.date >= CUTOFF_TXN);
     if (!recent.length) continue;
-    for (const o of f.owners) buyers.add(o);
-    for (const p of recent) purchases.push({ ...p, owners: f.owners });
+    // Officers and directors only; corporate entities and pure 10%-owners are excluded.
+    const insiders = f.owners.filter((o) => o.isDirector || o.isOfficer);
+    if (!insiders.length) continue;
+    for (const o of insiders) buyers.add(o.name);
+    for (const p of recent) purchases.push({ ...p, owners: insiders.map((o) => o.name) });
   }
 
   const score = 2 * buyers.size + ratio;
@@ -127,7 +151,7 @@ console.table(candidates.map((c) => ({
 if (DRY) {
   console.log('\n--dry: nothing written');
 } else {
-  if (Object.keys(cache).length !== cacheSizeBefore) writeJSON(CACHE_PATH, cache);
+  if (Object.keys(cache).length !== cacheSizeBefore) writeJSON(CACHE_PATH, { version: CACHE_VERSION, forms: cache });
   writeJSON(`${ROOT}data/candidates/${TODAY}.json`, {
     date: TODAY,
     rule: 'PREREGISTRATION.md §4: score = 2*distinct_form4_P_buyers(35d) + min(8K_ratio, 3)',
