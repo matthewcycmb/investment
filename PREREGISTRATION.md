@@ -57,12 +57,20 @@ selected after the fact.
 The following are reported for interest and will be labelled EXPLORATORY on the site. None of them
 can be substituted for the primary test, and none will be cited as evidence that the method works:
 
-- Per-model leaderboard (Arm A vs Arm B vs Arm C)
-- Council vs single-model control (Arm A)
+- Per-specialist leaderboard (which analytical lens is most often right)
+- Whether the debate round changes outcomes: did revised verdicts beat unrevised ones
+- How often a specialist changes position when shown the counter-cases
 - Directional hit rate
 - Sharpe ratio
 - Sector, market-cap, or insider-signal-strength breakdowns
-- Inter-arm disagreement rate, and any relationship between disagreement and realised volatility
+- Inter-specialist disagreement rate, and any relationship between disagreement and realised volatility
+- Whether `SELL` verdicts, recorded but never acted on, would have been profitable
+
+*Note: the original design carried a single-model control arm. The specialised structure removes it,
+because no specialist now receives the same brief as the council. The council-versus-solo comparison
+is therefore no longer available and is not claimed anywhere. This was a deliberate trade, made
+before any pick existed: the four-lens structure was chosen over the ability to run that particular
+comparison.*
 
 Any of these that looks striking is a hypothesis for a **future, separately pre-registered study**,
 not a result of this one.
