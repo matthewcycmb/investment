@@ -5,17 +5,17 @@
   "type": "module",
   "description": "Public pre-registered forward test: can an LLM council beat SPY?",
   "scripts": {
-    "universe": "node scripts/universe.ts",
-    "screen": "node scripts/screen.ts",
-    "council": "node scripts/council.ts",
-    "settle": "node scripts/settle.ts",
-    "render": "node scripts/render.ts",
-    "selfcheck": "node scripts/lib.ts",
-    "watch": "node scripts/watch.ts",
-    "watch:once": "node scripts/watch.ts && node scripts/settle.ts && node scripts/render.ts",
+    "universe": "node --env-file-if-exists=.env scripts/universe.ts",
+    "screen": "node --env-file-if-exists=.env scripts/screen.ts",
+    "council": "node --env-file-if-exists=.env scripts/council.ts",
+    "settle": "node --env-file-if-exists=.env scripts/settle.ts",
+    "render": "node --env-file-if-exists=.env scripts/render.ts",
+    "selfcheck": "node --env-file-if-exists=.env scripts/lib.ts",
+    "watch": "node --env-file-if-exists=.env scripts/watch.ts",
+    "watch:once": "npm run --silent watch && npm run --silent settle && npm run --silent render",
     "watch:loop": "while true; do npm run --silent watch:once; echo '--- next check in 5 min ---'; sleep 300; done",
-    "demo": "node scripts/watch.ts --force && node scripts/settle.ts && node scripts/render.ts",
-    "models": "node scripts/council.ts --models"
+    "demo": "node --env-file-if-exists=.env scripts/watch.ts --force && npm run --silent settle && npm run --silent render",
+    "models": "node --env-file-if-exists=.env scripts/council.ts --models"
   },
   "dependencies": {
     "ai": "^6.0.0",

@@ -2,6 +2,18 @@
 // primary test depends on. Run `node scripts/lib.ts` to execute the self-checks.
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { execFileSync } from 'node:child_process';
+
+/** Desktop alert. macOS only; silently no-ops elsewhere. */
+export function notify(title: string, message: string): void {
+  console.error(`  [alert] ${title}: ${message}`);
+  if (process.platform !== 'darwin' || process.env.NO_NOTIFY) return;
+  const q = (t: string) => JSON.stringify(t.replace(/[\r\n]+/g, ' ').slice(0, 200));
+  try {
+    execFileSync('osascript', ['-e',
+      `display notification ${q(message)} with title ${q(title)} sound name "Ping"`]);
+  } catch { /* never let a notification failure stop a run */ }
+}
 
 /** Sorted .json filenames in a directory; empty if the directory does not exist yet. */
 export const lsJSON = (dir: string): string[] =>

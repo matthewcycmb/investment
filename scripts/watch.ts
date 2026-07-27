@@ -6,8 +6,8 @@
 // pre-registered study in data/picks/. Mixing them would invalidate the study.
 //
 // Usage: node scripts/watch.ts [--dry] [--force]
-import { get, secText, bars, readJSON, writeJSON, ROOT, lsJSON } from './lib.ts';
-import { runArms, aggregate, disagreementRate, ARMS } from './arms.ts';
+import { get, secText, bars, readJSON, writeJSON, ROOT, lsJSON, notify } from './lib.ts';
+import { runArms, aggregate, disagreementRate, ARMS, MODE, FALLBACK } from './arms.ts';
 
 const DRY = process.argv.includes('--dry');
 const FORCE = process.argv.includes('--force'); // demo aid: run the council even if nothing new
@@ -150,9 +150,10 @@ const watchTickers: string[] = [...new Set<string>(
         if (Math.abs(move) >= SHOCK_PCT) {
           const id = `shock:${t}:${last.date}`;
           if (!seen.has(id)) {
+            const headline = `${t} moved ${move >= 0 ? '+' : ''}${move.toFixed(1)}% on ${last.date}`;
+            notify(`Price alert: ${t}`, `${headline} (${prev.close.toFixed(2)} → ${last.close.toFixed(2)})`);
             found.push({
-              id, ts: NOW, source: 'shock',
-              title: `${t} moved ${move >= 0 ? '+' : ''}${move.toFixed(1)}% on ${last.date}`,
+              id, ts: NOW, source: 'shock', title: headline,
               tickers: [t], detail: `close ${prev.close.toFixed(2)} → ${last.close.toFixed(2)}`,
             });
           }
@@ -216,6 +217,10 @@ Return only names where the event above is a specific, tradeable catalyst within
 Give an honest 1-10 confidence. Positions are only opened when the council agrees (${MIN_VOTES}+ votes)
 and mean confidence is at least ${MIN_CONFIDENCE}.`;
 
+  notify(
+    'Council deciding now',
+    `${found.length} event(s) -> ${ARMS.length} AI${ARMS.length > 1 ? 's' : ''} reviewing ${pool.length} ticker(s). No trade placed yet.`,
+  );
   const valid = new Set(pool.map((t) => t.toUpperCase()));
   const armResults = await runArms(BRIEF, valid);
   const live = armResults.filter((a) => a.ok);
@@ -235,8 +240,18 @@ and mean confidence is at least ${MIN_CONFIDENCE}.`;
       })));
     }
 
+    if (qualifying.length) {
+      notify(
+        'AUTO-INVESTED',
+        `${qualifying.map((p) => `${p.ticker} (${p.votes}/${live.length} agree, conf ${p.meanConfidence})`).join(', ')}`,
+      );
+    } else {
+      notify('Council decided: no trade', `Reviewed ${found.length} event(s); nothing met ${MIN_VOTES}+ votes at confidence ${MIN_CONFIDENCE}.`);
+    }
+
     invested = {
       date: today, ts: NOW, study: false,
+      mode: MODE, fallback: FALLBACK,
       horizonTradingDays: LIVE_HORIZON,
       trigger: found.slice(0, 25).map((e) => ({ source: e.source, title: e.title, url: e.url })),
       gate: { minVotes: MIN_VOTES, minConfidence: MIN_CONFIDENCE },

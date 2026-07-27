@@ -1,21 +1,38 @@
 // Shared council runner. Both the weekly study (council.ts) and the live event
 // watcher (watch.ts) call this, so the voting logic exists in exactly one place.
-import { generateObject } from 'ai';
+import { generateObject, generateText } from 'ai';
 import { z } from 'zod';
 
 export const PICKS_PER_ARM = 8;
 
 /**
  * Arm models. Override per-arm with ARM_A..ARM_D env vars.
- * Run `node scripts/council.ts --models` to list what the gateway actually serves —
- * these defaults are best guesses at current IDs, not verified.
+ * Verified present on the gateway 2026-07-27 via `npm run models`.
  */
-export const ARMS = [
+// Vercel's FREE credit cannot reach premium models; only openai/gpt-oss-120b works.
+// COUNCIL_FALLBACK=1 keeps the pipeline demonstrable on one model by giving each arm a
+// distinct analyst persona. Personas are NEVER used with the real four models, because
+// the pre-registered study requires every arm to receive an identical brief.
+export const FALLBACK = process.env.COUNCIL_FALLBACK === '1';
+export const MODE = FALLBACK ? 'fallback-personas-single-model' : 'four-models-identical-brief';
+
+const REAL = [
   { id: 'A', model: process.env.ARM_A ?? 'anthropic/claude-opus-5', control: true },
-  { id: 'B', model: process.env.ARM_B ?? 'openai/gpt-5', control: false },
-  { id: 'C', model: process.env.ARM_C ?? 'alibaba/qwen3-max', control: false },
-  { id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k2', control: false },
-].filter((a) => a.model !== 'off');
+  { id: 'B', model: process.env.ARM_B ?? 'openai/gpt-5.6-sol', control: false },
+  { id: 'C', model: process.env.ARM_C ?? 'alibaba/qwen3.6-plus', control: false },
+  { id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k3', control: false },
+];
+
+const FREE_MODEL = 'openai/gpt-oss-120b';
+const PERSONAS = [
+  { id: 'A', control: true,  persona: 'You are a fundamentals-driven value investor. You care about balance sheets, cash flow and whether the market has mispriced the business.' },
+  { id: 'B', control: false, persona: 'You are a momentum trader. You care about trend, relative strength and whether flow is already moving into the name.' },
+  { id: 'C', control: false, persona: 'You are a sceptical risk manager. You look for reasons a trade fails, and you are comfortable recommending nothing.' },
+  { id: 'D', control: false, persona: 'You are an event-driven catalyst trader. You care only about whether a specific, dated catalyst moves the price inside the window.' },
+].map((p) => ({ ...p, model: FREE_MODEL }));
+
+export const ARMS: { id: string; model: string; control: boolean; persona?: string }[] =
+  (FALLBACK ? PERSONAS : REAL).filter((a) => a.model !== 'off');
 
 export const ArmOutput = z.object({
   picks: z.array(z.object({
@@ -26,19 +43,37 @@ export const ArmOutput = z.object({
 });
 
 export type ArmResult = {
-  id: string; model: string; control: boolean; ok: boolean;
+  id: string; model: string; control: boolean; persona?: string; ok: boolean;
   error?: string | null; usage?: unknown; latencyMs?: number;
   picks: { ticker: string; thesis: string; confidence: number; rank: number }[];
 };
 
-/** Run every arm independently on an identical brief. Never throws; failures are recorded. */
+const JSON_INSTRUCTION = `
+
+Reply with ONLY a JSON object and nothing else - no prose, no markdown fence:
+{"picks":[{"ticker":"XXX","thesis":"why","confidence":7}]}
+An empty picks array is valid if nothing qualifies.`;
+
+/** Small open models fail strict tool-calling; ask for raw JSON and validate it ourselves. */
+async function viaText(model: string, prompt: string) {
+  const { text, usage } = await generateText({ model, prompt: prompt + JSON_INSTRUCTION, temperature: 0 });
+  const m = text.match(/\{[\s\S]*\}/);
+  if (!m) throw new Error(`no JSON in response: ${text.slice(0, 120)}`);
+  return { object: ArmOutput.parse(JSON.parse(m[0])), usage };
+}
+
+/**
+ * Run every arm independently on an identical brief. Never throws; failures are recorded.
+ * Fallback mode runs arms sequentially with a gap, because free-tier credit is rate-limited.
+ */
 export async function runArms(brief: string, validTickers: Set<string>): Promise<ArmResult[]> {
-  return Promise.all(ARMS.map(async (arm): Promise<ArmResult> => {
+  const run = async (arm: typeof ARMS[number]): Promise<ArmResult> => {
     const t0 = Date.now();
     try {
-      const { object, usage } = await generateObject({
-        model: arm.model, schema: ArmOutput, prompt: brief, temperature: 0,
-      });
+      const prompt = arm.persona ? `${arm.persona}\n\n${brief}` : brief;
+      const { object, usage } = FALLBACK
+        ? await viaText(arm.model, prompt)
+        : await generateObject({ model: arm.model, schema: ArmOutput, temperature: 0, prompt });
       const picks = object.picks
         .filter((p) => {
           const ok = validTickers.has(p.ticker.toUpperCase());
@@ -52,7 +87,15 @@ export async function runArms(brief: string, validTickers: Set<string>): Promise
       console.error(`  ! arm ${arm.id} (${arm.model}) FAILED: ${(err as Error).message}`);
       return { ...arm, picks: [], ok: false, error: (err as Error).message, latencyMs: Date.now() - t0 };
     }
-  }));
+  };
+
+  if (!FALLBACK) return Promise.all(ARMS.map(run));
+  const out: ArmResult[] = [];
+  for (const arm of ARMS) {
+    out.push(await run(arm));
+    await new Promise((r) => setTimeout(r, 8000)); // stay under the free-tier rate limit
+  }
+  return out;
 }
 
 export type CouncilPick = {

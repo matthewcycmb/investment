@@ -1,6 +1,135 @@
 {
   "events": [
     {
+      "id": "shock:IBM:2026-07-24",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "shock",
+      "title": "IBM moved +3.6% on 2026-07-24",
+      "tickers": [
+        "IBM"
+      ],
+      "detail": "close 206.65 → 214.19"
+    },
+    {
+      "id": "headline:IBM:IBM CEO makes bold AI strategy claim",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "IBM CEO makes bold AI strategy claim",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/international-business-machines-corporation-ibm-084616985.html?.tsrc=rss",
+      "tickers": [
+        "IBM"
+      ],
+      "detail": "IBM · matched \"ceo\""
+    },
+    {
+      "id": "shock:DLR:2026-07-24",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "shock",
+      "title": "DLR moved +11.0% on 2026-07-24",
+      "tickers": [
+        "DLR"
+      ],
+      "detail": "close 179.34 → 199.08"
+    },
+    {
+      "id": "headline:DLR:SpaceX initiated, PayPal upgraded: Wall Street's top analyst",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "SpaceX initiated, PayPal upgraded: Wall Street's top analyst calls",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-digital-realty-trust-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&amp;utm_medium=rss&amp;.tsrc=rss",
+      "tickers": [
+        "DLR"
+      ],
+      "detail": "DLR · matched \"upgrade\""
+    },
+    {
+      "id": "headline:CPRT:Copart's Incoming CEO Jay Adair Signals Growth Push, M&amp;A",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "Copart's Incoming CEO Jay Adair Signals Growth Push, M&amp;A and AI Focus",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/copart-announces-promotion-jane-pocock-203000140.html?.tsrc=rss",
+      "tickers": [
+        "CPRT"
+      ],
+      "detail": "CPRT · matched \"ceo\""
+    },
+    {
+      "id": "shock:ACN:2026-07-24",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "shock",
+      "title": "ACN moved +5.9% on 2026-07-24",
+      "tickers": [
+        "ACN"
+      ],
+      "detail": "close 138.74 → 146.99"
+    },
+    {
+      "id": "headline:PSA:Public Storage Prices Public Offering of $900 Million of Sen",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "Public Storage Prices Public Offering of $900 Million of Senior Notes at an Effective Interest Rate of 4.855% to Fund the Acquisition of National Storage Affiliates Trust",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-keeps-overweight-rating-164419457.html?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"acquisition\""
+    },
+    {
+      "id": "headline:PSA:Shopify upgraded, PepsiCo downgrade: Wall Street's top analy",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "Shopify upgraded, PepsiCo downgrade: Wall Street's top analyst calls",
+      "url": "https://247wallst.com/investing/2026/07/10/here-are-fridays-best-wall-street-analyst-research-calls-cubesmart-digital-realty-trust-honeywell-aerospace-ibm-pepsico-seagate-shopify-toll-brothers-twilio-and-more/?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"downgrade\""
+    },
+    {
+      "id": "headline:PSA:Public Storage Announces Anticipated Closing Date of Pending",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "Public Storage Announces Anticipated Closing Date of Pending Acquisition of National Storage Affiliates Following Approval by NSA Shareholders",
+      "url": "https://finance.yahoo.com/real-estate/articles/national-storage-affiliates-trust-announces-200500593.html?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"acquisition\""
+    },
+    {
+      "id": "headline:PSA:Public Storage Announces Closing of National Storage Affilia",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "Public Storage Announces Closing of National Storage Affiliates Acquisition",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/molina-healthcare-set-join-p-215600908.html?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"acquisition\""
+    },
+    {
+      "id": "headline:JPM:JPMorgan CEO Jamie Dimon Just Sent an Ominous Warning to Wal",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "JPMorgan CEO Jamie Dimon Just Sent an Ominous Warning to Wall Street: \"Close to as Good as It Gets\"",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-two-financial-stocks-075239448.html?.tsrc=rss",
+      "tickers": [
+        "JPM"
+      ],
+      "detail": "JPM · matched \"ceo\""
+    },
+    {
+      "id": "headline:JPM:Jamie Dimon Said Markets Are Underestimating Risks Shifting ",
+      "ts": "2026-07-27T08:12:40.049Z",
+      "source": "headline",
+      "title": "Jamie Dimon Said Markets Are Underestimating Risks Shifting \"Like Tectonic Plates.\" He Made the Warning Right After JPMorgan Posted Its Best Quarter Ever.",
+      "url": "https://beincrypto.com/kb-kookmin-jpmorgan-kinexys-trade-payments/?.tsrc=rss",
+      "tickers": [
+        "JPM"
+      ],
+      "detail": "JPM · matched \"warning\""
+    },
+    {
       "id": "shock:VRSN:2026-07-24",
       "ts": "2026-07-27T08:04:58.575Z",
       "source": "shock",
