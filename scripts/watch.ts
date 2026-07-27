@@ -77,6 +77,8 @@ const decodeEntities = (t: string): string => String(t).replace(
   },
 );
 
+const eventsPath = `${ROOT}data/events.json`;
+const log = readJSON<{ events: Event[] }>(eventsPath, { events: [] });
 const found: Event[] = [];
 const note = (m: string) => console.error(`  ${m}`);
 
@@ -193,7 +195,13 @@ const watchTickers: string[] = [...new Set<string>(
         if (Math.abs(move) >= SHOCK_PCT) {
           const id = `shock:${t}:${last.date}`;
           if (!seen.has(id)) {
-            const headline = `${t} moved ${move >= 0 ? '+' : ''}${move.toFixed(1)}% on ${last.date}`;
+            // A bare price move gives the council nothing to judge. Attach any
+            // headline already seen for this ticker so the move has a candidate cause.
+            const context = [...found, ...log.events]
+              .filter((e: any) => e.source === 'headline' && (e.tickers ?? []).includes(t))
+              .slice(0, 2).map((e: any) => e.title);
+            const headline = `${t} moved ${move >= 0 ? '+' : ''}${move.toFixed(1)}% on ${last.date}`
+              + (context.length ? `· possible cause: ${context.join(' | ')}` : '· no reported cause');
             notify(`Price alert: ${t}`, `${headline} (${prev.close.toFixed(2)} → ${last.close.toFixed(2)})`);
             found.push({
               id, ts: NOW, source: 'shock', title: headline,
@@ -209,8 +217,7 @@ const watchTickers: string[] = [...new Set<string>(
 
 // ---------- record events ----------
 
-const eventsPath = `${ROOT}data/events.json`;
-const log = readJSON<{ events: Event[] }>(eventsPath, { events: [] });
+
 for (const e of found) { seen.add(e.id); log.events.unshift(e); }
 log.events = log.events.slice(0, 300); // rolling window for the dashboard feed
 

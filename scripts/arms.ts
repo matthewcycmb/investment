@@ -55,9 +55,10 @@ const SPECIALISTS: Arm[] = [
   {
     id: 'B', model: process.env.ARM_B ?? 'openai/gpt-5.6-sol', name: 'ChatGPT 5.6 Sol',
     specialty: 'Causal reasoning, source verification and adversarial counter-case',
-    role: 'You are the SKEPTIC. For every bullish reading, state the strongest counter-case. '
-      + 'Check whether the claimed cause actually drives the price or is coincidence, and whether the '
-      + 'evidence given genuinely supports the conclusion. When the evidence does hold up, say BUY.',
+    role: 'You are the VERIFIER. Test whether the evidence actually supports the conclusion, in '
+      + 'either direction: check that the claimed cause drives the price rather than coinciding with '
+      + 'it, and that the move is not already priced in. State the strongest counter-case to whatever '
+      + 'you conclude. Verifying that a bullish case DOES hold is as much your job as refuting one.',
     relevance: { headline: 1.5, shock: 1.3, filing: 1.0, policy: 1.0, mixed: 1.2 },
   },
   {
