@@ -12,10 +12,11 @@
     "render": "node --env-file-if-exists=.env scripts/render.ts",
     "selfcheck": "node --env-file-if-exists=.env scripts/lib.ts",
     "watch": "node --env-file-if-exists=.env scripts/watch.ts",
-    "watch:once": "npm run --silent watch && npm run --silent settle && npm run --silent render",
+    "watch:once": "npm run --silent watch && npm run --silent settle && npm run --silent quotes && npm run --silent render",
     "watch:loop": "while true; do npm run --silent watch:once; echo '--- next check in 5 min ---'; sleep 300; done",
-    "demo": "node --env-file-if-exists=.env scripts/watch.ts --force && npm run --silent settle && npm run --silent render",
-    "models": "node --env-file-if-exists=.env scripts/council.ts --models"
+    "demo": "node --env-file-if-exists=.env scripts/watch.ts --force && npm run --silent settle && npm run --silent quotes && npm run --silent render",
+    "models": "node --env-file-if-exists=.env scripts/council.ts --models",
+    "quotes": "node --env-file-if-exists=.env scripts/quotes.ts"
   },
   "dependencies": {
     "ai": "^6.0.0",
