@@ -23,7 +23,17 @@ for (const c of candidates) {
   try {
     const b = await bars(c.yahoo ?? c.ticker, '1y');
     const meta = await quoteMeta(c.yahoo ?? c.ticker);
-    const last = b.at(-1)!, prev = b.at(-2) ?? last;
+    // range=1y omits today's in-progress bar, so the last daily close can be a
+    // full session stale while the market is open. meta carries the live price.
+    const lastBar = b.at(-1)!;
+    const liveDate = meta.regularMarketTime
+      ? new Date(meta.regularMarketTime * 1000).toISOString().slice(0, 10) : null;
+    const isLive = meta.regularMarketPrice != null && liveDate != null && liveDate >= lastBar.date;
+    const last = isLive
+      ? { ...lastBar, date: liveDate!, close: meta.regularMarketPrice as number }
+      : lastBar;
+    // Compare against the previous session, never against the same bar twice.
+    const prev = (isLive && liveDate === lastBar.date ? b.at(-2) : lastBar) ?? lastBar;
     const closes = b.map((x) => x.close);
     const back = (n: number) => closes[Math.max(0, closes.length - 1 - n)];
     const ma5 = sma(closes, 5), ma10 = sma(closes, 10), ma20 = sma(closes, 20);
@@ -35,10 +45,14 @@ for (const c of candidates) {
       last: r(last.close), asOf: last.date,
       prevClose: r(prev.close),
       changePct: r(((last.close - prev.close) / prev.close) * 100),
-      open: r(last.open), dayHigh: r(last.high), dayLow: r(last.low),
-      volume: last.volume,
+      open: r(isLive ? (meta.regularMarketOpen ?? last.open) : last.open),
+      dayHigh: r(isLive ? (meta.regularMarketDayHigh ?? last.high) : last.high),
+      dayLow: r(isLive ? (meta.regularMarketDayLow ?? last.low) : last.low),
+      volume: isLive ? (meta.regularMarketVolume ?? last.volume) : last.volume,
+      live: isLive,
       // Day range as a percentage of the previous close.
-      amplitude: r(((last.high - last.low) / prev.close) * 100),
+      amplitude: r((((isLive ? (meta.regularMarketDayHigh ?? last.high) : last.high)
+        - (isLive ? (meta.regularMarketDayLow ?? last.low) : last.low)) / prev.close) * 100),
       w52High: r(meta.fiftyTwoWeekHigh), w52Low: r(meta.fiftyTwoWeekLow),
       // Where the price sits inside its 52-week range, 0 = low, 100 = high.
       rangePos: meta.fiftyTwoWeekHigh && meta.fiftyTwoWeekLow
@@ -58,7 +72,7 @@ for (const c of candidates) {
         ma10: ma10.slice(-BARS).map((v) => r(v)),
         ma20: ma20.slice(-BARS).map((v) => r(v)),
       },
-      spark: closes.slice(-40).map((v) => r(v)),
+      spark: [...closes.slice(-40), ...(isLive && liveDate !== lastBar.date ? [last.close] : [])].map((v) => r(v)),
     });
   } catch (err) {
     console.error(`  ! ${c.ticker}: ${(err as Error).message}`);

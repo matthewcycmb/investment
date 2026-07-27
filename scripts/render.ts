@@ -15,7 +15,9 @@ const eventLog: any[] = readJSON<any>(`${ROOT}data/events.json`, { events: [] })
 const watchState = readJSON<any>(`${ROOT}data/watch-state.json`, { councilRuns: {} });
 const pf = outcomes.portfolio ?? { equity: 100000, totalReturnPct: 0, openPositions: 0, cash: 100000, realized: 0, unrealized: 0 };
 const money = (x: number) => `$${Math.round(x).toLocaleString()}`;
-const quotes: any[] = readJSON<any>(`${ROOT}data/quotes.json`, { quotes: [] }).quotes ?? [];
+const quotesFile = readJSON<any>(`${ROOT}data/quotes.json`, { quotes: [], updated: null });
+const quotes: any[] = quotesFile.quotes ?? [];
+const pricesLive = quotes.some((q) => q.live);
 
 // Most recent council deliberation: live event-driven run if there is one, else the weekly study run.
 const liveFile = lsJSON(`${ROOT}data/live`).pop();
@@ -205,6 +207,8 @@ background:rgba(10,11,13,.9);backdrop-filter:blur(12px);border-bottom:1px solid 
 @keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(14,203,129,.5)}50%{box-shadow:0 0 0 5px rgba(14,203,129,0)}}
 .bar b{font-size:13.5px;font-weight:680;letter-spacing:.04em}
 .bar time{margin-left:auto;font:11.5px var(--mo);color:var(--mu);font-variant-numeric:tabular-nums}
+.lv{font-style:normal;font-size:9px;font-weight:700;letter-spacing:.08em;color:#fff;
+background:var(--up);padding:2px 5px;border-radius:3px;margin-right:5px}
 
 .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ln);
 border-bottom:1px solid var(--ln);margin:0 -12px 0}
@@ -341,7 +345,7 @@ ${DETAIL_CSS}
 
 <main>
 <div class="bar"><span class="dot"></span><b>AI STOCK COUNCIL</b>
-<time>${esc(hktFull(new Date().toISOString()))} HKT</time></div>
+<time>${pricesLive ? '<i class="lv">LIVE</i> ' : ''}${esc(hktFull(quotesFile.updated ?? new Date().toISOString()))} HKT</time></div>
 
 <div class="kpi">
   <div><b>${money(pf.equity)}</b><span>portfolio</span></div>

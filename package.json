@@ -17,7 +17,9 @@
     "demo": "node --env-file-if-exists=.env scripts/watch.ts --force && npm run --silent settle && npm run --silent quotes && npm run --silent render",
     "models": "node --env-file-if-exists=.env scripts/council.ts --models",
     "quotes": "node --env-file-if-exists=.env scripts/quotes.ts",
-    "stockpage": "node --env-file-if-exists=.env scripts/stockpage.ts"
+    "stockpage": "node --env-file-if-exists=.env scripts/stockpage.ts",
+    "prices": "npm run --silent quotes && npm run --silent render",
+    "prices:loop": "while true; do npm run --silent prices; sleep 60; done"
   },
   "dependencies": {
     "ai": "^6.0.0",
