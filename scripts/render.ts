@@ -5,7 +5,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 
 const N_TARGET = 100;
 // Public repo URL, used for the audit-trail links. Set REPO_URL in CI/Vercel env.
-const REPO = (process.env.REPO_URL ?? '').replace(/\/$/, '');
+const REPO = (process.env.REPO_URL ?? 'https://github.com/matthewcycmb/investment').replace(/\/$/, '');
 const outcomes = readJSON<any>(`${ROOT}data/outcomes.json`, { positions: [], counts: { closed: 0, open: 0, pending: 0 } });
 const positions: any[] = outcomes.positions ?? [];
 const eventLog = readJSON<any>(`${ROOT}data/events.json`, { events: [] }).events ?? [];
