@@ -7,15 +7,13 @@
 //
 // Usage: node scripts/watch.ts [--dry] [--force]
 import { get, secText, bars, readJSON, writeJSON, ROOT, lsJSON, notify } from './lib.ts';
-import { runArms, aggregate, disagreementRate, ARMS, MODE, FALLBACK } from './arms.ts';
+import { convene, disagreementRate, ARMS, FALLBACK, ACT_MIN_AGREEMENT, ACT_MIN_VOTES } from './arms.ts';
 
 const DRY = process.argv.includes('--dry');
 const FORCE = process.argv.includes('--force'); // demo aid: run the council even if nothing new
 const NOW = new Date().toISOString();
 
 const LIVE_HORIZON = 5;                       // trading days for live positions
-const MIN_VOTES = 2;                          // council majority required to auto-invest
-const MIN_CONFIDENCE = 7;                     // mean confidence required to auto-invest
 const MAX_COUNCIL_RUNS_PER_DAY = Number(process.env.MAX_COUNCIL_RUNS_PER_DAY ?? 12);
 const MAX_TICKERS_POLLED = 12;                // bounds headline + price-shock polling per cycle
 const SHOCK_PCT = 3;                          // |move| that counts as a price shock
@@ -214,68 +212,79 @@ if (!found.length && !FORCE) {
     } catch { priced.push(`${t} — ${byTicker.get(t)?.name ?? t} (price unavailable)`); }
   }
 
-  const BRIEF = `Breaking events just occurred. Decide whether any warrant buying US equities RIGHT NOW.
+  const BRIEF = `Breaking events just occurred. Give your specialist verdict on the affected stocks.
 
 RULES:
 - Horizon is ${LIVE_HORIZON} trading days. Entry is the next session's open; exit is the open ${LIVE_HORIZON} sessions later.
 - Equal weight. No stop-losses, no early exits.
-- You are measured against SPY over the same window. A stock that rises less than SPY is a loss.
+- Measured against SPY over the same window. A stock that rises less than SPY is a loss.
 - Only name tickers from the allowed list below.
-- If nothing here is a genuine opportunity, return an EMPTY list. Doing nothing is a valid and
-  often correct answer. Do not invent a trade to look useful.
+- Verdict is BUY, SELL or HOLD. HOLD is a real answer and is often the correct one.
+  Return an EMPTY findings array if nothing here is worth a view. Do not invent a trade.
+- Every claim you put in "evidence" must come from the material below, not from memory.
+- "risk" must be the strongest argument AGAINST your own verdict.
 
 EVENTS (${found.length}):
 ${found.slice(0, 25).map((e) => `- [${e.source}] ${e.title}${e.detail ? `\n    ${e.detail}` : ''}`).join('\n')}
 
 ALLOWED TICKERS:
-${priced.join('\n')}
-
-Return only names where the event above is a specific, tradeable catalyst within ${LIVE_HORIZON} days.
-Give an honest 1-10 confidence. Positions are only opened when the council agrees (${MIN_VOTES}+ votes)
-and mean confidence is at least ${MIN_CONFIDENCE}.`;
+${priced.join('\n')}`;
 
   notify(
     'Council deciding now',
-    `${found.length} event(s) -> ${ARMS.length} AI${ARMS.length > 1 ? 's' : ''} reviewing ${pool.length} ticker(s). No trade placed yet.`,
+    `${found.length} event(s) -> ${ARMS.length} specialists reviewing ${pool.length} ticker(s). No trade placed yet.`,
   );
+
+  // Event kind drives step 2 weighting: a policy specialist counts for more on policy.
+  const counts = found.reduce((a: Record<string, number>, e) => ({ ...a, [e.source]: (a[e.source] ?? 0) + 1 }), {});
+  const top = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  const kind: any = !top.length ? 'mixed' : (top[0][1] / found.length >= 0.6 ? top[0][0] : 'mixed');
+
   const valid = new Set(pool.map((t) => t.toUpperCase()));
-  const armResults = await runArms(BRIEF, valid);
-  const live = armResults.filter((a) => a.ok);
+  const { results, verdicts, debated, armsLive } = await convene(BRIEF, valid, kind);
   state.councilRuns[today] = runsToday + 1;
 
-  if (live.length < 2) {
-    console.log(`only ${live.length} arm(s) responded — no auto-investment`);
+  if (armsLive < 2) {
+    console.log(`only ${armsLive} specialist(s) responded - no auto-investment`);
   } else {
-    const council = aggregate(live);
-    // Pre-declared auto-invest gate.
-    const qualifying = council.filter((p) => p.votes >= MIN_VOTES && p.meanConfidence >= MIN_CONFIDENCE);
-    console.log(`\ncouncil returned ${council.length} name(s); ${qualifying.length} passed the auto-invest gate`);
-    if (council.length) {
-      console.table(council.map((c) => ({
-        ticker: c.ticker, votes: c.votes, conf: c.meanConfidence,
-        invest: c.votes >= MIN_VOTES && c.meanConfidence >= MIN_CONFIDENCE ? 'YES' : 'no',
+    const buys = verdicts.filter((v) => v.invest);
+    console.log(`\ncouncil reviewed ${verdicts.length} stock(s); ${buys.length} cleared the gate`);
+    if (verdicts.length) {
+      console.table(verdicts.map((v) => ({
+        ticker: v.ticker, action: v.action,
+        agreement: `${(v.agreement * 100).toFixed(0)}%`,
+        votes: v.votes, conf: v.meanConfidence,
+        debated: v.debated ? 'yes' : '', invest: v.invest ? 'YES' : '',
       })));
     }
 
-    if (qualifying.length) {
-      notify(
-        'AUTO-INVESTED',
-        `${qualifying.map((p) => `${p.ticker} (${p.votes}/${live.length} agree, conf ${p.meanConfidence})`).join(', ')}`,
-      );
+    if (buys.length) {
+      notify('AUTO-INVESTED',
+        buys.map((v) => `${v.ticker} (${(v.agreement * 100).toFixed(0)}% agreement, conf ${v.meanConfidence})`).join(', '));
     } else {
-      notify('Council decided: no trade', `Reviewed ${found.length} event(s); nothing met ${MIN_VOTES}+ votes at confidence ${MIN_CONFIDENCE}.`);
+      notify('Council decided: no trade',
+        `Reviewed ${found.length} event(s). Nothing reached ${Math.round(ACT_MIN_AGREEMENT * 100)}% agreement on BUY.`);
     }
 
     invested = {
       date: today, ts: NOW, study: false,
-      mode: MODE, fallback: FALLBACK,
+      eventKind: kind, fallback: FALLBACK,
       horizonTradingDays: LIVE_HORIZON,
       trigger: found.slice(0, 25).map((e) => ({ source: e.source, title: e.title, url: e.url })),
-      gate: { minVotes: MIN_VOTES, minConfidence: MIN_CONFIDENCE },
-      arms: armResults.map((a) => ({ id: a.id, model: a.model, ok: a.ok, error: a.error ?? null, latencyMs: a.latencyMs, picks: a.picks })),
-      councilAll: council,
-      council: qualifying.map((p, i) => ({ ...p, rank: i + 1 })),
-      exploratory: { disagreementRate: disagreementRate(live), armsLive: live.length },
+      rubric: {
+        steps: ['verify evidence', 'weight votes', 'measure agreement', 'investigate credible disagreement'],
+        actMinAgreement: ACT_MIN_AGREEMENT, actMinVotes: ACT_MIN_VOTES,
+      },
+      debatedTickers: debated,
+      specialists: results.map((r) => ({
+        id: r.id, model: r.model, name: r.name, specialty: r.specialty,
+        ok: r.ok, error: r.error ?? null, latencyMs: r.latencyMs, revised: r.revised ?? false,
+        findings: r.findings,
+      })),
+      verdicts,
+      council: buys.map((v, i) => ({ ticker: v.ticker, rank: i + 1, votes: v.votes,
+        agreement: v.agreement, meanConfidence: v.meanConfidence })),
+      exploratory: { disagreementRate: disagreementRate(results), armsLive },
     };
   }
 }

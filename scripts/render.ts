@@ -119,71 +119,71 @@ const eventRow = (e: any, i: number) => `<div class="e" style="--i:${Math.min(i,
 const none = (m: string) => `<div class="nil">${m}</div>`;
 
 const shortModel = (m: string) => String(m ?? '').split('/').pop() ?? '';
+const VERDICT_CLS: Record<string, string> = { BUY: 'up', SELL: 'down', HOLD: 'flat' };
 
 /**
- * The council's actual deliberation: every model's individual verdict on each stock
- * it considered, the vote tally, and whether it cleared the auto-invest gate.
+ * The council's deliberation, showing the four-step rubric rather than just its output:
+ * verified evidence, weighted votes, measured agreement, and any debate it triggered.
  */
 function councilView(d: any): string {
   if (!d) return none('No council session yet. Runs automatically when a signal qualifies.');
-  const arms: any[] = d.arms ?? [];
-  const considered: any[] = (d.councilAll ?? d.council ?? []);
-  if (!considered.length) return none('Council met but named no stock. Doing nothing is a valid outcome.');
+  const specialists: any[] = d.specialists ?? [];
+  const verdicts: any[] = d.verdicts ?? [];
+  if (!verdicts.length) return none('Council met and reached no view. Doing nothing is a valid outcome.');
 
-  const bought = new Set((d.council ?? []).map((p: any) => p.ticker));
-  const gate = d.gate ?? { minVotes: 2, minConfidence: 7 };
-  const liveArms = arms.filter((a) => a.ok).length || arms.length;
-
+  const gate = d.rubric ?? { actMinAgreement: 0.6, actMinVotes: 2 };
   const session = `<div class="ses">
     <span class="ses__t">${esc(hktStamp(d.ts ?? d.date))}</span>
-    <span class="ses__m">${arms.map((a) => `<i class="${a.ok ? 'on' : 'off'}">${esc(shortModel(a.model))}</i>`).join('')}</span>
-    <span class="ses__g">needs ${gate.minVotes}+ votes &amp; conf ${gate.minConfidence}+</span>
+    <span class="ses__m">${specialists.map((a: any) =>
+      `<i class="${a.ok ? 'on' : 'off'}" title="${esc(a.specialty)}">${esc(a.name ?? shortModel(a.model))}</i>`).join('')}</span>
+    <span class="ses__g">acts at ${Math.round(gate.actMinAgreement * 100)}% agreement &amp; ${gate.actMinVotes}+ votes</span>
   </div>`;
 
-  const cards = considered.map((p: any, i: number) => {
-    const passed = bought.has(p.ticker);
-    const byArm = new Map((p.theses ?? []).map((t: any) => [t.arm, t]));
-    const opinions = arms.map((a) => {
-      const t: any = byArm.get(a.id);
-      return `<div class="op ${t ? 'op--yes' : 'op--no'}">
-        <span class="op__m">${esc(shortModel(a.model))}</span>
-        ${t ? `<span class="op__r">#${t.rank}</span><span class="op__c">${t.confidence}/10</span>
-        <p class="op__x">${esc(t.thesis)}</p>`
-            : `<span class="op__r">·</span><span class="op__c">·</span>
-        <p class="op__x">${a.ok ? 'Did not select this stock.' : `Unavailable: ${esc(String(a.error ?? '').slice(0, 70))}`}</p>`}
-      </div>`;
-    }).join('');
+  const cards = verdicts.map((v: any, i: number) => {
+    const shares = v.weightedShare ?? {};
+    const bar = ['BUY', 'HOLD', 'SELL'].filter((k) => (shares[k] ?? 0) > 0.001)
+      .map((k) => `<i class="sh sh--${VERDICT_CLS[k]}" style="width:${((shares[k] ?? 0) * 100).toFixed(1)}%" title="${k} ${(shares[k] * 100).toFixed(0)}%"></i>`).join('');
+
+    const ops = (v.opinions ?? []).map((o: any) => `<div class="op">
+      <div class="op__h">
+        <span class="op__m">${esc(o.name)}</span>
+        <span class="op__s">${esc(o.specialty)}</span>
+        <span class="vb vb--${VERDICT_CLS[o.verdict] ?? 'flat'}">${esc(o.verdict)}</span>
+        <span class="op__n">conf ${o.confidence}/10 · verified ${(o.verified * 100).toFixed(0)}% · relevance ×${o.relevance} · <b>weight ${o.weight}</b>${o.revised ? ' · <em>revised</em>' : ''}</span>
+      </div>
+      <p>${esc(o.reasoning)}</p>
+      ${(o.evidence ?? []).length ? `<ul class="evd">${o.evidence.map((e: string) => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
+      ${o.risk ? `<p class="cnt"><b>Counter-case:</b> ${esc(o.risk)}</p>` : ''}
+    </div>`).join('');
 
     return `<details class="dl" style="--i:${Math.min(i, 14)}"${i === 0 ? ' open' : ''}>
       <summary class="dl__h">
-        <span class="tk">${esc(p.ticker)}</span>
-        <span class="dl__v">${p.votes}/${liveArms} agree</span>
-        <span class="dl__c">conf ${p.meanConfidence}</span>
-        <span class="pl pl--${passed ? 'up' : 'flat'}">${passed ? 'BOUGHT' : 'PASSED'}</span>
+        <span class="tk">${esc(v.ticker)}</span>
+        <span class="vb vb--${VERDICT_CLS[v.action] ?? 'flat'}">${esc(v.action)}</span>
+        <span class="dl__v">${(v.agreement * 100).toFixed(0)}% agreement · ${v.votes} of ${(v.opinions ?? []).length}</span>
+        ${v.debated ? '<span class="dbt">DEBATED</span>' : ''}
+        <span class="pl pl--${v.invest ? 'up' : 'flat'}">${v.invest ? 'BOUGHT' : 'PASSED'}</span>
       </summary>
-      <div class="ops">${opinions}</div>
+      <div class="shb">${bar}</div>
+      <div class="ops">${ops}</div>
     </details>`;
   }).join('');
 
   return session + cards;
 }
 
-const decisions: any[] = (deliberation?.councilAll ?? deliberation?.council ?? []);
-const boughtSet = new Set((deliberation?.council ?? []).map((p: any) => p.ticker));
+const decisions: any[] = deliberation?.verdicts ?? [];
 const councilBanner = decisions.length
   ? `<div class="cb">
       <div class="cb__h"><b>LATEST COUNCIL DECISION</b><time>${esc(hktStamp(deliberation.ts ?? deliberation.date))}</time></div>
-      <div class="cb__r">${decisions.slice(0, 10).map((p: any) => {
-        const won = boughtSet.has(p.ticker);
-        return `<label class="cd cd--${won ? 'up' : 'flat'}" for="t4">
-          <span class="cd__t">${esc(p.ticker)}</span>
-          <span class="cd__v">${p.votes} of ${(deliberation.arms ?? []).filter((a: any) => a.ok).length || (deliberation.arms ?? []).length} agree · conf ${p.meanConfidence}</span>
-          <span class="cd__s">${won ? 'BOUGHT' : 'PASSED'}</span>
-        </label>`;
-      }).join('')}</div>
+      <div class="cb__r">${decisions.slice(0, 10).map((v: any) => `<label class="cd cd--${v.invest ? 'up' : 'flat'}" for="t4">
+          <span class="cd__t">${esc(v.ticker)}</span>
+          <span class="cd__v">${esc(v.action)} · ${(v.agreement * 100).toFixed(0)}% agree${v.debated ? ' · debated' : ''}</span>
+          <span class="cd__s">${v.invest ? 'BOUGHT' : 'PASSED'}</span>
+        </label>`).join('')}</div>
     </div>`
   : `<div class="cb cb--idle"><div class="cb__h"><b>COUNCIL</b><time>standing by</time></div>
-     <div class="cb__i">No session yet. Four models vote the moment a signal qualifies.</div></div>`;
+     <div class="cb__i">No session yet. Four specialists vote the moment a signal qualifies.</div></div>`;
 
 const verdictText = evaluated
   ? ((clustered?.p ?? 1) < 0.05 ? 'BEAT MARKET' : 'NO EDGE')
@@ -291,6 +291,21 @@ padding:11px 12px;cursor:pointer;list-style:none}
 .op__x{margin:5px 0 0;font-size:12px;line-height:1.45;color:var(--mu)}
 .op--yes .op__x{color:var(--fg)}
 @media(max-width:600px){.ops{grid-template-columns:1fr}.dl__h{grid-template-columns:1fr auto 70px}.dl__c{display:none}}
+.vb{font:700 9.5px var(--mo);letter-spacing:.06em;padding:3px 6px;border-radius:4px;color:#fff}
+.vb--up{background:var(--up)}.vb--down{background:var(--dn)}.vb--flat{background:#39404d}
+.dbt{font:700 9px var(--mo);letter-spacing:.07em;padding:3px 6px;border-radius:4px;
+background:rgba(240,185,11,.15);color:var(--am);border:1px solid rgba(240,185,11,.35)}
+.shb{display:flex;height:4px;gap:1px;margin:0 12px 8px}
+.sh{display:block;border-radius:2px}
+.sh--up{background:var(--up)}.sh--down{background:var(--dn)}.sh--flat{background:#39404d}
+.op__h{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:5px}
+.op__s{font-size:10.5px;color:var(--dm)}
+.op__n{font:10px var(--mo);color:var(--mu);margin-left:auto}
+.op__n b{color:var(--fg)}.op__n em{color:var(--am);font-style:normal}
+.evd{margin:6px 0 0;padding-left:15px;font-size:11.5px;color:var(--mu)}
+.evd li{margin:2px 0}
+.cnt{margin:6px 0 0;font-size:11.5px;color:var(--dm)}
+.cnt b{color:var(--mu);font-weight:600}
 .nil{padding:44px 16px;text-align:center;color:var(--dm);font-size:12.5px;border-top:1px solid var(--ln)}
 footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--ln);color:var(--dm);font-size:10.5px;line-height:1.6}
 footer a{border-bottom:1px solid var(--ln)}
@@ -350,7 +365,7 @@ ${councilBanner}
 <input type="radio" name="tab" id="t1" checked><input type="radio" name="tab" id="t2"><input type="radio" name="tab" id="t3"><input type="radio" name="tab" id="t4">
 <nav class="tabs">
   <label for="t1">Watchlist<i>${quotes.length}</i></label>
-  <label for="t4">Council<i>${(deliberation?.councilAll ?? deliberation?.council ?? []).length}</i></label>
+  <label for="t4">Council<i>${(deliberation?.verdicts ?? []).length}</i></label>
   <label for="t2">AI Trades<i>${trades.length}</i></label>
   <label for="t3">Signals<i>${eventLog.length}</i></label>
 </nav>

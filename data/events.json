@@ -1,6 +1,61 @@
 {
   "events": [
     {
+      "id": "headline:CPRT:Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and",
+      "ts": "2026-07-27T11:25:48.361Z",
+      "source": "headline",
+      "title": "Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and AI Focus",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/copart-announces-promotion-jane-pocock-203000140.html?.tsrc=rss",
+      "tickers": [
+        "CPRT"
+      ],
+      "detail": "CPRT · matched \"ceo\""
+    },
+    {
+      "id": "headline:ACN:MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Iss",
+      "ts": "2026-07-27T11:25:48.361Z",
+      "source": "headline",
+      "title": "MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-q2-earnings-preview-expect-145910983.html?.tsrc=rss",
+      "tickers": [
+        "ACN"
+      ],
+      "detail": "ACN · matched \"earnings beat\""
+    },
+    {
+      "id": "filing:BKR:0001701605",
+      "ts": "2026-07-27T11:25:48.361Z",
+      "source": "filing",
+      "title": "Baker Hughes filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001701605&type=8-K",
+      "tickers": [
+        "BKR"
+      ],
+      "detail": "BKR · Energy"
+    },
+    {
+      "id": "filing:EXE:0000895126",
+      "ts": "2026-07-27T11:25:48.361Z",
+      "source": "filing",
+      "title": "Expand Energy filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000895126&type=8-K",
+      "tickers": [
+        "EXE"
+      ],
+      "detail": "EXE · Energy"
+    },
+    {
+      "id": "filing:TDG:0001260221",
+      "ts": "2026-07-27T11:25:48.361Z",
+      "source": "filing",
+      "title": "TransDigm Group filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001260221&type=8-K",
+      "tickers": [
+        "TDG"
+      ],
+      "detail": "TDG · Industrials"
+    },
+    {
       "id": "headline:IBM:Jim Cramer Discussed A Surprise For International Business M",
       "ts": "2026-07-27T09:08:49.299Z",
       "source": "headline",

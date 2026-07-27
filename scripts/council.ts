@@ -5,7 +5,7 @@
 // Usage: node scripts/council.ts [--dry] [--models]
 // Requires AI_GATEWAY_API_KEY.
 import { bars, readJSON, writeJSON, ROOT, get, lsJSON } from './lib.ts';
-import { runArms, aggregate, disagreementRate, ARMS, PICKS_PER_ARM } from './arms.ts';
+import { convene, disagreementRate, ARMS, MAX_FINDINGS, ACT_MIN_AGREEMENT, ACT_MIN_VOTES } from './arms.ts';
 
 const DRY = process.argv.includes('--dry');
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -71,21 +71,27 @@ disclosure volume). The screen implies nothing about direction — it only surfa
 CANDIDATES (as of ${candidateDate}):
 ${briefs.join('\n\n')}
 
-Select the ${PICKS_PER_ARM} candidates most likely to beat SPY over the next ${HORIZON_DAYS} trading days,
-ranked best first. Give a specific thesis grounded in the evidence above — name the catalyst and why
-it should move the price inside the window, not generic company description.
-Give an honest 1-10 confidence; it is recorded but does NOT affect position size.`;
+Give your specialist verdict on up to ${MAX_FINDINGS} of these candidates.
+Verdict is BUY, SELL or HOLD. HOLD is a real answer and is often correct; an empty findings array
+is valid if nothing warrants a view. Do not invent a trade.
+Every claim in "evidence" must come from the material above, not from memory.
+"risk" must be the strongest argument AGAINST your own verdict.
+Confidence is 1-10 and is recorded but does NOT affect position size.`;
 
 const valid = new Set<string>(candidates.map((c: any) => c.ticker.toUpperCase()));
-const armResults = await runArms(BRIEF, valid);
-const live = armResults.filter((a) => a.ok && a.picks.length);
-if (live.length < 2) throw new Error(`only ${live.length} arm(s) succeeded — refusing to publish a council vote`);
-if (live.length < ARMS.length) console.error(`  ! running with ${live.length}/${ARMS.length} arms; recorded in the pick file`);
+// The weekly screen mixes insider filings and disclosure volume, so no single lens dominates.
+const { results, verdicts, debated, armsLive } = await convene(BRIEF, valid, 'mixed');
+if (armsLive < 2) throw new Error(`only ${armsLive} specialist(s) responded - refusing to publish a council vote`);
+if (armsLive < ARMS.length) console.error(`  ! running with ${armsLive}/${ARMS.length} specialists; recorded in the pick file`);
 
-const council = aggregate(live);
+const buys = verdicts.filter((v) => v.invest);
 
-console.log(`\ncouncil picks (${TODAY}):`);
-console.table(council.map((c) => ({ rank: c.rank, ticker: c.ticker, votes: c.votes, rankPoints: c.rankPoints, conf: c.meanConfidence })));
+console.log(`\ncouncil verdicts (${TODAY}):`);
+console.table(verdicts.map((v) => ({
+  ticker: v.ticker, action: v.action, agreement: `${(v.agreement * 100).toFixed(0)}%`,
+  votes: v.votes, conf: v.meanConfidence, debated: v.debated ? 'yes' : '', buy: v.invest ? 'YES' : '',
+})));
+console.log(`${buys.length} cleared the gate (${Math.round(ACT_MIN_AGREEMENT * 100)}% agreement, ${ACT_MIN_VOTES}+ votes)`);
 
 if (DRY) console.log('\n--dry: nothing written');
 else {
@@ -93,13 +99,21 @@ else {
     date: TODAY,
     candidateFile: latest,
     horizonTradingDays: HORIZON_DAYS,
-    aggregation: 'PREREGISTRATION.md §4: votes desc, then mean rankPoints desc, then ticker asc',
-    arms: armResults.map((a) => ({
-      id: a.id, model: a.model, control: a.control, ok: a.ok,
-      error: a.error ?? null, usage: a.usage ?? null, picks: a.picks,
+    eventKind: 'mixed',
+    rubric: {
+      steps: ['verify evidence', 'weight votes', 'measure agreement', 'investigate credible disagreement'],
+      actMinAgreement: ACT_MIN_AGREEMENT, actMinVotes: ACT_MIN_VOTES,
+    },
+    debatedTickers: debated,
+    specialists: results.map((r) => ({
+      id: r.id, model: r.model, name: r.name, specialty: r.specialty,
+      ok: r.ok, error: r.error ?? null, latencyMs: r.latencyMs, revised: r.revised ?? false,
+      findings: r.findings,
     })),
-    council,
-    exploratory: { disagreementRate: disagreementRate(live), armsLive: live.length },
+    verdicts,
+    council: buys.map((v, i) => ({ ticker: v.ticker, rank: i + 1, votes: v.votes,
+      agreement: v.agreement, meanConfidence: v.meanConfidence })),
+    exploratory: { disagreementRate: disagreementRate(results), armsLive },
   });
   console.log(`wrote data/picks/${TODAY}.json`);
 }

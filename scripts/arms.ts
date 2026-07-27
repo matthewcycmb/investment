@@ -1,153 +1,316 @@
-// Shared council runner. Both the weekly study (council.ts) and the live event
-// watcher (watch.ts) call this, so the voting logic exists in exactly one place.
+// The council engine: four specialists analyse independently, then a fixed
+// four-step rubric turns their findings into one action. Used by both the weekly
+// study (council.ts) and the live event watcher (watch.ts).
+//
+// Stage 1  four specialists, parallel, identical evidence, different lens
+// Stage 2  rubric:
+//   1. Verify the evidence      - claims corroborated by another specialist
+//   2. Weight each vote         - specialty relevance x verification x confidence
+//   3. Measure agreement        - weighted share held by the leading verdict
+//   4. Investigate disagreement - one debate round, ONLY when the split is credible
 import { streamObject, generateText } from 'ai';
 import { z } from 'zod';
 
-export const PICKS_PER_ARM = 8;
+export const MAX_FINDINGS = 8;
 
-/**
- * Arm models. Override per-arm with ARM_A..ARM_D env vars.
- * Verified present on the gateway 2026-07-27 via `npm run models`.
- */
-// Vercel's FREE credit cannot reach premium models; only openai/gpt-oss-120b works.
-// COUNCIL_FALLBACK=1 keeps the pipeline demonstrable on one model by giving each arm a
-// distinct analyst persona. Personas are NEVER used with the real four models, because
-// the pre-registered study requires every arm to receive an identical brief.
+/** Agreement at or above this needs no debate. Pre-declared, not tuned. */
+export const AGREEMENT_OK = 0.75;
+/** Minimum weighted agreement for the council to act at all. */
+export const ACT_MIN_AGREEMENT = 0.60;
+/** Minimum specialists voting the winning verdict for the council to act. */
+export const ACT_MIN_VOTES = 2;
+
+export type EventKind = 'policy' | 'filing' | 'headline' | 'shock' | 'mixed';
+
 export const FALLBACK = process.env.COUNCIL_FALLBACK === '1';
-export const MODE = FALLBACK ? 'fallback-personas-single-model' : 'four-models-identical-brief';
 
-const REAL = [
-  { id: 'A', model: process.env.ARM_A ?? 'anthropic/claude-opus-5', control: true },
-  { id: 'B', model: process.env.ARM_B ?? 'openai/gpt-5.6-sol', control: false },
-  { id: 'C', model: process.env.ARM_C ?? 'alibaba/qwen3.6-plus', control: false },
-  { id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k3', control: false },
-];
-
-const FREE_MODEL = 'openai/gpt-oss-120b';
-const PERSONAS = [
-  { id: 'A', control: true,  persona: 'You are a fundamentals-driven value investor. You care about balance sheets, cash flow and whether the market has mispriced the business.' },
-  { id: 'B', control: false, persona: 'You are a momentum trader. You care about trend, relative strength and whether flow is already moving into the name.' },
-  { id: 'C', control: false, persona: 'You are a sceptical risk manager. You look for reasons a trade fails, and you are comfortable recommending nothing.' },
-  { id: 'D', control: false, persona: 'You are an event-driven catalyst trader. You care only about whether a specific, dated catalyst moves the price inside the window.' },
-].map((p) => ({ ...p, model: FREE_MODEL }));
-
-export const ARMS: { id: string; model: string; control: boolean; persona?: string }[] =
-  (FALLBACK ? PERSONAS : REAL).filter((a) => a.model !== 'off');
-
-export const ArmOutput = z.object({
-  picks: z.array(z.object({
-    ticker: z.string().describe('exactly one of the allowed tickers'),
-    thesis: z.string().describe('specific, evidence-grounded rationale, under 400 characters'),
-    confidence: z.number().int().min(1).max(10),
-  })).max(PICKS_PER_ARM),
-});
-
-export type ArmResult = {
-  id: string; model: string; control: boolean; persona?: string; ok: boolean;
-  error?: string | null; usage?: unknown; latencyMs?: number;
-  picks: { ticker: string; thesis: string; confidence: number; rank: number }[];
+type Arm = {
+  id: string; model: string; name: string; specialty: string; role: string;
+  /** Relevance multiplier by event kind. A policy expert counts for more on policy. */
+  relevance: Record<EventKind, number>;
 };
 
-const JSON_INSTRUCTION = `
+const SPECIALISTS: Arm[] = [
+  {
+    id: 'A', model: process.env.ARM_A ?? 'anthropic/claude-opus-5', name: 'Claude Opus 5',
+    specialty: 'Fundamentals, accounting, valuation and earnings impact',
+    role: 'You are the FUNDAMENTALS analyst. Judge only on business economics: revenue and margin '
+      + 'impact, balance sheet, cash flow, accounting quality, valuation versus history, and how the '
+      + 'event changes reported earnings. Ignore narrative and momentum.',
+    relevance: { filing: 1.5, policy: 1.0, headline: 1.0, shock: 0.9, mixed: 1.2 },
+  },
+  {
+    id: 'B', model: process.env.ARM_B ?? 'openai/gpt-5.6-sol', name: 'ChatGPT 5.6 Sol',
+    specialty: 'Causal reasoning, source verification and adversarial counter-case',
+    role: 'You are the SKEPTIC. For every bullish reading, state the strongest counter-case. '
+      + 'Check whether the claimed cause actually drives the price or is coincidence, and whether the '
+      + 'evidence given genuinely supports the conclusion. Recommending HOLD is a success, not a failure.',
+    relevance: { headline: 1.5, shock: 1.3, filing: 1.0, policy: 1.0, mixed: 1.2 },
+  },
+  {
+    id: 'C', model: process.env.ARM_C ?? 'alibaba/qwen3.7-max', name: 'Qwen 3.7 Max',
+    specialty: 'China and Hong Kong context, policy and market sentiment',
+    role: 'You are the POLICY and SENTIMENT analyst, with particular depth on China and Hong Kong '
+      + 'exposure. Judge regulatory direction, supply chain and trade policy, and how positioning and '
+      + 'sentiment are likely to shift. Flag policy risk the others would miss.',
+    relevance: { policy: 1.5, headline: 1.1, filing: 0.9, shock: 1.0, mixed: 1.2 },
+  },
+  {
+    id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k3', name: 'Kimi K3',
+    specialty: 'Long-document synthesis and second-order consequences',
+    role: 'You are the SECOND-ORDER analyst. Synthesise across everything provided and reason about '
+      + 'knock-on effects: suppliers, customers, competitors, substitutes, and what the market has not '
+      + 'yet priced. Say explicitly what happens next, not just what happened.',
+    relevance: { policy: 1.2, filing: 1.2, headline: 1.0, shock: 1.0, mixed: 1.3 },
+  },
+];
 
-Reply with ONLY a JSON object and nothing else - no prose, no markdown fence:
-{"picks":[{"ticker":"XXX","thesis":"why","confidence":7}]}
-An empty picks array is valid if nothing qualifies.`;
+const FREE = 'openai/gpt-oss-120b';
+export const ARMS: Arm[] = (FALLBACK
+  ? SPECIALISTS.map((a) => ({ ...a, model: FREE }))
+  : SPECIALISTS).filter((a) => a.model !== 'off');
 
-/**
- * Streamed structured output. Some gateway models (qwen3.6-plus among them) reject
- * non-streaming requests outright, and streaming is accepted by all of them, so this
- * is the one call path that works everywhere.
- */
-async function viaStream(model: string, prompt: string) {
-  const res = streamObject({ model, schema: ArmOutput, temperature: 0, prompt });
-  // The object promise only settles once the stream has been consumed.
+export const Analysis = z.object({
+  findings: z.array(z.object({
+    ticker: z.string().describe('exactly one of the allowed tickers'),
+    verdict: z.enum(['BUY', 'SELL', 'HOLD']),
+    confidence: z.number().int().min(1).max(10),
+    evidence: z.array(z.string()).max(3).describe('short factual claims taken from the material provided'),
+    risk: z.string().describe('the single strongest argument against your own verdict'),
+    reasoning: z.string().describe('under 350 characters'),
+  })).max(MAX_FINDINGS),
+});
+
+export type Finding = z.infer<typeof Analysis>['findings'][number];
+export type ArmResult = {
+  id: string; model: string; name: string; specialty: string;
+  ok: boolean; error?: string | null; latencyMs?: number; usage?: unknown;
+  findings: Finding[]; revised?: boolean;
+};
+
+const JSON_TAIL = `
+
+Reply with ONLY a JSON object, no prose and no markdown fence:
+{"findings":[{"ticker":"XXX","verdict":"BUY","confidence":7,"evidence":["..."],"risk":"...","reasoning":"..."}]}
+An empty findings array is valid.`;
+
+async function callModel(model: string, prompt: string) {
+  if (FALLBACK) {
+    const { text, usage } = await generateText({ model, prompt: prompt + JSON_TAIL, temperature: 0 });
+    const m = text.match(/\{[\s\S]*\}/);
+    if (!m) throw new Error(`no JSON in response: ${text.slice(0, 100)}`);
+    return { object: Analysis.parse(JSON.parse(m[0])), usage };
+  }
+  // Streaming is the one call path every gateway model accepts.
+  const res = streamObject({ model, schema: Analysis, temperature: 0, prompt });
   for await (const _ of res.partialObjectStream) { /* drain */ }
   return { object: await res.object, usage: await res.usage };
 }
 
-/** Small open models fail strict tool-calling; ask for raw JSON and validate it ourselves. */
-async function viaText(model: string, prompt: string) {
-  const { text, usage } = await generateText({ model, prompt: prompt + JSON_INSTRUCTION, temperature: 0 });
-  const m = text.match(/\{[\s\S]*\}/);
-  if (!m) throw new Error(`no JSON in response: ${text.slice(0, 120)}`);
-  return { object: ArmOutput.parse(JSON.parse(m[0])), usage };
-}
-
-/**
- * Run every arm independently on an identical brief. Never throws; failures are recorded.
- * Fallback mode runs arms sequentially with a gap, because free-tier credit is rate-limited.
- */
-export async function runArms(brief: string, validTickers: Set<string>): Promise<ArmResult[]> {
-  const run = async (arm: typeof ARMS[number]): Promise<ArmResult> => {
+/** Stage 1: every specialist sees identical evidence through its own lens. */
+export async function runSpecialists(evidence: string, valid: Set<string>): Promise<ArmResult[]> {
+  const run = async (arm: Arm): Promise<ArmResult> => {
     const t0 = Date.now();
+    const base = { id: arm.id, model: arm.model, name: arm.name, specialty: arm.specialty };
     try {
-      const prompt = arm.persona ? `${arm.persona}\n\n${brief}` : brief;
-      const { object, usage } = FALLBACK
-        ? await viaText(arm.model, prompt)
-        : await viaStream(arm.model, prompt);
-      const picks = object.picks
-        .filter((p) => {
-          const ok = validTickers.has(p.ticker.toUpperCase());
-          if (!ok) console.error(`  ! arm ${arm.id} named ${p.ticker}, not in the allowed list — dropped`);
-          return ok;
-        })
-        .map((p, i) => ({ ...p, ticker: p.ticker.toUpperCase(), rank: i + 1 }));
-      console.error(`  arm ${arm.id} (${arm.model}): ${picks.length} picks in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-      return { ...arm, picks, usage, ok: true, latencyMs: Date.now() - t0 };
+      const { object, usage } = await callModel(arm.model, `${arm.role}\n\n${evidence}`);
+      const findings = object.findings
+        .map((f) => ({ ...f, ticker: f.ticker.toUpperCase() }))
+        .filter((f) => valid.has(f.ticker));
+      console.error(`  ${arm.id} ${arm.name}: ${findings.length} finding(s) in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+      return { ...base, findings, usage, ok: true, latencyMs: Date.now() - t0 };
     } catch (err) {
-      console.error(`  ! arm ${arm.id} (${arm.model}) FAILED: ${(err as Error).message}`);
-      return { ...arm, picks: [], ok: false, error: (err as Error).message, latencyMs: Date.now() - t0 };
+      console.error(`  ! ${arm.id} ${arm.name} FAILED: ${(err as Error).message}`);
+      return { ...base, findings: [], ok: false, error: (err as Error).message, latencyMs: Date.now() - t0 };
     }
   };
-
   if (!FALLBACK) return Promise.all(ARMS.map(run));
   const out: ArmResult[] = [];
-  for (const arm of ARMS) {
-    out.push(await run(arm));
-    await new Promise((r) => setTimeout(r, 8000)); // stay under the free-tier rate limit
-  }
+  for (const a of ARMS) { out.push(await run(a)); await new Promise((r) => setTimeout(r, 8000)); }
   return out;
 }
 
-export type CouncilPick = {
-  ticker: string; votes: number; rankPoints: number; meanConfidence: number;
-  theses: { arm: string; rank: number; confidence: number; thesis: string }[];
-  rank: number;
-};
+// ---------- the rubric ----------
 
-/**
- * Deterministic vote aggregation (PREREGISTRATION.md §4): votes desc,
- * then mean rank points desc, then ticker asc. No model performs the synthesis.
- */
-export function aggregate(live: ArmResult[], limit = PICKS_PER_ARM): CouncilPick[] {
-  const tally = new Map<string, { votes: number; rp: number; conf: number; theses: any[] }>();
-  for (const arm of live) {
-    for (const p of arm.picks) {
-      const e = tally.get(p.ticker) ?? { votes: 0, rp: 0, conf: 0, theses: [] };
-      e.votes++;
-      e.rp += 9 - p.rank;
-      e.conf += p.confidence;
-      e.theses.push({ arm: arm.id, rank: p.rank, confidence: p.confidence, thesis: p.thesis });
-      tally.set(p.ticker, e);
-    }
+const STOP = new Set(['the', 'a', 'an', 'and', 'or', 'of', 'to', 'in', 'on', 'for', 'is', 'are', 'was',
+  'were', 'has', 'have', 'its', 'this', 'that', 'with', 'by', 'at', 'from', 'as', 'it', 'be', 'will']);
+const keywords = (s: string) => new Set(
+  String(s).toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter((w) => w.length > 3 && !STOP.has(w)),
+);
+
+/** Step 1. A claim is verified when another specialist independently asserts something similar. */
+function verifyEvidence(mine: string[], others: string[][]): number {
+  if (!mine.length) return 0;
+  const pool = others.flat().map(keywords);
+  let hits = 0;
+  for (const claim of mine) {
+    const k = keywords(claim);
+    if (!k.size) continue;
+    const corroborated = pool.some((o) => {
+      let shared = 0;
+      for (const w of k) if (o.has(w)) shared++;
+      return shared >= 2;
+    });
+    if (corroborated) hits++;
   }
-  return [...tally.entries()]
-    .map(([ticker, e]) => ({
-      ticker,
-      votes: e.votes,
-      rankPoints: Number((e.rp / e.votes).toFixed(3)),
-      meanConfidence: Number((e.conf / e.votes).toFixed(2)),
-      theses: e.theses,
-    }))
-    .sort((a, b) => b.votes - a.votes || b.rankPoints - a.rankPoints || a.ticker.localeCompare(b.ticker))
-    .slice(0, limit)
-    .map((p, i) => ({ ...p, rank: i + 1 }));
+  return hits / mine.length;
 }
 
-/** Mean pairwise Jaccard distance between arms' pick sets. Exploratory only. */
-export function disagreementRate(live: ArmResult[]): number | null {
-  const sets = live.map((a) => new Set(a.picks.map((p) => p.ticker)));
+export type Opinion = {
+  arm: string; name: string; specialty: string; verdict: string; confidence: number;
+  verified: number; relevance: number; weight: number;
+  evidence: string[]; risk: string; reasoning: string; revised?: boolean;
+};
+
+export type TickerVerdict = {
+  ticker: string;
+  action: 'BUY' | 'SELL' | 'HOLD';
+  agreement: number;
+  weightedShare: Record<string, number>;
+  votes: number;
+  meanConfidence: number;
+  invest: boolean;
+  debated: boolean;
+  opinions: Opinion[];
+};
+
+/** Steps 1-3: verify, weight, measure. Pure arithmetic, no model involved. */
+export function score(results: ArmResult[], kind: EventKind): TickerVerdict[] {
+  const live = results.filter((r) => r.ok);
+  const tickers = [...new Set(live.flatMap((r) => r.findings.map((f) => f.ticker)))];
+
+  return tickers.map((ticker) => {
+    const rows = live
+      .map((r) => ({ arm: r, finding: r.findings.find((f) => f.ticker === ticker) }))
+      .filter((x) => x.finding) as { arm: ArmResult; finding: Finding }[];
+
+    const opinions: Opinion[] = rows.map(({ arm, finding }) => {
+      const others = rows.filter((x) => x.arm.id !== arm.id).map((x) => x.finding.evidence ?? []);
+      // With no second opinion available, verification is unknown rather than failed.
+      const verified = others.length ? verifyEvidence(finding.evidence ?? [], others) : 0.5;
+      const relevance = ARMS.find((a) => a.id === arm.id)?.relevance[kind] ?? 1;
+      const weight = relevance * (0.5 + 0.5 * verified) * (finding.confidence / 10);
+      return {
+        arm: arm.id, name: arm.name, specialty: arm.specialty,
+        verdict: finding.verdict, confidence: finding.confidence,
+        verified: Number(verified.toFixed(2)), relevance,
+        weight: Number(weight.toFixed(3)),
+        evidence: finding.evidence ?? [], risk: finding.risk, reasoning: finding.reasoning,
+        revised: arm.revised,
+      };
+    });
+
+    const total = opinions.reduce((a, o) => a + o.weight, 0) || 1;
+    const byVerdict: Record<string, number> = { BUY: 0, SELL: 0, HOLD: 0 };
+    for (const o of opinions) byVerdict[o.verdict] += o.weight;
+    const action = Object.entries(byVerdict).sort((a, b) => b[1] - a[1])[0][0] as TickerVerdict['action'];
+    const agreement = byVerdict[action] / total;
+    const votes = opinions.filter((o) => o.verdict === action).length;
+
+    return {
+      ticker, action,
+      agreement: Number(agreement.toFixed(3)),
+      weightedShare: Object.fromEntries(
+        Object.entries(byVerdict).map(([k, v]) => [k, Number((v / total).toFixed(3))]),
+      ),
+      votes,
+      meanConfidence: Number((opinions.reduce((a, o) => a + o.confidence, 0) / opinions.length).toFixed(2)),
+      invest: action === 'BUY' && agreement >= ACT_MIN_AGREEMENT && votes >= ACT_MIN_VOTES,
+      debated: false,
+      opinions,
+    };
+  }).sort((a, b) => b.agreement - a.agreement || a.ticker.localeCompare(b.ticker));
+}
+
+/**
+ * Step 4 trigger. A split is worth debating only when a dissenter's evidence was
+ * actually corroborated; an unsupported outlier is noise, not a credible objection.
+ */
+export const credibleSplit = (v: TickerVerdict) =>
+  v.agreement < AGREEMENT_OK
+  && v.opinions.some((o) => o.verdict !== v.action && o.verified >= 0.5);
+
+/** Step 4 execution: every specialist sees all cases, then may revise. */
+export async function debate(
+  results: ArmResult[], contested: TickerVerdict[], evidence: string, valid: Set<string>,
+): Promise<ArmResult[]> {
+  const table = contested.map((v) => `${v.ticker} - council leaning ${v.action} `
+    + `(agreement ${(v.agreement * 100).toFixed(0)}%)\n`
+    + v.opinions.map((o) => `  ${o.name} [${o.specialty}] says ${o.verdict} (confidence ${o.confidence}): `
+      + `${o.reasoning} | strongest counter: ${o.risk}`).join('\n')).join('\n\n');
+
+  const prompt = `${evidence}
+
+THE COUNCIL DISAGREES. Here is every specialist's position on the contested stocks:
+
+${table}
+
+Reconsider only these tickers: ${contested.map((v) => v.ticker).join(', ')}.
+You have now seen arguments from outside your own specialty. Where another specialist has identified
+something your lens genuinely missed, change your verdict. Where you still disagree, hold your
+position and say why the counter-argument fails. Changing your mind on good evidence is correct
+behaviour, and so is refusing to.`;
+
+  const contestedSet = new Set(contested.map((v) => v.ticker));
+  const run = async (r: ArmResult): Promise<ArmResult> => {
+    if (!r.ok) return r;
+    const arm = ARMS.find((a) => a.id === r.id)!;
+    try {
+      const { object } = await callModel(arm.model, `${arm.role}\n\n${prompt}`);
+      const revisedFindings = object.findings
+        .map((f) => ({ ...f, ticker: f.ticker.toUpperCase() }))
+        .filter((f) => valid.has(f.ticker) && contestedSet.has(f.ticker));
+      // Keep uncontested findings untouched; replace only the debated ones.
+      const kept = r.findings.filter((f) => !contestedSet.has(f.ticker));
+      const changed = revisedFindings.some((f) => {
+        const before = r.findings.find((x) => x.ticker === f.ticker);
+        return before && before.verdict !== f.verdict;
+      });
+      console.error(`  ${r.id} ${r.name}: debate ${changed ? 'CHANGED position' : 'held position'}`);
+      return { ...r, findings: [...kept, ...revisedFindings], revised: changed };
+    } catch (err) {
+      console.error(`  ! ${r.id} debate failed, keeping original: ${(err as Error).message}`);
+      return r;
+    }
+  };
+  if (!FALLBACK) return Promise.all(results.map(run));
+  const out: ArmResult[] = [];
+  for (const r of results) { out.push(await run(r)); await new Promise((rr) => setTimeout(rr, 8000)); }
+  return out;
+}
+
+/** Full pipeline: analyse, score, debate only where the split is credible, rescore. */
+export async function convene(evidence: string, valid: Set<string>, kind: EventKind) {
+  const first = await runSpecialists(evidence, valid);
+  const live = first.filter((r) => r.ok);
+  if (live.length < 2) {
+    return { results: first, verdicts: [] as TickerVerdict[], debated: [] as string[], armsLive: live.length };
+  }
+
+  let verdicts = score(first, kind);
+  const contested = verdicts.filter(credibleSplit);
+  let results = first;
+
+  if (contested.length) {
+    console.error(`  step 4: ${contested.length} credible disagreement(s) -> debate round`);
+    results = await debate(first, contested, evidence, valid);
+    const names = new Set(contested.map((v) => v.ticker));
+    verdicts = score(results, kind).map((v) => (names.has(v.ticker) ? { ...v, debated: true } : v));
+  } else {
+    console.error('  step 4: no credible disagreement, debate skipped');
+  }
+
+  return {
+    results, verdicts,
+    debated: contested.map((v) => v.ticker),
+    armsLive: results.filter((r) => r.ok).length,
+  };
+}
+
+/** Mean pairwise Jaccard distance across specialists' BUY sets. Exploratory only. */
+export function disagreementRate(results: ArmResult[]): number | null {
+  const sets = results.filter((r) => r.ok)
+    .map((r) => new Set(r.findings.filter((f) => f.verdict === 'BUY').map((f) => f.ticker)));
   const js: number[] = [];
   for (let i = 0; i < sets.length; i++) {
     for (let j = i + 1; j < sets.length; j++) {
@@ -157,4 +320,54 @@ export function disagreementRate(live: ArmResult[]): number | null {
     }
   }
   return js.length ? Number((1 - js.reduce((a, b) => a + b, 0) / js.length).toFixed(3)) : null;
+}
+
+// ---------- self-check ----------
+
+if (import.meta.filename === process.argv[1]) {
+  const { strict: assert } = await import('node:assert');
+  const mk = (id: string, verdict: any, confidence: number, evidence: string[]): ArmResult => ({
+    id, model: 'test', name: `M${id}`, specialty: 's', ok: true,
+    findings: [{ ticker: 'AAA', verdict, confidence, evidence, risk: 'r', reasoning: 'x' }],
+  });
+
+  // Unanimous BUY with corroborated evidence must act and must NOT trigger a debate.
+  const agree = score([
+    mk('A', 'BUY', 8, ['insider purchase reported filing']),
+    mk('B', 'BUY', 7, ['insider purchase disclosed filing']),
+    mk('C', 'BUY', 7, ['insider purchase filing']),
+  ], 'filing');
+  assert.equal(agree[0].action, 'BUY');
+  assert.ok(agree[0].agreement > 0.99, `expected consensus, got ${agree[0].agreement}`);
+  assert.equal(agree[0].invest, true);
+  assert.equal(credibleSplit(agree[0]), false);
+
+  // An even split must not act, and must be flagged for debate.
+  const split = score([
+    mk('A', 'BUY', 8, ['revenue growth accelerating strongly']),
+    mk('B', 'HOLD', 8, ['revenue growth accelerating strongly']),
+  ], 'filing');
+  assert.equal(split[0].invest, false, 'a 50/50 split must not auto-invest');
+  assert.equal(credibleSplit(split[0]), true, 'corroborated dissent is credible');
+
+  // A lone dissenter with uncorroborated evidence is noise, not a credible objection.
+  const noise = score([
+    mk('A', 'BUY', 9, ['earnings beat consensus materially']),
+    mk('B', 'BUY', 9, ['earnings beat consensus materially']),
+    mk('C', 'SELL', 2, ['zzzz qqqq wwww']),
+  ], 'filing');
+  assert.equal(noise[0].action, 'BUY');
+  assert.equal(credibleSplit(noise[0]), false, 'unsupported outlier must not force a debate');
+
+  // Specialty relevance must actually move the weighting.
+  const pol = score([mk('C', 'BUY', 8, ['tariff policy change'])], 'policy')[0].opinions[0];
+  const fil = score([mk('C', 'BUY', 8, ['tariff policy change'])], 'filing')[0].opinions[0];
+  assert.ok(pol.weight > fil.weight, 'policy specialist must weigh more on a policy event');
+
+  // SELL never auto-invests, however strong the agreement.
+  const sell = score([mk('A', 'SELL', 9, ['guidance cut']), mk('B', 'SELL', 9, ['guidance cut'])], 'filing');
+  assert.equal(sell[0].action, 'SELL');
+  assert.equal(sell[0].invest, false);
+
+  console.log('council rubric self-checks passed');
 }

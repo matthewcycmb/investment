@@ -102,27 +102,25 @@ export function detailPanel(q: any): string {
     <div class="rng__l"><span>${num(q.w52Low)}</span><b>${q.rangePos.toFixed(0)}% of 52w range</b><span>${num(q.w52High)}</span></div>
   </div>`;
 
-  // Council verdict on this specific stock.
-  const arms: any[] = deliberation?.arms ?? [];
-  const cand = (deliberation?.councilAll ?? deliberation?.council ?? []).find((p: any) => p.ticker === q.ticker);
-  const bought = new Set((deliberation?.council ?? []).map((p: any) => p.ticker)).has(q.ticker);
+  // Council verdict on this specific stock, with the rubric shown.
+  const vd = (deliberation?.verdicts ?? []).find((v: any) => v.ticker === q.ticker);
+  const VC: Record<string, string> = { BUY: 'up', SELL: 'down', HOLD: 'flat' };
   const councilBlock = !deliberation
-    ? `<div class="nil">The council has not met yet.</div>`
-    : !cand
-      ? `<div class="nil">No model selected ${esc(q.ticker)} in the last session.</div>`
-      : `<div class="vd vd--${bought ? 'up' : 'flat'}">
-          <span class="vd__v">${cand.votes}/${arms.filter((a) => a.ok).length || arms.length} models agree</span>
-          <span class="vd__c">confidence ${cand.meanConfidence}</span>
-          <span class="pl pl--${bought ? 'up' : 'flat'}">${bought ? 'BOUGHT' : 'PASSED'}</span>
+    ? '<div class="nil">The council has not met yet.</div>'
+    : !vd
+      ? `<div class="nil">No specialist formed a view on ${esc(q.ticker)} in the last session.</div>`
+      : `<div class="vd vd--${vd.invest ? 'up' : 'flat'}">
+          <span class="vd__v">${esc(vd.action)} · ${(vd.agreement * 100).toFixed(0)}% agreement</span>
+          <span class="vd__c">${vd.votes} of ${(vd.opinions ?? []).length} · confidence ${vd.meanConfidence}${vd.debated ? ' · debated' : ''}</span>
+          <span class="pl pl--${vd.invest ? 'up' : 'flat'}">${vd.invest ? 'BOUGHT' : 'PASSED'}</span>
         </div>` +
-        arms.map((a) => {
-          const t = (cand.theses ?? []).find((x: any) => x.arm === a.id);
-          return `<div class="op ${t ? '' : 'op--no'}">
-            <span class="op__m">${esc(shortModel(a.model))}</span>
-            ${t ? `<span class="op__r">rank #${t.rank}</span><span class="op__c">${t.confidence}/10</span><p>${esc(t.thesis)}</p>`
-                : `<span class="op__r">·</span><p>${a.ok ? 'Did not select this stock.' : 'Model unavailable.'}</p>`}
-          </div>`;
-        }).join('');
+        (vd.opinions ?? []).map((o: any) => `<div class="op">
+          <span class="op__m">${esc(o.name)}</span>
+          <span class="op__r">${esc(o.specialty)}</span>
+          <span class="op__c">${esc(o.verdict)} ${o.confidence}/10 · weight ${o.weight}</span>
+          <p>${esc(o.reasoning)}</p>
+          ${o.risk ? `<p style="opacity:.7">Counter-case: ${esc(o.risk)}</p>` : ''}
+        </div>`).join('');
 
   // Real SEC Form 4 filings for this issuer.
   const insiders = (q.purchases ?? []).length
