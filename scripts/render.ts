@@ -138,8 +138,7 @@ function councilView(d: any): string {
       `<i class="${a.ok ? 'on' : 'off'}" title="${esc(a.specialty)}">${esc(a.name ?? shortModel(a.model))}</i>`).join('')}</span>
     <span class="ses__g">acts at ${Math.round(gate.actMinAgreement * 100)}% agreement &amp; ${gate.actMinVotes}+ votes</span>
   </div>
-  <div class="fml"><b>1</b> evidence quality &nbsp;<b>2</b> expert weighting &nbsp;<b>3</b> agreement level &nbsp;<b>4</b> debate if disagree
-  <code>weight = relevance × (0.5 + 0.5 × verified) × confidence ÷ 10</code></div>`;
+`;
 
   const cards = verdicts.map((v: any, i: number) => {
     const shares = v.weightedShare ?? {};
@@ -159,7 +158,7 @@ function councilView(d: any): string {
       ${o.risk ? `<p class="cnt"><b>Counter-case:</b> ${esc(o.risk)}</p>` : ''}
     </div>`).join('');
 
-    return `<details class="dl" style="--i:${Math.min(i, 14)}"${i === 0 ? ' open' : ''}>
+    return `<details class="dl" style="--i:${Math.min(i, 14)}">
       <summary class="dl__h">
         <span class="tk">${esc(v.ticker)}</span>
         <span class="vb vb--${VERDICT_CLS[v.action] ?? 'flat'}">${esc(v.action)}</span>
@@ -178,19 +177,6 @@ function councilView(d: any): string {
 
   return session + cards;
 }
-
-const decisions: any[] = deliberation?.verdicts ?? [];
-const councilBanner = decisions.length
-  ? `<div class="cb">
-      <div class="cb__h"><b>LATEST COUNCIL DECISION</b><time>${esc(hktStamp(deliberation.ts ?? deliberation.date))}</time></div>
-      <div class="cb__r">${decisions.slice(0, 10).map((v: any) => `<label class="cd cd--${v.invest ? 'up' : 'flat'}" for="t4">
-          <span class="cd__t">${esc(v.ticker)}</span>
-          <span class="cd__v">${esc(v.action)} · ${(v.agreement * 100).toFixed(0)}% agree${v.debated ? ' · debated' : ''}</span>
-          <span class="cd__s">${v.invest ? 'BOUGHT' : 'PASSED'}</span>
-        </label>`).join('')}</div>
-    </div>`
-  : `<div class="cb cb--idle"><div class="cb__h"><b>COUNCIL</b><time>standing by</time></div>
-     <div class="cb__i">No session yet. Four specialists vote the moment a signal qualifies.</div></div>`;
 
 const verdictText = evaluated
   ? ((clustered?.p ?? 1) < 0.05 ? 'BEAT MARKET' : 'NO EDGE')
@@ -282,8 +268,12 @@ background:var(--pn);font:11px var(--mo);color:var(--mu)}
 .ses__m i.off{color:var(--dm);text-decoration:line-through}
 .ses__g{margin-left:auto;color:var(--dm)}
 .dl{border-top:1px solid var(--ln);animation:up .4s both;animation-delay:calc(var(--i)*35ms)}
-.dl__h{display:grid;grid-template-columns:1fr auto auto 78px;gap:10px;align-items:center;
+.dl__h{display:flex;flex-wrap:wrap;gap:9px;align-items:center;
 padding:11px 12px;cursor:pointer;list-style:none}
+.dl__h .dl__v{margin-left:auto}
+.dl__h .pl{flex:none;min-width:74px;text-align:center}
+.dl__h::after{content:'+';font:12px var(--mo);color:var(--dm);width:12px;text-align:center}
+.dl[open] .dl__h::after{content:'−'}
 .dl__h::-webkit-details-marker{display:none}
 .dl__h:hover{background:var(--pn)}
 .dl__v{font:600 12px var(--mo);color:var(--fg)}
@@ -323,20 +313,6 @@ background:rgba(240,185,11,.15);color:var(--am);border:1px solid rgba(240,185,11
 .nil{padding:44px 16px;text-align:center;color:var(--dm);font-size:12.5px;border-top:1px solid var(--ln)}
 footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--ln);color:var(--dm);font-size:10.5px;line-height:1.6}
 footer a{border-bottom:1px solid var(--ln)}
-.cb{border-bottom:1px solid var(--ln);padding:12px 0 13px}
-.cb__h{display:flex;align-items:baseline;gap:9px;margin-bottom:9px}
-.cb__h b{font:700 10px var(--mo);letter-spacing:.11em;color:var(--ac)}
-.cb__h time{font:10.5px var(--mo);color:var(--dm);margin-left:auto}
-.cb__r{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px}
-.cb__i{font-size:12.5px;color:var(--dm)}
-.cd{flex:none;display:grid;gap:2px;padding:9px 12px;border-radius:9px;background:var(--pn);
-border:1px solid var(--ln);cursor:pointer;min-width:150px}
-.cd:hover{background:var(--pn2)}
-.cd--up{border-color:rgba(14,203,129,.4);background:linear-gradient(180deg,rgba(14,203,129,.08),var(--pn))}
-.cd__t{font:700 16px var(--sa);letter-spacing:-.01em}
-.cd__v{font:10.5px var(--mo);color:var(--mu)}
-.cd__s{font:700 9.5px var(--mo);letter-spacing:.07em;margin-top:3px}
-.cd--up .cd__s{color:var(--up)}.cd--flat .cd__s{color:var(--dm)}
 .split{display:grid;grid-template-columns:270px 1fr;align-items:start;border-top:1px solid var(--ln)}
 .wl{background:var(--bg);border-right:1px solid var(--ln);max-height:calc(100vh - 60px);
 overflow-y:auto;overscroll-behavior:contain;position:sticky;top:52px}
@@ -373,8 +349,6 @@ ${DETAIL_CSS}
   <div><b>${pf.openPositions}</b><span>open positions</span></div>
   <div class="${verdictTone}"><b>${verdictText}</b><span>verdict</span></div>
 </div>
-
-${councilBanner}
 
 <input type="radio" name="tab" id="t1" checked><input type="radio" name="tab" id="t2"><input type="radio" name="tab" id="t3"><input type="radio" name="tab" id="t4">
 <nav class="tabs">
