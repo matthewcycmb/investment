@@ -1,6 +1,28 @@
 {
   "events": [
     {
+      "id": "headline:IBM:Jim Cramer Discussed A Surprise For International Business M",
+      "ts": "2026-07-27T09:08:49.299Z",
+      "source": "headline",
+      "title": "Jim Cramer Discussed A Surprise For International Business Machines Corporation (NYSE:IBM) CEO",
+      "url": "https://www.fool.com/investing/2026/07/24/big-banks-cash-in-ibm-crashes-out/?.tsrc=rss",
+      "tickers": [
+        "IBM"
+      ],
+      "detail": "IBM · matched \"ceo\""
+    },
+    {
+      "id": "headline:DLR:Is Digital Realty Trust (DLR) Fully Priced As Higher Guidanc",
+      "ts": "2026-07-27T09:08:49.299Z",
+      "source": "headline",
+      "title": "Is Digital Realty Trust (DLR) Fully Priced As Higher Guidance Lifts Optimism?",
+      "url": "https://finance.yahoo.com/technology/ai/articles/freeport-mcmoran-inc-fcx-digital-104751465.html?.tsrc=rss",
+      "tickers": [
+        "DLR"
+      ],
+      "detail": "DLR · matched \"guidance\""
+    },
+    {
       "id": "shock:IBM:2026-07-24",
       "ts": "2026-07-27T08:12:40.049Z",
       "source": "shock",

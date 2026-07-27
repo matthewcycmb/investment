@@ -1,6 +1,6 @@
 // Shared council runner. Both the weekly study (council.ts) and the live event
 // watcher (watch.ts) call this, so the voting logic exists in exactly one place.
-import { generateObject, generateText } from 'ai';
+import { streamObject, generateText } from 'ai';
 import { z } from 'zod';
 
 export const PICKS_PER_ARM = 8;
@@ -54,6 +54,18 @@ Reply with ONLY a JSON object and nothing else - no prose, no markdown fence:
 {"picks":[{"ticker":"XXX","thesis":"why","confidence":7}]}
 An empty picks array is valid if nothing qualifies.`;
 
+/**
+ * Streamed structured output. Some gateway models (qwen3.6-plus among them) reject
+ * non-streaming requests outright, and streaming is accepted by all of them, so this
+ * is the one call path that works everywhere.
+ */
+async function viaStream(model: string, prompt: string) {
+  const res = streamObject({ model, schema: ArmOutput, temperature: 0, prompt });
+  // The object promise only settles once the stream has been consumed.
+  for await (const _ of res.partialObjectStream) { /* drain */ }
+  return { object: await res.object, usage: await res.usage };
+}
+
 /** Small open models fail strict tool-calling; ask for raw JSON and validate it ourselves. */
 async function viaText(model: string, prompt: string) {
   const { text, usage } = await generateText({ model, prompt: prompt + JSON_INSTRUCTION, temperature: 0 });
@@ -73,7 +85,7 @@ export async function runArms(brief: string, validTickers: Set<string>): Promise
       const prompt = arm.persona ? `${arm.persona}\n\n${brief}` : brief;
       const { object, usage } = FALLBACK
         ? await viaText(arm.model, prompt)
-        : await generateObject({ model: arm.model, schema: ArmOutput, temperature: 0, prompt });
+        : await viaStream(arm.model, prompt);
       const picks = object.picks
         .filter((p) => {
           const ok = validTickers.has(p.ticker.toUpperCase());
