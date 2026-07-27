@@ -1,0 +1,388 @@
+{
+  "events": [
+    {
+      "id": "shock:VRSN:2026-07-24",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "shock",
+      "title": "VRSN moved +7.0% on 2026-07-24",
+      "tickers": [
+        "VRSN"
+      ],
+      "detail": "close 261.58 → 280.00"
+    },
+    {
+      "id": "headline:TECH:Stock Market Today, June 25: Bio-Techne Surges After Merck K",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "headline",
+      "title": "Stock Market Today, June 25: Bio-Techne Surges After Merck KGaA Announces $73-Per-Share Cash Acquisition Offer",
+      "url": "https://finance.yahoo.com/m/82809cc8-4cb9-3f7d-b57f-5d1f5ceab111/germany%27s-merck-kgaa-swoops.html?.tsrc=rss",
+      "tickers": [
+        "TECH"
+      ],
+      "detail": "TECH · matched \"acquisition\""
+    },
+    {
+      "id": "shock:HONA:2026-07-24",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "shock",
+      "title": "HONA moved +4.2% on 2026-07-24",
+      "tickers": [
+        "HONA"
+      ],
+      "detail": "close 195.87 → 204.07"
+    },
+    {
+      "id": "headline:CME:CME Q2 Earnings Beat Estimates on Record Market Data Growth",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "headline",
+      "title": "CME Q2 Earnings Beat Estimates on Record Market Data Growth",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/cme-group-cme-earnings-land-141510518.html?.tsrc=rss",
+      "tickers": [
+        "CME"
+      ],
+      "detail": "CME · matched \"earnings beat\""
+    },
+    {
+      "id": "shock:ADBE:2026-07-24",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "shock",
+      "title": "ADBE moved +6.1% on 2026-07-24",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "close 212.17 → 225.11"
+    },
+    {
+      "id": "headline:IBKR:IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase ",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "headline",
+      "title": "IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase Y/Y",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ibkr-q2-earnings-call-shows-140000054.html?.tsrc=rss",
+      "tickers": [
+        "IBKR"
+      ],
+      "detail": "IBKR · matched \"earnings beat\""
+    },
+    {
+      "id": "headline:CASY:CEOs Sell Millions Worth of These 3 Big Name Stocks—What It ",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "headline",
+      "title": "CEOs Sell Millions Worth of These 3 Big Name Stocks—What It Means for Investors",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sector-consumer-stocks-mixed-afternoon-194146975.html?.tsrc=rss",
+      "tickers": [
+        "CASY"
+      ],
+      "detail": "CASY · matched \"ceo\""
+    },
+    {
+      "id": "headline:CASY:ASML Holding N.V. Upgraded, Super Micro Computer Downgraded:",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "headline",
+      "title": "ASML Holding N.V. Upgraded, Super Micro Computer Downgraded: Updated Rankings on Top Blue-Chip Stocks",
+      "url": "https://finance.yahoo.com/m/805d04f1-5261-3e7f-96a2-9ac04e6eca98/casey%E2%80%99s%2C-costco%2C-and-other.html?.tsrc=rss",
+      "tickers": [
+        "CASY"
+      ],
+      "detail": "CASY · matched \"downgrade\""
+    },
+    {
+      "id": "headline:SPG:This Mall REIT Yields Over 4% And Is Up More Than 21% This Y",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "headline",
+      "title": "This Mall REIT Yields Over 4% And Is Up More Than 21% This Year, Wall Street Just Downgraded It Anyway",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/simon-property-group-spg-downgraded-051053648.html?.tsrc=rss",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · matched \"downgrade\""
+    },
+    {
+      "id": "filing:MCK:0000927653",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "filing",
+      "title": "McKesson Corporation filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000927653&type=8-K",
+      "tickers": [
+        "MCK"
+      ],
+      "detail": "MCK · Health Care"
+    },
+    {
+      "id": "filing:STZ:0000016918",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "filing",
+      "title": "Constellation Brands filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000016918&type=8-K",
+      "tickers": [
+        "STZ"
+      ],
+      "detail": "STZ · Consumer Staples"
+    },
+    {
+      "id": "filing:EL:0001001250",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "filing",
+      "title": "Estée Lauder Companies (The) filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001001250&type=8-K",
+      "tickers": [
+        "EL"
+      ],
+      "detail": "EL · Consumer Staples"
+    },
+    {
+      "id": "filing:MCHP:0000827054",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "filing",
+      "title": "Microchip Technology filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000827054&type=8-K",
+      "tickers": [
+        "MCHP"
+      ],
+      "detail": "MCHP · Information Technology"
+    },
+    {
+      "id": "filing:CPAY:0001175454",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "filing",
+      "title": "Corpay filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001175454&type=8-K",
+      "tickers": [
+        "CPAY"
+      ],
+      "detail": "CPAY · Financials"
+    },
+    {
+      "id": "filing:TRV:0000086312",
+      "ts": "2026-07-27T08:04:58.575Z",
+      "source": "filing",
+      "title": "Travelers Companies (The) filed an 8-K (material corporate event)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000086312&type=8-K",
+      "tickers": [
+        "TRV"
+      ],
+      "detail": "TRV · Financials"
+    },
+    {
+      "id": "policy:2026-15117",
+      "ts": "2026-07-27",
+      "source": "policy",
+      "title": "Modernizing Package Certification Requirements",
+      "url": "https://www.federalregister.gov/documents/2026/07/27/2026-15117/modernizing-package-certification-requirements",
+      "tickers": [
+        "AES",
+        "LNT",
+        "AEE",
+        "AEP",
+        "AWK",
+        "ATO",
+        "CNP",
+        "CMS",
+        "ED",
+        "CEG",
+        "D",
+        "DTE",
+        "DUK",
+        "EIX",
+        "ETR",
+        "EVRG",
+        "ES",
+        "EXC",
+        "FE",
+        "NEE",
+        "NI",
+        "NRG",
+        "PCG",
+        "PNW",
+        "PPL",
+        "PEG",
+        "SRE",
+        "SO",
+        "VST",
+        "WEC",
+        "XEL"
+      ],
+      "detail": "Proposed Rule · Nuclear Regulatory Commission · sectors: Utilities"
+    },
+    {
+      "id": "policy:2026-15120",
+      "ts": "2026-07-27",
+      "source": "policy",
+      "title": "Review of Submarine Cable Landing License Rules and Procedures To Assess Evolving National Security, Law Enforcement, Foreign Policy, and Trade Policy Risks",
+      "url": "https://www.federalregister.gov/documents/2026/07/27/2026-15120/review-of-submarine-cable-landing-license-rules-and-procedures-to-assess-evolving-national-security",
+      "tickers": [
+        "MMM",
+        "AOS",
+        "ALLE",
+        "AME",
+        "ADP",
+        "AXON",
+        "BA",
+        "BR",
+        "BLDR",
+        "CHRW",
+        "CARR",
+        "CAT",
+        "CTAS",
+        "FIX",
+        "CPRT",
+        "CSX",
+        "CMI",
+        "DE",
+        "DAL",
+        "DOV",
+        "ETN",
+        "EME",
+        "EMR",
+        "EFX",
+        "EXPD",
+        "FAST",
+        "FDX",
+        "FDXF",
+        "FTV",
+        "GE",
+        "GEV",
+        "GNRC",
+        "GD",
+        "HONA",
+        "HON",
+        "HWM",
+        "HUBB",
+        "HII",
+        "IEX",
+        "ITW",
+        "IR",
+        "JBHT",
+        "J",
+        "JCI",
+        "LHX",
+        "LDOS",
+        "LII",
+        "LMT",
+        "MAS",
+        "NDSN",
+        "NSC",
+        "NOC",
+        "ODFL",
+        "OTIS",
+        "PCAR",
+        "PH",
+        "PAYX",
+        "PNR",
+        "PWR",
+        "RTX"
+      ],
+      "detail": "Proposed Rule · Federal Communications Commission · sectors: Industrials"
+    },
+    {
+      "id": "policy:2026-15123",
+      "ts": "2026-07-27",
+      "source": "policy",
+      "title": "Review of Submarine Cable Landing License Rules and Procedures To Assess Evolving National Security, Law Enforcement, Foreign Policy, and Trade Policy Risks",
+      "url": "https://www.federalregister.gov/documents/2026/07/27/2026-15123/review-of-submarine-cable-landing-license-rules-and-procedures-to-assess-evolving-national-security",
+      "tickers": [
+        "MMM",
+        "AOS",
+        "ALLE",
+        "AME",
+        "ADP",
+        "AXON",
+        "BA",
+        "BR",
+        "BLDR",
+        "CHRW",
+        "CARR",
+        "CAT",
+        "CTAS",
+        "FIX",
+        "CPRT",
+        "CSX",
+        "CMI",
+        "DE",
+        "DAL",
+        "DOV",
+        "ETN",
+        "EME",
+        "EMR",
+        "EFX",
+        "EXPD",
+        "FAST",
+        "FDX",
+        "FDXF",
+        "FTV",
+        "GE",
+        "GEV",
+        "GNRC",
+        "GD",
+        "HONA",
+        "HON",
+        "HWM",
+        "HUBB",
+        "HII",
+        "IEX",
+        "ITW",
+        "IR",
+        "JBHT",
+        "J",
+        "JCI",
+        "LHX",
+        "LDOS",
+        "LII",
+        "LMT",
+        "MAS",
+        "NDSN",
+        "NSC",
+        "NOC",
+        "ODFL",
+        "OTIS",
+        "PCAR",
+        "PH",
+        "PAYX",
+        "PNR",
+        "PWR",
+        "RTX"
+      ],
+      "detail": "Rule · Federal Communications Commission · sectors: Industrials"
+    },
+    {
+      "id": "policy:2026-15145",
+      "ts": "2026-07-27",
+      "source": "policy",
+      "title": "Modernizing Reactor Licensing, Safety Oversight, and Siting Practices; Correction",
+      "url": "https://www.federalregister.gov/documents/2026/07/27/2026-15145/modernizing-reactor-licensing-safety-oversight-and-siting-practices-correction",
+      "tickers": [
+        "AES",
+        "LNT",
+        "AEE",
+        "AEP",
+        "AWK",
+        "ATO",
+        "CNP",
+        "CMS",
+        "ED",
+        "CEG",
+        "D",
+        "DTE",
+        "DUK",
+        "EIX",
+        "ETR",
+        "EVRG",
+        "ES",
+        "EXC",
+        "FE",
+        "NEE",
+        "NI",
+        "NRG",
+        "PCG",
+        "PNW",
+        "PPL",
+        "PEG",
+        "SRE",
+        "SO",
+        "VST",
+        "WEC",
+        "XEL"
+      ],
+      "detail": "Proposed Rule · Nuclear Regulatory Commission · sectors: Utilities"
+    }
+  ]
+}

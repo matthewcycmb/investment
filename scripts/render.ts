@@ -8,6 +8,12 @@ const N_TARGET = 100;
 const REPO = (process.env.REPO_URL ?? '').replace(/\/$/, '');
 const outcomes = readJSON<any>(`${ROOT}data/outcomes.json`, { positions: [], counts: { closed: 0, open: 0, pending: 0 } });
 const positions: any[] = outcomes.positions ?? [];
+const eventLog = readJSON<any>(`${ROOT}data/events.json`, { events: [] }).events ?? [];
+const watchState = readJSON<any>(`${ROOT}data/watch-state.json`, { councilRuns: {} });
+const livePositions = positions.filter((p) => p.study === false && p.status !== 'pending')
+  .sort((a, b) => String(b.pickDate).localeCompare(String(a.pickDate)));
+const todayKey = new Date().toISOString().slice(0, 10);
+const ARM_COUNT = ['ARM_A','ARM_B','ARM_C','ARM_D'].filter((v) => process.env[v] !== 'off').length;
 
 const esc = (s: unknown) =>
   String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
@@ -15,8 +21,9 @@ const pctStr = (x: number | null | undefined) =>
   x == null ? '—' : `${x >= 0 ? '+' : ''}${(x * 100).toFixed(2)}%`;
 const cls = (x: number | null | undefined) => (x == null ? '' : x >= 0 ? 'pos' : 'neg');
 
+// study !== false keeps older records (written before the live feed existed) counted.
 const closedOf = (arm: string) =>
-  positions.filter((p) => p.arm === arm && p.status === 'closed')
+  positions.filter((p) => p.study !== false && p.arm === arm && p.status === 'closed')
     .sort((a, b) => a.exitDate.localeCompare(b.exitDate) || a.ticker.localeCompare(b.ticker));
 
 const council = closedOf('council');
@@ -83,6 +90,7 @@ const allCouncil = positions
 
 const html = `<title>AI Stock Council — Pre-Registered Forward Test</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="60">
 <style>
   :root { color-scheme: light dark; --bg:#fff; --fg:#16181d; --mut:#6b7280; --line:#e5e7eb; --card:#f7f8fa; --pos:#0a7f4f; --neg:#c0392b; --accent:#2563eb; }
   @media (prefers-color-scheme: dark) { :root { --bg:#0f1115; --fg:#e6e8ec; --mut:#9aa1ab; --line:#262a33; --card:#171a21; --pos:#3ddc91; --neg:#ff6b5e; --accent:#7aa2ff; } }
@@ -109,6 +117,15 @@ const html = `<title>AI Stock Council — Pre-Registered Forward Test</title>
   .bar { height:8px; background:var(--line); border-radius:99px; overflow:hidden; margin-top:.6rem; }
   .bar > i { display:block; height:100%; background:var(--accent); }
   a { color:var(--accent); }
+  .feed { list-style:none; padding:0; margin:0; }
+  .feed li { display:flex; gap:.7rem; align-items:baseline; padding:.55rem 0; border-bottom:1px solid var(--line); font-size:.9rem; }
+  .badge { flex:none; font-size:.68rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:.15rem .45rem; border-radius:4px; background:var(--line); color:var(--fg); }
+  .badge.policy { background:#7c3aed; color:#fff; } .badge.filing { background:#2563eb; color:#fff; }
+  .badge.headline { background:#0a7f4f; color:#fff; } .badge.shock { background:#c0392b; color:#fff; }
+  .feed .when { flex:none; color:var(--mut); font-size:.78rem; font-variant-numeric:tabular-nums; }
+  .stats { display:flex; flex-wrap:wrap; gap:1.5rem; }
+  .stat b { display:block; font-size:1.5rem; line-height:1.2; letter-spacing:-.02em; }
+  .stat span { color:var(--mut); font-size:.8rem; }
   footer { margin-top:3rem; padding-top:1.25rem; border-top:1px solid var(--line); color:var(--mut); font-size:.85rem; }
 </style>
 
@@ -135,7 +152,36 @@ Positions are simulated. <strong>Losing picks are shown alongside winning ones.<
 <h2>Running mean excess return vs SPY</h2>
 ${chart(council.map((p) => p.excess))}
 
-<h2>Council picks</h2>
+<h2>Live system <span class="muted" style="font-weight:400;font-size:.85rem">— checks every 5 minutes</span></h2>
+<div class="card">
+  <div class="stats">
+    <div class="stat"><b>${eventLog.length}</b><span>events detected</span></div>
+    <div class="stat"><b>${eventLog.filter((e: any) => String(e.ts).slice(0, 10) === todayKey).length}</b><span>today</span></div>
+    <div class="stat"><b>${watchState.councilRuns?.[todayKey] ?? 0}</b><span>council runs today</span></div>
+    <div class="stat"><b>${livePositions.length}</b><span>auto-invested positions</span></div>
+  </div>
+  <p class="muted" style="margin:.9rem 0 0">Pipeline: policy + SEC filings + headlines + price shocks &rarr; materiality filter &rarr;
+  ${ARM_COUNT}-model council vote &rarr; auto-invest when ${'\u2265'}2 models agree at confidence ${'\u2265'}7.
+  Live positions are <strong>excluded</strong> from the pre-registered test above.</p>
+</div>
+
+${livePositions.length ? `<h3 style="font-size:1rem;margin:1.5rem 0 .5rem">Positions the system opened by itself</h3>
+<div class="scroll"><table>
+<thead><tr><th>Opened</th><th>Ticker</th><th>Entry</th><th>Entry $</th><th>Exit $</th><th>Return</th><th>vs SPY</th></tr></thead>
+<tbody>${positionRows(livePositions)}</tbody>
+</table></div>` : ''}
+
+<h3 style="font-size:1rem;margin:1.5rem 0 .5rem">Event feed</h3>
+<ul class="feed">
+${eventLog.slice(0, 25).map((e: any) => `<li>
+  <span class="badge ${esc(e.source)}">${esc(e.source)}</span>
+  <span class="when">${esc(String(e.ts).slice(5, 16).replace('T', ' '))}</span>
+  <span>${e.url ? `<a href="${esc(e.url)}" rel="noopener">${esc(e.title)}</a>` : esc(e.title)}
+    ${e.detail ? `<br><span class="muted" style="font-size:.8rem">${esc(e.detail)}</span>` : ''}</span>
+</li>`).join('') || '<li class="muted">No events detected yet. Run <code>npm run watch</code>.</li>'}
+</ul>
+
+<h2>Council picks <span class="muted" style="font-weight:400;font-size:.85rem">— weekly pre-registered study</span></h2>
 <div class="scroll"><table>
 <thead><tr><th>Picked</th><th>Ticker</th><th>Entry</th><th>Entry $</th><th>Exit $</th><th>Return</th><th>vs SPY</th></tr></thead>
 <tbody>${positionRows(allCouncil)}</tbody>

@@ -62,8 +62,13 @@ if (process.argv.includes('--selfcheck')) {
 
 // ---------- settle ----------
 
-const pickDir = `${ROOT}data/picks`;
-const files = lsJSON(pickDir);
+// Study picks and live event-driven picks are settled with identical arithmetic,
+// but tagged so the pre-registered test can count ONLY the study picks.
+const sources = [
+  { dir: `${ROOT}data/picks`, study: true },
+  { dir: `${ROOT}data/live`, study: false },
+];
+const files = sources.flatMap((s) => lsJSON(s.dir).map((f) => ({ path: `${s.dir}/${f}`, study: s.study })));
 if (!files.length) { console.log('no picks yet'); process.exit(0); }
 
 const spy = await bars('SPY', '2y');
@@ -74,9 +79,10 @@ const positions: any[] = [];
 let closed = 0, open = 0, pending = 0;
 
 for (const f of files) {
-  const pick = readJSON<any>(`${pickDir}/${f}`, null);
+  const pick = readJSON<any>(f.path, null);
   if (!pick) continue;
   const pickDate = pick.date;
+  const horizon = pick.horizonTradingDays ?? HORIZON;
 
   // Every arm is settled: Council is the primary test, A/B/C are exploratory.
   const entries: { arm: string; ticker: string; rank: number }[] = [
@@ -92,8 +98,8 @@ for (const f of files) {
     const series = seriesCache.get(e.ticker)!;
     if (!series.length) continue;
 
-    const r = resolve(series, pickDate);
-    const base = { arm: e.arm, pickDate, ticker: e.ticker, rank: e.rank, weekKey: weekKey(pickDate) };
+    const r = resolve(series, pickDate, horizon);
+    const base = { arm: e.arm, study: f.study, horizon, pickDate, ticker: e.ticker, rank: e.rank, weekKey: weekKey(pickDate) };
 
     if (r.status === 'pending') { pending++; positions.push({ ...base, status: 'pending' }); continue; }
 
@@ -138,6 +144,7 @@ writeJSON(`${ROOT}data/outcomes.json`, {
   positions,
 });
 
-const councilClosed = positions.filter((p) => p.arm === 'council' && p.status === 'closed').length;
-console.log(`settled: ${closed} closed, ${open} open, ${pending} pending`);
+const councilClosed = positions.filter((p) => p.study && p.arm === 'council' && p.status === 'closed').length;
+const liveOpen = positions.filter((p) => !p.study && p.status === 'open').length;
+console.log(`settled: ${closed} closed, ${open} open, ${pending} pending (${liveOpen} live event-driven open)`);
 console.log(`council closed picks: ${councilClosed}/100 toward the pre-registered evaluation`);

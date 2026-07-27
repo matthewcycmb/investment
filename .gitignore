@@ -8,3 +8,6 @@ public/index.html
 
 # Local Form 4 XML parse cache. Rebuildable from EDGAR; not part of the record.
 data/form4-cache.json
+
+# Local watcher runtime state (rebuildable; would churn the audit trail if tracked).
+data/watch-state.json

@@ -10,7 +10,12 @@
     "council": "node scripts/council.ts",
     "settle": "node scripts/settle.ts",
     "render": "node scripts/render.ts",
-    "selfcheck": "node scripts/lib.ts"
+    "selfcheck": "node scripts/lib.ts",
+    "watch": "node scripts/watch.ts",
+    "watch:once": "node scripts/watch.ts && node scripts/settle.ts && node scripts/render.ts",
+    "watch:loop": "while true; do npm run --silent watch:once; echo '--- next check in 5 min ---'; sleep 300; done",
+    "demo": "node scripts/watch.ts --force && node scripts/settle.ts && node scripts/render.ts",
+    "models": "node scripts/council.ts --models"
   },
   "dependencies": {
     "ai": "^6.0.0",
