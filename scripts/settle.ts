@@ -80,8 +80,8 @@ for (const f of files) {
 
   // Every arm is settled: Council is the primary test, A/B/C are exploratory.
   const entries: { arm: string; ticker: string; rank: number }[] = [
-    ...pick.council.map((p: any) => ({ arm: 'council', ticker: p.ticker, rank: p.rank })),
-    ...pick.arms.flatMap((a: any) => a.picks.map((p: any) => ({ arm: a.id, ticker: p.ticker, rank: p.rank }))),
+    ...(pick.council ?? []).map((p: any) => ({ arm: 'council', ticker: p.ticker, rank: p.rank })),
+    ...(pick.arms ?? []).flatMap((a: any) => (a.picks ?? []).map((p: any) => ({ arm: a.id, ticker: p.ticker, rank: p.rank }))),
   ];
 
   for (const e of entries) {

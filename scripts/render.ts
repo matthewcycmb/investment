@@ -4,6 +4,8 @@ import { readJSON, writeJSON, ROOT, tTestNaive, tTestClustered } from './lib.ts'
 import { writeFileSync, mkdirSync } from 'node:fs';
 
 const N_TARGET = 100;
+// Public repo URL, used for the audit-trail links. Set REPO_URL in CI/Vercel env.
+const REPO = (process.env.REPO_URL ?? '').replace(/\/$/, '');
 const outcomes = readJSON<any>(`${ROOT}data/outcomes.json`, { positions: [], counts: { closed: 0, open: 0, pending: 0 } });
 const positions: any[] = outcomes.positions ?? [];
 
@@ -158,9 +160,11 @@ ${[councilSummary, ...armSummary].map((s) => `<tr>
 <footer>
 <p><strong>Simulated positions only.</strong> No money is invested, no orders are placed, no brokerage account is
 involved, and no funds are accepted from anyone. Nothing here is investment advice.</p>
-<p>Method, hypothesis, and failure commitment are fixed in
-<a href="https://github.com/">PREREGISTRATION.md</a>, committed before any pick-generating code existed.
-The git history is the audit trail.</p>
+<p>Method, hypothesis, and failure commitment are fixed in ${REPO
+  ? `<a href="${esc(REPO)}/blob/main/PREREGISTRATION.md">PREREGISTRATION.md</a>`
+  : '<code>PREREGISTRATION.md</code>'}, committed before any pick-generating code existed.
+${REPO ? `The <a href="${esc(REPO)}/commits/main/data/picks">commit history of every pick</a> is the audit trail.`
+       : 'The git history is the audit trail.'}</p>
 </footer>
 </main>
 `;

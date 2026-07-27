@@ -26,6 +26,14 @@ jobs:
           cache: npm
       - run: npm ci
 
+      # EDGAR Form 4 XML parse cache. Without it every run refetches thousands
+      # of filings; with it only the week's new filings are fetched.
+      - uses: actions/cache@v4
+        with:
+          path: data/form4-cache.json
+          key: form4-${{ github.run_id }}
+          restore-keys: form4-
+
       # Fail loudly before spending tokens if the maths is broken.
       - name: Self-checks
         run: |
@@ -44,6 +52,8 @@ jobs:
         run: node scripts/council.ts
 
       - name: Settle and render
+        env:
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
         run: |
           node scripts/settle.ts
           node scripts/render.ts

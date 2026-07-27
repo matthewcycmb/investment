@@ -31,6 +31,8 @@ jobs:
           node scripts/settle.ts --selfcheck
 
       - name: Settle and render
+        env:
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
         run: |
           node scripts/settle.ts
           node scripts/render.ts
