@@ -73,11 +73,27 @@ not a result of this one.
 dated. Constituents are not updated mid-study.
 
 **Screen.** Fully mechanical, no human selection. Weekly, each universe ticker is scored on:
-1. Insider cluster buying — ≥2 distinct insiders filing Form 4 open-market purchases within 30 days
-2. Abnormal news volume relative to that ticker's trailing baseline
 
-The top ~20 by score become candidates. The screen code is committed and changes to it are visible
-in git history. **No ticker is ever added or removed by hand.**
+1. **Insider cluster buying.** Count of *distinct* reporting owners who filed a Form 4 containing a
+   `transactionCode` of `P` (open-market purchase) with a `transactionDate` in the trailing 35
+   days. Codes `A` (grant), `M` (option exercise), `F` (tax withholding) and `S` (sale) are
+   excluded — only genuine open-market buying counts. Score contribution: `2 × distinct_buyers`.
+
+2. **Abnormal disclosure volume.** Count of `8-K` filings by the issuer in the trailing 35 days,
+   divided by that issuer's mean 35-day 8-K rate over the trailing 365 days. Score contribution:
+   `min(ratio, 3)`. 8-K filings are the SEC-mandated disclosure of material corporate events and
+   are used here as a free, auditable proxy for news flow.
+
+Total score = (1) + (2). The top 20 by score become candidates; ties broken by ticker alphabetically.
+Tickers with zero insider purchases **and** a disclosure ratio below 1.0 are never eligible.
+
+*Operationalisation note: components (1) and (2) were specified in prose in the initial commit and
+made numerically exact in this amendment. The amendment is dated before any screen code was written
+and before any pick or price data existed in this repository — verify with `git log`. No further
+changes to the screen definition will be made once the first pick is committed.*
+
+The screen code is committed and changes to it are visible in git history. **No ticker is ever added
+or removed by hand.**
 
 **Arms.** All four arms receive identical candidate briefs in a single call each week:
 
