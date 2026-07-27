@@ -137,10 +137,13 @@ function councilView(d: any): string {
     <span class="ses__m">${specialists.map((a: any) =>
       `<i class="${a.ok ? 'on' : 'off'}" title="${esc(a.specialty)}">${esc(a.name ?? shortModel(a.model))}</i>`).join('')}</span>
     <span class="ses__g">acts at ${Math.round(gate.actMinAgreement * 100)}% agreement &amp; ${gate.actMinVotes}+ votes</span>
-  </div>`;
+  </div>
+  <div class="fml"><b>1</b> evidence quality &nbsp;<b>2</b> expert weighting &nbsp;<b>3</b> agreement level &nbsp;<b>4</b> debate if disagree
+  <code>weight = relevance × (0.5 + 0.5 × verified) × confidence ÷ 10</code></div>`;
 
   const cards = verdicts.map((v: any, i: number) => {
     const shares = v.weightedShare ?? {};
+    const tot = (v.opinions ?? []).reduce((a: number, o: any) => a + o.weight, 0) || 1;
     const bar = ['BUY', 'HOLD', 'SELL'].filter((k) => (shares[k] ?? 0) > 0.001)
       .map((k) => `<i class="sh sh--${VERDICT_CLS[k]}" style="width:${((shares[k] ?? 0) * 100).toFixed(1)}%" title="${k} ${(shares[k] * 100).toFixed(0)}%"></i>`).join('');
 
@@ -165,6 +168,10 @@ function councilView(d: any): string {
         <span class="pl pl--${v.invest ? 'up' : 'flat'}">${v.invest ? 'BOUGHT' : 'PASSED'}</span>
       </summary>
       <div class="shb">${bar}</div>
+      <div class="sum">${['BUY', 'HOLD', 'SELL'].filter((k) => (shares[k] ?? 0) > 0.001).map((k) => {
+        const w = (v.opinions ?? []).filter((o: any) => o.verdict === k).reduce((a: number, o: any) => a + o.weight, 0);
+        return `<span><b class="${VERDICT_CLS[k]}">${k}</b> ${w.toFixed(2)} / ${tot.toFixed(2)} = ${((shares[k] ?? 0) * 100).toFixed(0)}%</span>`;
+      }).join('')}<span class="sum__d">step 4: ${(v.agreement * 100).toFixed(0)}% vs 75% bar &rarr; ${v.debated ? 'debated, re-voted' : 'no debate'}</span></div>
       <div class="ops">${ops}</div>
     </details>`;
   }).join('');
@@ -291,6 +298,13 @@ padding:11px 12px;cursor:pointer;list-style:none}
 .op__x{margin:5px 0 0;font-size:12px;line-height:1.45;color:var(--mu)}
 .op--yes .op__x{color:var(--fg)}
 @media(max-width:600px){.ops{grid-template-columns:1fr}.dl__h{grid-template-columns:1fr auto 70px}.dl__c{display:none}}
+.fml{padding:8px 12px;border-top:1px solid var(--ln);font:10.5px var(--mo);color:var(--dm);
+display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;background:var(--pn)}
+.fml b{color:var(--ac);font-weight:700}
+.fml code{color:var(--mu);margin-left:auto;font-size:10px}
+.sum{display:flex;flex-wrap:wrap;gap:14px;padding:0 12px 9px;font:10.5px var(--mo);color:var(--mu)}
+.sum b{font-weight:700}
+.sum__d{margin-left:auto;color:var(--dm)}
 .vb{font:700 9.5px var(--mo);letter-spacing:.06em;padding:3px 6px;border-radius:4px;color:#fff}
 .vb--up{background:var(--up)}.vb--down{background:var(--dn)}.vb--flat{background:#39404d}
 .dbt{font:700 9px var(--mo);letter-spacing:.07em;padding:3px 6px;border-radius:4px;
