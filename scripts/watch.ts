@@ -317,6 +317,7 @@ ${priced.join('\n')}`;
       specialists: results.map((r) => ({
         id: r.id, model: r.model, name: r.name, specialty: r.specialty,
         ok: r.ok, error: r.error ?? null, latencyMs: r.latencyMs, revised: r.revised ?? false,
+        usage: r.usage ?? null,
         findings: r.findings,
       })),
       verdicts,
