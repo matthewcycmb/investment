@@ -44,14 +44,14 @@ export type EventKind = 'policy' | 'filing' | 'headline' | 'shock' | 'mixed';
 export const FALLBACK = process.env.COUNCIL_FALLBACK === '1';
 
 type Arm = {
-  id: string; model: string; name: string; specialty: string; role: string;
+  id: string; model: string; name: string; role_title: string; specialty: string; role: string;
   /** Relevance multiplier by event kind. A policy expert counts for more on policy. */
   relevance: Record<EventKind, number>;
 };
 
 const SPECIALISTS: Arm[] = [
   {
-    id: 'A', model: process.env.ARM_A ?? 'anthropic/claude-opus-5', name: 'Claude Opus 5',
+    id: 'A', model: process.env.ARM_A ?? 'anthropic/claude-opus-5', name: 'Claude Opus 5', role_title: 'The Analyst',
     specialty: 'Fundamentals, accounting, valuation and earnings impact',
     role: 'You are the FUNDAMENTALS analyst. Judge only on business economics: revenue and margin '
       + 'impact, balance sheet, cash flow, accounting quality, valuation versus history, and how the '
@@ -59,8 +59,8 @@ const SPECIALISTS: Arm[] = [
     relevance: { filing: 1.5, policy: 1.0, headline: 1.0, shock: 0.9, mixed: 1.2 },
   },
   {
-    id: 'B', model: process.env.ARM_B ?? 'openai/gpt-5.6-sol', name: 'ChatGPT 5.6 Sol',
-    specialty: 'Causal reasoning, source verification and adversarial counter-case',
+    id: 'B', model: process.env.ARM_B ?? 'openai/gpt-5.6-sol', name: 'ChatGPT 5.6 Sol', role_title: 'The Auditor',
+    specialty: 'Evidence verification and causal reasoning',
     role: 'You are the VERIFIER. Test whether the evidence actually supports the conclusion, in '
       + 'either direction: check that the claimed cause drives the price rather than coinciding with '
       + 'it, and that the move is not already priced in. State the strongest counter-case to whatever '
@@ -68,16 +68,16 @@ const SPECIALISTS: Arm[] = [
     relevance: { headline: 1.5, shock: 1.3, filing: 1.0, policy: 1.0, mixed: 1.2 },
   },
   {
-    id: 'C', model: process.env.ARM_C ?? 'alibaba/qwen3.7-max', name: 'Qwen 3.7 Max',
-    specialty: 'China and Hong Kong context, policy and market sentiment',
+    id: 'C', model: process.env.ARM_C ?? 'alibaba/qwen3.7-max', name: 'Qwen 3.7 Max', role_title: 'The Strategist',
+    specialty: 'Policy, market sentiment and China/Hong Kong exposure',
     role: 'You are the POLICY and SENTIMENT analyst, with particular depth on China and Hong Kong '
       + 'exposure. Judge regulatory direction, supply chain and trade policy, and how positioning and '
       + 'sentiment are likely to shift. Flag policy risk the others would miss.',
     relevance: { policy: 1.5, headline: 1.1, filing: 0.9, shock: 1.0, mixed: 1.2 },
   },
   {
-    id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k3', name: 'Kimi K3',
-    specialty: 'Long-document synthesis and second-order consequences',
+    id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k3', name: 'Kimi K3', role_title: 'The Forecaster',
+    specialty: 'Second-order consequences and long-document synthesis',
     role: 'You are the SECOND-ORDER analyst. Synthesise across everything provided and reason about '
       + 'knock-on effects: suppliers, customers, competitors, substitutes, and what the market has not '
       + 'yet priced. Say explicitly what happens next, not just what happened.',
@@ -103,7 +103,7 @@ export const Analysis = z.object({
 
 export type Finding = z.infer<typeof Analysis>['findings'][number];
 export type ArmResult = {
-  id: string; model: string; name: string; specialty: string;
+  id: string; model: string; name: string; role_title?: string; specialty: string;
   ok: boolean; error?: string | null; latencyMs?: number; usage?: unknown;
   findings: Finding[]; revised?: boolean;
 };
@@ -151,7 +151,7 @@ async function callModel(model: string, prompt: string) {
 export async function runSpecialists(evidence: string, valid: Set<string>): Promise<ArmResult[]> {
   const run = async (arm: Arm): Promise<ArmResult> => {
     const t0 = Date.now();
-    const base = { id: arm.id, model: arm.model, name: arm.name, specialty: arm.specialty };
+    const base = { id: arm.id, model: arm.model, name: arm.name, role_title: arm.role_title, specialty: arm.specialty };
     try {
       const { object, usage } = await withTimeout(
         callModel(arm.model, `${arm.role}\n\n${evidence}`), SPECIALIST_TIMEOUT_MS, arm.name);
@@ -198,7 +198,7 @@ function verifyEvidence(mine: string[], others: string[][]): number {
 }
 
 export type Opinion = {
-  arm: string; name: string; specialty: string; verdict: string; confidence: number;
+  arm: string; name: string; roleTitle?: string; specialty: string; verdict: string; confidence: number;
   verified: number; relevance: number; weight: number;
   evidence: string[]; risk: string; reasoning: string; revised?: boolean;
 };
@@ -234,7 +234,7 @@ export function score(results: ArmResult[], kind: EventKind): TickerVerdict[] {
       const relevance = ARMS.find((a) => a.id === arm.id)?.relevance[kind] ?? 1;
       const weight = relevance * (0.5 + 0.5 * verified) * (finding.confidence / 10);
       return {
-        arm: arm.id, name: arm.name, specialty: arm.specialty,
+        arm: arm.id, name: arm.name, roleTitle: arm.role_title, specialty: arm.specialty,
         verdict: finding.verdict, confidence: finding.confidence,
         verified: Number(verified.toFixed(2)), relevance,
         weight: Number(weight.toFixed(3)),

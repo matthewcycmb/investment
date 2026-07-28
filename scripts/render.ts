@@ -137,7 +137,7 @@ function councilView(d: any): string {
   const session = `<div class="ses">
     <span class="ses__t">${esc(hktStamp(d.ts ?? d.date))}</span>
     <span class="ses__m">${specialists.map((a: any) =>
-      `<i class="${a.ok ? 'on' : 'off'}" title="${esc(a.specialty)}">${esc(a.name ?? shortModel(a.model))}</i>`).join('')}</span>
+      `<i class="${a.ok ? 'on' : 'off'}" title="${esc(a.role_title ?? '')} — ${esc(a.specialty)}">${esc(a.name ?? shortModel(a.model))}</i>`).join('')}</span>
     <span class="ses__g">acts at ${Math.round(gate.actMinAgreement * 100)}% agreement &amp; ${gate.actMinVotes}+ votes</span>
   </div>
 `;
@@ -151,7 +151,7 @@ function councilView(d: any): string {
     const ops = (v.opinions ?? []).map((o: any) => `<div class="op">
       <div class="op__h">
         <span class="op__m">${esc(o.name)}</span>
-        <span class="op__s">${esc(o.specialty)}</span>
+        <span class="op__s">${o.roleTitle ? `<b style="color:var(--fg)">${esc(o.roleTitle)}</b> · ` : ''}${esc(o.specialty)}</span>
         <span class="vb vb--${VERDICT_CLS[o.verdict] ?? 'flat'}">${esc(o.verdict)}</span>
         <span class="op__n">${o.confidence}/10 sure · verified ${(o.verified * 100).toFixed(0)}% · relevance ×${o.relevance} · <b>weight ${o.weight}</b>${o.revised ? ' · <em>revised</em>' : ''}</span>
       </div>
