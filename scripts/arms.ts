@@ -125,13 +125,17 @@ function withTimeout<T>(p: Promise<T>, ms: number, label: string): Promise<T> {
   ]);
 }
 
+/** Ask for raw JSON and validate it here. Recovers models that emit good JSON
+ *  but fail strict tool-call validation. */
+async function viaText(model: string, prompt: string) {
+  const { text, usage } = await generateText({ model, prompt: prompt + JSON_TAIL, temperature: 0 });
+  const m = text.match(/\{[\s\S]*\}/);
+  if (!m) throw new Error(`no JSON in response: ${text.slice(0, 100)}`);
+  return { object: Analysis.parse(JSON.parse(m[0])), usage };
+}
+
 async function callModel(model: string, prompt: string) {
-  if (FALLBACK) {
-    const { text, usage } = await generateText({ model, prompt: prompt + JSON_TAIL, temperature: 0 });
-    const m = text.match(/\{[\s\S]*\}/);
-    if (!m) throw new Error(`no JSON in response: ${text.slice(0, 100)}`);
-    return { object: Analysis.parse(JSON.parse(m[0])), usage };
-  }
+  if (FALLBACK) return viaText(model, prompt);
   // Streaming is the one call path every gateway model accepts.
   try {
     const res = streamObject({ model, schema: Analysis, temperature: 0, prompt });

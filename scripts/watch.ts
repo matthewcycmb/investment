@@ -155,6 +155,11 @@ try {
   for (const c of cands) {
     for (const p of c.purchases ?? []) {
       const who = (p.owners ?? [])[0] ?? 'An insider';
+      // Signal threshold only. The screen's insider count is unchanged, so the
+      // pre-registered study is unaffected; this stops a US$224 purchase being
+      // presented as a signal and triggering a council run.
+      const usd = (p.price ?? 0) * (p.shares ?? 0);
+      if (usd < 25_000) continue;
       const id = `insider:${c.ticker}:${who}:${p.date}:${p.shares}`;
       if (seen.has(id)) continue;
       n++;

@@ -11,7 +11,10 @@ const REPO = (process.env.REPO_URL ?? 'https://github.com/matthewcycmb/investmen
 
 const outcomes = readJSON<any>(`${ROOT}data/outcomes.json`, { positions: [] });
 const positions: any[] = outcomes.positions ?? [];
-const eventLog: any[] = readJSON<any>(`${ROOT}data/events.json`, { events: [] }).events ?? [];
+const eventLog: any[] = (readJSON<any>(`${ROOT}data/events.json`, { events: [] }).events ?? [])
+  // Newest first. Insider events carry the Form 4 transaction date, which can be
+  // weeks old, so insertion order is not chronological order.
+  .sort((a: any, b: any) => String(b.ts).localeCompare(String(a.ts)));
 const watchState = readJSON<any>(`${ROOT}data/watch-state.json`, { councilRuns: {} });
 const pf = outcomes.portfolio ?? { equity: 100000, totalReturnPct: 0, openPositions: 0, cash: 100000, realized: 0, unrealized: 0 };
 const money = (x: number) => `$${Math.round(x).toLocaleString()}`;

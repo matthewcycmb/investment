@@ -132,7 +132,8 @@ export function detailPanel(q: any): string {
     }</tbody></table>`
     : '<div class="nil">No officer or director bought on the open market in the last 35 days.</div>';
 
-  const news = eventLog.filter((e) => (e.tickers ?? []).includes(q.ticker)).slice(0, 8);
+  const news = eventLog.filter((e) => (e.tickers ?? []).includes(q.ticker))
+    .sort((a: any, b: any) => String(b.ts).localeCompare(String(a.ts))).slice(0, 8);
   const newsBlock = news.length
     ? news.map((e) => `<div class="e"><span class="tg tg--${esc(e.source)}">${esc({ policy: 'GOV', filing: 'SEC', headline: 'NEWS', shock: 'MOVE', insider: 'INSIDER' }[e.source as string] ?? e.source)}</span>
       <div>${e.url ? `<a href="${esc(e.url)}" rel="noopener">${esc(e.title)}</a>` : esc(e.title)}</div>
