@@ -110,7 +110,7 @@ const sideRow = (q: any, i: number) => {
   </label>`;
 };
 
-const TAG: Record<string, string> = { policy: 'GOV', filing: 'SEC', headline: 'NEWS', shock: 'MOVE' };
+const TAG: Record<string, string> = { policy: 'GOV', filing: 'SEC', headline: 'NEWS', shock: 'MOVE', insider: 'INSIDER' };
 
 const eventRow = (e: any, i: number) => `<div class="e" style="--i:${Math.min(i, 14)}">
   <span class="tg tg--${esc(e.source)}">${esc(TAG[e.source] ?? e.source)}</span>
@@ -264,6 +264,7 @@ border-top:1px solid var(--ln);animation:up .4s both;animation-delay:calc(var(--
 .tg{font:700 9px var(--mo);letter-spacing:.06em;padding:3px 5px;border-radius:3px;color:#fff}
 .tg--policy{background:#8b5cf6}.tg--filing{background:#3b82f6}
 .tg--headline{background:#0ecb81}.tg--shock{background:#f6465d}
+.tg--insider{background:#f0b90b;color:#000}
 
 .ses{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:11px 12px;border-top:1px solid var(--ln);
 background:var(--pn);font:11px var(--mo);color:var(--mu)}

@@ -134,7 +134,7 @@ export function detailPanel(q: any): string {
 
   const news = eventLog.filter((e) => (e.tickers ?? []).includes(q.ticker)).slice(0, 8);
   const newsBlock = news.length
-    ? news.map((e) => `<div class="e"><span class="tg tg--${esc(e.source)}">${esc({ policy: 'GOV', filing: 'SEC', headline: 'NEWS', shock: 'MOVE' }[e.source as string] ?? e.source)}</span>
+    ? news.map((e) => `<div class="e"><span class="tg tg--${esc(e.source)}">${esc({ policy: 'GOV', filing: 'SEC', headline: 'NEWS', shock: 'MOVE', insider: 'INSIDER' }[e.source as string] ?? e.source)}</span>
       <div>${e.url ? `<a href="${esc(e.url)}" rel="noopener">${esc(e.title)}</a>` : esc(e.title)}</div>
       <time>${esc(hkt(e.ts))}</time></div>`).join('')
     : '<div class="nil">No signals for this stock yet.</div>';
@@ -230,6 +230,7 @@ background:var(--pn);border:1px solid var(--ln);border-top:0;font-size:12px}
 .dt .tg{font:700 9px var(--mo);letter-spacing:.06em;padding:3px 5px;border-radius:3px;color:#fff}
 .dt .tg--policy{background:#8b5cf6}.dt .tg--filing{background:#3b82f6}
 .dt .tg--headline{background:#0ecb81}.dt .tg--shock{background:#f6465d}
+.dt .tg--insider{background:#f0b90b;color:#000}
 .dt .nil{padding:20px 14px;text-align:center;color:var(--dm);font-size:12px;
 background:var(--pn);border:1px solid var(--ln);border-radius:9px}
 @media(max-width:760px){.dt .grid{grid-template-columns:repeat(2,1fr)}.dt .hero .p{font-size:29px}}

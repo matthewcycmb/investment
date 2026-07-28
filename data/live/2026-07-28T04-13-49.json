@@ -1,0 +1,400 @@
+{
+  "date": "2026-07-28",
+  "ts": "2026-07-28T04:13:49.692Z",
+  "study": false,
+  "eventKind": "insider",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "insider",
+      "title": "SELIG STEFAN M bought 187 SPG shares at $223.14 (US$41,727)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "SELIG STEFAN M bought 33 SPG shares at $224.01 (US$7,392)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "ROE PEGGY bought 80 SPG shares at $223.14 (US$17,851)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "ROE PEGGY bought 6 SPG shares at $223.27 (US$1,340)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "ROE PEGGY bought 3 SPG shares at $223.31 (US$670)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "LEIBOWITZ REUBEN S bought 430 SPG shares at $223.14 (US$95,950)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "LEIBOWITZ REUBEN S bought 53 SPG shares at $225.03 (US$11,927)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "LEIBOWITZ REUBEN S bought 25 SPG shares at $223.94 (US$5,599)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "GLASSCOCK LARRY C bought 330 SPG shares at $223.14 (US$73,636)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "GLASSCOCK LARRY C bought 54 SPG shares at $224.92 (US$12,146)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "GLASSCOCK LARRY C bought 13 SPG shares at $223.10 (US$2,900)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "CICCO MARTIN J bought 13 SPG shares at $223.14 (US$2,901)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "CICCO MARTIN J bought 2 SPG shares at $223.37 (US$447)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "STEWART MARTA R bought 179 SPG shares at $223.14 (US$39,942)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "STEWART MARTA R bought 1 SPG shares at $224.10 (US$224)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "STEWART MARTA R bought 2 SPG shares at $224.07 (US$448)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "SMITH DANIEL C. bought 314 SPG shares at $223.14 (US$70,066)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "SMITH DANIEL C. bought 47 SPG shares at $224.41 (US$10,547)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "SMITH DANIEL C. bought 11 SPG shares at $223.32 (US$2,457)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "RODKIN GARY M bought 209 SPG shares at $223.14 (US$46,636)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "RODKIN GARY M bought 43 SPG shares at $224.31 (US$9,645)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "RODKIN GARY M bought 4 SPG shares at $223.25 (US$893)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "LEWIS RANDALL J bought 58 SPG shares at $223.14 (US$12,942)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "LEWIS RANDALL J bought 4 SPG shares at $223.51 (US$894)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    },
+    {
+      "source": "insider",
+      "title": "JONES NINA P bought 41 SPG shares at $223.14 (US$9,149)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "SPG"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 8912,
+      "revised": false,
+      "usage": {
+        "inputTokens": 2813,
+        "inputTokenDetails": {
+          "noCacheTokens": 2813,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 312,
+        "outputTokenDetails": {
+          "textTokens": 312,
+          "reasoningTokens": 0
+        },
+        "totalTokens": 3125,
+        "raw": {
+          "input_tokens": 2813,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 312,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          }
+        },
+        "reasoningTokens": 0,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "SPG",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "All disclosed purchases are small, ranging from $224 to $95,950, most under $50k",
+            "Nearly all insiders bought at an identical $223.14 print plus small odd-lot follow-ons, consistent with a director plan rather than discretionary conviction buys",
+            "Last price $231.67 is ~3.8% above the $223.14 purchase level"
+          ],
+          "risk": "Ten insiders buying simultaneously is statistically unusual and could reflect genuine confidence that FFO and dividend coverage are being underrated, which sometimes precedes short-term outperformance.",
+          "reasoning": "Nothing here touches revenue, NOI, FFO, occupancy, leverage or cash flow, so no earnings estimate moves. The uniform $223.14 fill and odd-lot sizes look mechanical, weakening the conviction read Qwen relies on. With the stock already above the buy level, any signal is largely priced. No fundamental edge over five sessions."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 9508,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1706,
+        "inputTokenDetails": {
+          "noCacheTokens": 3,
+          "cacheReadTokens": 1703,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 473,
+        "outputTokenDetails": {
+          "textTokens": 183,
+          "reasoningTokens": 290
+        },
+        "totalTokens": 2179,
+        "raw": {
+          "input_tokens": 1706,
+          "input_tokens_details": {
+            "cached_tokens": 1703,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 473,
+          "output_tokens_details": {
+            "reasoning_tokens": 290
+          }
+        },
+        "reasoningTokens": 290,
+        "cachedInputTokens": 1703
+      },
+      "findings": [
+        {
+          "ticker": "SPG",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Ten insiders purchased a combined 2,142 SPG shares for approximately $478,329.",
+            "Many purchases occurred at the identical $223.14 price, while the disclosed range was $223.10–$225.03.",
+            "SPG's last price of $231.67 is already about 3%–4% above the disclosed purchase range."
+          ],
+          "risk": "Broad participation by ten insiders, combined with continued strength above their purchase prices, could attract momentum buying and produce further SPY-relative gains.",
+          "reasoning": "The breadth is bullish, but the clustered pricing and modest total value do not establish a fresh five-day catalyst. With SPG already 3%–4% above the purchase range, the signal appears substantially reflected in price; neither BUY nor SELL has enough verified edge."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 34571,
+      "revised": false,
+      "usage": {
+        "inputTokens": 2084,
+        "inputTokenDetails": {
+          "noCacheTokens": 2084,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 1676,
+        "outputTokenDetails": {
+          "textTokens": 281,
+          "reasoningTokens": 1395
+        },
+        "totalTokens": 3760,
+        "raw": {
+          "prompt_tokens": 2084,
+          "completion_tokens": 1676,
+          "total_tokens": 3760,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1395
+          }
+        },
+        "reasoningTokens": 1395,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "SPG",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "Ten distinct officers/directors (Selig, Roe, Leibowitz, Glasscock, Cicco, Stewart, Smith, Rodkin, Lewis, Jones) all made open-market purchases of SPG shares.",
+            "Purchases were heavily clustered around $223.14, with minor follow-on buys up to $225.03, indicating coordinated or event-driven timing.",
+            "SPG last traded at $231.67, already ~3.8% above the insider purchase cluster, showing immediate market momentum above insider cost basis."
+          ],
+          "risk": "These purchases may reflect routine 10b5-1 plan executions or dividend-reinvestment rather than discretionary conviction, and the 5-day window may be too short for sentiment-driven outperformance versus SPY.",
+          "reasoning": "From a sentiment lens, simultaneous open-market buying by 10 insiders at near-identical prices is a rare coordination signal that attracts momentum flows. The stock already trades above their cost basis, confirming bullish follow-through. Over 5 days, this sentiment catalyst can drive SPY-relative outperformance even absent fundamental news."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": false,
+      "error": "viaText is not defined",
+      "latencyMs": 62433,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "SPG",
+      "action": "HOLD",
+      "agreement": 0.67,
+      "weightedShare": {
+        "BUY": 0.33,
+        "SELL": 0,
+        "HOLD": 0.67
+      },
+      "votes": 2,
+      "meanConfidence": 6.67,
+      "invest": false,
+      "panel": 3,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 1,
+          "relevance": 1,
+          "weight": 0.6,
+          "evidence": [
+            "All disclosed purchases are small, ranging from $224 to $95,950, most under $50k",
+            "Nearly all insiders bought at an identical $223.14 print plus small odd-lot follow-ons, consistent with a director plan rather than discretionary conviction buys",
+            "Last price $231.67 is ~3.8% above the $223.14 purchase level"
+          ],
+          "risk": "Ten insiders buying simultaneously is statistically unusual and could reflect genuine confidence that FFO and dividend coverage are being underrated, which sometimes precedes short-term outperformance.",
+          "reasoning": "Nothing here touches revenue, NOI, FFO, occupancy, leverage or cash flow, so no earnings estimate moves. The uniform $223.14 fill and odd-lot sizes look mechanical, weakening the conviction read Qwen relies on. With the stock already above the buy level, any signal is largely priced. No fundamental edge over five sessions.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1,
+          "weight": 0.583,
+          "evidence": [
+            "Ten insiders purchased a combined 2,142 SPG shares for approximately $478,329.",
+            "Many purchases occurred at the identical $223.14 price, while the disclosed range was $223.10–$225.03.",
+            "SPG's last price of $231.67 is already about 3%–4% above the disclosed purchase range."
+          ],
+          "risk": "Broad participation by ten insiders, combined with continued strength above their purchase prices, could attract momentum buying and produce further SPY-relative gains.",
+          "reasoning": "The breadth is bullish, but the clustered pricing and modest total value do not establish a fresh five-day catalyst. With SPG already 3%–4% above the purchase range, the signal appears substantially reflected in price; neither BUY nor SELL has enough verified edge.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1,
+          "weight": 0.583,
+          "evidence": [
+            "Ten distinct officers/directors (Selig, Roe, Leibowitz, Glasscock, Cicco, Stewart, Smith, Rodkin, Lewis, Jones) all made open-market purchases of SPG shares.",
+            "Purchases were heavily clustered around $223.14, with minor follow-on buys up to $225.03, indicating coordinated or event-driven timing.",
+            "SPG last traded at $231.67, already ~3.8% above the insider purchase cluster, showing immediate market momentum above insider cost basis."
+          ],
+          "risk": "These purchases may reflect routine 10b5-1 plan executions or dividend-reinvestment rather than discretionary conviction, and the 5-day window may be too short for sentiment-driven outperformance versus SPY.",
+          "reasoning": "From a sentiment lens, simultaneous open-market buying by 10 insiders at near-identical prices is a rare coordination signal that attracts momentum flows. The stock already trades above their cost basis, confirming bullish follow-through. Over 5 days, this sentiment catalyst can drive SPY-relative outperformance even absent fundamental news.",
+          "revised": false
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 1,
+    "armsLive": 3
+  }
+}

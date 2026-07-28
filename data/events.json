@@ -1,6 +1,424 @@
 {
   "events": [
     {
+      "id": "insider:OXY:JACKSON RICHARD A.:2026-06-23:4770",
+      "ts": "2026-06-23",
+      "source": "insider",
+      "title": "JACKSON RICHARD A. bought 4,770 OXY shares at $52.38 (US$249,853)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000797468&type=4",
+      "tickers": [
+        "OXY"
+      ],
+      "detail": "OXY · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:CME:SHEPARD WILLIAM R:2026-06-25:324.782",
+      "ts": "2026-06-25",
+      "source": "insider",
+      "title": "SHEPARD WILLIAM R bought 324.782 CME shares at $230.57 (US$74,885)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156375&type=4",
+      "tickers": [
+        "CME"
+      ],
+      "detail": "CME · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:CME:SHEPARD WILLIAM R:2026-06-25:14.318",
+      "ts": "2026-06-25",
+      "source": "insider",
+      "title": "SHEPARD WILLIAM R bought 14.318 CME shares at $230.57 (US$3,301)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156375&type=4",
+      "tickers": [
+        "CME"
+      ],
+      "detail": "CME · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ADSK:CAHILL JOHN T:2026-06-23:2000",
+      "ts": "2026-06-23",
+      "source": "insider",
+      "title": "CAHILL JOHN T bought 2,000 ADSK shares at $189.20 (US$378,400)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000769397&type=4",
+      "tickers": [
+        "ADSK"
+      ],
+      "detail": "ADSK · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ADBE:RICKS DAVID A:2026-06-25:10000",
+      "ts": "2026-06-25",
+      "source": "insider",
+      "title": "RICKS DAVID A bought 10,000 ADBE shares at $194.51 (US$1,945,130)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=4",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "ADBE · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:IBKR:CONKLING LORI A:2026-07-01:25",
+      "ts": "2026-07-01",
+      "source": "insider",
+      "title": "CONKLING LORI A bought 25 IBKR shares at $88.03 (US$2,201)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001381197&type=4",
+      "tickers": [
+        "IBKR"
+      ],
+      "detail": "IBKR · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:CASY:SPANOS MIKE:2026-06-26:256",
+      "ts": "2026-06-26",
+      "source": "insider",
+      "title": "SPANOS MIKE bought 256 CASY shares at $778.81 (US$199,375)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000726958&type=4",
+      "tickers": [
+        "CASY"
+      ],
+      "detail": "CASY · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ELV:BOUDREAUX GAIL:2026-07-17:2045",
+      "ts": "2026-07-17",
+      "source": "insider",
+      "title": "BOUDREAUX GAIL bought 2,045 ELV shares at $368.25 (US$753,071)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156039&type=4",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ELV:BOUDREAUX GAIL:2026-07-17:680",
+      "ts": "2026-07-17",
+      "source": "insider",
+      "title": "BOUDREAUX GAIL bought 680 ELV shares at $366.41 (US$249,159)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156039&type=4",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ELV:PERU RAMIRO G:2026-07-17:1000",
+      "ts": "2026-07-17",
+      "source": "insider",
+      "title": "PERU RAMIRO G bought 1,000 ELV shares at $366.05 (US$366,050)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156039&type=4",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:AEPPEL GLYN:2026-06-30:44",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "AEPPEL GLYN bought 44 SPG shares at $224.33 (US$9,871)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:AEPPEL GLYN:2026-06-30:199",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "AEPPEL GLYN bought 199 SPG shares at $223.14 (US$44,405)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:JONES NINA P:2026-06-30:2",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "JONES NINA P bought 2 SPG shares at $223.49 (US$447)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:JONES NINA P:2026-06-30:41",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "JONES NINA P bought 41 SPG shares at $223.14 (US$9,149)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:LEWIS RANDALL J:2026-06-30:4",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "LEWIS RANDALL J bought 4 SPG shares at $223.51 (US$894)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:LEWIS RANDALL J:2026-06-30:58",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "LEWIS RANDALL J bought 58 SPG shares at $223.14 (US$12,942)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:RODKIN GARY M:2026-06-30:4",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "RODKIN GARY M bought 4 SPG shares at $223.25 (US$893)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:RODKIN GARY M:2026-06-30:43",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "RODKIN GARY M bought 43 SPG shares at $224.31 (US$9,645)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:RODKIN GARY M:2026-06-30:209",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "RODKIN GARY M bought 209 SPG shares at $223.14 (US$46,636)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:SMITH DANIEL C.:2026-06-30:11",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "SMITH DANIEL C. bought 11 SPG shares at $223.32 (US$2,457)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:SMITH DANIEL C.:2026-06-30:47",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "SMITH DANIEL C. bought 47 SPG shares at $224.41 (US$10,547)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:SMITH DANIEL C.:2026-06-30:314",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "SMITH DANIEL C. bought 314 SPG shares at $223.14 (US$70,066)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:STEWART MARTA R:2026-06-30:2",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "STEWART MARTA R bought 2 SPG shares at $224.07 (US$448)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:STEWART MARTA R:2026-06-30:1",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "STEWART MARTA R bought 1 SPG shares at $224.10 (US$224)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:STEWART MARTA R:2026-06-30:179",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "STEWART MARTA R bought 179 SPG shares at $223.14 (US$39,942)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:CICCO MARTIN J:2026-06-30:2",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "CICCO MARTIN J bought 2 SPG shares at $223.37 (US$447)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:CICCO MARTIN J:2026-06-30:13",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "CICCO MARTIN J bought 13 SPG shares at $223.14 (US$2,901)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:GLASSCOCK LARRY C:2026-06-30:13",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "GLASSCOCK LARRY C bought 13 SPG shares at $223.10 (US$2,900)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:GLASSCOCK LARRY C:2026-06-30:54",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "GLASSCOCK LARRY C bought 54 SPG shares at $224.92 (US$12,146)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:GLASSCOCK LARRY C:2026-06-30:330",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "GLASSCOCK LARRY C bought 330 SPG shares at $223.14 (US$73,636)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:LEIBOWITZ REUBEN S:2026-06-30:25",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "LEIBOWITZ REUBEN S bought 25 SPG shares at $223.94 (US$5,599)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:LEIBOWITZ REUBEN S:2026-06-30:53",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "LEIBOWITZ REUBEN S bought 53 SPG shares at $225.03 (US$11,927)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:LEIBOWITZ REUBEN S:2026-06-30:430",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "LEIBOWITZ REUBEN S bought 430 SPG shares at $223.14 (US$95,950)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:ROE PEGGY:2026-06-30:3",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "ROE PEGGY bought 3 SPG shares at $223.31 (US$670)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:ROE PEGGY:2026-06-30:6",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "ROE PEGGY bought 6 SPG shares at $223.27 (US$1,340)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:ROE PEGGY:2026-06-30:80",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "ROE PEGGY bought 80 SPG shares at $223.14 (US$17,851)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:SELIG STEFAN M:2026-06-30:33",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "SELIG STEFAN M bought 33 SPG shares at $224.01 (US$7,392)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:SELIG STEFAN M:2026-06-30:187",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "SELIG STEFAN M bought 187 SPG shares at $223.14 (US$41,727)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
       "id": "shock:OXY:2026-07-27",
       "ts": "2026-07-27T23:57:13.673Z",
       "source": "shock",

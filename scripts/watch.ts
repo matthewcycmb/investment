@@ -143,6 +143,35 @@ try {
   note(`filings: ${n} 8-Ks checked`);
 } catch (e) { note(`! filing source failed: ${(e as Error).message}`); }
 
+// ---------- 2b. insider dealing: officers and directors buying their own stock ----------
+// The screen already parsed these from Form 4; surface them as signals rather
+// than refetching anything.
+{
+  const latest = lsJSON(`${ROOT}data/candidates`).pop();
+  const cands = latest
+    ? readJSON<any>(`${ROOT}data/candidates/${latest}`, { candidates: [] }).candidates
+    : [];
+  let n = 0;
+  for (const c of cands) {
+    for (const p of c.purchases ?? []) {
+      const who = (p.owners ?? [])[0] ?? 'An insider';
+      const id = `insider:${c.ticker}:${who}:${p.date}:${p.shares}`;
+      if (seen.has(id)) continue;
+      n++;
+      const value = p.price ? ` (US$${Math.round(p.shares * p.price).toLocaleString()})` : '';
+      found.push({
+        id, ts: p.date, source: 'insider',
+        title: `${who} bought ${Number(p.shares).toLocaleString()} ${c.ticker} shares`
+          + (p.price ? ` at $${Number(p.price).toFixed(2)}` : '') + value,
+        url: `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${c.cik}&type=4`,
+        tickers: [c.ticker],
+        detail: `${c.ticker} · officer or director open-market purchase · SEC Form 4`,
+      });
+    }
+  }
+  note(`insider: ${n} new Form 4 purchase(s)`);
+}
+
 // ---------- 3 & 4. headlines and price shocks, over a bounded rotating ticker set ----------
 // Open positions are always watched; the rest of the budget rotates through candidates.
 const watchTickers: string[] = [...new Set<string>(
