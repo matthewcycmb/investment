@@ -1,7 +1,7 @@
 // Live quotes + chart data for the current watchlist -> data/quotes.json
 // Everything the detail pages need is captured here so render.ts stays offline.
 // Usage: node scripts/quotes.ts
-import { bars, quoteMeta, sma, rsi, readJSON, writeJSON, ROOT, lsJSON } from './lib.ts';
+import { bars, quoteMeta, sma, rsi, regime, readJSON, writeJSON, ROOT, lsJSON } from './lib.ts';
 
 const BARS = 70; // trading days kept for the candlestick chart
 
@@ -64,6 +64,7 @@ for (const c of candidates) {
       ret1y: r(((last.close - closes[0]) / closes[0]) * 100),
       ma5: r(ma5.at(-1)), ma10: r(ma10.at(-1)), ma20: r(ma20.at(-1)),
       rsi14: r(rs.at(-1), 1),
+      regime: regime(last.close, ma5.at(-1) ?? null, ma20.at(-1) ?? null),
       bars: recent.map((x) => ({
         d: x.date, o: r(x.open), h: r(x.high), l: r(x.low), c: r(x.close), v: x.volume,
       })),

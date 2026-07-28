@@ -145,7 +145,7 @@ export function detailPanel(q: any): string {
 <div class="hero">
   <div class="p ${d}">${num(q.last)}</div>
   <div class="c ${d}">${chg == null ? '·' : `${chg >= 0 ? '+' : ''}${chg.toFixed(2)}`} &nbsp; ${sign(q.changePct)}</div>
-  <div class="as">${esc(q.name)} · ${esc(q.sector)} · close ${esc(q.asOf ?? '')} · USD</div>
+  <div class="as">${q.regime ? `<b class="rg rg--${esc(q.regime)}">${esc(q.regime)} TREND</b> · ` : ''}${esc(q.name)} · ${esc(q.sector)} · close ${esc(q.asOf ?? '')} · USD</div>
   ${pos}
 </div>
 
@@ -183,6 +183,10 @@ export const DETAIL_CSS = `
 .dt .hero .p{font:700 34px var(--mo);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
 .dt .hero .c{font:600 14px var(--mo);margin-top:6px;font-variant-numeric:tabular-nums}
 .dt .hero .as{font:11px var(--mo);color:var(--dm);margin-top:5px}
+.dt .rg{font-weight:700;padding:1px 5px;border-radius:3px}
+.dt .rg--BULL{background:rgba(14,203,129,.15);color:var(--up)}
+.dt .rg--BEAR{background:rgba(246,70,93,.15);color:var(--dn)}
+.dt .rg--RANGE{background:var(--ln);color:var(--mu)}
 .dt .rng{margin:13px 0 0}
 .dt .rng__b{position:relative;height:4px;border-radius:99px;background:linear-gradient(90deg,var(--dn),var(--am),var(--up));opacity:.55}
 .dt .rng__b i{position:absolute;top:-3px;width:2px;height:10px;background:var(--fg);border-radius:1px}

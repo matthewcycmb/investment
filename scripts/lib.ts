@@ -108,6 +108,20 @@ export function rsi(closes: number[], p = 14): (number | null)[] {
   return out;
 }
 
+/**
+ * Trend regime from moving averages already computed elsewhere.
+ * BULL  price above MA20 and MA5 above MA20
+ * BEAR  price below MA20 and MA5 below MA20
+ * RANGE anything else, i.e. the averages disagree with price
+ * ponytail: MA-crossover only; add ADX or slope if chop becomes a problem.
+ */
+export function regime(last: number | null, ma5: number | null, ma20: number | null): 'BULL' | 'BEAR' | 'RANGE' {
+  if (last == null || ma5 == null || ma20 == null) return 'RANGE';
+  if (last > ma20 && ma5 > ma20) return 'BULL';
+  if (last < ma20 && ma5 < ma20) return 'BEAR';
+  return 'RANGE';
+}
+
 // ---------- json io ----------
 
 export function readJSON<T>(path: string, fallback: T): T {
@@ -255,6 +269,12 @@ if (import.meta.filename === process.argv[1]) {
   assert.equal(weekKey('2026-07-27'), '2026-W31');
   assert.equal(weekKey('2026-01-01'), '2026-W01');
   assert.equal(weekKey('2027-01-03'), '2026-W53'); // Sunday belongs to the prior ISO week
+
+  // regime classification
+  assert.equal(regime(110, 105, 100), 'BULL');
+  assert.equal(regime(90, 95, 100), 'BEAR');
+  assert.equal(regime(110, 95, 100), 'RANGE', 'price up but MA5 below MA20 is not a trend');
+  assert.equal(regime(null, 1, 1), 'RANGE');
 
   console.log('lib self-checks passed');
 }

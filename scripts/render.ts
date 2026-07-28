@@ -104,7 +104,7 @@ const sideRow = (q: any, i: number) => {
   const d = dir(q.changePct);
   return `<label class="wr" for="k${i}">
     <span class="wr__l"><span class="tk">${esc(q.ticker)}${q.buyers > 0 ? '<i class="ins" title="insider buying"></i>' : ''}</span>
-    <span class="sb">${esc(q.name)}</span></span>
+    <span class="sb">${q.regime ? `<b class="rg rg--${esc(q.regime)}">${esc(q.regime)}</b> ` : ''}${esc(q.name)}</span></span>
     <span class="wr__r"><span class="px">${q.last != null ? q.last.toFixed(2) : '\u00b7'}</span>
     <span class="pl pl--${d}">${sign(q.changePct)}</span></span>
   </label>`;
@@ -148,6 +148,22 @@ function councilView(d: any): string {
     const bar = ['BUY', 'HOLD', 'SELL'].filter((k) => (shares[k] ?? 0) > 0.001)
       .map((k) => `<i class="sh sh--${VERDICT_CLS[k]}" style="width:${((shares[k] ?? 0) * 100).toFixed(1)}%" title="${k} ${(shares[k] * 100).toFixed(0)}%"></i>`).join('');
 
+    // Each specialist already supplies its case (reasoning) and its counter-case
+    // (risk). Grouping by verdict turns that into an explicit bull/bear split
+    // with no extra model call.
+    const bulls = (v.opinions ?? []).filter((o: any) => o.verdict === 'BUY');
+    const bears = (v.opinions ?? []).filter((o: any) => o.verdict === 'SELL');
+    const neutral = (v.opinions ?? []).filter((o: any) => o.verdict === 'HOLD');
+    const caseBar = `<div class="cs">
+      <div class="cs__c cs__c--bull"><h4>BULL CASE · ${bulls.length}</h4>${
+        bulls.length ? bulls.map((o: any) => `<p><b>${esc(o.name)}</b> ${esc(o.reasoning)}</p>`).join('')
+                     : '<p class="mut">No specialist argued to buy.</p>'}</div>
+      <div class="cs__c cs__c--bear"><h4>BEAR CASE · ${bears.length + neutral.length}</h4>${
+        (bears.length || neutral.length)
+          ? [...bears, ...neutral].map((o: any) => `<p><b>${esc(o.name)}</b> ${esc(o.verdict === 'SELL' ? o.reasoning : o.risk || o.reasoning)}</p>`).join('')
+          : '<p class="mut">No specialist argued against.</p>'}</div>
+    </div>`;
+
     const ops = (v.opinions ?? []).map((o: any) => `<div class="op">
       <div class="op__h">
         <span class="op__m">${esc(o.name)}</span>
@@ -170,6 +186,7 @@ function councilView(d: any): string {
         <span class="pl pl--${v.invest ? 'up' : 'flat'}">${v.invest ? 'BOUGHT' : 'NO TRADE'}</span>
       </summary>
       <div class="shb">${bar}</div>
+      ${caseBar}
       <div class="sum">${['BUY', 'HOLD', 'SELL'].filter((k) => (shares[k] ?? 0) > 0.001).map((k) => {
         const w = (v.opinions ?? []).filter((o: any) => o.verdict === k).reduce((a: number, o: any) => a + o.weight, 0);
         return `<span><b class="${VERDICT_CLS[k]}">${k}</b> ${w.toFixed(2)} / ${tot.toFixed(2)} = ${((shares[k] ?? 0) * 100).toFixed(0)}%</span>`;
@@ -301,6 +318,18 @@ display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;background:var(--pn)
 .sum{display:flex;flex-wrap:wrap;gap:14px;padding:0 12px 9px;font:10.5px var(--mo);color:var(--mu)}
 .sum b{font-weight:700}
 .sum__d{margin-left:auto;color:var(--dm)}
+.rg{font:9px var(--mo);font-weight:700;letter-spacing:.05em;padding:1px 4px;border-radius:3px}
+.rg--BULL{background:rgba(14,203,129,.15);color:var(--up)}
+.rg--BEAR{background:rgba(246,70,93,.15);color:var(--dn)}
+.rg--RANGE{background:var(--ln);color:var(--mu)}
+.cs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ln);margin:0 12px 8px;border:1px solid var(--ln);border-radius:8px;overflow:hidden}
+.cs__c{background:var(--bg);padding:9px 11px}
+.cs__c h4{margin:0 0 5px;font:700 9.5px var(--mo);letter-spacing:.07em}
+.cs__c--bull h4{color:var(--up)}.cs__c--bear h4{color:var(--dn)}
+.cs__c p{margin:0 0 5px;font-size:11.5px;line-height:1.45;color:var(--mu)}
+.cs__c p b{color:var(--fg);font-weight:600}
+.cs__c .mut{color:var(--dm);font-style:italic}
+@media(max-width:600px){.cs{grid-template-columns:1fr}}
 .vb{font:700 9.5px var(--mo);letter-spacing:.06em;padding:3px 6px;border-radius:4px;color:#fff}
 .vb--up{background:var(--up)}.vb--down{background:var(--dn)}.vb--flat{background:#39404d}
 .dbt{font:700 9px var(--mo);letter-spacing:.07em;padding:3px 6px;border-radius:4px;
