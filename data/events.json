@@ -1,6 +1,191 @@
 {
   "events": [
     {
+      "id": "shock:OXY:2026-07-27",
+      "ts": "2026-07-27T23:57:13.673Z",
+      "source": "shock",
+      "title": "OXY moved -4.1% on 2026-07-27· no reported cause",
+      "tickers": [
+        "OXY"
+      ],
+      "detail": "close 57.30 → 54.93"
+    },
+    {
+      "id": "shock:HONA:2026-07-27",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "shock",
+      "title": "HONA moved +3.3% on 2026-07-27· no reported cause",
+      "tickers": [
+        "HONA"
+      ],
+      "detail": "close 204.07 → 210.83"
+    },
+    {
+      "id": "headline:ADSK:Autodesk initiated, Norwegian Cruise downgrade: Wall Street'",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "headline",
+      "title": "Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
+      "url": "https://247wallst.com/investing/2026/07/23/here-are-thursdays-top-wall-street-analyst-research-calls-att-applied-digital-autodesk-duke-energy-exxon-mobil-jpmorgan-chase-company-live-nation-entertainment-and-more/?.tsrc=rss",
+      "tickers": [
+        "ADSK"
+      ],
+      "detail": "ADSK · matched \"downgrade\""
+    },
+    {
+      "id": "headline:ADBE:Stagwell (STGW) to Acquire QStrauss Consulting to Expand Cod",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "headline",
+      "title": "Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions",
+      "url": "https://www.fool.com/coverage/filings/2026/07/27/adobe-president-wadhwani-sells-1-498-shares-for-tax-withholding/?.tsrc=rss",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "ADBE · matched \"acquire\""
+    },
+    {
+      "id": "headline:ELV:Elevance Health CEO Snaps Up Stock After Post-Earnings Slide",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "headline",
+      "title": "Elevance Health CEO Snaps Up Stock After Post-Earnings Slide",
+      "url": "https://www.trefis.com/articles/607732/what-a-patient-holder-is-really-paying-for-cvs-health-stock/2026-07-17?.tsrc=rss",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · matched \"ceo\""
+    },
+    {
+      "id": "filing:BSX:0000885725",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Boston Scientific: Cost Associated with Exit or Disposal Activities",
+      "url": "https://www.sec.gov/Archives/edgar/data/885725/000088572526000049/0000885725-26-000049-index.htm",
+      "tickers": [
+        "BSX"
+      ],
+      "detail": "BSX · Health Care · SEC 8-K item 2.05"
+    },
+    {
+      "id": "filing:FFIV:0001048695",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "F5, Inc.: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000063/0001048695-26-000063-index.htm",
+      "tickers": [
+        "FFIV"
+      ],
+      "detail": "FFIV · Information Technology · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:CINF:0000020286",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Cincinnati Financial: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000043/0000020286-26-000043-index.htm",
+      "tickers": [
+        "CINF"
+      ],
+      "detail": "CINF · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ISRG:0001035267",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Intuitive Surgical: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000063/0001035267-26-000063-index.htm",
+      "tickers": [
+        "ISRG"
+      ],
+      "detail": "ISRG · Health Care · SEC 8-K item 5.03"
+    },
+    {
+      "id": "filing:PFG:0001126328",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Principal Financial Group: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926087091/0001104659-26-087091-index.htm",
+      "tickers": [
+        "PFG"
+      ],
+      "detail": "PFG · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:UDR:0000074208",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "UDR, Inc.: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000070/0000074208-26-000070-index.htm",
+      "tickers": [
+        "UDR"
+      ],
+      "detail": "UDR · Real Estate · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:GS:0000886982",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Goldman Sachs: Material Modifications to Rights of Security Holders; Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000119312526318147/0001193125-26-318147-index.htm",
+      "tickers": [
+        "GS"
+      ],
+      "detail": "GS · Financials · SEC 8-K item 3.03, 5.03"
+    },
+    {
+      "id": "filing:AES:0000874761",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "AES Corporation: Changes in Registrant's Certifying Accountant",
+      "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000138/0000874761-26-000138-index.htm",
+      "tickers": [
+        "AES"
+      ],
+      "detail": "AES · Utilities · SEC 8-K item 4.01"
+    },
+    {
+      "id": "filing:KHC:0001637459",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Kraft Heinz: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+      "url": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000047/0001637459-26-000047-index.htm",
+      "tickers": [
+        "KHC"
+      ],
+      "detail": "KHC · Consumer Staples · SEC 8-K item 5.03"
+    },
+    {
+      "id": "filing:NUE:0000073309",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Nucor: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/73309/000119312526318190/0001193125-26-318190-index.htm",
+      "tickers": [
+        "NUE"
+      ],
+      "detail": "NUE · Materials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:BRO:0000079282",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Brown & Brown: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/79282/000119312526318245/0001193125-26-318245-index.htm",
+      "tickers": [
+        "BRO"
+      ],
+      "detail": "BRO · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:HAS:0000046080",
+      "ts": "2026-07-27T23:41:50.054Z",
+      "source": "filing",
+      "title": "Hasbro: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000047/0000046080-26-000047-index.htm",
+      "tickers": [
+        "HAS"
+      ],
+      "detail": "HAS · Consumer Discretionary · SEC 8-K item 5.02"
+    },
+    {
       "id": "shock:ACN:2026-07-27",
       "ts": "2026-07-27T14:30:44.346Z",
       "source": "shock",

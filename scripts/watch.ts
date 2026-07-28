@@ -238,17 +238,20 @@ if (!found.length && !FORCE) {
   // --force with nothing new re-examines the most recent real signals, so the demo
   // button always has genuine material rather than an empty event list.
   const review = found.length ? found : log.events.slice(0, 12);
-  const tickers = [...new Set(review.flatMap((e: any) => e.tickers ?? []))].slice(0, 60);
+  // Cap the review set: every extra ticker lengthens all four responses, and long
+  // generations hit the gateway's stream limit and kill specialists mid-run.
+  const MAX_REVIEW_TICKERS = 8;
+  const tickers = [...new Set(review.flatMap((e: any) => e.tickers ?? []))].slice(0, MAX_REVIEW_TICKERS);
   // With --force and no new events, fall back to the current screened watchlist
   // rather than an arbitrary slice of the universe.
   const latestCand = lsJSON(`${ROOT}data/candidates`).pop();
   const watchlist: string[] = latestCand
     ? readJSON<any>(`${ROOT}data/candidates/${latestCand}`, { candidates: [] }).candidates.map((c: any) => c.ticker)
     : [];
-  const pool = tickers.length ? tickers : watchlist.slice(0, 20);
+  const pool = tickers.length ? tickers : watchlist.slice(0, MAX_REVIEW_TICKERS);
 
   const priced: string[] = [];
-  for (const t of pool.slice(0, 25)) {
+  for (const t of pool) {
     try {
       const b = await bars(byTicker.get(t)?.yahoo ?? t, '3mo');
       const last = b.at(-1)!, prev = b.at(-2) ?? last;

@@ -1,12 +1,12 @@
 {
-  "updated": "2026-07-27T14:35:31.097Z",
+  "updated": "2026-07-27T23:59:25.507Z",
   "timezone": "Asia/Hong_Kong",
   "nClosedStudy": 0,
   "nTarget": 100,
   "evaluated": false,
   "watching": 20,
   "trades": 0,
-  "eventsSeen": 46,
+  "eventsSeen": 63,
   "primary": null,
   "interim": {
     "naive": null,

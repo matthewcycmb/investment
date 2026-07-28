@@ -1,0 +1,763 @@
+{
+  "date": "2026-07-27",
+  "ts": "2026-07-27T23:41:50.054Z",
+  "study": false,
+  "eventKind": "filing",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "filing",
+      "title": "Hasbro: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000047/0000046080-26-000047-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Brown & Brown: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/79282/000119312526318245/0001193125-26-318245-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Nucor: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/73309/000119312526318190/0001193125-26-318190-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Kraft Heinz: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+      "url": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000047/0001637459-26-000047-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "AES Corporation: Changes in Registrant's Certifying Accountant",
+      "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000138/0000874761-26-000138-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Goldman Sachs: Material Modifications to Rights of Security Holders; Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+      "url": "https://www.sec.gov/Archives/edgar/data/886982/000119312526318147/0001193125-26-318147-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "UDR, Inc.: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000070/0000074208-26-000070-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Principal Financial Group: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926087091/0001104659-26-087091-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Intuitive Surgical: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000063/0001035267-26-000063-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Cincinnati Financial: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000043/0000020286-26-000043-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "F5, Inc.: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000063/0001048695-26-000063-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Boston Scientific: Cost Associated with Exit or Disposal Activities",
+      "url": "https://www.sec.gov/Archives/edgar/data/885725/000088572526000049/0000885725-26-000049-index.htm"
+    },
+    {
+      "source": "headline",
+      "title": "Elevance Health CEO Snaps Up Stock After Post-Earnings Slide",
+      "url": "https://www.trefis.com/articles/607732/what-a-patient-holder-is-really-paying-for-cvs-health-stock/2026-07-17?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions",
+      "url": "https://www.fool.com/coverage/filings/2026/07/27/adobe-president-wadhwani-sells-1-498-shares-for-tax-withholding/?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
+      "url": "https://247wallst.com/investing/2026/07/23/here-are-thursdays-top-wall-street-analyst-research-calls-att-applied-digital-autodesk-duke-energy-exxon-mobil-jpmorgan-chase-company-live-nation-entertainment-and-more/?.tsrc=rss"
+    },
+    {
+      "source": "shock",
+      "title": "HONA moved +3.3% on 2026-07-27· no reported cause"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "BSX"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 41104,
+      "revised": false,
+      "usage": {
+        "inputTokens": 2471,
+        "inputTokenDetails": {
+          "noCacheTokens": 2471,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 2830,
+        "outputTokenDetails": {
+          "textTokens": 1491,
+          "reasoningTokens": 1339
+        },
+        "totalTokens": 5301,
+        "raw": {
+          "input_tokens": 2471,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 2830,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 1339
+          }
+        },
+        "reasoningTokens": 1339,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "BRO",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "Filed 8-K item 2.02 Results of Operations and Financial Condition",
+            "Shares +3.0% on the day of the release"
+          ],
+          "risk": "The 3% pop may already fully capitalize the beat, leaving no 5-day drift versus SPY.",
+          "reasoning": "Broker model: commission revenue with high incremental margins and low capital intensity. A positive market reaction to the results filing implies organic growth/margin came in ahead, which mechanically lifts forward EPS. Post-earnings-beat estimate revisions typically carry a few sessions."
+        },
+        {
+          "ticker": "FFIV",
+          "verdict": "BUY",
+          "confidence": 5,
+          "evidence": [
+            "Filed 8-K item 2.02 Results of Operations and Financial Condition",
+            "Shares +4.0% on the release"
+          ],
+          "risk": "Hardware-heavy revenue is lumpy; a single strong quarter can be pull-forward, and the gap may retrace.",
+          "reasoning": "A 4% move on the results filing points to a revenue/EPS beat with software-mix-driven gross margin gains and strong free cash conversion. Valuation vs history remains undemanding for the cash flow base, so upgraded estimates should still be working over the next week."
+        },
+        {
+          "ticker": "AES",
+          "verdict": "SELL",
+          "confidence": 5,
+          "evidence": [
+            "Filed 8-K item 4.01 Changes in Registrant's Certifying Accountant",
+            "Shares -0.1% on the day, no positive fundamental offset"
+          ],
+          "risk": "Auditor changes are frequently routine rotations with zero effect on reported earnings or covenants.",
+          "reasoning": "On accounting quality grounds an auditor change at a highly leveraged utility with complex consolidation and project-level debt raises the cost of diligence and the tail risk of restatement or added control commentary. No revenue, margin or cash flow positive accompanies it."
+        },
+        {
+          "ticker": "ADSK",
+          "verdict": "SELL",
+          "confidence": 5,
+          "evidence": [
+            "Headline: 'Autodesk initiated' in analyst calls roundup",
+            "Shares +7.7% in one session"
+          ],
+          "risk": "An initiation from a high-profile shop can bring sustained fund flows and the trend can extend for a week.",
+          "reasoning": "An initiation changes no line of the P&L: no revenue, billings, margin or cash flow datapoint. A 7.7% single-day repricing on sell-side opinion pushes the multiple above its own recent history without any earnings support, an unfavourable setup versus SPY."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "SELL",
+          "confidence": 4,
+          "evidence": [
+            "The Adobe link is a third-party release: Stagwell acquiring QStrauss Consulting to expand Adobe suite implementation",
+            "Shares +5.6% on the day"
+          ],
+          "risk": "The move may reflect real news not shown here, such as improving AI monetization, in which case selling into strength is wrong.",
+          "reasoning": "A small agency tuck-in by a partner is immaterial to Adobe's revenue or margin: no incremental ARR, no cost synergy, no balance sheet effect. A 5.6% multiple expansion with no change to reported earnings power is unearned and prone to give back."
+        },
+        {
+          "ticker": "NUE",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "evidence": [
+            "Filed 8-K item 2.02 Results of Operations and Financial Condition",
+            "Shares essentially unchanged, +0.1%"
+          ],
+          "risk": "Steel spread inflections show up with a lag, so a benign print could be followed by upward guidance revisions.",
+          "reasoning": "A flat reaction to the results release says the print matched consensus on volumes, realized pricing and spread. Without a shift in margin per ton or capex/cash return cadence there is no fundamental edge over a five-day horizon."
+        },
+        {
+          "ticker": "BSX",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "8-K filed under Item 2.05, Cost Associated with Exit or Disposal Activities, with no charge magnitude or margin guidance disclosed in the material",
+            "BSX last 45.51, up 2.8% on the day, so the market has already absorbed the disclosure positively"
+          ],
+          "risk": "If the charge is large and the market reads it as evidence of decelerating growth in a high-multiple medtech name, the recent 2.8% gain could unwind quickly and underperform SPY.",
+          "reasoning": "The SELL case is sentiment-based, not fundamental: it assumes analysts mark down on cost magnitude that the filing does not even quantify. On economics, exit charges are typically non-recurring, excluded from adjusted EPS, and cash outflow is modest versus BSX cash generation, with margin benefit later. No disclosed revenue or margin change means no earnings-based edge over five sessions after an up move. Stay flat."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Causal reasoning, source verification and adversarial counter-case",
+      "ok": false,
+      "error": "timed out after 330s (ChatGPT 5.6 Sol)",
+      "latencyMs": 330086,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "China and Hong Kong context, policy and market sentiment",
+      "ok": true,
+      "error": null,
+      "latencyMs": 81080,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1614,
+        "inputTokenDetails": {
+          "noCacheTokens": 1614,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 4278,
+        "outputTokenDetails": {
+          "textTokens": 1196,
+          "reasoningTokens": 3082
+        },
+        "totalTokens": 5892,
+        "raw": {
+          "prompt_tokens": 1614,
+          "completion_tokens": 4278,
+          "total_tokens": 5892,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 3082
+          }
+        },
+        "reasoningTokens": 3082,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ADSK",
+          "verdict": "SELL",
+          "confidence": 7,
+          "evidence": [
+            "Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
+            "ADSK matched 'downgrade' in headline event",
+            "ADSK last 225.91, up 7.7% on the day"
+          ],
+          "risk": "Stock already surged 7.7% suggesting market may have already priced in positive initiation that could offset the downgrade signal",
+          "reasoning": "ADSK flagged via downgrade keyword in analyst calls headline. After a 7.7% single-day surge, a downgrade creates negative sentiment pressure over a 5-day horizon as institutional flows adjust. Fading the spike into downgrade sentiment is the higher-probability trade."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "Elevance Health CEO Snaps Up Stock After Post-Earnings Slide",
+            "ELV last 378.36, up only 0.2% on the day",
+            "ELV matched 'ceo' keyword in headline"
+          ],
+          "risk": "Post-earnings slide indicates fundamental disappointment that insider buying alone cannot reverse within 5 sessions",
+          "reasoning": "CEO open-market purchases after an earnings-driven selloff are a strong insider conviction signal. The stock barely reacted (+0.2%), meaning the insider buy is not yet priced in. Over 5 days, this sentiment anchor should attract momentum buyers seeking mean reversion."
+        },
+        {
+          "ticker": "FFIV",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "F5, Inc.: Results of Operations and Financial Condition",
+            "FFIV filed SEC 8-K item 2.02",
+            "FFIV last 407.96, up 4.0% on the day"
+          ],
+          "risk": "The 4.0% move already prices in the earnings beat, and post-earnings drift could reverse if broader tech sentiment weakens",
+          "reasoning": "F5 posted results and the stock surged 4.0%, indicating a positive earnings surprise. Post-earnings announcement drift tends to persist over 5 sessions, especially in IT names where institutional rebalancing lags the initial move. Momentum continuation is the base case."
+        },
+        {
+          "ticker": "ISRG",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "Intuitive Surgical: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+            "ISRG filed SEC 8-K item 5.03",
+            "ISRG last 356.83, up 5.7% on the day"
+          ],
+          "risk": "A 5.03 filing is administrative and the 5.7% move may be unrelated, meaning there is no fundamental catalyst to sustain the rally over 5 days",
+          "reasoning": "ISRG surged 5.7%, the largest single-day move among healthcare names. While the 5.03 filing is administrative, the magnitude of the move signals strong underlying institutional demand. Momentum continuation over 5 sessions is likely as short covering and trend followers amplify the move."
+        },
+        {
+          "ticker": "GS",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Goldman Sachs: Material Modifications to Rights of Security Holders; Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+            "GS filed SEC 8-K items 3.03 and 5.03",
+            "GS last 1048.23, down 1.2% on the day"
+          ],
+          "risk": "Modifications to security holder rights could be interpreted negatively if it reduces shareholder protections, creating unexpected downside",
+          "reasoning": "GS filed administrative amendments (items 3.03, 5.03) that are governance-related rather than earnings-moving. The -1.2% decline is modest and likely noise. No clear directional catalyst exists for a 5-day trade, making HOLD the honest verdict."
+        },
+        {
+          "ticker": "BSX",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Boston Scientific filed SEC 8-K item 2.05 reporting costs associated with exit or disposal activities",
+            "BSX stock already moved up 2.8% on the day of the filing",
+            "Item 2.05 filings signal operational contraction or restructuring charges that pressure near-term GAAP earnings"
+          ],
+          "risk": "If the restructuring is large and structurally margin-accretive, operating leverage could keep re-rating the stock higher through the 5-day window as the market prices in long-term strategic benefits rather than near-term charges.",
+          "reasoning": "Item 2.05 exit/disposal costs are a near-term GAAP headwind. The 2.8% pop looks like a sentiment overshoot—buyers may be front-running a long-term restructuring narrative, but over 5 trading days the actual cost magnitude will be digested by analysts, likely fading the initial enthusiasm. No China/HK policy tailwind applies here; this is pure earnings sentiment mean-reversion."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "specialty": "Long-document synthesis and second-order consequences",
+      "ok": false,
+      "error": "No object generated: response did not match schema.",
+      "latencyMs": 100252,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "ADBE",
+      "action": "SELL",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 1,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 4,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.45,
+          "evidence": [
+            "The Adobe link is a third-party release: Stagwell acquiring QStrauss Consulting to expand Adobe suite implementation",
+            "Shares +5.6% on the day"
+          ],
+          "risk": "The move may reflect real news not shown here, such as improving AI monetization, in which case selling into strength is wrong.",
+          "reasoning": "A small agency tuck-in by a partner is immaterial to Adobe's revenue or margin: no incremental ARR, no cost synergy, no balance sheet effect. A 5.6% multiple expansion with no change to reported earnings power is unearned and prone to give back.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "ADSK",
+      "action": "SELL",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 1,
+        "HOLD": 0
+      },
+      "votes": 2,
+      "meanConfidence": 6,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.563,
+          "evidence": [
+            "Headline: 'Autodesk initiated' in analyst calls roundup",
+            "Shares +7.7% in one session"
+          ],
+          "risk": "An initiation from a high-profile shop can bring sustained fund flows and the trend can extend for a week.",
+          "reasoning": "An initiation changes no line of the P&L: no revenue, billings, margin or cash flow datapoint. A 7.7% single-day repricing on sell-side opinion pushes the multiple above its own recent history without any earnings support, an unfavourable setup versus SPY.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "SELL",
+          "confidence": 7,
+          "verified": 0.33,
+          "relevance": 0.9,
+          "weight": 0.42,
+          "evidence": [
+            "Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
+            "ADSK matched 'downgrade' in headline event",
+            "ADSK last 225.91, up 7.7% on the day"
+          ],
+          "risk": "Stock already surged 7.7% suggesting market may have already priced in positive initiation that could offset the downgrade signal",
+          "reasoning": "ADSK flagged via downgrade keyword in analyst calls headline. After a 7.7% single-day surge, a downgrade creates negative sentiment pressure over a 5-day horizon as institutional flows adjust. Fading the spike into downgrade sentiment is the higher-probability trade.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "AES",
+      "action": "SELL",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 1,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 5,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.563,
+          "evidence": [
+            "Filed 8-K item 4.01 Changes in Registrant's Certifying Accountant",
+            "Shares -0.1% on the day, no positive fundamental offset"
+          ],
+          "risk": "Auditor changes are frequently routine rotations with zero effect on reported earnings or covenants.",
+          "reasoning": "On accounting quality grounds an auditor change at a highly leveraged utility with complex consolidation and project-level debt raises the cost of diligence and the tail risk of restatement or added control commentary. No revenue, margin or cash flow positive accompanies it.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "BRO",
+      "action": "BUY",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 1,
+        "SELL": 0,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 6,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.675,
+          "evidence": [
+            "Filed 8-K item 2.02 Results of Operations and Financial Condition",
+            "Shares +3.0% on the day of the release"
+          ],
+          "risk": "The 3% pop may already fully capitalize the beat, leaving no 5-day drift versus SPY.",
+          "reasoning": "Broker model: commission revenue with high incremental margins and low capital intensity. A positive market reaction to the results filing implies organic growth/margin came in ahead, which mechanically lifts forward EPS. Post-earnings-beat estimate revisions typically carry a few sessions.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "ELV",
+      "action": "BUY",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 1,
+        "SELL": 0,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 7,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.5,
+          "relevance": 0.9,
+          "weight": 0.472,
+          "evidence": [
+            "Elevance Health CEO Snaps Up Stock After Post-Earnings Slide",
+            "ELV last 378.36, up only 0.2% on the day",
+            "ELV matched 'ceo' keyword in headline"
+          ],
+          "risk": "Post-earnings slide indicates fundamental disappointment that insider buying alone cannot reverse within 5 sessions",
+          "reasoning": "CEO open-market purchases after an earnings-driven selloff are a strong insider conviction signal. The stock barely reacted (+0.2%), meaning the insider buy is not yet priced in. Over 5 days, this sentiment anchor should attract momentum buyers seeking mean reversion.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "FFIV",
+      "action": "BUY",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 1,
+        "SELL": 0,
+        "HOLD": 0
+      },
+      "votes": 2,
+      "meanConfidence": 5.5,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "BUY",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.563,
+          "evidence": [
+            "Filed 8-K item 2.02 Results of Operations and Financial Condition",
+            "Shares +4.0% on the release"
+          ],
+          "risk": "Hardware-heavy revenue is lumpy; a single strong quarter can be pull-forward, and the gap may retrace.",
+          "reasoning": "A 4% move on the results filing points to a revenue/EPS beat with software-mix-driven gross margin gains and strong free cash conversion. Valuation vs history remains undemanding for the cash flow base, so upgraded estimates should still be working over the next week.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 0.9,
+          "weight": 0.45,
+          "evidence": [
+            "F5, Inc.: Results of Operations and Financial Condition",
+            "FFIV filed SEC 8-K item 2.02",
+            "FFIV last 407.96, up 4.0% on the day"
+          ],
+          "risk": "The 4.0% move already prices in the earnings beat, and post-earnings drift could reverse if broader tech sentiment weakens",
+          "reasoning": "F5 posted results and the stock surged 4.0%, indicating a positive earnings surprise. Post-earnings announcement drift tends to persist over 5 sessions, especially in IT names where institutional rebalancing lags the initial move. Momentum continuation is the base case.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "GS",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 1,
+      "meanConfidence": 5,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 0.9,
+          "weight": 0.338,
+          "evidence": [
+            "Goldman Sachs: Material Modifications to Rights of Security Holders; Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+            "GS filed SEC 8-K items 3.03 and 5.03",
+            "GS last 1048.23, down 1.2% on the day"
+          ],
+          "risk": "Modifications to security holder rights could be interpreted negatively if it reduces shareholder protections, creating unexpected downside",
+          "reasoning": "GS filed administrative amendments (items 3.03, 5.03) that are governance-related rather than earnings-moving. The -1.2% decline is modest and likely noise. No clear directional catalyst exists for a 5-day trade, making HOLD the honest verdict.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "ISRG",
+      "action": "BUY",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 1,
+        "SELL": 0,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 6,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 0.9,
+          "weight": 0.405,
+          "evidence": [
+            "Intuitive Surgical: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
+            "ISRG filed SEC 8-K item 5.03",
+            "ISRG last 356.83, up 5.7% on the day"
+          ],
+          "risk": "A 5.03 filing is administrative and the 5.7% move may be unrelated, meaning there is no fundamental catalyst to sustain the rally over 5 days",
+          "reasoning": "ISRG surged 5.7%, the largest single-day move among healthcare names. While the 5.03 filing is administrative, the magnitude of the move signals strong underlying institutional demand. Momentum continuation over 5 sessions is likely as short covering and trend followers amplify the move.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "NUE",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 1,
+      "meanConfidence": 3,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.337,
+          "evidence": [
+            "Filed 8-K item 2.02 Results of Operations and Financial Condition",
+            "Shares essentially unchanged, +0.1%"
+          ],
+          "risk": "Steel spread inflections show up with a lag, so a benign print could be followed by upward guidance revisions.",
+          "reasoning": "A flat reaction to the results release says the print matched consensus on volumes, realized pricing and spread. Without a shift in margin per ton or capex/cash return cadence there is no fundamental edge over a five-day horizon.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "BSX",
+      "action": "HOLD",
+      "agreement": 0.556,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.444,
+        "HOLD": 0.556
+      },
+      "votes": 1,
+      "meanConfidence": 5,
+      "invest": false,
+      "panel": 2,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.45,
+          "evidence": [
+            "8-K filed under Item 2.05, Cost Associated with Exit or Disposal Activities, with no charge magnitude or margin guidance disclosed in the material",
+            "BSX last 45.51, up 2.8% on the day, so the market has already absorbed the disclosure positively"
+          ],
+          "risk": "If the charge is large and the market reads it as evidence of decelerating growth in a high-multiple medtech name, the recent 2.8% gain could unwind quickly and underperform SPY.",
+          "reasoning": "The SELL case is sentiment-based, not fundamental: it assumes analysts mark down on cost magnitude that the filing does not even quantify. On economics, exit charges are typically non-recurring, excluded from adjusted EPS, and cash outflow is modest versus BSX cash generation, with margin benefit later. No disclosed revenue or margin change means no earnings-based edge over five sessions after an up move. Stay flat.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "specialty": "China and Hong Kong context, policy and market sentiment",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.33,
+          "relevance": 0.9,
+          "weight": 0.36,
+          "evidence": [
+            "Boston Scientific filed SEC 8-K item 2.05 reporting costs associated with exit or disposal activities",
+            "BSX stock already moved up 2.8% on the day of the filing",
+            "Item 2.05 filings signal operational contraction or restructuring charges that pressure near-term GAAP earnings"
+          ],
+          "risk": "If the restructuring is large and structurally margin-accretive, operating leverage could keep re-rating the stock higher through the 5-day window as the market prices in long-term strategic benefits rather than near-term charges.",
+          "reasoning": "Item 2.05 exit/disposal costs are a near-term GAAP headwind. The 2.8% pop looks like a sentiment overshoot—buyers may be front-running a long-term restructuring narrative, but over 5 trading days the actual cost magnitude will be digested by analysts, likely fading the initial enthusiasm. No China/HK policy tailwind applies here; this is pure earnings sentiment mean-reversion.",
+          "revised": false
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 0.75,
+    "armsLive": 2
+  }
+}

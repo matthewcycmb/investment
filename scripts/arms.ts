@@ -14,7 +14,13 @@ import { streamObject, generateText } from 'ai';
 (globalThis as any).AI_SDK_LOG_WARNINGS = false;
 import { z } from 'zod';
 
-export const MAX_FINDINGS = 8;
+/**
+ * Findings requested per specialist. Each carries evidence, a counter-case and
+ * reasoning, so this directly drives generation length. At 8 across 10 tickers the
+ * gateway killed two of four arms with gateway_stream_timeout; 5 keeps responses
+ * inside the stream budget.
+ */
+export const MAX_FINDINGS = 5;
 
 /** Agreement at or above this needs no debate. Pre-declared, not tuned. */
 export const AGREEMENT_OK = 0.75;
@@ -127,9 +133,18 @@ async function callModel(model: string, prompt: string) {
     return { object: Analysis.parse(JSON.parse(m[0])), usage };
   }
   // Streaming is the one call path every gateway model accepts.
-  const res = streamObject({ model, schema: Analysis, temperature: 0, prompt });
-  for await (const _ of res.partialObjectStream) { /* drain */ }
-  return { object: await res.object, usage: await res.usage };
+  try {
+    const res = streamObject({ model, schema: Analysis, temperature: 0, prompt });
+    for await (const _ of res.partialObjectStream) { /* drain */ }
+    return { object: await res.object, usage: await res.usage };
+  } catch (err) {
+    // Some models emit valid JSON that fails strict tool-calling validation.
+    // Asking for raw JSON and validating it ourselves recovers those instead of
+    // losing the specialist and degrading the panel.
+    if (!/schema|No object generated/i.test(String((err as Error).message))) throw err;
+    console.error(`    ${model}: schema path failed, retrying as raw JSON`);
+    return viaText(model, prompt);
+  }
 }
 
 /** Stage 1: every specialist sees identical evidence through its own lens. */
