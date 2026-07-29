@@ -9,6 +9,6 @@ public/index.html
 # Local Form 4 XML parse cache. Rebuildable from EDGAR; not part of the record.
 data/form4-cache.json
 
-# Local watcher runtime state (rebuildable; would churn the audit trail if tracked).
-data/watch-state.json
+# watch-state.json IS tracked: CI needs continuity between runs, otherwise every
+# run re-detects every event and immediately exhausts the daily council budget.
 public/s/
