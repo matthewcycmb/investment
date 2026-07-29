@@ -1,6 +1,67 @@
 {
   "events": [
     {
+      "id": "shock:FDXF:2026-07-29",
+      "ts": "2026-07-29T16:49:19.946Z",
+      "source": "shock",
+      "title": "FDXF moved -4.1% on 2026-07-29· no reported cause",
+      "tickers": [
+        "FDXF"
+      ],
+      "detail": "close 150.99 → 144.76"
+    },
+    {
+      "id": "shock:ADSK:2026-07-29",
+      "ts": "2026-07-29T16:49:19.946Z",
+      "source": "shock",
+      "title": "ADSK moved +3.6% on 2026-07-29· possible cause: Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls | Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
+      "tickers": [
+        "ADSK"
+      ],
+      "detail": "close 237.38 → 245.95"
+    },
+    {
+      "id": "shock:IBKR:2026-07-29",
+      "ts": "2026-07-29T16:49:19.946Z",
+      "source": "shock",
+      "title": "IBKR moved -4.6% on 2026-07-29· possible cause: IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase Y/Y",
+      "tickers": [
+        "IBKR"
+      ],
+      "detail": "close 90.91 → 86.73"
+    },
+    {
+      "id": "headline:ELV:Elevance Health Pick of the Week at Smart Insider Following ",
+      "ts": "2026-07-29T16:49:19.946Z",
+      "source": "headline",
+      "title": "Elevance Health Pick of the Week at Smart Insider Following CEO, Chairman Share Purchases",
+      "url": "https://finance.yahoo.com/healthcare/articles/uhs-beats-q2-earnings-revenue-133600753.html?.tsrc=rss",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · matched \"ceo\""
+    },
+    {
+      "id": "shock:PAYX:2026-07-29",
+      "ts": "2026-07-29T16:49:19.946Z",
+      "source": "shock",
+      "title": "PAYX moved +4.1% on 2026-07-29· no reported cause",
+      "tickers": [
+        "PAYX"
+      ],
+      "detail": "close 118.87 → 123.76"
+    },
+    {
+      "id": "shock:DLR:2026-07-29",
+      "ts": "2026-07-29T16:49:19.946Z",
+      "source": "shock",
+      "title": "DLR moved -3.1% on 2026-07-29· possible cause: Is Digital Realty Trust (DLR) Fully Priced As Higher Guidance Lifts Optimism? | SpaceX initiated, PayPal upgraded: Wall Street's top analyst calls",
+      "tickers": [
+        "DLR"
+      ],
+      "detail": "close 193.18 → 187.23"
+    },
+    {
       "id": "shock:ACN:2026-07-29",
       "ts": "2026-07-29T15:08:23.870Z",
       "source": "shock",

@@ -156,12 +156,19 @@
     "headline:PSA:National Storage Affiliates Trust Announces Common Sharehold",
     "headline:PSA:Barclays upgrades CubeSmart, cuts Public Storage on relative",
     "shock:OXY:2026-07-29",
-    "shock:ACN:2026-07-29"
+    "shock:ACN:2026-07-29",
+    "shock:DLR:2026-07-29",
+    "shock:PAYX:2026-07-29",
+    "headline:ELV:Elevance Health Pick of the Week at Smart Insider Following ",
+    "shock:IBKR:2026-07-29",
+    "shock:ADSK:2026-07-29",
+    "shock:FDXF:2026-07-29"
   ],
   "councilRuns": {
     "2026-07-27": 10,
     "2026-07-28": 1,
-    "2026-07-29": 4
+    "2026-07-29": 4,
+    "2026-07-30": 1
   },
-  "cursor": 16
+  "cursor": 28
 }
