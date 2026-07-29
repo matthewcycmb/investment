@@ -132,12 +132,36 @@
     "policy:2026-15294",
     "policy:2026-15284",
     "policy:2026-15283",
-    "shock:VRSN:2026-07-27"
+    "shock:VRSN:2026-07-27",
+    "filing:APH:0000820313",
+    "filing:XEL:0000072903",
+    "filing:ODFL:0000878927",
+    "filing:ETR:0000065984",
+    "filing:GD:0000040533",
+    "filing:FTV:0001659166",
+    "filing:WEC:0000783325",
+    "filing:FLEX:0000866374",
+    "filing:VMC:0001396009",
+    "filing:PG:0000080424",
+    "filing:CBRE:0001138118",
+    "filing:MAS:0000062996",
+    "filing:IEX:0000832101",
+    "shock:ADBE:2026-07-29",
+    "shock:HONA:2026-07-29",
+    "headline:TECH:Merck KGaA to acquire Bio-Techne in $11.3 billion deal",
+    "headline:TECH:Bio-Techne (TECH) Agrees To $11.5 Billion Merck KGaA Buyout",
+    "headline:TECH:Bio-Techne (TECH) Soars 20% on Merck $11.3B Merger",
+    "headline:PSA:Public Storage Completes $10.5B NSAT Acquisition",
+    "headline:PSA:Public Storage Completes Acquisition of National Storage Aff",
+    "headline:PSA:National Storage Affiliates Trust Announces Common Sharehold",
+    "headline:PSA:Barclays upgrades CubeSmart, cuts Public Storage on relative",
+    "shock:OXY:2026-07-29",
+    "shock:ACN:2026-07-29"
   ],
   "councilRuns": {
     "2026-07-27": 10,
     "2026-07-28": 1,
-    "2026-07-29": 3
+    "2026-07-29": 4
   },
-  "cursor": 24
+  "cursor": 16
 }

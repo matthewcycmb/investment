@@ -1,6 +1,277 @@
 {
   "events": [
     {
+      "id": "shock:ACN:2026-07-29",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "shock",
+      "title": "ACN moved +5.0% on 2026-07-29· possible cause: MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances",
+      "tickers": [
+        "ACN"
+      ],
+      "detail": "close 164.66 → 172.93"
+    },
+    {
+      "id": "shock:OXY:2026-07-29",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "shock",
+      "title": "OXY moved +3.4% on 2026-07-29· no reported cause",
+      "tickers": [
+        "OXY"
+      ],
+      "detail": "close 53.93 → 55.77"
+    },
+    {
+      "id": "headline:PSA:Barclays upgrades CubeSmart, cuts Public Storage on relative",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "headline",
+      "title": "Barclays upgrades CubeSmart, cuts Public Storage on relative valuation",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/shopify-upgraded-pepsico-downgrade-wall-133847787.html?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"upgrade\""
+    },
+    {
+      "id": "headline:PSA:National Storage Affiliates Trust Announces Common Sharehold",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "headline",
+      "title": "National Storage Affiliates Trust Announces Common Shareholder Approval of Acquisition by Public Storage",
+      "url": "https://finance.yahoo.com/real-estate/articles/national-storage-affiliates-trust-announces-210600630.html?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"acquisition\""
+    },
+    {
+      "id": "headline:PSA:Public Storage Completes Acquisition of National Storage Aff",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "headline",
+      "title": "Public Storage Completes Acquisition of National Storage Affiliates Trust",
+      "url": "https://finance.yahoo.com/real-estate/articles/public-storage-announces-closing-national-131500981.html?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"acquisition\""
+    },
+    {
+      "id": "headline:PSA:Public Storage Completes $10.5B NSAT Acquisition",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "headline",
+      "title": "Public Storage Completes $10.5B NSAT Acquisition",
+      "url": "https://finance.yahoo.com/real-estate/articles/public-storage-closes-nsa-deal-152800258.html?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"acquisition\""
+    },
+    {
+      "id": "headline:TECH:Bio-Techne (TECH) Soars 20% on Merck $11.3B Merger",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "headline",
+      "title": "Bio-Techne (TECH) Soars 20% on Merck $11.3B Merger",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/06/25/stock-market-today-june-25-bio-techne-surges-after-merck-kgaa-announces-73-per-share-cash-acquisition-offer/?.tsrc=rss",
+      "tickers": [
+        "TECH"
+      ],
+      "detail": "TECH · matched \"merger\""
+    },
+    {
+      "id": "headline:TECH:Bio-Techne (TECH) Agrees To $11.5 Billion Merck KGaA Buyout",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "headline",
+      "title": "Bio-Techne (TECH) Agrees To $11.5 Billion Merck KGaA Buyout",
+      "url": "https://www.thedailyupside.com/industries/healthcare/germanys-merck-breathes-life-into-life-sciences-with-11-3-billion-buy/?.tsrc=rss",
+      "tickers": [
+        "TECH"
+      ],
+      "detail": "TECH · matched \"buyout\""
+    },
+    {
+      "id": "headline:TECH:Merck KGaA to acquire Bio-Techne in $11.3 billion deal",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "headline",
+      "title": "Merck KGaA to acquire Bio-Techne in $11.3 billion deal",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/company-news-jun-26-2026-132200181.html?.tsrc=rss",
+      "tickers": [
+        "TECH"
+      ],
+      "detail": "TECH · matched \"acquire\""
+    },
+    {
+      "id": "shock:HONA:2026-07-29",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "shock",
+      "title": "HONA moved -4.2% on 2026-07-29· possible cause: Why Honeywell Tech’s Earnings Beat Is Weighing on Aerospace Shares | Why Honeywell Tech’s Earnings Beat Is Weighing on Aerospace Shares",
+      "tickers": [
+        "HONA"
+      ],
+      "detail": "close 215.90 → 206.89"
+    },
+    {
+      "id": "shock:ADBE:2026-07-29",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "shock",
+      "title": "ADBE moved +10.3% on 2026-07-29· possible cause: Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "close 237.75 → 262.27"
+    },
+    {
+      "id": "filing:IEX:0000832101",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "IDEX Corporation: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/832101/000083210126000019/0000832101-26-000019-index.htm",
+      "tickers": [
+        "IEX"
+      ],
+      "detail": "IEX · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:MAS:0000062996",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Masco: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/62996/000006299626000026/0000062996-26-000026-index.htm",
+      "tickers": [
+        "MAS"
+      ],
+      "detail": "MAS · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:CBRE:0001138118",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "CBRE Group: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1138118/000113811826000021/0001138118-26-000021-index.htm",
+      "tickers": [
+        "CBRE"
+      ],
+      "detail": "CBRE · Real Estate · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:PG:0000080424",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Procter & Gamble: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000093/0000080424-26-000093-index.htm",
+      "tickers": [
+        "PG"
+      ],
+      "detail": "PG · Consumer Staples · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:PG:0000080424",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Procter & Gamble: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000094/0000080424-26-000094-index.htm",
+      "tickers": [
+        "PG"
+      ],
+      "detail": "PG · Consumer Staples · SEC 8-K item 5.02"
+    },
+    {
+      "id": "filing:VMC:0001396009",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Vulcan Materials Company: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1396009/000114036126029958/0001140361-26-029958-index.htm",
+      "tickers": [
+        "VMC"
+      ],
+      "detail": "VMC · Materials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:FLEX:0000866374",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Flex Ltd.: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/866374/000086637426000026/0000866374-26-000026-index.htm",
+      "tickers": [
+        "FLEX"
+      ],
+      "detail": "FLEX · Information Technology · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:WEC:0000783325",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "WEC Energy Group: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/783325/000078332526000080/0000783325-26-000080-index.htm",
+      "tickers": [
+        "WEC"
+      ],
+      "detail": "WEC · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:FTV:0001659166",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Fortive: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1659166/000165916626000033/0001659166-26-000033-index.htm",
+      "tickers": [
+        "FTV"
+      ],
+      "detail": "FTV · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:GD:0000040533",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "General Dynamics: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/40533/000004053326000029/0000040533-26-000029-index.htm",
+      "tickers": [
+        "GD"
+      ],
+      "detail": "GD · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ETR:0000065984",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Entergy: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/65984/000006598426000279/0000065984-26-000279-index.htm",
+      "tickers": [
+        "ETR"
+      ],
+      "detail": "ETR · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ODFL:0000878927",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Old Dominion: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/878927/000087892726000021/0000878927-26-000021-index.htm",
+      "tickers": [
+        "ODFL"
+      ],
+      "detail": "ODFL · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:XEL:0000072903",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Xcel Energy: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/72903/000007290326000147/0000072903-26-000147-index.htm",
+      "tickers": [
+        "XEL"
+      ],
+      "detail": "XEL · Utilities · SEC 8-K item 5.02"
+    },
+    {
+      "id": "filing:APH:0000820313",
+      "ts": "2026-07-29T15:08:23.870Z",
+      "source": "filing",
+      "title": "Amphenol: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/820313/000110465926087904/0001104659-26-087904-index.htm",
+      "tickers": [
+        "APH"
+      ],
+      "detail": "APH · Information Technology · SEC 8-K item 2.02"
+    },
+    {
       "id": "shock:VRSN:2026-07-27",
       "ts": "2026-07-29T05:02:29.877Z",
       "source": "shock",
