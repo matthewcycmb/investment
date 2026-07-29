@@ -57,7 +57,9 @@ const state = readJSON<{ seen: string[]; councilRuns: Record<string, number>; cu
   STATE_PATH, { seen: [], councilRuns: {}, cursor: 0 },
 );
 const seen = new Set(state.seen);
-const today = NOW.slice(0, 10);
+// Hong Kong date, matching what the dashboard shows. Using UTC here would roll the
+// daily council budget over at 08:00 local and disagree with the "AI votes today" figure.
+const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Hong_Kong' });
 const runsToday = state.councilRuns[today] ?? 0;
 
 /** RSS fields arrive XML-escaped; decode once so the renderer does not double-escape them. */

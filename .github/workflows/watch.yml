@@ -1,0 +1,70 @@
+name: Live council watch
+
+# Every 30 minutes during HK (01:30-08:00 UTC) and US (13:30-21:00 UTC) market hours.
+# The watcher itself is cheap; the council only fires when a material event passes
+# the screen, and is capped by MAX_COUNCIL_RUNS_PER_DAY regardless of how often
+# this runs. GitHub's scheduler is best-effort and often late by 5-15 minutes,
+# which is fine for a 5-20 day holding horizon.
+on:
+  schedule:
+    - cron: '*/30 1-8,13-21 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Run the council even with no new events'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: picks           # shared with pick.yml and settle.yml: never two writers
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      # Fail before spending tokens if the arithmetic is broken.
+      - name: Self-checks
+        run: |
+          node scripts/lib.ts
+          node scripts/arms.ts
+          node scripts/personas.ts
+          node scripts/settle.ts --selfcheck
+
+      - name: Watch
+        env:
+          AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
+          ARM_A: ${{ vars.ARM_A }}
+          ARM_B: ${{ vars.ARM_B }}
+          ARM_C: ${{ vars.ARM_C }}
+          ARM_D: ${{ vars.ARM_D }}
+        run: node scripts/watch.ts ${{ inputs.force && '--force' || '' }}
+
+      - name: Settle, quote and render
+        env:
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+        run: |
+          node scripts/settle.ts
+          node scripts/quotes.ts
+          node scripts/render.ts
+
+      - name: Commit only if something changed
+        run: |
+          git config user.name  "council-bot"
+          git config user.email "council-bot@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet && echo "nothing new" && exit 0
+          git commit -m "watch: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase --autostash origin main
+          git push
