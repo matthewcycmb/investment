@@ -1,0 +1,511 @@
+{
+  "date": "2026-07-29",
+  "ts": "2026-07-29T04:41:13.408Z",
+  "study": false,
+  "eventKind": "headline",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "headline",
+      "title": "Why Honeywell Tech’s Earnings Beat Is Weighing on Aerospace Shares",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/cibc-capital-markets-cdrs-closes-211200232.html?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "VeriSign (VRSN) Upgraded to Strong Buy: Here's What You Should Know",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/verisign-vrsn-stock-looks-strong-200941677.html?.tsrc=rss"
+    },
+    {
+      "source": "shock",
+      "title": "ACN moved +6.9% on 2026-07-28· possible cause: MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "HONA",
+    "ACN",
+    "VRSN"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 23259,
+      "revised": true,
+      "usage": {
+        "inputTokens": 1208,
+        "inputTokenDetails": {
+          "noCacheTokens": 1208,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 1509,
+        "outputTokenDetails": {
+          "textTokens": 977,
+          "reasoningTokens": 532
+        },
+        "totalTokens": 2717,
+        "raw": {
+          "input_tokens": 1208,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 1509,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 532
+          }
+        },
+        "reasoningTokens": 532,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ACN",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "ACN moved +6.9% in one session on 2026-07-28",
+            "The cited cause is MCO's Q2 earnings beat on analytics demand and higher issuances, not ACN's own results",
+            "Higher debt issuance volume is a ratings-agency revenue driver, not an Accenture revenue or margin line"
+          ],
+          "risk": "If analytics/consulting demand is genuinely inflecting sector-wide, ACN forward estimates could be revised up and the gain would persist or extend.",
+          "reasoning": "On fundamentals, nothing in the material changes ACN's revenue, bookings, margin or cash flow. A 6.9% re-rating on another company's earnings raises the multiple without any earnings input moving, which is exactly the setup that mean-reverts versus SPY. Qwen's read-through is thematic, not economic."
+        },
+        {
+          "ticker": "VRSN",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "The only disclosed event is a rating upgrade to Strong Buy, driven by rising consensus estimates",
+            "VRSN rose 2.3% on the session",
+            "No revenue, margin, domain-base or cash-flow figures are provided"
+          ],
+          "risk": "Upward consensus revisions for a high-margin recurring-fee registry business often precede multi-day institutional inflows, so the upgrade may not be fully priced.",
+          "reasoning": "Sol's point lands: I was treating an estimate-revision proxy as a fundamentals change. A rating change alters no registry fee, renewal rate or free cash flow line, and the 2.3% move already discounts it. Downgrading my BUY to HOLD — no measurable earnings impact to underwrite."
+        },
+        {
+          "ticker": "HONA",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Headline reports an earnings beat at Honeywell Tech that is weighing on aerospace shares",
+            "No segment revenue, margin, backlog or cash-flow detail is disclosed",
+            "HONA closed up 2.4% on the session"
+          ],
+          "risk": "If the consolidated beat came from non-aerospace units while aerospace volumes or margins missed, the negative segment read-through persists and HONA lags SPY.",
+          "reasoning": "Qwen infers sector-wide selling from a headline that contradicts HONA's own +2.4% print. Without segment margins or guidance I cannot quantify whether reported aerospace earnings improved or deteriorated. Beat-plus-negative-framing with no numbers is not a fundamental edge in either direction."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 17043,
+      "revised": false,
+      "usage": {
+        "inputTokens": 554,
+        "inputTokenDetails": {
+          "noCacheTokens": 554,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 818,
+        "outputTokenDetails": {
+          "textTokens": 376,
+          "reasoningTokens": 442
+        },
+        "totalTokens": 1372,
+        "raw": {
+          "input_tokens": 554,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 818,
+          "output_tokens_details": {
+            "reasoning_tokens": 442
+          }
+        },
+        "reasoningTokens": 442,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "HONA",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "The headline says Honeywell Tech’s earnings beat is weighing on aerospace shares.",
+            "HONA nevertheless gained 2.4% in the reported session.",
+            "The material provides no segment results or explanation connecting the beat to HONA’s five-day outlook."
+          ],
+          "risk": "The headline’s negative aerospace read-through could persist, causing HONA to underperform SPY after the initial 2.4% gain.",
+          "reasoning": "The negative headline conflicts with HONA’s positive price response, and the causal mechanism is unspecified. That does not verify either continued weakness or upside from the beat, so no relative trade is established."
+        },
+        {
+          "ticker": "ACN",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "ACN rose 6.9% on 2026-07-28.",
+            "The stated possible cause is MCO’s Q2 earnings beat on rising analytics demand and higher issuances.",
+            "The material identifies no ACN-specific earnings or operating catalyst for the move."
+          ],
+          "risk": "The surge may reflect an unreported ACN-specific catalyst or genuine analytics-demand read-through that sustains momentum.",
+          "reasoning": "The proposed catalyst belongs to MCO, and higher issuances are not linked to ACN in the material. With the entire 6.9% reaction already realized, the unsupported read-through favors a five-day fade versus SPY."
+        },
+        {
+          "ticker": "VRSN",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "VRSN was upgraded to Strong Buy.",
+            "VRSN gained 2.3% in the reported session.",
+            "No target-price change, estimate revision, or new operating result is provided."
+          ],
+          "risk": "The Strong Buy upgrade could generate additional buying over several sessions and lift VRSN relative to SPY.",
+          "reasoning": "The upgrade can affect demand, but the 2.3% move shows immediate repricing. Without new operating evidence or quantified upside, further five-day outperformance is not verified."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 70576,
+      "revised": false,
+      "usage": {
+        "inputTokens": 733,
+        "inputTokenDetails": {
+          "noCacheTokens": 733,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 3787,
+        "outputTokenDetails": {
+          "textTokens": 642,
+          "reasoningTokens": 3145
+        },
+        "totalTokens": 4520,
+        "raw": {
+          "prompt_tokens": 733,
+          "completion_tokens": 3787,
+          "total_tokens": 4520,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 3145
+          }
+        },
+        "reasoningTokens": 3145,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "HONA",
+          "verdict": "SELL",
+          "confidence": 7,
+          "evidence": [
+            "Headline states Honeywell's earnings beat is weighing on aerospace shares",
+            "HONA is a pure-play aerospace name per allowed tickers description",
+            "HONA gained 2.4% on the session despite negative sector framing"
+          ],
+          "risk": "The earnings beat itself signals fundamental strength, and the 2.4% daily gain suggests the market may be digesting the news positively rather than negatively for Honeywell specifically.",
+          "reasoning": "Headline explicitly frames HONA's beat as a sector headwind for aerospace. Peer repositioning and guidance concerns embedded in the beat create selling pressure. The 2.4% pop likely reverses as the negative read-through plays out over 5 sessions. ChatGPT's caution about unverified causality is fair, but the headline directly names Honeywell as the source of aerospace drag."
+        },
+        {
+          "ticker": "ACN",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "ACN moved +6.9% on 2026-07-28",
+            "Possible cause cited: MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances",
+            "ACN is an Information Technology consulting firm per allowed tickers"
+          ],
+          "risk": "The 6.9% single-day surge may exhaust near-term buying interest, and the catalyst is MCO's earnings—not ACN's own fundamentals—making sustained follow-through less certain.",
+          "reasoning": "ChatGPT correctly flags the weak direct causal link, but MCO's analytics demand is a structural signal for the consulting/analytics space where ACN is a dominant player. The 6.9% move with a thematic catalyst attracts momentum buyers and analyst revisions. I maintain BUY but lower confidence acknowledging the indirect catalyst risk."
+        },
+        {
+          "ticker": "VRSN",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "VeriSign upgraded to Strong Buy per headline",
+            "VRSN gained 2.3% on the session",
+            "VRSN is Information Technology with recurring registry fees per council discussion"
+          ],
+          "risk": "The upgrade may already be priced into the 2.3% daily move, and without details on the upgrade rationale, follow-through buying over 5 sessions is uncertain.",
+          "reasoning": "Strong Buy upgrades typically drive incremental institutional flows over the following week as funds rebalance. The 2.3% initial reaction suggests room for multi-day follow-through. No China/HK policy exposure reduces downside risk. ChatGPT's HOLD argument about pricing is valid but upgrades historically show 3-5 day momentum continuation."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": false,
+      "error": "Failed after 3 attempts. Last error: Invalid error response format: Gateway request failed",
+      "latencyMs": 304299,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "VRSN",
+      "action": "HOLD",
+      "agreement": 0.687,
+      "weightedShare": {
+        "BUY": 0.313,
+        "SELL": 0,
+        "HOLD": 0.687
+      },
+      "votes": 2,
+      "meanConfidence": 6,
+      "invest": false,
+      "panel": 3,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.33,
+          "relevance": 1,
+          "weight": 0.333,
+          "evidence": [
+            "The only disclosed event is a rating upgrade to Strong Buy, driven by rising consensus estimates",
+            "VRSN rose 2.3% on the session",
+            "No revenue, margin, domain-base or cash-flow figures are provided"
+          ],
+          "risk": "Upward consensus revisions for a high-margin recurring-fee registry business often precede multi-day institutional inflows, so the upgrade may not be fully priced.",
+          "reasoning": "Sol's point lands: I was treating an estimate-revision proxy as a fundamentals change. A rating change alters no registry fee, renewal rate or free cash flow line, and the 2.3% move already discounts it. Downgrading my BUY to HOLD — no measurable earnings impact to underwrite.",
+          "revised": true
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.5,
+          "weight": 0.875,
+          "evidence": [
+            "VRSN was upgraded to Strong Buy.",
+            "VRSN gained 2.3% in the reported session.",
+            "No target-price change, estimate revision, or new operating result is provided."
+          ],
+          "risk": "The Strong Buy upgrade could generate additional buying over several sessions and lift VRSN relative to SPY.",
+          "reasoning": "The upgrade can affect demand, but the 2.3% move shows immediate repricing. Without new operating evidence or quantified upside, further five-day outperformance is not verified.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1.1,
+          "weight": 0.55,
+          "evidence": [
+            "VeriSign upgraded to Strong Buy per headline",
+            "VRSN gained 2.3% on the session",
+            "VRSN is Information Technology with recurring registry fees per council discussion"
+          ],
+          "risk": "The upgrade may already be priced into the 2.3% daily move, and without details on the upgrade rationale, follow-through buying over 5 sessions is uncertain.",
+          "reasoning": "Strong Buy upgrades typically drive incremental institutional flows over the following week as funds rebalance. The 2.3% initial reaction suggests room for multi-day follow-through. No China/HK policy exposure reduces downside risk. ChatGPT's HOLD argument about pricing is valid but upgrades historically show 3-5 day momentum continuation.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "HONA",
+      "action": "HOLD",
+      "agreement": 0.668,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.332,
+        "HOLD": 0.668
+      },
+      "votes": 2,
+      "meanConfidence": 6.33,
+      "invest": false,
+      "panel": 3,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.67,
+          "relevance": 1,
+          "weight": 0.417,
+          "evidence": [
+            "Headline reports an earnings beat at Honeywell Tech that is weighing on aerospace shares",
+            "No segment revenue, margin, backlog or cash-flow detail is disclosed",
+            "HONA closed up 2.4% on the session"
+          ],
+          "risk": "If the consolidated beat came from non-aerospace units while aerospace volumes or margins missed, the negative segment read-through persists and HONA lags SPY.",
+          "reasoning": "Qwen infers sector-wide selling from a headline that contradicts HONA's own +2.4% print. Without segment margins or guidance I cannot quantify whether reported aerospace earnings improved or deteriorated. Beat-plus-negative-framing with no numbers is not a fundamental edge in either direction.",
+          "revised": true
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.5,
+          "weight": 0.875,
+          "evidence": [
+            "The headline says Honeywell Tech’s earnings beat is weighing on aerospace shares.",
+            "HONA nevertheless gained 2.4% in the reported session.",
+            "The material provides no segment results or explanation connecting the beat to HONA’s five-day outlook."
+          ],
+          "risk": "The headline’s negative aerospace read-through could persist, causing HONA to underperform SPY after the initial 2.4% gain.",
+          "reasoning": "The negative headline conflicts with HONA’s positive price response, and the causal mechanism is unspecified. That does not verify either continued weakness or upside from the beat, so no relative trade is established.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.1,
+          "weight": 0.642,
+          "evidence": [
+            "Headline states Honeywell's earnings beat is weighing on aerospace shares",
+            "HONA is a pure-play aerospace name per allowed tickers description",
+            "HONA gained 2.4% on the session despite negative sector framing"
+          ],
+          "risk": "The earnings beat itself signals fundamental strength, and the 2.4% daily gain suggests the market may be digesting the news positively rather than negatively for Honeywell specifically.",
+          "reasoning": "Headline explicitly frames HONA's beat as a sector headwind for aerospace. Peer repositioning and guidance concerns embedded in the beat create selling pressure. The 2.4% pop likely reverses as the negative read-through plays out over 5 sessions. ChatGPT's caution about unverified causality is fair, but the headline directly names Honeywell as the source of aerospace drag.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "ACN",
+      "action": "SELL",
+      "agreement": 0.631,
+      "weightedShare": {
+        "BUY": 0.369,
+        "SELL": 0.631,
+        "HOLD": 0
+      },
+      "votes": 2,
+      "meanConfidence": 6.33,
+      "invest": false,
+      "panel": 3,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1,
+          "weight": 0.5,
+          "evidence": [
+            "ACN moved +6.9% in one session on 2026-07-28",
+            "The cited cause is MCO's Q2 earnings beat on analytics demand and higher issuances, not ACN's own results",
+            "Higher debt issuance volume is a ratings-agency revenue driver, not an Accenture revenue or margin line"
+          ],
+          "risk": "If analytics/consulting demand is genuinely inflecting sector-wide, ACN forward estimates could be revised up and the gain would persist or extend.",
+          "reasoning": "On fundamentals, nothing in the material changes ACN's revenue, bookings, margin or cash flow. A 6.9% re-rating on another company's earnings raises the multiple without any earnings input moving, which is exactly the setup that mean-reverts versus SPY. Qwen's read-through is thematic, not economic.",
+          "revised": true
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.33,
+          "relevance": 1.5,
+          "weight": 0.6,
+          "evidence": [
+            "ACN rose 6.9% on 2026-07-28.",
+            "The stated possible cause is MCO’s Q2 earnings beat on rising analytics demand and higher issuances.",
+            "The material identifies no ACN-specific earnings or operating catalyst for the move."
+          ],
+          "risk": "The surge may reflect an unreported ACN-specific catalyst or genuine analytics-demand read-through that sustains momentum.",
+          "reasoning": "The proposed catalyst belongs to MCO, and higher issuances are not linked to ACN in the material. With the entire 6.9% reaction already realized, the unsupported read-through favors a five-day fade versus SPY.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.1,
+          "weight": 0.642,
+          "evidence": [
+            "ACN moved +6.9% on 2026-07-28",
+            "Possible cause cited: MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances",
+            "ACN is an Information Technology consulting firm per allowed tickers"
+          ],
+          "risk": "The 6.9% single-day surge may exhaust near-term buying interest, and the catalyst is MCO's earnings—not ACN's own fundamentals—making sustained follow-through less certain.",
+          "reasoning": "ChatGPT correctly flags the weak direct causal link, but MCO's analytics demand is a structural signal for the consulting/analytics space where ACN is a dominant player. The 6.9% move with a thematic catalyst attracts momentum buyers and analyst revisions. I maintain BUY but lower confidence acknowledging the indirect catalyst risk.",
+          "revised": false
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 1,
+    "armsLive": 3
+  }
+}

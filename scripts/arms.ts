@@ -76,7 +76,7 @@ const SPECIALISTS: Arm[] = [
     relevance: { policy: 1.5, headline: 1.1, filing: 0.9, shock: 1.0, mixed: 1.2 },
   },
   {
-    id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k3', name: 'Kimi K3', role_title: 'The Forecaster',
+    id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k2.5', name: 'Kimi K2.5', role_title: 'The Forecaster',
     specialty: 'Second-order consequences and long-document synthesis',
     role: 'You are the SECOND-ORDER analyst. Synthesise across everything provided and reason about '
       + 'knock-on effects: suppliers, customers, competitors, substitutes, and what the market has not '

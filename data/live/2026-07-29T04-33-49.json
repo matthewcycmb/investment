@@ -1,0 +1,453 @@
+{
+  "date": "2026-07-29",
+  "ts": "2026-07-29T04:33:49.337Z",
+  "study": false,
+  "eventKind": "mixed",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "policy",
+      "title": "Actions by the United States in the Investigations Under Section 301 of the Trade Act of 1974 of the Acts, Policies, and Practices of 60 Economies Related to the Failure of Each Economy To Impose and Effectively Enforce a Prohibition on the Importation of Goods Produced With Forced Labor",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15274/actions-by-the-united-states-in-the-investigations-under-section-301-of-the-trade-act-of-1974-of-the"
+    },
+    {
+      "source": "policy",
+      "title": "Presidential Determination on the Proposed Agreement for Cooperation Between the Government of the United States of America and the Government of the Kingdom of Saudi Arabia Concerning Peaceful Uses of Nuclear Energy",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15273/presidential-determination-on-the-proposed-agreement-for-cooperation-between-the-government-of-the"
+    },
+    {
+      "source": "policy",
+      "title": "Airworthiness Directives; The Boeing Company Airplanes",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15239/airworthiness-directives-the-boeing-company-airplanes"
+    },
+    {
+      "source": "policy",
+      "title": "Federal Motor Vehicle Safety Standards; Modernization of FMVSS No. 135 To Accommodate ADS-Equipped Vehicles; Extension of Comment Period",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15231/federal-motor-vehicle-safety-standards-modernization-of-fmvss-no-135-to-accommodate-ads-equipped"
+    },
+    {
+      "source": "policy",
+      "title": "Modification of Class E Airspace, Samaritan North Lincoln Hospital Heliport, Lincoln, OR",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15229/modification-of-class-e-airspace-samaritan-north-lincoln-hospital-heliport-lincoln-or"
+    },
+    {
+      "source": "policy",
+      "title": "Risk-Informed, Technology-Inclusive Regulatory Framework for Advanced Reactors; Correction",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15213/risk-informed-technology-inclusive-regulatory-framework-for-advanced-reactors-correction"
+    },
+    {
+      "source": "policy",
+      "title": "Energy Conservation Program: Procedures, Interpretations, and Policies for Consideration of New or Revised Energy Conservation Standards and Test Procedures for Consumer Products and Certain Commercial/Industrial Equipment; Extension of Public Comment Period",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15211/energy-conservation-program-procedures-interpretations-and-policies-for-consideration-of-new-or"
+    },
+    {
+      "source": "filing",
+      "title": "Cboe Global Markets: Entry into a Material Definitive Agreement; Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant",
+      "url": "https://www.sec.gov/Archives/edgar/data/1374310/000110465926087625/0001104659-26-087625-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Verisk Analytics: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/1442145/000119312526321243/0001193125-26-321243-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "FirstEnergy: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000122/0001031296-26-000122-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Extra Space Storage: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000048/0001289490-26-000048-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Waste Management: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/823768/000110465926087575/0001104659-26-087575-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Veralto: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000043/0001967680-26-000043-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "PPG Industries: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/79879/000007987926000246/0000079879-26-000246-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "AT&T: Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant",
+      "url": "https://www.sec.gov/Archives/edgar/data/732717/000119312526321053/0001193125-26-321053-index.htm"
+    },
+    {
+      "source": "shock",
+      "title": "CPRT moved +3.0% on 2026-07-28· possible cause: Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and AI Focus | Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and AI Focus"
+    },
+    {
+      "source": "headline",
+      "title": "Circle Acquires Nearly 1,000 IBM Blockchain Patents, Becoming America's Blockchain IP Leader",
+      "url": "https://finance.yahoo.com/technology/ai/articles/resecurity-introduces-native-integration-ibm-022900996.html?.tsrc=rss"
+    },
+    {
+      "source": "shock",
+      "title": "IBM moved +5.2% on 2026-07-28· possible cause: Circle Acquires Nearly 1,000 IBM Blockchain Patents, Becoming America's Blockchain IP Leader | CRCL Stock Rallies After Circle Acquires Nearly 1,000 Blockchain Patents From IBM"
+    },
+    {
+      "source": "headline",
+      "title": "Simon Property Group (SPG) Downgraded at Wolfe Research. Here is Why",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/simon-property-group-spg-leaves-091236539.html?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "Casey's CEO Sells $15.2 Million in Stock After a 50% Stock Rally",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-caseys-casy-down-7-153002333.html?.tsrc=rss"
+    },
+    {
+      "source": "shock",
+      "title": "ADBE moved +4.8% on 2026-07-28· possible cause: Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions"
+    },
+    {
+      "source": "shock",
+      "title": "ADSK moved +5.1% on 2026-07-28· possible cause: Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls | Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 37189,
+      "revised": false,
+      "usage": {
+        "inputTokens": 3077,
+        "inputTokenDetails": {
+          "noCacheTokens": 3077,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 2434,
+        "outputTokenDetails": {
+          "textTokens": 1135,
+          "reasoningTokens": 1299
+        },
+        "totalTokens": 5511,
+        "raw": {
+          "input_tokens": 3077,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 2434,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 1299
+          }
+        },
+        "reasoningTokens": 1299,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "APTV",
+          "verdict": "SELL",
+          "confidence": 5,
+          "evidence": [
+            "Presidential action under Section 301 targets 60 economies for failure to enforce prohibitions on goods produced with forced labor, tagged to Industrials and Consumer Discretionary",
+            "NHTSA extended the comment period on modernizing FMVSS No. 135 for ADS-equipped vehicles, delaying the rule",
+            "APTV closed at 59.40 after a 3.4% one-day gain"
+          ],
+          "risk": "Section 301 forced-labor actions are procedural and may never translate into duties on Aptiv's specific sourcing, so no reported cost line changes within five days.",
+          "reasoning": "Aptiv is a thin-margin, import-intensive supplier with heavy low-cost-country sourcing; broadened Section 301 import-enforcement risk pressures landed COGS with no offsetting pricing, while the ADS rulemaking delay pushes out the high-content revenue ramp. Entry follows a 3.4% pop, so valuation cushion is thinner."
+        },
+        {
+          "ticker": "AOS",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "DOE extended the public comment period on procedures for new or revised energy conservation standards and test procedures for consumer products and certain commercial/industrial equipment",
+            "No AOS-specific 8-K or results filing appears in the material",
+            "AOS last 64.01, up 2.5% on the day"
+          ],
+          "risk": "A deferral of tighter appliance efficiency standards genuinely lowers near-term compliance/retooling capex for water heater makers, which could support a modest re-rating.",
+          "reasoning": "The only relevant item is a comment-period extension: it changes no revenue, margin, or cash flow line and does not alter reported earnings in the window. With the stock already up 2.5% into entry, there is no fundamental edge either way."
+        },
+        {
+          "ticker": "AMZN",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "Section 301 action covers 60 economies over forced-labor import enforcement, sectors Industrials and Consumer Discretionary",
+            "No Amazon filing or results disclosure appears among the 22 events",
+            "AMZN last 230.86, down 0.2% on the day"
+          ],
+          "risk": "Amazon's retail gross margin is highly sensitive to landed import costs; a broad forced-labor import enforcement regime across 60 economies could compress first-party and 3P unit economics.",
+          "reasoning": "The forced-labor policy is a framework action with no quantified duty, timing, or covered-goods list, so no line item in Amazon's P&L or cash flow changes over five sessions. Absent a company-specific earnings or balance-sheet event, fundamentals give no directional call."
+        },
+        {
+          "ticker": "ADP",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "evidence": [
+            "No ADP filing, results release, or policy item appears in the 22 events",
+            "ADP rose 3.6% to 264.17 with no company-specific catalyst in the material"
+          ],
+          "risk": "A 3.6% single-session move in a low-beta payroll processor usually signals an information event not captured here, and such gaps often persist.",
+          "reasoning": "There is no disclosed change to ADP's revenue, margins, client funds float, or balance sheet in the material. A large unexplained move without an accompanying 8-K gives a fundamentals analyst nothing to underwrite; unpriced move risk cuts both ways."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 3184,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1645,
+        "inputTokenDetails": {
+          "noCacheTokens": 3,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 1642
+        },
+        "outputTokens": 81,
+        "outputTokenDetails": {
+          "textTokens": 14,
+          "reasoningTokens": 67
+        },
+        "totalTokens": 1726,
+        "raw": {
+          "input_tokens": 1645,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 1642
+          },
+          "output_tokens": 81,
+          "output_tokens_details": {
+            "reasoning_tokens": 67
+          }
+        },
+        "reasoningTokens": 67,
+        "cachedInputTokens": 0
+      },
+      "findings": []
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 92710,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1916,
+        "inputTokenDetails": {
+          "noCacheTokens": 1916,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 5019,
+        "outputTokenDetails": {
+          "textTokens": 14,
+          "reasoningTokens": 5005
+        },
+        "totalTokens": 6935,
+        "raw": {
+          "prompt_tokens": 1916,
+          "completion_tokens": 5019,
+          "total_tokens": 6935,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 5005
+          }
+        },
+        "reasoningTokens": 5005,
+        "cachedInputTokens": 0
+      },
+      "findings": []
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k3",
+      "name": "Kimi K3",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": false,
+      "error": "timed out after 330s (Kimi K3)",
+      "latencyMs": 330009,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "ADP",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 1,
+      "meanConfidence": 3,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.27,
+          "evidence": [
+            "No ADP filing, results release, or policy item appears in the 22 events",
+            "ADP rose 3.6% to 264.17 with no company-specific catalyst in the material"
+          ],
+          "risk": "A 3.6% single-session move in a low-beta payroll processor usually signals an information event not captured here, and such gaps often persist.",
+          "reasoning": "There is no disclosed change to ADP's revenue, margins, client funds float, or balance sheet in the material. A large unexplained move without an accompanying 8-K gives a fundamentals analyst nothing to underwrite; unpriced move risk cuts both ways."
+        }
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 1,
+      "meanConfidence": 4,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "Section 301 action covers 60 economies over forced-labor import enforcement, sectors Industrials and Consumer Discretionary",
+            "No Amazon filing or results disclosure appears among the 22 events",
+            "AMZN last 230.86, down 0.2% on the day"
+          ],
+          "risk": "Amazon's retail gross margin is highly sensitive to landed import costs; a broad forced-labor import enforcement regime across 60 economies could compress first-party and 3P unit economics.",
+          "reasoning": "The forced-labor policy is a framework action with no quantified duty, timing, or covered-goods list, so no line item in Amazon's P&L or cash flow changes over five sessions. Absent a company-specific earnings or balance-sheet event, fundamentals give no directional call."
+        }
+      ]
+    },
+    {
+      "ticker": "AOS",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 1,
+      "meanConfidence": 4,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "DOE extended the public comment period on procedures for new or revised energy conservation standards and test procedures for consumer products and certain commercial/industrial equipment",
+            "No AOS-specific 8-K or results filing appears in the material",
+            "AOS last 64.01, up 2.5% on the day"
+          ],
+          "risk": "A deferral of tighter appliance efficiency standards genuinely lowers near-term compliance/retooling capex for water heater makers, which could support a modest re-rating.",
+          "reasoning": "The only relevant item is a comment-period extension: it changes no revenue, margin, or cash flow line and does not alter reported earnings in the window. With the stock already up 2.5% into entry, there is no fundamental edge either way."
+        }
+      ]
+    },
+    {
+      "ticker": "APTV",
+      "action": "SELL",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 1,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 5,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.45,
+          "evidence": [
+            "Presidential action under Section 301 targets 60 economies for failure to enforce prohibitions on goods produced with forced labor, tagged to Industrials and Consumer Discretionary",
+            "NHTSA extended the comment period on modernizing FMVSS No. 135 for ADS-equipped vehicles, delaying the rule",
+            "APTV closed at 59.40 after a 3.4% one-day gain"
+          ],
+          "risk": "Section 301 forced-labor actions are procedural and may never translate into duties on Aptiv's specific sourcing, so no reported cost line changes within five days.",
+          "reasoning": "Aptiv is a thin-margin, import-intensive supplier with heavy low-cost-country sourcing; broadened Section 301 import-enforcement risk pressures landed COGS with no offsetting pricing, while the ADS rulemaking delay pushes out the high-content revenue ramp. Entry follows a 3.4% pop, so valuation cushion is thinner."
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": null,
+    "armsLive": 3
+  }
+}

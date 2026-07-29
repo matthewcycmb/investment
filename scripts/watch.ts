@@ -273,7 +273,10 @@ if (!found.length && !FORCE) {
 } else {
   // --force with nothing new re-examines the most recent real signals, so the demo
   // button always has genuine material rather than an empty event list.
-  const review = found.length ? found : log.events.slice(0, 12);
+  // Hard cap on what reaches the council. Prompt length drives generation time,
+  // and an unbounded event list timed out all four specialists in CI.
+  const MAX_BRIEF_EVENTS = 12;
+  const review = (found.length ? found : log.events).slice(0, MAX_BRIEF_EVENTS);
   // Cap the review set: every extra ticker lengthens all four responses, and long
   // generations hit the gateway's stream limit and kill specialists mid-run.
   const MAX_REVIEW_TICKERS = 8;
@@ -309,7 +312,7 @@ RULES:
 - "risk" must be the strongest argument AGAINST your own verdict.
 
 EVENTS (${review.length}):
-${review.slice(0, 25).map((e) => `- [${e.source}] ${e.title}${e.detail ? `\n    ${e.detail}` : ''}`).join('\n')}
+${review.map((e) => `- [${e.source}] ${String(e.title).slice(0, 120)}`).join('\n')}
 
 ALLOWED TICKERS:
 ${priced.join('\n')}`;
@@ -354,7 +357,7 @@ ${priced.join('\n')}`;
       date: today, ts: NOW, study: false,
       eventKind: kind, fallback: FALLBACK,
       horizonTradingDays: LIVE_HORIZON,
-      trigger: review.slice(0, 25).map((e) => ({ source: e.source, title: e.title, url: e.url })),
+      trigger: review.map((e) => ({ source: e.source, title: e.title, url: e.url })),
       rubric: {
         steps: ['verify evidence', 'weight votes', 'measure agreement', 'investigate credible disagreement'],
         actMinAgreement: ACT_MIN_AGREEMENT, actMinVotes: ACT_MIN_VOTES,
