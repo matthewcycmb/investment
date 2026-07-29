@@ -1,6 +1,751 @@
 {
   "events": [
     {
+      "id": "headline:VRSN:VeriSign (VRSN) Upgraded to Strong Buy: Here's What You Shou",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "headline",
+      "title": "VeriSign (VRSN) Upgraded to Strong Buy: Here's What You Should Know",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/verisign-vrsn-stock-looks-strong-200941677.html?.tsrc=rss",
+      "tickers": [
+        "VRSN"
+      ],
+      "detail": "VRSN · matched \"upgrade\""
+    },
+    {
+      "id": "headline:TECH:Stock Market Today, June 25: Bio-Techne Surges After Merck K",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "headline",
+      "title": "Stock Market Today, June 25: Bio-Techne Surges After Merck KGaA Announces $73-Per-Share Cash Acquisition Offer",
+      "url": "https://finance.yahoo.com/m/82809cc8-4cb9-3f7d-b57f-5d1f5ceab111/germany%27s-merck-kgaa-swoops.html?.tsrc=rss",
+      "tickers": [
+        "TECH"
+      ],
+      "detail": "TECH · matched \"acquisition\""
+    },
+    {
+      "id": "headline:HONA:Why Honeywell Tech’s Earnings Beat Is Weighing on Aerospace ",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "headline",
+      "title": "Why Honeywell Tech’s Earnings Beat Is Weighing on Aerospace Shares",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/cibc-capital-markets-cdrs-closes-211200232.html?.tsrc=rss",
+      "tickers": [
+        "HONA"
+      ],
+      "detail": "HONA · matched \"earnings beat\""
+    },
+    {
+      "id": "shock:ADSK:2026-07-28",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "shock",
+      "title": "ADSK moved +5.1% on 2026-07-28· possible cause: Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls | Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
+      "tickers": [
+        "ADSK"
+      ],
+      "detail": "close 225.91 → 237.38"
+    },
+    {
+      "id": "headline:ADSK:Autodesk initiated, Norwegian Cruise downgrade: Wall Street'",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "headline",
+      "title": "Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
+      "url": "https://247wallst.com/investing/2026/07/23/here-are-thursdays-top-wall-street-analyst-research-calls-att-applied-digital-autodesk-duke-energy-exxon-mobil-jpmorgan-chase-company-live-nation-entertainment-and-more/?.tsrc=rss",
+      "tickers": [
+        "ADSK"
+      ],
+      "detail": "ADSK · matched \"downgrade\""
+    },
+    {
+      "id": "shock:ADBE:2026-07-28",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "shock",
+      "title": "ADBE moved +4.8% on 2026-07-28· possible cause: Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "close 237.75 → 249.18"
+    },
+    {
+      "id": "headline:CASY:Casey's CEO Sells $15.2 Million in Stock After a 50% Stock R",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "headline",
+      "title": "Casey's CEO Sells $15.2 Million in Stock After a 50% Stock Rally",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-caseys-casy-down-7-153002333.html?.tsrc=rss",
+      "tickers": [
+        "CASY"
+      ],
+      "detail": "CASY · matched \"ceo\""
+    },
+    {
+      "id": "headline:SPG:Simon Property Group (SPG) Downgraded at Wolfe Research. Her",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "headline",
+      "title": "Simon Property Group (SPG) Downgraded at Wolfe Research. Here is Why",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/simon-property-group-spg-leaves-091236539.html?.tsrc=rss",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · matched \"downgrade\""
+    },
+    {
+      "id": "insider:OXY:JACKSON RICHARD A.:2026-06-23:4770",
+      "ts": "2026-06-23",
+      "source": "insider",
+      "title": "JACKSON RICHARD A. bought 4,770 OXY shares at $52.38 (US$249,853)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000797468&type=4",
+      "tickers": [
+        "OXY"
+      ],
+      "detail": "OXY · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:CME:SHEPARD WILLIAM R:2026-06-25:324.782",
+      "ts": "2026-06-25",
+      "source": "insider",
+      "title": "SHEPARD WILLIAM R bought 324.782 CME shares at $230.57 (US$74,885)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156375&type=4",
+      "tickers": [
+        "CME"
+      ],
+      "detail": "CME · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ADSK:CAHILL JOHN T:2026-06-23:2000",
+      "ts": "2026-06-23",
+      "source": "insider",
+      "title": "CAHILL JOHN T bought 2,000 ADSK shares at $189.20 (US$378,400)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000769397&type=4",
+      "tickers": [
+        "ADSK"
+      ],
+      "detail": "ADSK · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ADBE:RICKS DAVID A:2026-06-25:10000",
+      "ts": "2026-06-25",
+      "source": "insider",
+      "title": "RICKS DAVID A bought 10,000 ADBE shares at $194.51 (US$1,945,130)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000796343&type=4",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "ADBE · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:CASY:SPANOS MIKE:2026-06-26:256",
+      "ts": "2026-06-26",
+      "source": "insider",
+      "title": "SPANOS MIKE bought 256 CASY shares at $778.81 (US$199,375)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000726958&type=4",
+      "tickers": [
+        "CASY"
+      ],
+      "detail": "CASY · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ELV:BOUDREAUX GAIL:2026-07-17:2045",
+      "ts": "2026-07-17",
+      "source": "insider",
+      "title": "BOUDREAUX GAIL bought 2,045 ELV shares at $368.25 (US$753,071)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156039&type=4",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ELV:BOUDREAUX GAIL:2026-07-17:680",
+      "ts": "2026-07-17",
+      "source": "insider",
+      "title": "BOUDREAUX GAIL bought 680 ELV shares at $366.41 (US$249,159)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156039&type=4",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:ELV:PERU RAMIRO G:2026-07-17:1000",
+      "ts": "2026-07-17",
+      "source": "insider",
+      "title": "PERU RAMIRO G bought 1,000 ELV shares at $366.05 (US$366,050)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156039&type=4",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:AEPPEL GLYN:2026-06-30:199",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "AEPPEL GLYN bought 199 SPG shares at $223.14 (US$44,405)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:RODKIN GARY M:2026-06-30:209",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "RODKIN GARY M bought 209 SPG shares at $223.14 (US$46,636)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:SMITH DANIEL C.:2026-06-30:314",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "SMITH DANIEL C. bought 314 SPG shares at $223.14 (US$70,066)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:STEWART MARTA R:2026-06-30:179",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "STEWART MARTA R bought 179 SPG shares at $223.14 (US$39,942)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:GLASSCOCK LARRY C:2026-06-30:330",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "GLASSCOCK LARRY C bought 330 SPG shares at $223.14 (US$73,636)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:LEIBOWITZ REUBEN S:2026-06-30:430",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "LEIBOWITZ REUBEN S bought 430 SPG shares at $223.14 (US$95,950)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "insider:SPG:SELIG STEFAN M:2026-06-30:187",
+      "ts": "2026-06-30",
+      "source": "insider",
+      "title": "SELIG STEFAN M bought 187 SPG shares at $223.14 (US$41,727)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
+      "tickers": [
+        "SPG"
+      ],
+      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "filing:T:0000732717",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "filing",
+      "title": "AT&T: Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant",
+      "url": "https://www.sec.gov/Archives/edgar/data/732717/000119312526321053/0001193125-26-321053-index.htm",
+      "tickers": [
+        "T"
+      ],
+      "detail": "T · Communication Services · SEC 8-K item 2.03"
+    },
+    {
+      "id": "filing:PPG:0000079879",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "filing",
+      "title": "PPG Industries: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/79879/000007987926000246/0000079879-26-000246-index.htm",
+      "tickers": [
+        "PPG"
+      ],
+      "detail": "PPG · Materials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:VLTO:0001967680",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "filing",
+      "title": "Veralto: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1967680/000196768026000043/0001967680-26-000043-index.htm",
+      "tickers": [
+        "VLTO"
+      ],
+      "detail": "VLTO · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:WM:0000823768",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "filing",
+      "title": "Waste Management: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/823768/000110465926087575/0001104659-26-087575-index.htm",
+      "tickers": [
+        "WM"
+      ],
+      "detail": "WM · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:EXR:0001289490",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "filing",
+      "title": "Extra Space Storage: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1289490/000128949026000048/0001289490-26-000048-index.htm",
+      "tickers": [
+        "EXR"
+      ],
+      "detail": "EXR · Real Estate · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:FE:0001031296",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "filing",
+      "title": "FirstEnergy: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000122/0001031296-26-000122-index.htm",
+      "tickers": [
+        "FE"
+      ],
+      "detail": "FE · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:VRSK:0001442145",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "filing",
+      "title": "Verisk Analytics: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/1442145/000119312526321243/0001193125-26-321243-index.htm",
+      "tickers": [
+        "VRSK"
+      ],
+      "detail": "VRSK · Industrials · SEC 8-K item 5.02"
+    },
+    {
+      "id": "filing:CBOE:0001374310",
+      "ts": "2026-07-29T04:53:36.398Z",
+      "source": "filing",
+      "title": "Cboe Global Markets: Entry into a Material Definitive Agreement; Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant",
+      "url": "https://www.sec.gov/Archives/edgar/data/1374310/000110465926087625/0001104659-26-087625-index.htm",
+      "tickers": [
+        "CBOE"
+      ],
+      "detail": "CBOE · Financials · SEC 8-K item 1.01, 2.03"
+    },
+    {
+      "id": "policy:2026-15211",
+      "ts": "2026-07-28",
+      "source": "policy",
+      "title": "Energy Conservation Program: Procedures, Interpretations, and Policies for Consideration of New or Revised Energy Conservation Standards and Test Procedures for Consumer Products and Certain Commercial/Industrial Equipment; Extension of Public Comment Period",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15211/energy-conservation-program-procedures-interpretations-and-policies-for-consideration-of-new-or",
+      "tickers": [
+        "ABNB",
+        "AMZN",
+        "APTV",
+        "AZO",
+        "BBY",
+        "BKNG",
+        "CCL",
+        "CVNA",
+        "CMG",
+        "DRI",
+        "DECK",
+        "DPZ",
+        "DASH",
+        "DHI",
+        "EBAY",
+        "EXPE",
+        "F",
+        "GRMN",
+        "GM",
+        "GPC",
+        "HAS",
+        "HLT",
+        "HD",
+        "LVS",
+        "LEN",
+        "LOW",
+        "LULU",
+        "MAR",
+        "MCD",
+        "MGM",
+        "NKE",
+        "NCLH",
+        "NVR",
+        "ORLY",
+        "PHM",
+        "RL",
+        "ROST",
+        "RCL",
+        "SBUX",
+        "TPR",
+        "TSLA",
+        "TJX",
+        "TSCO",
+        "ULTA",
+        "WSM",
+        "WYNN",
+        "YUM"
+      ],
+      "detail": "Proposed Rule · Energy Department · sectors: Consumer Discretionary"
+    },
+    {
+      "id": "policy:2026-15213",
+      "ts": "2026-07-28",
+      "source": "policy",
+      "title": "Risk-Informed, Technology-Inclusive Regulatory Framework for Advanced Reactors; Correction",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15213/risk-informed-technology-inclusive-regulatory-framework-for-advanced-reactors-correction",
+      "tickers": [
+        "AES",
+        "LNT",
+        "AEE",
+        "AEP",
+        "AWK",
+        "ATO",
+        "CNP",
+        "CMS",
+        "ED",
+        "CEG",
+        "D",
+        "DTE",
+        "DUK",
+        "EIX",
+        "ETR",
+        "EVRG",
+        "ES",
+        "EXC",
+        "FE",
+        "NEE",
+        "NI",
+        "NRG",
+        "PCG",
+        "PNW",
+        "PPL",
+        "PEG",
+        "SRE",
+        "SO",
+        "VST",
+        "WEC",
+        "XEL"
+      ],
+      "detail": "Rule · Nuclear Regulatory Commission · sectors: Utilities"
+    },
+    {
+      "id": "policy:2026-15229",
+      "ts": "2026-07-28",
+      "source": "policy",
+      "title": "Modification of Class E Airspace, Samaritan North Lincoln Hospital Heliport, Lincoln, OR",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15229/modification-of-class-e-airspace-samaritan-north-lincoln-hospital-heliport-lincoln-or",
+      "tickers": [
+        "MMM",
+        "AOS",
+        "ALLE",
+        "AME",
+        "ADP",
+        "AXON",
+        "BA",
+        "BR",
+        "BLDR",
+        "CHRW",
+        "CARR",
+        "CAT",
+        "CTAS",
+        "FIX",
+        "CPRT",
+        "CSX",
+        "CMI",
+        "DE",
+        "DAL",
+        "DOV",
+        "ETN",
+        "EME",
+        "EMR",
+        "EFX",
+        "EXPD",
+        "FAST",
+        "FDX",
+        "FDXF",
+        "FTV",
+        "GE",
+        "GEV",
+        "GNRC",
+        "GD",
+        "HONA",
+        "HON",
+        "HWM",
+        "HUBB",
+        "HII",
+        "IEX",
+        "ITW",
+        "IR",
+        "JBHT",
+        "J",
+        "JCI",
+        "LHX",
+        "LDOS",
+        "LII",
+        "LMT",
+        "MAS",
+        "NDSN",
+        "NSC",
+        "NOC",
+        "ODFL",
+        "OTIS",
+        "PCAR",
+        "PH",
+        "PAYX",
+        "PNR",
+        "PWR",
+        "RTX"
+      ],
+      "detail": "Proposed Rule · Transportation Department, Federal Aviation Administration · sectors: Industrials"
+    },
+    {
+      "id": "policy:2026-15231",
+      "ts": "2026-07-28",
+      "source": "policy",
+      "title": "Federal Motor Vehicle Safety Standards; Modernization of FMVSS No. 135 To Accommodate ADS-Equipped Vehicles; Extension of Comment Period",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15231/federal-motor-vehicle-safety-standards-modernization-of-fmvss-no-135-to-accommodate-ads-equipped",
+      "tickers": [
+        "ABNB",
+        "AMZN",
+        "APTV",
+        "AZO",
+        "BBY",
+        "BKNG",
+        "CCL",
+        "CVNA",
+        "CMG",
+        "DRI",
+        "DECK",
+        "DPZ",
+        "DASH",
+        "DHI",
+        "EBAY",
+        "EXPE",
+        "F",
+        "GRMN",
+        "GM",
+        "GPC",
+        "HAS",
+        "HLT",
+        "HD",
+        "LVS",
+        "LEN",
+        "LOW",
+        "LULU",
+        "MAR",
+        "MCD",
+        "MGM",
+        "NKE",
+        "NCLH",
+        "NVR",
+        "ORLY",
+        "PHM",
+        "RL",
+        "ROST",
+        "RCL",
+        "SBUX",
+        "TPR",
+        "TSLA",
+        "TJX",
+        "TSCO",
+        "ULTA",
+        "WSM",
+        "WYNN",
+        "YUM"
+      ],
+      "detail": "Proposed Rule · Transportation Department, National Highway Traffic Safety Administration · sectors: Consumer Discretionary"
+    },
+    {
+      "id": "policy:2026-15239",
+      "ts": "2026-07-28",
+      "source": "policy",
+      "title": "Airworthiness Directives; The Boeing Company Airplanes",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15239/airworthiness-directives-the-boeing-company-airplanes",
+      "tickers": [
+        "MMM",
+        "AOS",
+        "ALLE",
+        "AME",
+        "ADP",
+        "AXON",
+        "BA",
+        "BR",
+        "BLDR",
+        "CHRW",
+        "CARR",
+        "CAT",
+        "CTAS",
+        "FIX",
+        "CPRT",
+        "CSX",
+        "CMI",
+        "DE",
+        "DAL",
+        "DOV",
+        "ETN",
+        "EME",
+        "EMR",
+        "EFX",
+        "EXPD",
+        "FAST",
+        "FDX",
+        "FDXF",
+        "FTV",
+        "GE",
+        "GEV",
+        "GNRC",
+        "GD",
+        "HONA",
+        "HON",
+        "HWM",
+        "HUBB",
+        "HII",
+        "IEX",
+        "ITW",
+        "IR",
+        "JBHT",
+        "J",
+        "JCI",
+        "LHX",
+        "LDOS",
+        "LII",
+        "LMT",
+        "MAS",
+        "NDSN",
+        "NSC",
+        "NOC",
+        "ODFL",
+        "OTIS",
+        "PCAR",
+        "PH",
+        "PAYX",
+        "PNR",
+        "PWR",
+        "RTX"
+      ],
+      "detail": "Rule · Transportation Department, Federal Aviation Administration · sectors: Industrials"
+    },
+    {
+      "id": "policy:2026-15273",
+      "ts": "2026-07-28",
+      "source": "policy",
+      "title": "Presidential Determination on the Proposed Agreement for Cooperation Between the Government of the United States of America and the Government of the Kingdom of Saudi Arabia Concerning Peaceful Uses of Nuclear Energy",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15273/presidential-determination-on-the-proposed-agreement-for-cooperation-between-the-government-of-the",
+      "tickers": [
+        "AES",
+        "LNT",
+        "AEE",
+        "AEP",
+        "AWK",
+        "ATO",
+        "CNP",
+        "CMS",
+        "ED",
+        "CEG",
+        "D",
+        "DTE",
+        "DUK",
+        "EIX",
+        "ETR",
+        "EVRG",
+        "ES",
+        "EXC",
+        "FE",
+        "NEE",
+        "NI",
+        "NRG",
+        "PCG",
+        "PNW",
+        "PPL",
+        "PEG",
+        "SRE",
+        "SO",
+        "VST",
+        "WEC",
+        "XEL"
+      ],
+      "detail": "Presidential Document · Executive Office of the President · sectors: Utilities"
+    },
+    {
+      "id": "policy:2026-15274",
+      "ts": "2026-07-28",
+      "source": "policy",
+      "title": "Actions by the United States in the Investigations Under Section 301 of the Trade Act of 1974 of the Acts, Policies, and Practices of 60 Economies Related to the Failure of Each Economy To Impose and Effectively Enforce a Prohibition on the Importation of Goods Produced With Forced Labor",
+      "url": "https://www.federalregister.gov/documents/2026/07/28/2026-15274/actions-by-the-united-states-in-the-investigations-under-section-301-of-the-trade-act-of-1974-of-the",
+      "tickers": [
+        "MMM",
+        "AOS",
+        "ABNB",
+        "ALLE",
+        "AMZN",
+        "AME",
+        "APTV",
+        "ADP",
+        "AZO",
+        "AXON",
+        "BBY",
+        "BA",
+        "BKNG",
+        "BR",
+        "BLDR",
+        "CHRW",
+        "CCL",
+        "CARR",
+        "CVNA",
+        "CAT",
+        "CMG",
+        "CTAS",
+        "FIX",
+        "CPRT",
+        "CSX",
+        "CMI",
+        "DRI",
+        "DECK",
+        "DE",
+        "DAL",
+        "DPZ",
+        "DASH",
+        "DOV",
+        "DHI",
+        "ETN",
+        "EBAY",
+        "EME",
+        "EMR",
+        "EFX",
+        "EXPE",
+        "EXPD",
+        "FAST",
+        "FDX",
+        "FDXF",
+        "F",
+        "FTV",
+        "GRMN",
+        "GE",
+        "GEV",
+        "GNRC",
+        "GD",
+        "GM",
+        "GPC",
+        "HAS",
+        "HLT",
+        "HD",
+        "HONA",
+        "HON",
+        "HWM",
+        "HUBB"
+      ],
+      "detail": "Presidential Document · Executive Office of the President · sectors: Industrials, Consumer Discretionary"
+    },
+    {
       "id": "shock:ACN:2026-07-28",
       "ts": "2026-07-29T04:41:13.408Z",
       "source": "shock",
