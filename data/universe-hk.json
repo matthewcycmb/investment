@@ -1,0 +1,187 @@
+{
+  "snapshotDate": "2026-07-29",
+  "note": "Top 20 HK-listed by prominence. Price coverage only: HKEX publishes no structured filings API, so insider and filing signals are US-only.",
+  "count": 20,
+  "constituents": [
+    {
+      "ticker": "0700",
+      "yahoo": "0700.HK",
+      "name": "Tencent Holdings",
+      "sector": "Communication Services",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 466.4
+    },
+    {
+      "ticker": "9988",
+      "yahoo": "9988.HK",
+      "name": "Alibaba Group",
+      "sector": "Consumer Discretionary",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 115.1
+    },
+    {
+      "ticker": "0939",
+      "yahoo": "0939.HK",
+      "name": "China Construction Bank",
+      "sector": "Financials",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 9.13
+    },
+    {
+      "ticker": "1299",
+      "yahoo": "1299.HK",
+      "name": "AIA Group",
+      "sector": "Financials",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 78.35
+    },
+    {
+      "ticker": "0941",
+      "yahoo": "0941.HK",
+      "name": "China Mobile",
+      "sector": "Communication Services",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 83.7
+    },
+    {
+      "ticker": "3690",
+      "yahoo": "3690.HK",
+      "name": "Meituan",
+      "sector": "Consumer Discretionary",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 93.6
+    },
+    {
+      "ticker": "1810",
+      "yahoo": "1810.HK",
+      "name": "Xiaomi",
+      "sector": "Information Technology",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 31.74
+    },
+    {
+      "ticker": "0005",
+      "yahoo": "0005.HK",
+      "name": "HSBC Holdings",
+      "sector": "Financials",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 160.5
+    },
+    {
+      "ticker": "1398",
+      "yahoo": "1398.HK",
+      "name": "ICBC",
+      "sector": "Financials",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 7.39
+    },
+    {
+      "ticker": "2318",
+      "yahoo": "2318.HK",
+      "name": "Ping An Insurance",
+      "sector": "Financials",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 58.2
+    },
+    {
+      "ticker": "0388",
+      "yahoo": "0388.HK",
+      "name": "HKEX",
+      "sector": "Financials",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 405.8
+    },
+    {
+      "ticker": "0883",
+      "yahoo": "0883.HK",
+      "name": "CNOOC",
+      "sector": "Energy",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 23.6
+    },
+    {
+      "ticker": "0001",
+      "yahoo": "0001.HK",
+      "name": "CK Hutchison",
+      "sector": "Industrials",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 72.3
+    },
+    {
+      "ticker": "2628",
+      "yahoo": "2628.HK",
+      "name": "China Life",
+      "sector": "Financials",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 27.74
+    },
+    {
+      "ticker": "0016",
+      "yahoo": "0016.HK",
+      "name": "Sun Hung Kai Properties",
+      "sector": "Real Estate",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 120.7
+    },
+    {
+      "ticker": "1211",
+      "yahoo": "1211.HK",
+      "name": "BYD Company",
+      "sector": "Consumer Discretionary",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 94.25
+    },
+    {
+      "ticker": "2020",
+      "yahoo": "2020.HK",
+      "name": "ANTA Sports",
+      "sector": "Consumer Discretionary",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 79.75
+    },
+    {
+      "ticker": "1113",
+      "yahoo": "1113.HK",
+      "name": "CK Asset",
+      "sector": "Real Estate",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 48
+    },
+    {
+      "ticker": "0027",
+      "yahoo": "0027.HK",
+      "name": "Galaxy Entertainment",
+      "sector": "Consumer Discretionary",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 34.18
+    },
+    {
+      "ticker": "9618",
+      "yahoo": "9618.HK",
+      "name": "JD.com",
+      "sector": "Consumer Discretionary",
+      "market": "HK",
+      "currency": "HKD",
+      "last": 126.5
+    }
+  ]
+}

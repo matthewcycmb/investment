@@ -107,7 +107,7 @@ const sideRow = (q: any, i: number) => {
   const d = dir(q.changePct);
   return `<label class="wr" for="k${i}">
     <span class="wr__l"><span class="tk">${esc(q.ticker)}${q.buyers > 0 ? '<i class="ins" title="insider buying"></i>' : ''}</span>
-    <span class="sb">${q.regime ? `<b class="rg rg--${esc(q.regime)}">${esc(q.regime)}</b> ` : ''}${esc(q.name)}</span></span>
+    <span class="sb">${q.regime ? `<b class="rg rg--${esc(q.regime)}">${esc(q.regime)}</b> ` : ''}${q.market === 'HK' ? '<b class="mk">HK</b> ' : ''}${esc(q.name)}</span></span>
     <span class="wr__r"><span class="px">${q.last != null ? q.last.toFixed(2) : '\u00b7'}</span>
     <span class="pl pl--${d}">${sign(q.changePct)}</span></span>
   </label>`;
@@ -325,6 +325,7 @@ display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;background:var(--pn)
 .rg--BULL{background:rgba(14,203,129,.15);color:var(--up)}
 .rg--BEAR{background:rgba(246,70,93,.15);color:var(--dn)}
 .rg--RANGE{background:var(--ln);color:var(--mu)}
+.mk{font:9px var(--mo);font-weight:700;padding:1px 4px;border-radius:3px;background:rgba(74,140,255,.15);color:var(--ac)}
 .cs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ln);margin:0 12px 8px;border:1px solid var(--ln);border-radius:8px;overflow:hidden}
 .cs__c{background:var(--bg);padding:9px 11px}
 .cs__c h4{margin:0 0 5px;font:700 9.5px var(--mo);letter-spacing:.07em}

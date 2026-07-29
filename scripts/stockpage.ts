@@ -146,7 +146,7 @@ export function detailPanel(q: any): string {
 <div class="hero">
   <div class="p ${d}">${num(q.last)}</div>
   <div class="c ${d}">${chg == null ? '·' : `${chg >= 0 ? '+' : ''}${chg.toFixed(2)}`} &nbsp; ${sign(q.changePct)}</div>
-  <div class="as">${q.regime ? `<b class="rg rg--${esc(q.regime)}">${esc(q.regime)} TREND</b> · ` : ''}${esc(q.name)} · ${esc(q.sector)} · close ${esc(q.asOf ?? '')} · USD</div>
+  <div class="as">${q.regime ? `<b class="rg rg--${esc(q.regime)}">${esc(q.regime)} TREND</b> · ` : ''}${esc(q.name)} · ${esc(q.sector)} · close ${esc(q.asOf ?? '')} · ${q.market === 'HK' ? 'HKD' : 'USD'}</div>
   ${pos}
 </div>
 
@@ -164,8 +164,10 @@ ${candles(q.bars, q.maSeries)}
 ${councilBlock}
 
 <h2>Insider buying</h2>
-<p class="hint">SEC Form 4 open-market purchases by officers and directors, last 35 days. Filed with the regulator, not estimated.</p>
-${insiders}
+<p class="hint">${q.market === 'HK'
+  ? 'Not available for HK-listed stocks. HKEX does not publish director dealings as structured data, so this signal is US-only.'
+  : 'SEC Form 4 open-market purchases by officers and directors, last 35 days. Filed with the regulator, not estimated.'}</p>
+${q.market === 'HK' ? '' : insiders}
 
 <h2>Signals</h2>
 <p class="hint">Events this system detected that involve ${esc(q.ticker)}.</p>

@@ -24,70 +24,61 @@ export type Persona = {
   /** The user type this serves, from onboarding. */
   serves: string;
   name: string;
-  /** What this user gets wrong, and what the persona does about it. */
+  /** Plain description of the rule. */
   job: string;
-  /** Deterministic: which verdicts this user sees at all. */
-  show: (v: Verdict) => boolean;
-  /** Aggregate-only views never name individual stocks. */
-  aggregateOnly?: boolean;
-  /** Lead with the counter-case rather than the recommendation. */
-  riskFirst?: boolean;
-  /** Instruction for the (shared) framing pass. */
-  voice: string;
+  /** Converts the shared council verdict into this user's verdict. */
+  personalise: (v: Verdict) => 'BUY' | 'SELL' | 'HOLD';
 };
 
 export const PERSONAS: Persona[] = [
   {
-    id: 'brake',
-    serves: 'Impulsive / High FOMO',
-    name: 'The Brake',
-    job: 'Slows the user down. Shows every verdict but leads with the counter-case, '
-       + 'and flags when a stock has already run so they can see what they would be chasing.',
-    // Sees everything: hiding verdicts from an impulsive user pushes them elsewhere.
-    show: () => true,
-    riskFirst: true,
-    voice: 'Direct and cooling. Open with what could go wrong and what the stock has already done. '
-         + 'Never use urgency. State plainly when the move has largely happened.',
+    id: 'risktaker', serves: 'Risk Taker', name: 'Risk Taker',
+    job: 'Gets the council verdict unchanged.',
+    // Never softened. This user accepted volatility at signup.
+    personalise: (v) => v.action,
   },
   {
-    id: 'guardrail',
-    serves: 'Cautious',
-    name: 'The Guardrail',
-    job: 'Surfaces only high-consensus buys in confirmed uptrends. Silence is the default.',
-    show: (v) => v.action === 'BUY' && v.agreement >= 0.75 && v.votes >= 3 && v.regime === 'BULL',
-    voice: 'Calm and factual. Lead with how much the council agreed and why. '
-         + 'State the downside plainly without alarm. Short sentences.',
+    id: 'cautious', serves: 'Cautious', name: 'Cautious',
+    job: 'A buy is only passed on when the council strongly agreed and the stock is already rising. '
+       + 'Otherwise it becomes hold.',
+    personalise: (v) =>
+      v.action === 'BUY' && (v.agreement < 0.75 || v.votes < 3 || v.regime !== 'BULL') ? 'HOLD' : v.action,
   },
   {
-    id: 'simplifier',
-    serves: 'Risk Averse Beginner',
-    name: 'The Simplifier',
-    job: 'Never names individual stocks. Reports only what the council did in aggregate, in plain language.',
-    show: () => false,
-    aggregateOnly: true,
-    voice: 'Plain English, no jargon, no tickers. Explain what happened and what it means '
-         + 'for someone who has never bought a share. Assume no prior knowledge.',
+    id: 'beginner', serves: 'Risk Averse Beginner', name: 'Beginner',
+    job: 'Only near-unanimous buys are passed on. Everything else becomes hold, '
+       + 'so a first-time investor is never handed a marginal call.',
+    personalise: (v) =>
+      v.action === 'BUY' && (v.agreement < 0.90 || v.votes < 4 || v.regime !== 'BULL') ? 'HOLD'
+      : v.action === 'SELL' ? 'HOLD' : v.action,
   },
   {
-    id: 'mentor',
-    serves: 'Analytical Learner',
-    name: 'The Mentor',
-    job: 'Shows everything: all four specialists, their evidence, the weights and the rubric arithmetic.',
-    show: () => true,
-    voice: 'Explanatory. Show the working: which specialist argued what, how each vote was weighted, '
-         + 'and why the totals produced this verdict. Teach the method, not just the answer.',
+    id: 'learner', serves: 'Analytical Learner', name: 'Learner',
+    job: 'Gets the council verdict unchanged, with every specialist’s reasoning and the vote maths.',
+    personalise: (v) => v.action,
   },
 ];
 
-export const personaById = (id: string) => PERSONAS.find((p) => p.id === id) ?? PERSONAS[3];
+/**
+ * A persona may only make a verdict MORE conservative, never less.
+ * BUY can become HOLD; HOLD can never become BUY. The council is the ceiling on
+ * risk, and no personal profile can raise it.
+ */
+export function personalVerdict(v: Verdict, p: Persona): 'BUY' | 'SELL' | 'HOLD' {
+  const out = p.personalise(v);
+  if (v.action !== 'BUY' && out === 'BUY') return v.action;   // never upgrade
+  return out;
+}
 
-/** Maps the 4-question onboarding quiz to a persona. Higher score = more risk-tolerant. */
+export const personaById = (id: string) => PERSONAS.find((p) => p.id === id) ?? PERSONAS[0];
+
+/** Maps the 4-question onboarding quiz to a persona. Each answer scores 0-3. */
 export function routeFromQuiz(answers: number[]): Persona {
-  const score = answers.reduce((a, b) => a + b, 0);   // each question 0-3
-  if (answers[0] >= 3) return PERSONAS[0];            // "I'd buy more on a 20% drop" -> impulsive
-  if (score <= 3) return PERSONAS[2];                 // very low tolerance -> simplifier
-  if (score <= 7) return PERSONAS[1];                 // low-mid -> guardrail
-  return PERSONAS[3];                                 // engaged / analytical -> mentor
+  const score = answers.reduce((a, b) => a + b, 0);
+  if (score >= 9) return PERSONAS[0];   // high tolerance
+  if (score <= 3) return PERSONAS[2];   // very low tolerance
+  if (answers[3] >= 2) return PERSONAS[3]; // experienced -> wants the detail
+  return PERSONAS[1];
 }
 
 // ---------- self-check ----------
@@ -95,28 +86,32 @@ export function routeFromQuiz(answers: number[]): Persona {
 if (import.meta.filename === process.argv[1]) {
   const { strict: assert } = await import('node:assert');
   const v = (o: Partial<Verdict>): Verdict => ({
-    ticker: 'X', action: 'BUY', agreement: 0.8, votes: 3, meanConfidence: 7,
+    ticker: 'X', action: 'BUY', agreement: 0.95, votes: 4, meanConfidence: 8,
     invest: true, regime: 'BULL', ...o,
   });
+  const [risk, caut, begin, learn] = PERSONAS;
 
-  // Guardrail is strict: every condition must hold.
-  assert.equal(PERSONAS[1].show(v({})), true);
-  assert.equal(PERSONAS[1].show(v({ agreement: 0.7 })), false, 'below 75% agreement must be hidden');
-  assert.equal(PERSONAS[1].show(v({ votes: 2 })), false, 'fewer than 3 votes must be hidden');
-  assert.equal(PERSONAS[1].show(v({ regime: 'BEAR' })), false, 'bear trend must be hidden');
-  assert.equal(PERSONAS[1].show(v({ action: 'HOLD' })), false, 'only buys are surfaced');
+  // A strong buy reaches everyone.
+  for (const p of PERSONAS) assert.equal(personalVerdict(v({}), p), 'BUY', p.name);
 
-  // Brake and Mentor see everything; Simplifier names nothing.
-  assert.equal(PERSONAS[0].show(v({ action: 'SELL', agreement: 0.3 })), true);
-  assert.equal(PERSONAS[3].show(v({ action: 'HOLD', agreement: 0.1 })), true);
-  assert.equal(PERSONAS[2].show(v({})), false);
-  assert.equal(PERSONAS[2].aggregateOnly, true);
+  // A weak buy is softened for the cautious and the beginner, not the risk taker.
+  const weak = v({ agreement: 0.65, votes: 2 });
+  assert.equal(personalVerdict(weak, risk), 'BUY');
+  assert.equal(personalVerdict(weak, learn), 'BUY');
+  assert.equal(personalVerdict(weak, caut), 'HOLD');
+  assert.equal(personalVerdict(weak, begin), 'HOLD');
 
-  // Routing
-  assert.equal(routeFromQuiz([3, 2, 2, 2]).id, 'brake', 'buy-the-dip answer routes to Brake');
-  assert.equal(routeFromQuiz([0, 0, 1, 1]).id, 'simplifier');
-  assert.equal(routeFromQuiz([1, 2, 2, 1]).id, 'guardrail');
-  assert.equal(routeFromQuiz([2, 3, 3, 3]).id, 'mentor');
+  // A falling stock is not a buy for the cautious, however strong the vote.
+  assert.equal(personalVerdict(v({ regime: 'BEAR' }), caut), 'HOLD');
+  assert.equal(personalVerdict(v({ regime: 'BEAR' }), risk), 'BUY');
+
+  // A persona can never make a verdict riskier than the council's.
+  assert.equal(personalVerdict(v({ action: 'HOLD' }), risk), 'HOLD');
+  assert.equal(personalVerdict(v({ action: 'SELL' }), risk), 'SELL');
+  assert.equal(personalVerdict(v({ action: 'SELL' }), begin), 'HOLD', 'beginner is never told to sell');
+
+  assert.equal(routeFromQuiz([3, 3, 3, 3]).id, 'risktaker');
+  assert.equal(routeFromQuiz([0, 1, 1, 1]).id, 'beginner');
 
   console.log('persona self-checks passed');
 }

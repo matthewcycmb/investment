@@ -9,6 +9,12 @@ const latest = lsJSON(`${ROOT}data/candidates`).pop();
 if (!latest) { console.log('no candidates yet — run `npm run screen`'); process.exit(0); }
 
 const { candidates } = readJSON<any>(`${ROOT}data/candidates/${latest}`, { candidates: [] });
+
+// HK-listed names carry price data only: HKEX publishes no structured filings API,
+// so insider and 8-K signals remain US-only. Marked market:'HK' so the UI can say so.
+const hk = readJSON<any>(`${ROOT}data/universe-hk.json`, { constituents: [] }).constituents
+  .map((c: any) => ({ ...c, buyCount: 0, purchases: [], count8k35: 0, ratio: 0, score: 0 }));
+candidates.push(...hk);
 const quotes: any[] = [];
 
 const r = (x: number | null | undefined, dp = 2) =>
@@ -16,7 +22,7 @@ const r = (x: number | null | undefined, dp = 2) =>
 
 for (const c of candidates) {
   const base = {
-    ticker: c.ticker, name: c.name, sector: c.sector, cik: c.cik,
+    ticker: c.ticker, name: c.name, sector: c.sector, cik: c.cik, market: c.market ?? 'US',
     buyers: c.buyCount ?? 0, purchases: c.purchases ?? [],
     count8k35: c.count8k35 ?? 0, ratio8k: c.ratio ?? 0, score: c.score ?? 0,
   };
