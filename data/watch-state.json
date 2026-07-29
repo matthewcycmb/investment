@@ -125,12 +125,19 @@
     "shock:ADSK:2026-07-28",
     "headline:HONA:Why Honeywell Tech’s Earnings Beat Is Weighing on Aerospace ",
     "headline:VRSN:VeriSign (VRSN) Upgraded to Strong Buy: Here's What You Shou",
-    "shock:ACN:2026-07-28"
+    "shock:ACN:2026-07-28",
+    "policy:2026-15321",
+    "policy:2026-15308",
+    "policy:2026-15303",
+    "policy:2026-15294",
+    "policy:2026-15284",
+    "policy:2026-15283",
+    "shock:VRSN:2026-07-27"
   ],
   "councilRuns": {
     "2026-07-27": 10,
     "2026-07-28": 1,
-    "2026-07-29": 2
+    "2026-07-29": 3
   },
-  "cursor": 20
+  "cursor": 12
 }
