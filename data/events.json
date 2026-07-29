@@ -1,6 +1,127 @@
 {
   "events": [
     {
+      "id": "headline:ADBE:ADBE Stock At Near Two-Month Highs After FTC Grants Early Ap",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "headline",
+      "title": "ADBE Stock At Near Two-Month Highs After FTC Grants Early Approval For Adobe’s Acquisition Of Topaz Labs",
+      "url": "https://www.marketbeat.com/instant-alerts/arch-capital-group-q2-earnings-call-highlights-2026-07-29/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "ADBE · matched \"acquisition\""
+    },
+    {
+      "id": "filing:FICO:0000814547",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "Fair Isaac: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000031/0000814547-26-000031-index.htm",
+      "tickers": [
+        "FICO"
+      ],
+      "detail": "FICO · Information Technology · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:EG:0001095073",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "Everest Group: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1095073/000109507326000029/0001095073-26-000029-index.htm",
+      "tickers": [
+        "EG"
+      ],
+      "detail": "EG · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:EQIX:0001101239",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "Equinix: Entry into a Material Definitive Agreement; Termination of a Material Definitive Agreement; Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant",
+      "url": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000148/0001101239-26-000148-index.htm",
+      "tickers": [
+        "EQIX"
+      ],
+      "detail": "EQIX · Real Estate · SEC 8-K item 1.01, 1.02, 2.03"
+    },
+    {
+      "id": "filing:REG:0000910606",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "Regency Centers: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/910606/000119312526323784/0001193125-26-323784-index.htm",
+      "tickers": [
+        "REG"
+      ],
+      "detail": "REG · Real Estate · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:AWK:0001410636",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "American Water Works: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1410636/000141063626000121/0001410636-26-000121-index.htm",
+      "tickers": [
+        "AWK"
+      ],
+      "detail": "AWK · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ESS:0000920522",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "Essex Property Trust: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/920522/000114036126030060/0001140361-26-030060-index.htm",
+      "tickers": [
+        "ESS"
+      ],
+      "detail": "ESS · Real Estate · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:TYL:0000860731",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "Tyler Technologies: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/860731/000086073126000048/0000860731-26-000048-index.htm",
+      "tickers": [
+        "TYL"
+      ],
+      "detail": "TYL · Information Technology · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:CHRW:0001043277",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "C.H. Robinson: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1043277/000104327726000027/0001043277-26-000027-index.htm",
+      "tickers": [
+        "CHRW"
+      ],
+      "detail": "CHRW · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ORLY:0000898173",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "O’Reilly Automotive: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/898173/000089817326000042/0000898173-26-000042-index.htm",
+      "tickers": [
+        "ORLY"
+      ],
+      "detail": "ORLY · Consumer Discretionary · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:VTR:0000740260",
+      "ts": "2026-07-29T20:48:10.225Z",
+      "source": "filing",
+      "title": "Ventas: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/740260/000074026026000022/0000740260-26-000022-index.htm",
+      "tickers": [
+        "VTR"
+      ],
+      "detail": "VTR · Real Estate · SEC 8-K item 2.02"
+    },
+    {
       "id": "shock:JPM:2026-07-29",
       "ts": "2026-07-29T19:53:32.522Z",
       "source": "shock",

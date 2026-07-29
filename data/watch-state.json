@@ -165,13 +165,24 @@
     "shock:FDXF:2026-07-29",
     "shock:SBAC:2026-07-29",
     "shock:VRSN:2026-07-29",
-    "shock:JPM:2026-07-29"
+    "shock:JPM:2026-07-29",
+    "filing:VTR:0000740260",
+    "filing:ORLY:0000898173",
+    "filing:CHRW:0001043277",
+    "filing:TYL:0000860731",
+    "filing:ESS:0000920522",
+    "filing:AWK:0001410636",
+    "filing:REG:0000910606",
+    "filing:EQIX:0001101239",
+    "filing:EG:0001095073",
+    "filing:FICO:0000814547",
+    "headline:ADBE:ADBE Stock At Near Two-Month Highs After FTC Grants Early Ap"
   ],
   "councilRuns": {
     "2026-07-27": 10,
     "2026-07-28": 1,
     "2026-07-29": 4,
-    "2026-07-30": 2
+    "2026-07-30": 3
   },
-  "cursor": 20
+  "cursor": 12
 }
