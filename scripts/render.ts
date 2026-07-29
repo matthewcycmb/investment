@@ -20,6 +20,7 @@ const pf = outcomes.portfolio ?? { equity: 100000, totalReturnPct: 0, openPositi
 const money = (x: number) => `$${Math.round(x).toLocaleString()}`;
 const quotesFile = readJSON<any>(`${ROOT}data/quotes.json`, { quotes: [], updated: null });
 const quotes: any[] = quotesFile.quotes ?? [];
+const indices: any[] = quotesFile.indices ?? [];
 const pricesLive = quotes.some((q) => q.live);
 
 // Most recent council deliberation: live event-driven run if there is one, else the weekly study run.
@@ -231,6 +232,16 @@ background:rgba(10,11,13,.9);backdrop-filter:blur(12px);border-bottom:1px solid 
 .lv{font-style:normal;font-size:9px;font-weight:700;letter-spacing:.08em;color:#fff;
 background:var(--up);padding:2px 5px;border-radius:3px;margin-right:5px}
 
+.idx{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid var(--ln);margin:0 -12px;
+background:var(--pn);scrollbar-width:none}
+.idx::-webkit-scrollbar{display:none}
+.idx__i{flex:1 0 auto;min-width:132px;padding:8px 13px;border-right:1px solid var(--ln)}
+.idx__i:last-child{border-right:0}
+.idx__n{display:block;font-size:10px;color:var(--mu);letter-spacing:.03em}
+.idx__n i{font-style:normal;font-size:8.5px;color:var(--dm);margin-left:4px;
+border:1px solid var(--ln);padding:0 3px;border-radius:2px}
+.idx__v{display:block;font:14px var(--mo);font-variant-numeric:tabular-nums;margin-top:2px}
+.idx__c{font:11px var(--mo);font-variant-numeric:tabular-nums}
 .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ln);
 border-bottom:1px solid var(--ln);margin:0 -12px 0}
 .kpi>div{background:var(--bg);padding:13px 8px;text-align:center}
@@ -381,6 +392,15 @@ ${DETAIL_CSS}
 <main>
 <div class="bar"><span class="dot"></span><b>AI STOCK COUNCIL</b>
 <time>${pricesLive ? '<i class="lv">LIVE</i> ' : ''}${esc(hktFull(quotesFile.updated ?? new Date().toISOString()))} HKT</time></div>
+
+${indices.length ? `<div class="idx">${indices.map((i: any) => {
+  const d = dir(i.changePct);
+  return `<div class="idx__i">
+    <span class="idx__n">${esc(i.name)}<i>${esc(i.market)}</i></span>
+    <span class="idx__v">${i.last != null ? i.last.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '·'}</span>
+    <span class="idx__c ${d}">${sign(i.changePct)}</span>
+  </div>`;
+}).join('')}</div>` : ''}
 
 <div class="kpi">
   <div><b>${money(pf.equity)}</b><span>portfolio</span></div>

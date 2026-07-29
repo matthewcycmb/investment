@@ -87,5 +87,30 @@ for (const c of candidates) {
   }
 }
 
-writeJSON(`${ROOT}data/quotes.json`, { updated: new Date().toISOString(), source: latest, quotes });
+// Market indices for the header strip. Same fetch path as everything else.
+const INDICES = [
+  ['^GSPC', 'S&P 500', 'US'], ['^IXIC', 'Nasdaq', 'US'], ['^DJI', 'Dow Jones', 'US'],
+  ['^HSI', 'Hang Seng', 'HK'], ['^HSCE', 'HS China Ent', 'HK'], ['000001.SS', 'Shanghai', 'CN'],
+];
+const indices: any[] = [];
+for (const [sym, name, market] of INDICES) {
+  try {
+    const b = await bars(sym, '3mo');
+    const m = await quoteMeta(sym);
+    const lastBar = b.at(-1)!;
+    const liveDate = m.regularMarketTime
+      ? new Date(m.regularMarketTime * 1000).toISOString().slice(0, 10) : null;
+    const isLive = m.regularMarketPrice != null && liveDate != null && liveDate >= lastBar.date;
+    const price = isLive ? m.regularMarketPrice : lastBar.close;
+    const prev = (isLive && liveDate === lastBar.date ? b.at(-2) : lastBar) ?? lastBar;
+    indices.push({
+      symbol: sym, name, market, currency: m.currency ?? '',
+      last: r(price), changePct: r(((price - prev.close) / prev.close) * 100),
+      spark: b.slice(-30).map((x) => r(x.close)),
+    });
+  } catch { /* an index that fails must not block the run */ }
+}
+console.log(`indices: ${indices.length}/${INDICES.length}`);
+
+writeJSON(`${ROOT}data/quotes.json`, { updated: new Date().toISOString(), source: latest, indices, quotes });
 console.log(`quotes: ${quotes.filter((q) => q.last != null).length}/${quotes.length} priced, ${BARS}-bar charts`);
