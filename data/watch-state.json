@@ -162,13 +162,16 @@
     "headline:ELV:Elevance Health Pick of the Week at Smart Insider Following ",
     "shock:IBKR:2026-07-29",
     "shock:ADSK:2026-07-29",
-    "shock:FDXF:2026-07-29"
+    "shock:FDXF:2026-07-29",
+    "shock:SBAC:2026-07-29",
+    "shock:VRSN:2026-07-29",
+    "shock:JPM:2026-07-29"
   ],
   "councilRuns": {
     "2026-07-27": 10,
     "2026-07-28": 1,
     "2026-07-29": 4,
-    "2026-07-30": 1
+    "2026-07-30": 2
   },
-  "cursor": 28
+  "cursor": 20
 }

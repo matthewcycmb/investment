@@ -1,6 +1,36 @@
 {
   "events": [
     {
+      "id": "shock:JPM:2026-07-29",
+      "ts": "2026-07-29T19:53:32.522Z",
+      "source": "shock",
+      "title": "JPM moved -3.3% on 2026-07-29· possible cause: JPMorgan and Goldman Posted Record Quarters — Their Own CEOs Aren’t Sure It Lasts | JPMorgan CEO Jamie Dimon Just Sent an Ominous Warning to Wall Street: \"Close to as Good as It Gets\"",
+      "tickers": [
+        "JPM"
+      ],
+      "detail": "close 357.31 → 345.68"
+    },
+    {
+      "id": "shock:VRSN:2026-07-29",
+      "ts": "2026-07-29T19:53:32.522Z",
+      "source": "shock",
+      "title": "VRSN moved +4.0% on 2026-07-29· possible cause: VeriSign (VRSN) Upgraded to Strong Buy: Here's What You Should Know | VeriSign (VRSN) Upgraded to Strong Buy: Here's What You Should Know",
+      "tickers": [
+        "VRSN"
+      ],
+      "detail": "close 281.15 → 292.49"
+    },
+    {
+      "id": "shock:SBAC:2026-07-29",
+      "ts": "2026-07-29T19:53:32.522Z",
+      "source": "shock",
+      "title": "SBAC moved +6.2% on 2026-07-29· no reported cause",
+      "tickers": [
+        "SBAC"
+      ],
+      "detail": "close 174.93 → 185.73"
+    },
+    {
       "id": "shock:FDXF:2026-07-29",
       "ts": "2026-07-29T16:49:19.946Z",
       "source": "shock",
