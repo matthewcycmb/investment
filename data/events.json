@@ -1,6 +1,17 @@
 {
   "events": [
     {
+      "id": "headline:PSA:Public Storage Reports Second Quarter 2026 Results and Raise",
+      "ts": "2026-07-29T21:54:55.350Z",
+      "source": "headline",
+      "title": "Public Storage Reports Second Quarter 2026 Results and Raises Guidance",
+      "url": "https://www.credaily.com/briefs/self-storage-investment-surges-as-sector-finds-its-floor/?.tsrc=rss",
+      "tickers": [
+        "PSA"
+      ],
+      "detail": "PSA · matched \"guidance\""
+    },
+    {
       "id": "headline:ADBE:ADBE Stock At Near Two-Month Highs After FTC Grants Early Ap",
       "ts": "2026-07-29T20:48:10.225Z",
       "source": "headline",
