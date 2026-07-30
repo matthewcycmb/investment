@@ -1,6 +1,17 @@
 {
   "events": [
     {
+      "id": "headline:JPM:Why JPMorgan CEO Jamie Dimon Says Investors Should Skip 4.6%",
+      "ts": "2026-07-30T03:54:35.330Z",
+      "source": "headline",
+      "title": "Why JPMorgan CEO Jamie Dimon Says Investors Should Skip 4.6% Yields — ‘I Would Not Be A Buyer’",
+      "url": "https://finance.yahoo.com/m/2dce90f4-89db-3e17-b0eb-4be6620dff4d/bank-stocks-drop-from-record.html?.tsrc=rss",
+      "tickers": [
+        "JPM"
+      ],
+      "detail": "JPM · matched \"ceo\""
+    },
+    {
       "id": "headline:PSA:Public Storage Reports Second Quarter 2026 Results and Raise",
       "ts": "2026-07-29T21:54:55.350Z",
       "source": "headline",

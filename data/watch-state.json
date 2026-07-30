@@ -177,13 +177,14 @@
     "filing:EG:0001095073",
     "filing:FICO:0000814547",
     "headline:ADBE:ADBE Stock At Near Two-Month Highs After FTC Grants Early Ap",
-    "headline:PSA:Public Storage Reports Second Quarter 2026 Results and Raise"
+    "headline:PSA:Public Storage Reports Second Quarter 2026 Results and Raise",
+    "headline:JPM:Why JPMorgan CEO Jamie Dimon Says Investors Should Skip 4.6%"
   ],
   "councilRuns": {
     "2026-07-27": 10,
     "2026-07-28": 1,
     "2026-07-29": 4,
-    "2026-07-30": 4
+    "2026-07-30": 5
   },
-  "cursor": 24
+  "cursor": 16
 }
