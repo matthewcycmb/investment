@@ -262,7 +262,9 @@ export function score(results: ArmResult[], kind: EventKind): TickerVerdict[] {
       ),
       votes,
       meanConfidence: Number((opinions.reduce((a, o) => a + o.confidence, 0) / opinions.length).toFixed(2)),
-      invest: panelHealthy && action === 'BUY' && agreement >= ACT_MIN_AGREEMENT && votes >= ACT_MIN_VOTES,
+      // One model agreeing with itself is not consensus, whatever the percentage.
+      invest: panelHealthy && opinions.length >= ACT_MIN_VOTES
+        && action === 'BUY' && agreement >= ACT_MIN_AGREEMENT && votes >= ACT_MIN_VOTES,
       panel: live.length,
       debated: false,
       opinions,
@@ -443,6 +445,11 @@ if (import.meta.filename === process.argv[1]) {
   for (const a of ARMS) {
     assert.ok(a.model && a.model.includes('/'), `arm ${a.id} has an invalid model id: "${a.model}"`);
   }
+
+  // A lone opinion must never trade, however emphatic.
+  const solo = score([mk('A', 'BUY', 10, ['insider bought heavily'])], 'filing');
+  assert.equal(solo[0].agreement, 1);
+  assert.equal(solo[0].invest, false, 'a single covering model must not open a position');
 
   console.log('council rubric self-checks passed');
 }

@@ -279,7 +279,7 @@ if (!found.length && !FORCE) {
   const review = (found.length ? found : log.events).slice(0, MAX_BRIEF_EVENTS);
   // Cap the review set: every extra ticker lengthens all four responses, and long
   // generations hit the gateway's stream limit and kill specialists mid-run.
-  const MAX_REVIEW_TICKERS = 8;
+  const MAX_REVIEW_TICKERS = 5;
   const tickers = [...new Set(review.flatMap((e: any) => e.tickers ?? []))].slice(0, MAX_REVIEW_TICKERS);
   // With --force and no new events, fall back to the current screened watchlist
   // rather than an arbitrary slice of the universe.
@@ -305,9 +305,11 @@ RULES:
 - Equal weight. No stop-losses, no early exits.
 - Measured against SPY over the same window. A stock that rises less than SPY is a loss.
 - Only name tickers from the allowed list below.
-- Verdict is BUY, SELL or HOLD. All three are real answers.
-  Do not invent a trade to look useful, and do not default to HOLD to look cautious.
-  Return an EMPTY findings array only if the material genuinely supports no view at all.
+- Give a verdict for EVERY ticker in the allowed list below. One finding per ticker,
+  no more and no fewer. Skipping a ticker is not permitted: if the material says
+  little about it, return HOLD and say so in the reasoning.
+- Verdict is BUY, SELL or HOLD. All three are real answers. Do not invent a trade to
+  look useful, and do not default to HOLD to look cautious.
 - Every claim you put in "evidence" must come from the material below, not from memory.
 - "risk" must be the strongest argument AGAINST your own verdict.
 

@@ -71,10 +71,10 @@ disclosure volume). The screen implies nothing about direction — it only surfa
 CANDIDATES (as of ${candidateDate}):
 ${briefs.join('\n\n')}
 
-Give your specialist verdict on up to ${MAX_FINDINGS} of these candidates.
+Give a verdict for EVERY candidate listed above, one finding per ticker, no more and no fewer.
+Skipping a candidate is not permitted: if the evidence says little about it, return HOLD and say so.
 Verdict is BUY, SELL or HOLD. All three are real answers. Do not invent a trade to look useful,
-and do not default to HOLD to look cautious. An empty findings array is valid only if the material
-genuinely supports no view at all.
+and do not default to HOLD to look cautious.
 Every claim in "evidence" must come from the material above, not from memory.
 "risk" must be the strongest argument AGAINST your own verdict.
 Confidence is 1-10 and is recorded but does NOT affect position size.`;
