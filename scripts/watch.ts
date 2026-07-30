@@ -317,6 +317,7 @@ ${review.map((e) => `- [${e.source}] ${String(e.title).slice(0, 120)}`).join('\n
 ALLOWED TICKERS:
 ${priced.join('\n')}`;
 
+  note(`brief: ${BRIEF.length} chars, ${review.length} events, ${pool.length} tickers`);
   notify(
     'Council deciding now',
     `${review.length} event(s) -> ${ARMS.length} specialists reviewing ${pool.length} ticker(s). No trade placed yet.`,
