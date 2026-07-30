@@ -1,0 +1,924 @@
+{
+  "date": "2026-07-30",
+  "ts": "2026-07-30T11:57:10.543Z",
+  "study": false,
+  "eventKind": "filing",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "filing",
+      "title": "Intercontinental Exchange: Entry into a Material Definitive Agreement",
+      "url": "https://www.sec.gov/Archives/edgar/data/1571949/000119312526324909/0001193125-26-324909-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Intercontinental Exchange: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1571949/000110465926088462/0001104659-26-088462-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Huntington Ingalls Industries: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000045/0001501585-26-000045-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "International Paper: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/0000051434-26-000115-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Baxter International: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/10456/000162828026050795/0001628280-26-050795-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Altria: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/764180/000076418026000093/0000764180-26-000093-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Bristol Myers Squibb: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000018/0000014272-26-000018-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Martin Marietta Materials: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/916076/000119312526324863/0001193125-26-324863-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Yum! Brands: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000149/0001041061-26-000149-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Builders FirstSource: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1316835/000119312526324859/0001193125-26-324859-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Henry Schein: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/1000228/000119312526324857/0001193125-26-324857-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "American Electric Power: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000055/0000004904-26-000055-index.htm"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "BAX"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 28178,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1542,
+        "inputTokenDetails": {
+          "noCacheTokens": 1542,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 1691,
+        "outputTokenDetails": {
+          "textTokens": 1142,
+          "reasoningTokens": 549
+        },
+        "totalTokens": 3233,
+        "raw": {
+          "input_tokens": 1542,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 1691,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 549
+          }
+        },
+        "reasoningTokens": 549,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ICE",
+          "verdict": "BUY",
+          "confidence": 5,
+          "evidence": [
+            "Filed both a Results of Operations 8-K and an Entry into a Material Definitive Agreement 8-K on the same day",
+            "Shares up 1.0% on the day of the disclosures"
+          ],
+          "risk": "A material definitive agreement could be a leveraging acquisition or debt issuance that dilutes near-term EPS and raises interest expense, which the one-day gain does not yet reflect.",
+          "reasoning": "Positive tape reaction alongside a results filing is consistent with in-line-to-better recurring, high-margin exchange/data revenue rather than a negative surprise; the paired definitive agreement filing points to capital deployment rather than distress. Cleanest fundamental profile in the group."
+        },
+        {
+          "ticker": "HII",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Results of Operations 8-K filed",
+            "Stock fell 6.5% on the day, the worst move in the group"
+          ],
+          "risk": "A 6.5% single-day drop may already discount the bad print, and defense backlog plus any buyback/guidance reaffirmation could produce a mean-reversion bounce within five sessions.",
+          "reasoning": "A mid-single-digit-percent decline on an earnings filing in a fixed-price shipbuilding business typically signals negative contract cost/EAC adjustments and margin compression, which flow through reported earnings and cash conversion for multiple quarters rather than reversing quickly."
+        },
+        {
+          "ticker": "IP",
+          "verdict": "SELL",
+          "confidence": 5,
+          "evidence": [
+            "Results of Operations 8-K filed",
+            "Shares down 3.3% on the day"
+          ],
+          "risk": "Commodity packaging names are cheap on trough earnings; announced cost-reduction or price-increase actions could re-rate the stock quickly off a 3.3% drop.",
+          "reasoning": "A 3.3% decline on the results filing points to weaker containerboard volume/price and integration-related cost drag pressuring EBITDA margins and free cash flow relative to a dividend commitment. Earnings quality risk from restructuring add-backs argues against buying the dip in a 5-day window."
+        },
+        {
+          "ticker": "MO",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "Results of Operations 8-K filed",
+            "Shares essentially unchanged, up 0.1%"
+          ],
+          "risk": "If the filing contained a reaffirmed EPS guide and buyback, the high-margin, high-cash-return staple could quietly outperform a wobbling SPY over five days.",
+          "reasoning": "Flat reaction implies an in-line print: continued cigarette volume declines offset by pricing, sustaining margins and cash flow. Business economics are stable but unchanged by the event, so no fundamental catalyst to justify a directional bet at current valuation."
+        },
+        {
+          "ticker": "BAX",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "8-K filed: Results of Operations and Financial Condition, with no revenue, margin, guidance or cash flow figures disclosed in the material",
+            "Shares up 1.6% on the session, last 24.77"
+          ],
+          "risk": "If the filing contained genuine margin stabilization or a guidance raise, a 1.6% move is a small first-day response and post-earnings drift could carry BAX above SPY over five sessions.",
+          "reasoning": "The bull counters assert a beat, easing input costs and share gains — none of that appears in the material; it is inferred from a 1.6% tick. On my lens I have no revenue, margin, leverage or FCF data to judge an earnings inflection, and a low share price is not valuation evidence. Insufficient basis to trade."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 16980,
+      "revised": false,
+      "usage": {
+        "inputTokens": 757,
+        "inputTokenDetails": {
+          "noCacheTokens": 757,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 919,
+        "outputTokenDetails": {
+          "textTokens": 580,
+          "reasoningTokens": 339
+        },
+        "totalTokens": 1676,
+        "raw": {
+          "input_tokens": 757,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 919,
+          "output_tokens_details": {
+            "reasoning_tokens": 339
+          }
+        },
+        "reasoningTokens": 339,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ICE",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Intercontinental Exchange filed both a material definitive agreement and results of operations and financial condition.",
+            "ICE last traded at 154.28, up 1.0% over one day."
+          ],
+          "risk": "The positive reaction may reflect favorable results or agreement terms that continue driving outperformance after entry.",
+          "reasoning": "The filing titles disclose no terms, estimates, or guidance. The 1.0% move may already incorporate the news, so neither causality nor a fresh five-session edge versus SPY is verifiable."
+        },
+        {
+          "ticker": "HII",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "Huntington Ingalls Industries filed results of operations and financial condition.",
+            "HII last traded at 280.40, down 6.5% over one day."
+          ],
+          "risk": "The unusually large negative reaction may signal material operating weakness that produces further underperformance.",
+          "reasoning": "The sharp decline is consistent with adverse results, but the filing details are absent and the 6.5% move occurred before entry. Continuation cannot be distinguished from an already-priced move or rebound."
+        },
+        {
+          "ticker": "IP",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "International Paper filed results of operations and financial condition.",
+            "IP last traded at 42.64, down 3.3% over one day."
+          ],
+          "risk": "The negative earnings-day reaction could continue if the filing revealed durable deterioration not yet fully priced.",
+          "reasoning": "The negative move suggests disappointment but does not reveal its cause or magnitude. With entry only next session, there is insufficient evidence that further weakness remains rather than the news being priced in."
+        },
+        {
+          "ticker": "MO",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "Altria filed results of operations and financial condition.",
+            "MO last traded at 74.92, up 0.1% over one day."
+          ],
+          "risk": "A muted initial move could mask favorable results that the market recognizes gradually, leading to outperformance.",
+          "reasoning": "The near-flat reaction provides no clear directional signal, and the filing headline contains no operating details. There is no evidence of a catalyst strong enough to beat SPY over five sessions."
+        },
+        {
+          "ticker": "BAX",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "Baxter filed results of operations and financial condition.",
+            "BAX closed at 24.77, up 1.6% for the day.",
+            "The material provides no reported results, guidance, valuation data, or same-day SPY return."
+          ],
+          "risk": "The 1.6% gain could be an initial underreaction to favorable results, allowing post-earnings momentum to outperform SPY over the next five sessions.",
+          "reasoning": "The outside BUY cases infer a beat, margin recovery, and improving demand not documented in the material. Price action alone neither proves the filing caused the gain nor shows unpriced upside. With no results or benchmark context, directional outperformance is unverifiable."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 86300,
+      "revised": true,
+      "usage": {
+        "inputTokens": 936,
+        "inputTokenDetails": {
+          "noCacheTokens": 936,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 4496,
+        "outputTokenDetails": {
+          "textTokens": 854,
+          "reasoningTokens": 3642
+        },
+        "totalTokens": 5432,
+        "raw": {
+          "prompt_tokens": 936,
+          "completion_tokens": 4496,
+          "total_tokens": 5432,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 3642
+          }
+        },
+        "reasoningTokens": 3642,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ICE",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "Intercontinental Exchange filed an Entry into a Material Definitive Agreement",
+            "Intercontinental Exchange filed Results of Operations and Financial Condition",
+            "ICE stock rose 1.0% in the last session to 154.28"
+          ],
+          "risk": "Material agreement details are unknown; could involve dilutive acquisition or unfavorable terms that the market has not yet digested.",
+          "reasoning": "Dual filings suggest active corporate development and earnings release. Positive price action indicates market approval. Material agreements at exchanges often signal revenue expansion. Momentum likely continues into next week."
+        },
+        {
+          "ticker": "HII",
+          "verdict": "SELL",
+          "confidence": 7,
+          "evidence": [
+            "Huntington Ingalls Industries filed Results of Operations and Financial Condition",
+            "HII stock fell 6.5% in the last session to 280.40"
+          ],
+          "risk": "A 6.5% single-day drop may represent oversold conditions, triggering a short-term mean-reversion bounce that would hurt a short position.",
+          "reasoning": "The sharp selloff on an earnings filing signals the market found results disappointing. Defense contractors face margin pressure from fixed-price contracts and supply chain costs. Negative sentiment likely persists over the 5-day horizon as analysts revise estimates downward."
+        },
+        {
+          "ticker": "IP",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "International Paper filed Results of Operations and Financial Condition",
+            "IP stock fell 3.3% in the last session to 42.64"
+          ],
+          "risk": "Materials sector could see a sympathy bounce if broader market rallies, and a 3.3% drop may already price in the earnings miss.",
+          "reasoning": "Earnings-driven decline signals disappointing results. Packaging and paper demand is cyclical and sensitive to trade policy and slowing global growth. Negative post-earnings drift is likely over 5 sessions as institutional holders reassess positions."
+        },
+        {
+          "ticker": "MO",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Altria filed Results of Operations and Financial Condition",
+            "MO stock moved only 0.1% in the last session to 74.92"
+          ],
+          "risk": "Tobacco earnings can contain surprise guidance on reduced-risk product investments or litigation reserves that could move the stock in either direction over 5 days.",
+          "reasoning": "Flat price action on earnings day indicates the market found results in-line with expectations. Altria is a domestic-focused consumer staple with minimal China/HK exposure and limited trade policy sensitivity. No clear catalyst for outperformance or underperformance versus SPY."
+        },
+        {
+          "ticker": "BAX",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "Baxter International reported Results of Operations and Financial Condition",
+            "Stock rose 1.6% in the last session",
+            "No specific financial figures, margins, or guidance are provided in the material"
+          ],
+          "risk": "The positive reaction off a very low share price near $25 could extend if the filing showed margin stabilization or deleveraging progress, making HOLD an opportunity cost.",
+          "reasoning": "I agree with the Fundamentals and Evidence specialists. A 1.6% rise is insufficient to confirm durable repricing. Kimi's supply-chain normalization thesis is plausible but speculative without disclosed figures. BAX's China medtech exposure carries VBP regulatory risk that the BUY case underweights. HOLD is warranted absent hard data."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": true,
+      "error": null,
+      "latencyMs": 156558,
+      "revised": false,
+      "usage": {
+        "inputTokens": 610,
+        "inputTokenDetails": {
+          "noCacheTokens": 610,
+          "cacheReadTokens": 0
+        },
+        "outputTokens": 4951,
+        "outputTokenDetails": {
+          "textTokens": 1622,
+          "reasoningTokens": 3329
+        },
+        "totalTokens": 5561,
+        "raw": {
+          "prompt_tokens": 610,
+          "completion_tokens": 4951,
+          "total_tokens": 5561,
+          "completion_tokens_details": {
+            "reasoning_tokens": 3329
+          }
+        },
+        "reasoningTokens": 3329,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ICE",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "Filing: Entry into a Material Definitive Agreement",
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: +1.0% (1d) to 154.28"
+          ],
+          "risk": "The agreement may require dilutive equity issuance or expensive debt financing in the current rate environment, or face protracted regulatory review that compresses the deal premium.",
+          "reasoning": "Second-order: A Material Definitive Agreement signals M&A or a transformative partnership. For a diversified exchange/data utility, this likely targets high-margin data or clearing assets. Suppliers (data feed vendors, cloud providers) face consolidation pressure; customers (institutional traders) may see fee structure changes; competitors (CME, Nasdaq) must respond defensively. The market has priced the headline (+1.0%) but has not fully priced the accretion math or defensive moat extension. What happens next: Sell-side analysts publish accretion analyses over the next 48-72 hours. Assuming the deal is even modestly accretive to 2024 EBITDA, the stock rerates higher relative to SPY as the strategic logic is validated. The 5-day window captures the bulk of the estimate revision cycle."
+        },
+        {
+          "ticker": "HII",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: -6.5% (1d) to 280.40"
+          ],
+          "risk": "The decline may be an overreaction to a one-time charge or temporary program delay, triggering a short-covering bounce as technical levels are reached.",
+          "reasoning": "Second-order: The -6.5% drop indicates a material earnings miss or guidance cut. As the sole builder of US Navy aircraft carriers and nuclear submarines, HII operates under fixed-price contracts. Suppliers (specialty steel, marine electronics) are likely passing through inflation that HII cannot recoup until contract renegotiations years away. Competitors (General Dynamics, Lockheed) gain relative positioning. Substitutes (unmanned surface vessels, drone swarms) threaten long-term fleet composition but, more immediately, the Pentagon’s budget shift toward munitions vs platforms hurts new construction timelines. The market has priced the headline miss but not the duration of margin compression through 2024. What happens next: Downgrade momentum continues through days 2-4 as long-only funds reduce positions. Defense laggards tend to underperform SPY for 3-5 sessions post-miss before stabilizing."
+        },
+        {
+          "ticker": "IP",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: -3.3% (1d) to 42.64"
+          ],
+          "risk": "The stock approaches technical support where dividend-focused investors (current yield ~5%) provide a floor, preventing underperformance vs SPY.",
+          "reasoning": "Second-order: The negative reaction signals volume or pricing pressure in containerboard/corrugated packaging. Customers (e-commerce retailers, consumer staples) are destocking after inventory bloat, while suppliers (wood pulp, energy) maintain pricing power. Competitors (WestRock, Packaging Corp) face identical pressures, creating a race-to-bottom pricing environment. Substitutes (plastic lightweighting, reusable packaging mandates) accelerate share loss. The market has priced the Q1 miss but has not priced the Q2 guide-down that typically follows inventory corrections. What happens next: Systematic trend-following funds continue reducing Materials exposure through the week. IP’s high operational leverage amplifies downside as boxboard prices soften, causing continued underperformance vs SPY through the 5-day exit."
+        },
+        {
+          "ticker": "BAX",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: +1.6% (1d) to 24.77"
+          ],
+          "risk": "Broad Healthcare sector rotation out of defensive devices into biotech or AI-enabled diagnostics could drag BAX lower regardless of firm-specific results.",
+          "reasoning": "Second-order: Positive price action on earnings suggests a beat or raised guidance. Hospital supply chains are normalizing post-pandemic, allowing inventory digestion for Baxter’s infusion pumps and renal products. Suppliers (resins, semiconductors for medical devices) see costs easing, expanding gross margins. Competitors (Becton Dickinson, Fresenius) are struggling with similar issues, allowing BAX to gain share as the first to stabilize. Substitutes (home dialysis, wearable drug delivery) are long-term threats but currently drive new product cycles for BAX. The market has not priced the recovery in elective surgical procedures driving disposable demand. What happens next: Short covering and rotation into 'cheap' Healthcare recovery names pushes BAX to outperform SPY as stabilization narrative builds through the week."
+        },
+        {
+          "ticker": "MO",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: +0.1% (1d) to 74.92"
+          ],
+          "risk": "An unexpected FDA announcement on menthol bans or a guidance cut on heated tobacco adoption could create sudden downside not reflected in the flat price.",
+          "reasoning": "Second-order: Neutral price action indicates results were in-line with muted expectations. Cigarette volume declines continue (-8% industry annually) but pricing power offsets. Suppliers (tobacco leaf growers) have minimal bargaining power. Customers display price-inelastic addiction but face accelerating regulatory pressure (vaping restrictions, flavor bans). Competitors (British American Tobacco) are gaining in modern oral nicotine, threatening MO’s long-term transition strategy. Substitutes (illicit vaping, cannabis) cannibalize legal tobacco sales. The market has fully priced the bond-proxy, declining cash-flow story; no alpha catalyst exists. What happens next: MO trades sideways, delivering a return indistinguishable from SPY (beta ~0.5) as neither bulls nor bears have conviction to move the price meaningfully over 5 sessions."
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "MO",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 4,
+      "meanConfidence": 5.5,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.45,
+          "evidence": [
+            "Results of Operations 8-K filed",
+            "Shares essentially unchanged, up 0.1%"
+          ],
+          "risk": "If the filing contained a reaffirmed EPS guide and buyback, the high-margin, high-cash-return staple could quietly outperform a wobbling SPY over five days.",
+          "reasoning": "Flat reaction implies an in-line print: continued cigarette volume declines offset by pricing, sustaining margins and cash flow. Business economics are stable but unchanged by the event, so no fundamental catalyst to justify a directional bet at current valuation.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.6,
+          "evidence": [
+            "Altria filed results of operations and financial condition.",
+            "MO last traded at 74.92, up 0.1% over one day."
+          ],
+          "risk": "A muted initial move could mask favorable results that the market recognizes gradually, leading to outperformance.",
+          "reasoning": "The near-flat reaction provides no clear directional signal, and the filing headline contains no operating details. There is no evidence of a catalyst strong enough to beat SPY over five sessions.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 0.9,
+          "weight": 0.338,
+          "evidence": [
+            "Altria filed Results of Operations and Financial Condition",
+            "MO stock moved only 0.1% in the last session to 74.92"
+          ],
+          "risk": "Tobacco earnings can contain surprise guidance on reduced-risk product investments or litigation reserves that could move the stock in either direction over 5 days.",
+          "reasoning": "Flat price action on earnings day indicates the market found results in-line with expectations. Altria is a domestic-focused consumer staple with minimal China/HK exposure and limited trade policy sensitivity. No clear catalyst for outperformance or underperformance versus SPY.",
+          "revised": true
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.45,
+          "evidence": [
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: +0.1% (1d) to 74.92"
+          ],
+          "risk": "An unexpected FDA announcement on menthol bans or a guidance cut on heated tobacco adoption could create sudden downside not reflected in the flat price.",
+          "reasoning": "Second-order: Neutral price action indicates results were in-line with muted expectations. Cigarette volume declines continue (-8% industry annually) but pricing power offsets. Suppliers (tobacco leaf growers) have minimal bargaining power. Customers display price-inelastic addiction but face accelerating regulatory pressure (vaping restrictions, flavor bans). Competitors (British American Tobacco) are gaining in modern oral nicotine, threatening MO’s long-term transition strategy. Substitutes (illicit vaping, cannabis) cannibalize legal tobacco sales. The market has fully priced the bond-proxy, declining cash-flow story; no alpha catalyst exists. What happens next: MO trades sideways, delivering a return indistinguishable from SPY (beta ~0.5) as neither bulls nor bears have conviction to move the price meaningfully over 5 sessions."
+        }
+      ]
+    },
+    {
+      "ticker": "HII",
+      "action": "SELL",
+      "agreement": 0.821,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.821,
+        "HOLD": 0.179
+      },
+      "votes": 3,
+      "meanConfidence": 6.25,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 0.9,
+          "evidence": [
+            "Results of Operations 8-K filed",
+            "Stock fell 6.5% on the day, the worst move in the group"
+          ],
+          "risk": "A 6.5% single-day drop may already discount the bad print, and defense backlog plus any buyback/guidance reaffirmation could produce a mean-reversion bounce within five sessions.",
+          "reasoning": "A mid-single-digit-percent decline on an earnings filing in a fixed-price shipbuilding business typically signals negative contract cost/EAC adjustments and margin compression, which flow through reported earnings and cash conversion for multiple quarters rather than reversing quickly.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.45,
+          "evidence": [
+            "Huntington Ingalls Industries filed results of operations and financial condition.",
+            "HII last traded at 280.40, down 6.5% over one day."
+          ],
+          "risk": "The unusually large negative reaction may signal material operating weakness that produces further underperformance.",
+          "reasoning": "The sharp decline is consistent with adverse results, but the filing details are absent and the 6.5% move occurred before entry. Continuation cannot be distinguished from an already-priced move or rebound.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 7,
+          "verified": 1,
+          "relevance": 0.9,
+          "weight": 0.63,
+          "evidence": [
+            "Huntington Ingalls Industries filed Results of Operations and Financial Condition",
+            "HII stock fell 6.5% in the last session to 280.40"
+          ],
+          "risk": "A 6.5% single-day drop may represent oversold conditions, triggering a short-term mean-reversion bounce that would hurt a short position.",
+          "reasoning": "The sharp selloff on an earnings filing signals the market found results disappointing. Defense contractors face margin pressure from fixed-price contracts and supply chain costs. Negative sentiment likely persists over the 5-day horizon as analysts revise estimates downward.",
+          "revised": true
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: -6.5% (1d) to 280.40"
+          ],
+          "risk": "The decline may be an overreaction to a one-time charge or temporary program delay, triggering a short-covering bounce as technical levels are reached.",
+          "reasoning": "Second-order: The -6.5% drop indicates a material earnings miss or guidance cut. As the sole builder of US Navy aircraft carriers and nuclear submarines, HII operates under fixed-price contracts. Suppliers (specialty steel, marine electronics) are likely passing through inflation that HII cannot recoup until contract renegotiations years away. Competitors (General Dynamics, Lockheed) gain relative positioning. Substitutes (unmanned surface vessels, drone swarms) threaten long-term fleet composition but, more immediately, the Pentagon’s budget shift toward munitions vs platforms hurts new construction timelines. The market has priced the headline miss but not the duration of margin compression through 2024. What happens next: Downgrade momentum continues through days 2-4 as long-only funds reduce positions. Defense laggards tend to underperform SPY for 3-5 sessions post-miss before stabilizing."
+        }
+      ]
+    },
+    {
+      "ticker": "BAX",
+      "action": "HOLD",
+      "agreement": 0.784,
+      "weightedShare": {
+        "BUY": 0.216,
+        "SELL": 0,
+        "HOLD": 0.784
+      },
+      "votes": 3,
+      "meanConfidence": 6.25,
+      "invest": false,
+      "panel": 4,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 0.75,
+          "evidence": [
+            "8-K filed: Results of Operations and Financial Condition, with no revenue, margin, guidance or cash flow figures disclosed in the material",
+            "Shares up 1.6% on the session, last 24.77"
+          ],
+          "risk": "If the filing contained genuine margin stabilization or a guidance raise, a 1.6% move is a small first-day response and post-earnings drift could carry BAX above SPY over five sessions.",
+          "reasoning": "The bull counters assert a beat, easing input costs and share gains — none of that appears in the material; it is inferred from a 1.6% tick. On my lens I have no revenue, margin, leverage or FCF data to judge an earnings inflection, and a low share price is not valuation evidence. Insufficient basis to trade.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 0.67,
+          "relevance": 1,
+          "weight": 0.667,
+          "evidence": [
+            "Baxter filed results of operations and financial condition.",
+            "BAX closed at 24.77, up 1.6% for the day.",
+            "The material provides no reported results, guidance, valuation data, or same-day SPY return."
+          ],
+          "risk": "The 1.6% gain could be an initial underreaction to favorable results, allowing post-earnings momentum to outperform SPY over the next five sessions.",
+          "reasoning": "The outside BUY cases infer a beat, margin recovery, and improving demand not documented in the material. Price action alone neither proves the filing caused the gain nor shows unpriced upside. With no results or benchmark context, directional outperformance is unverifiable.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 1,
+          "relevance": 0.9,
+          "weight": 0.54,
+          "evidence": [
+            "Baxter International reported Results of Operations and Financial Condition",
+            "Stock rose 1.6% in the last session",
+            "No specific financial figures, margins, or guidance are provided in the material"
+          ],
+          "risk": "The positive reaction off a very low share price near $25 could extend if the filing showed margin stabilization or deleveraging progress, making HOLD an opportunity cost.",
+          "reasoning": "I agree with the Fundamentals and Evidence specialists. A 1.6% rise is insufficient to confirm durable repricing. Kimi's supply-chain normalization thesis is plausible but speculative without disclosed figures. BAX's China medtech exposure carries VBP regulatory risk that the BUY case underweights. HOLD is warranted absent hard data.",
+          "revised": true
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: +1.6% (1d) to 24.77"
+          ],
+          "risk": "Broad Healthcare sector rotation out of defensive devices into biotech or AI-enabled diagnostics could drag BAX lower regardless of firm-specific results.",
+          "reasoning": "Second-order: Positive price action on earnings suggests a beat or raised guidance. Hospital supply chains are normalizing post-pandemic, allowing inventory digestion for Baxter’s infusion pumps and renal products. Suppliers (resins, semiconductors for medical devices) see costs easing, expanding gross margins. Competitors (Becton Dickinson, Fresenius) are struggling with similar issues, allowing BAX to gain share as the first to stabilize. Substitutes (home dialysis, wearable drug delivery) are long-term threats but currently drive new product cycles for BAX. The market has not priced the recovery in elective surgical procedures driving disposable demand. What happens next: Short covering and rotation into 'cheap' Healthcare recovery names pushes BAX to outperform SPY as stabilization narrative builds through the week."
+        }
+      ]
+    },
+    {
+      "ticker": "ICE",
+      "action": "BUY",
+      "agreement": 0.773,
+      "weightedShare": {
+        "BUY": 0.773,
+        "SELL": 0,
+        "HOLD": 0.227
+      },
+      "votes": 3,
+      "meanConfidence": 6.5,
+      "invest": true,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "BUY",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.563,
+          "evidence": [
+            "Filed both a Results of Operations 8-K and an Entry into a Material Definitive Agreement 8-K on the same day",
+            "Shares up 1.0% on the day of the disclosures"
+          ],
+          "risk": "A material definitive agreement could be a leveraging acquisition or debt issuance that dilutes near-term EPS and raises interest expense, which the one-day gain does not yet reflect.",
+          "reasoning": "Positive tape reaction alongside a results filing is consistent with in-line-to-better recurring, high-margin exchange/data revenue rather than a negative surprise; the paired definitive agreement filing points to capital deployment rather than distress. Cleanest fundamental profile in the group.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.525,
+          "evidence": [
+            "Intercontinental Exchange filed both a material definitive agreement and results of operations and financial condition.",
+            "ICE last traded at 154.28, up 1.0% over one day."
+          ],
+          "risk": "The positive reaction may reflect favorable results or agreement terms that continue driving outperformance after entry.",
+          "reasoning": "The filing titles disclose no terms, estimates, or guidance. The 1.0% move may already incorporate the news, so neither causality nor a fresh five-session edge versus SPY is verifiable.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 0.9,
+          "weight": 0.525,
+          "evidence": [
+            "Intercontinental Exchange filed an Entry into a Material Definitive Agreement",
+            "Intercontinental Exchange filed Results of Operations and Financial Condition",
+            "ICE stock rose 1.0% in the last session to 154.28"
+          ],
+          "risk": "Material agreement details are unknown; could involve dilutive acquisition or unfavorable terms that the market has not yet digested.",
+          "reasoning": "Dual filings suggest active corporate development and earnings release. Positive price action indicates market approval. Material agreements at exchanges often signal revenue expansion. Momentum likely continues into next week.",
+          "revised": true
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.7,
+          "evidence": [
+            "Filing: Entry into a Material Definitive Agreement",
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: +1.0% (1d) to 154.28"
+          ],
+          "risk": "The agreement may require dilutive equity issuance or expensive debt financing in the current rate environment, or face protracted regulatory review that compresses the deal premium.",
+          "reasoning": "Second-order: A Material Definitive Agreement signals M&A or a transformative partnership. For a diversified exchange/data utility, this likely targets high-margin data or clearing assets. Suppliers (data feed vendors, cloud providers) face consolidation pressure; customers (institutional traders) may see fee structure changes; competitors (CME, Nasdaq) must respond defensively. The market has priced the headline (+1.0%) but has not fully priced the accretion math or defensive moat extension. What happens next: Sell-side analysts publish accretion analyses over the next 48-72 hours. Assuming the deal is even modestly accretive to 2024 EBITDA, the stock rerates higher relative to SPY as the strategic logic is validated. The 5-day window captures the bulk of the estimate revision cycle."
+        }
+      ]
+    },
+    {
+      "ticker": "IP",
+      "action": "SELL",
+      "agreement": 0.77,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.77,
+        "HOLD": 0.23
+      },
+      "votes": 3,
+      "meanConfidence": 5.75,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.563,
+          "evidence": [
+            "Results of Operations 8-K filed",
+            "Shares down 3.3% on the day"
+          ],
+          "risk": "Commodity packaging names are cheap on trough earnings; announced cost-reduction or price-increase actions could re-rate the stock quickly off a 3.3% drop.",
+          "reasoning": "A 3.3% decline on the results filing points to weaker containerboard volume/price and integration-related cost drag pressuring EBITDA margins and free cash flow relative to a dividend commitment. Earnings quality risk from restructuring add-backs argues against buying the dip in a 5-day window.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.45,
+          "evidence": [
+            "International Paper filed results of operations and financial condition.",
+            "IP last traded at 42.64, down 3.3% over one day."
+          ],
+          "risk": "The negative earnings-day reaction could continue if the filing revealed durable deterioration not yet fully priced.",
+          "reasoning": "The negative move suggests disappointment but does not reveal its cause or magnitude. With entry only next session, there is insufficient evidence that further weakness remains rather than the news being priced in.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 0.9,
+          "weight": 0.405,
+          "evidence": [
+            "International Paper filed Results of Operations and Financial Condition",
+            "IP stock fell 3.3% in the last session to 42.64"
+          ],
+          "risk": "Materials sector could see a sympathy bounce if broader market rallies, and a 3.3% drop may already price in the earnings miss.",
+          "reasoning": "Earnings-driven decline signals disappointing results. Packaging and paper demand is cyclical and sensitive to trade policy and slowing global growth. Negative post-earnings drift is likely over 5 sessions as institutional holders reassess positions.",
+          "revised": true
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "Filing: Results of Operations and Financial Condition",
+            "Price action: -3.3% (1d) to 42.64"
+          ],
+          "risk": "The stock approaches technical support where dividend-focused investors (current yield ~5%) provide a floor, preventing underperformance vs SPY.",
+          "reasoning": "Second-order: The negative reaction signals volume or pricing pressure in containerboard/corrugated packaging. Customers (e-commerce retailers, consumer staples) are destocking after inventory bloat, while suppliers (wood pulp, energy) maintain pricing power. Competitors (WestRock, Packaging Corp) face identical pressures, creating a race-to-bottom pricing environment. Substitutes (plastic lightweighting, reusable packaging mandates) accelerate share loss. The market has priced the Q1 miss but has not priced the Q2 guide-down that typically follows inventory corrections. What happens next: Systematic trend-following funds continue reducing Materials exposure through the week. IP’s high operational leverage amplifies downside as boxboard prices soften, causing continued underperformance vs SPY through the 5-day exit."
+        }
+      ]
+    }
+  ],
+  "council": [
+    {
+      "ticker": "ICE",
+      "rank": 1,
+      "votes": 3,
+      "agreement": 0.773,
+      "meanConfidence": 6.5
+    }
+  ],
+  "exploratory": {
+    "disagreementRate": 0.667,
+    "armsLive": 4
+  }
+}

@@ -11,13 +11,56 @@
     "openPositions": 0,
     "closedPositions": 0
   },
-  "updated": "2026-07-30T09:16:06.068Z",
+  "updated": "2026-07-30T12:32:27.653Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
     "closed": 0,
     "open": 0,
-    "pending": 0
+    "pending": 1
   },
-  "positions": []
+  "positions": [
+    {
+      "arm": "council",
+      "study": false,
+      "horizon": 5,
+      "pickDate": "2026-07-30",
+      "ticker": "ICE",
+      "rank": 1,
+      "weekKey": "2026-W31",
+      "spark": [
+        141.28,
+        134.59,
+        133.88,
+        131.34,
+        133,
+        130.02,
+        124.49,
+        123.86,
+        122.91,
+        123.11,
+        126.73,
+        132.99,
+        134.91,
+        136.45,
+        137.17,
+        135.11,
+        135.26,
+        137.67,
+        137.61,
+        139.84,
+        141.76,
+        139.65,
+        141.57,
+        138.67,
+        142.53,
+        143.21,
+        145.79,
+        148.73,
+        152.72,
+        154.28
+      ],
+      "status": "pending"
+    }
+  ]
 }

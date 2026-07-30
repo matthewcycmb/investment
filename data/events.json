@@ -1,6 +1,292 @@
 {
   "events": [
     {
+      "id": "filing:MA:0001141391",
+      "ts": "2026-07-30T12:16:51.629Z",
+      "source": "filing",
+      "title": "Mastercard: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139126000081/0001141391-26-000081-index.htm",
+      "tickers": [
+        "MA"
+      ],
+      "detail": "MA · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:SO:0000092122",
+      "ts": "2026-07-30T12:16:51.629Z",
+      "source": "filing",
+      "title": "Southern Company: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/92122/000009212226000056/0000092122-26-000056-index.htm",
+      "tickers": [
+        "SO"
+      ],
+      "detail": "SO · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:VLO:0001035002",
+      "ts": "2026-07-30T12:16:51.629Z",
+      "source": "filing",
+      "title": "Valero Energy: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035002/000162828026050822/0001628280-26-050822-index.htm",
+      "tickers": [
+        "VLO"
+      ],
+      "detail": "VLO · Energy · SEC 8-K item 2.02"
+    },
+    {
+      "id": "headline:JPM:In 12 Words, JPMorgan CEO Jamie Dimon Just Issued a Stark Wa",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "headline",
+      "title": "In 12 Words, JPMorgan CEO Jamie Dimon Just Issued a Stark Warning to Investors",
+      "url": "https://finance.yahoo.com/real-estate/articles/florida-woman-32-saving-buy-102000284.html?.tsrc=rss",
+      "tickers": [
+        "JPM"
+      ],
+      "detail": "JPM · matched \"ceo\""
+    },
+    {
+      "id": "filing:AVY:0000008818",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Avery Dennison: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/8818/000000881826000127/0000008818-26-000127-index.htm",
+      "tickers": [
+        "AVY"
+      ],
+      "detail": "AVY · Materials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:REGN:0000872589",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Regeneron Pharmaceuticals: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000023/0000872589-26-000023-index.htm",
+      "tickers": [
+        "REGN"
+      ],
+      "detail": "REGN · Health Care · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:HSY:0000047111",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Hershey Company (The): Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/47111/000162828026050769/0001628280-26-050769-index.htm",
+      "tickers": [
+        "HSY"
+      ],
+      "detail": "HSY · Consumer Staples · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:NCLH:0001513761",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Norwegian Cruise Line Holdings: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513761/000117184326005050/0001171843-26-005050-index.htm",
+      "tickers": [
+        "NCLH"
+      ],
+      "detail": "NCLH · Consumer Discretionary · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:LH:0000920148",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Labcorp: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/920148/000092014826000162/0000920148-26-000162-index.htm",
+      "tickers": [
+        "LH"
+      ],
+      "detail": "LH · Health Care · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:KKR:0001404912",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "KKR & Co.: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000022/0001404912-26-000022-index.htm",
+      "tickers": [
+        "KKR"
+      ],
+      "detail": "KKR · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:EXC:0001109357",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Exelon: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000077/0001109357-26-000077-index.htm",
+      "tickers": [
+        "EXC"
+      ],
+      "detail": "EXC · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:PWR:0001050915",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Quanta Services: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1050915/000119312526324855/0001193125-26-324855-index.htm",
+      "tickers": [
+        "PWR"
+      ],
+      "detail": "PWR · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:APD:0000002969",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Air Products: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/2969/000000296926000034/0000002969-26-000034-index.htm",
+      "tickers": [
+        "APD"
+      ],
+      "detail": "APD · Materials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:AOS:0000091142",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "A. O. Smith: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/91142/000009114226000096/0000091142-26-000096-index.htm",
+      "tickers": [
+        "AOS"
+      ],
+      "detail": "AOS · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:AEP:0000004904",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "American Electric Power: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/4904/000000490426000055/0000004904-26-000055-index.htm",
+      "tickers": [
+        "AEP"
+      ],
+      "detail": "AEP · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:HSIC:0001000228",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Henry Schein: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/1000228/000119312526324857/0001193125-26-324857-index.htm",
+      "tickers": [
+        "HSIC"
+      ],
+      "detail": "HSIC · Health Care · SEC 8-K item 5.02"
+    },
+    {
+      "id": "filing:BLDR:0001316835",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Builders FirstSource: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1316835/000119312526324859/0001193125-26-324859-index.htm",
+      "tickers": [
+        "BLDR"
+      ],
+      "detail": "BLDR · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:YUM:0001041061",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Yum! Brands: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1041061/000104106126000149/0001041061-26-000149-index.htm",
+      "tickers": [
+        "YUM"
+      ],
+      "detail": "YUM · Consumer Discretionary · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:MLM:0000916076",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Martin Marietta Materials: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/916076/000119312526324863/0001193125-26-324863-index.htm",
+      "tickers": [
+        "MLM"
+      ],
+      "detail": "MLM · Materials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:BMY:0000014272",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Bristol Myers Squibb: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/14272/000001427226000018/0000014272-26-000018-index.htm",
+      "tickers": [
+        "BMY"
+      ],
+      "detail": "BMY · Health Care · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:MO:0000764180",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Altria: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/764180/000076418026000093/0000764180-26-000093-index.htm",
+      "tickers": [
+        "MO"
+      ],
+      "detail": "MO · Consumer Staples · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:BAX:0000010456",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Baxter International: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/10456/000162828026050795/0001628280-26-050795-index.htm",
+      "tickers": [
+        "BAX"
+      ],
+      "detail": "BAX · Health Care · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:IP:0000051434",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "International Paper: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000115/0000051434-26-000115-index.htm",
+      "tickers": [
+        "IP"
+      ],
+      "detail": "IP · Materials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:HII:0001501585",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Huntington Ingalls Industries: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1501585/000150158526000045/0001501585-26-000045-index.htm",
+      "tickers": [
+        "HII"
+      ],
+      "detail": "HII · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ICE:0001571949",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Intercontinental Exchange: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1571949/000110465926088462/0001104659-26-088462-index.htm",
+      "tickers": [
+        "ICE"
+      ],
+      "detail": "ICE · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ICE:0001571949",
+      "ts": "2026-07-30T11:57:10.543Z",
+      "source": "filing",
+      "title": "Intercontinental Exchange: Entry into a Material Definitive Agreement",
+      "url": "https://www.sec.gov/Archives/edgar/data/1571949/000119312526324909/0001193125-26-324909-index.htm",
+      "tickers": [
+        "ICE"
+      ],
+      "detail": "ICE · Financials · SEC 8-K item 1.01"
+    },
+    {
       "id": "policy:2026-15411",
       "ts": "2026-07-30",
       "source": "policy",
