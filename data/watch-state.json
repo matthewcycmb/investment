@@ -199,11 +199,22 @@
     "shock:ADBE:2026-07-30",
     "shock:ADSK:2026-07-30",
     "filing:MPWR:0001280452",
-    "shock:FDXF:2026-07-30"
+    "shock:FDXF:2026-07-30",
+    "filing:CTVA:0001755672",
+    "filing:MTD:0001037646",
+    "filing:AEE:0001002910",
+    "filing:AAPL:0000320193",
+    "filing:CPT:0000906345",
+    "filing:LITE:0001633978",
+    "filing:LYV:0001335258",
+    "filing:ERIE:0000922621",
+    "filing:ES:0000072741",
+    "filing:AJG:0000354190",
+    "filing:IR:0001699150"
   ],
   "councilRuns": {
     "2026-07-30": 5,
-    "2026-07-31": 2
+    "2026-07-31": 3
   },
-  "cursor": 16
+  "cursor": 28
 }

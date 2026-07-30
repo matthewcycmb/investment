@@ -1,6 +1,127 @@
 {
   "events": [
     {
+      "id": "filing:IR:0001699150",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Ingersoll Rand: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1699150/000162828026051068/0001628280-26-051068-index.htm",
+      "tickers": [
+        "IR"
+      ],
+      "detail": "IR · Industrials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:AJG:0000354190",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Arthur J. Gallagher & Co.: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/354190/000162828026051070/0001628280-26-051070-index.htm",
+      "tickers": [
+        "AJG"
+      ],
+      "detail": "AJG · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ES:0000072741",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Eversource Energy: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/72741/000110465926088698/0001104659-26-088698-index.htm",
+      "tickers": [
+        "ES"
+      ],
+      "detail": "ES · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:ERIE:0000922621",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Erie Indemnity: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/922621/000162828026051071/0001628280-26-051071-index.htm",
+      "tickers": [
+        "ERIE"
+      ],
+      "detail": "ERIE · Financials · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:LYV:0001335258",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Live Nation Entertainment: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1335258/000133525826000034/0001335258-26-000034-index.htm",
+      "tickers": [
+        "LYV"
+      ],
+      "detail": "LYV · Communication Services · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:LITE:0001633978",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Lumentum: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/1633978/000162828026051078/0001628280-26-051078-index.htm",
+      "tickers": [
+        "LITE"
+      ],
+      "detail": "LITE · Information Technology · SEC 8-K item 5.02"
+    },
+    {
+      "id": "filing:CPT:0000906345",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Camden Property Trust: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/906345/000162828026051083/0001628280-26-051083-index.htm",
+      "tickers": [
+        "CPT"
+      ],
+      "detail": "CPT · Real Estate · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:AAPL:0000320193",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Apple Inc.: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000018/0000320193-26-000018-index.htm",
+      "tickers": [
+        "AAPL"
+      ],
+      "detail": "AAPL · Information Technology · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:AEE:0001002910",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Ameren: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1002910/000100291026000020/0001002910-26-000020-index.htm",
+      "tickers": [
+        "AEE"
+      ],
+      "detail": "AEE · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:MTD:0001037646",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Mettler Toledo: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1037646/000103764626000049/0001037646-26-000049-index.htm",
+      "tickers": [
+        "MTD"
+      ],
+      "detail": "MTD · Health Care · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:CTVA:0001755672",
+      "ts": "2026-07-30T21:16:13.851Z",
+      "source": "filing",
+      "title": "Corteva: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000022/0001755672-26-000022-index.htm",
+      "tickers": [
+        "CTVA"
+      ],
+      "detail": "CTVA · Materials · SEC 8-K item 2.02"
+    },
+    {
       "id": "shock:FDXF:2026-07-30",
       "ts": "2026-07-30T20:01:42.983Z",
       "source": "shock",
