@@ -9,6 +9,7 @@ const TZ = 'Asia/Hong_Kong';
 const REPO = (process.env.REPO_URL ?? 'https://github.com/matthewcycmb/investment').replace(/\/$/, '');
 
 const quotes: any[] = readJSON<any>(`${ROOT}data/quotes.json`, { quotes: [] }).quotes ?? [];
+const chartFile = readJSON<any>(`${ROOT}data/charts.json`, { charts: {}, timeframes: [] });
 const eventLog: any[] = readJSON<any>(`${ROOT}data/events.json`, { events: [] }).events ?? [];
 const positions: any[] = readJSON<any>(`${ROOT}data/outcomes.json`, { positions: [] }).positions ?? [];
 
@@ -32,50 +33,131 @@ const shortModel = (m: string) => String(m ?? '').split('/').pop() ?? '';
 
 // ---------- candlestick + volume chart ----------
 
-export function candles(bars: any[], ma: any): string {
-  if (!bars || bars.length < 2) return '<div class="nil">No chart data</div>';
-  const W = 900, PH = 250, VH = 60, GAP = 14, H = PH + GAP + VH;
-  const hi = Math.max(...bars.map((b) => b.h)), lo = Math.min(...bars.map((b) => b.l));
-  const pad = (hi - lo) * 0.06 || 1;
-  const top = hi + pad, bot = lo - pad;
+/** Generic SVG polyline over a value series, skipping nulls. */
+function line(vals: (number | null)[], W: number, H: number, lo: number, hi: number, cls: string): string {
+  const span = (hi - lo) || 1;
+  const pts = vals.map((v, i) => (v == null ? null
+    : `${((i / Math.max(1, vals.length - 1)) * W).toFixed(1)},${(H - ((v - lo) / span) * H).toFixed(1)}`))
+    .filter(Boolean).join(' ');
+  return pts ? `<polyline class="${cls}" points="${pts}"/>` : '';
+}
+
+/** Price candles with moving averages, plus a volume strip underneath. */
+function priceChart(tf: any): string {
+  const b = tf.bars;
+  if (!b || b.length < 2) return '<div class="nil">No data for this timeframe</div>';
+  const W = 900, PH = 260, VH = 54, GAP = 10, H = PH + GAP + VH;
+  const hi = Math.max(...b.map((x: any) => x.h)), lo = Math.min(...b.map((x: any) => x.l));
+  const pad = (hi - lo) * 0.06 || 1, top = hi + pad, bot = lo - pad;
   const y = (v: number) => ((top - v) / (top - bot)) * PH;
-  const step = W / bars.length, bw = Math.max(2, step * 0.62);
-  const maxV = Math.max(...bars.map((b) => b.v || 0)) || 1;
+  const step = W / b.length, bw = Math.max(1.5, step * 0.6);
+  const maxV = Math.max(...b.map((x: any) => x.v || 0)) || 1;
 
-  const sticks = bars.map((b, i) => {
-    const x = i * step + step / 2;
-    const up = b.c >= b.o;
-    const yO = y(b.o), yC = y(b.c);
-    const bh = Math.max(1, Math.abs(yC - yO));
-    return `<line class="wk ${up ? 'u' : 'd'}" x1="${x.toFixed(1)}" y1="${y(b.h).toFixed(1)}" x2="${x.toFixed(1)}" y2="${y(b.l).toFixed(1)}"/>` +
-      `<rect class="bd ${up ? 'u' : 'd'}" x="${(x - bw / 2).toFixed(1)}" y="${Math.min(yO, yC).toFixed(1)}" width="${bw.toFixed(1)}" height="${bh.toFixed(1)}"/>`;
+  const sticks = b.map((x: any, i: number) => {
+    const cx = i * step + step / 2, up = x.c >= x.o;
+    const yO = y(x.o), yC = y(x.c);
+    return `<line class="wk ${up ? 'u' : 'd'}" x1="${cx.toFixed(1)}" y1="${y(x.h).toFixed(1)}" x2="${cx.toFixed(1)}" y2="${y(x.l).toFixed(1)}"/>`
+      + `<rect class="bd ${up ? 'u' : 'd'}" x="${(cx - bw / 2).toFixed(1)}" y="${Math.min(yO, yC).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(1, Math.abs(yC - yO)).toFixed(1)}"/>`;
   }).join('');
 
-  const vols = bars.map((b, i) => {
-    const x = i * step + step / 2, h = ((b.v || 0) / maxV) * VH;
-    return `<rect class="vb ${b.c >= b.o ? 'u' : 'd'}" x="${(x - bw / 2).toFixed(1)}" y="${(PH + GAP + VH - h).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}"/>`;
+  const vols = b.map((x: any, i: number) => {
+    const cx = i * step + step / 2, h = ((x.v || 0) / maxV) * VH;
+    return `<rect class="vb ${x.c >= x.o ? 'u' : 'd'}" x="${(cx - bw / 2).toFixed(1)}" y="${(PH + GAP + VH - h).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}"/>`;
   }).join('');
 
-  const line = (series: (number | null)[], cls: string) => {
-    const pts = series.map((v, i) => (v == null ? null : `${(i * step + step / 2).toFixed(1)},${y(v).toFixed(1)}`))
-      .filter(Boolean).join(' ');
+  const ma = (vals: (number | null)[], cls: string) => {
+    const pts = vals.map((v, i) => (v == null ? null
+      : `${(i * step + step / 2).toFixed(1)},${y(v).toFixed(1)}`)).filter(Boolean).join(' ');
     return pts ? `<polyline class="ma ${cls}" points="${pts}"/>` : '';
   };
 
-  const grid = [0, 0.25, 0.5, 0.75, 1].map((f) => {
-    const v = top - (top - bot) * f;
-    return `<line class="gl" x1="0" y1="${(f * PH).toFixed(1)}" x2="${W}" y2="${(f * PH).toFixed(1)}"/>` +
-      `<text class="gt" x="4" y="${(f * PH + 10).toFixed(1)}">${v.toFixed(1)}</text>`;
+  const grid = [0, 0.25, 0.5, 0.75, 1].map((f) =>
+    `<line class="gl" x1="0" y1="${(f * PH).toFixed(1)}" x2="${W}" y2="${(f * PH).toFixed(1)}"/>`
+    + `<text class="gt" x="3" y="${(f * PH + 10).toFixed(1)}">${(top - (top - bot) * f).toFixed(2)}</text>`).join('');
+
+  return `<svg class="ck" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Price chart">
+${grid}${sticks}${ma(tf.ma.ma5, 'm5')}${ma(tf.ma.ma10, 'm10')}${ma(tf.ma.ma20, 'm20')}${ma(tf.ma.ma50, 'm50')}${vols}</svg>`;
+}
+
+/** MACD: histogram plus line and signal. */
+function macdChart(tf: any): string {
+  const { line: l, signal: sg, hist } = tf.macd;
+  const all = [...l, ...sg, ...hist].filter((v: any) => v != null) as number[];
+  if (!all.length) return '';
+  const W = 900, H = 90;
+  const hi = Math.max(...all, 0), lo = Math.min(...all, 0), span = (hi - lo) || 1;
+  const zero = H - ((0 - lo) / span) * H;
+  const step = W / hist.length, bw = Math.max(1, step * 0.6);
+  const bars = hist.map((v: number | null, i: number) => {
+    if (v == null) return '';
+    const yv = H - ((v - lo) / span) * H;
+    return `<rect class="mh ${v >= 0 ? 'u' : 'd'}" x="${(i * step + step / 2 - bw / 2).toFixed(1)}" y="${Math.min(yv, zero).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(0.5, Math.abs(zero - yv)).toFixed(1)}"/>`;
+  }).join('');
+  return `<svg class="ind" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="MACD">
+<line class="gl" x1="0" y1="${zero.toFixed(1)}" x2="${W}" y2="${zero.toFixed(1)}"/>
+${bars}${line(l, W, H, lo, hi, 'ma m5')}${line(sg, W, H, lo, hi, 'ma m10')}</svg>`;
+}
+
+/** KDJ: three lines, 20/80 reference bands. */
+function kdjChart(tf: any): string {
+  const { k, d, j } = tf.kdj;
+  const all = [...k, ...d, ...j].filter((v: any) => v != null) as number[];
+  if (!all.length) return '';
+  const W = 900, H = 90, lo = Math.min(0, ...all), hi = Math.max(100, ...all);
+  const band = (v: number) => `<line class="gl" x1="0" y1="${(H - ((v - lo) / (hi - lo)) * H).toFixed(1)}" x2="${W}" y2="${(H - ((v - lo) / (hi - lo)) * H).toFixed(1)}"/>`;
+  return `<svg class="ind" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="KDJ">
+${band(20)}${band(80)}${line(k, W, H, lo, hi, 'ma m5')}${line(d, W, H, lo, hi, 'ma m10')}${line(j, W, H, lo, hi, 'ma m20')}</svg>`;
+}
+
+/** RSI with 30/70 bands. */
+function rsiChart(tf: any): string {
+  const v = tf.rsi;
+  if (!v?.some((x: any) => x != null)) return '';
+  const W = 900, H = 70;
+  const band = (n: number) => `<line class="gl" x1="0" y1="${(H - (n / 100) * H).toFixed(1)}" x2="${W}" y2="${(H - (n / 100) * H).toFixed(1)}"/>`;
+  return `<svg class="ind" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="RSI">
+${band(30)}${band(70)}${line(v, W, H, 0, 100, 'ma m20')}</svg>`;
+}
+
+/** Full chart block for one stock: 4 timeframes, CSS-switched, no JavaScript. */
+export function chartBlock(ticker: string, charts: any, tfs: any[], priceOnly = false): string {
+  if (!charts) return '<div class="nil">No chart data</div>';
+  const avail = tfs.filter((t) => charts[t.id]?.bars?.length);
+  if (!avail.length) return '<div class="nil">No chart data</div>';
+  const nm = `tf_${ticker.replace(/\W/g, '')}`;
+
+  const radios = avail.map((t, i) =>
+    `<input type="radio" name="${nm}" id="${nm}_${t.id}"${i === (avail[1] ? 1 : 0) ? ' checked' : ''}>`).join('');
+  const tabs = avail.map((t) => `<label for="${nm}_${t.id}">${t.label}</label>`).join('');
+  const rules = avail.map((t) => `#${nm}_${t.id}:checked~.tfp .p_${t.id}{display:block}`
+    + `#${nm}_${t.id}:checked~.tfb label[for=${nm}_${t.id}]{background:var(--pn2);color:var(--fg)}`).join('');
+
+  const panes = avail.map((t) => {
+    const tf = charts[t.id];
+    const last = (a: (number | null)[]) => { const v = [...a].reverse().find((x) => x != null); return v == null ? '·' : v; };
+    return `<div class="pane_tf p_${t.id}">
+      <div class="lg"><span><i style="background:#f0b90b"></i>MA5 ${last(tf.ma.ma5)}</span>
+      <span><i style="background:#4a8cff"></i>MA10 ${last(tf.ma.ma10)}</span>
+      <span><i style="background:#c084fc"></i>MA20 ${last(tf.ma.ma20)}</span>
+      <span><i style="background:#7d8794"></i>MA50 ${last(tf.ma.ma50)}</span></div>
+      ${priceChart(tf)}
+      ${priceOnly ? '' : `
+      <div class="ilab">MACD (12,26,9) &nbsp; <b>${last(tf.macd.line)}</b> signal <b>${last(tf.macd.signal)}</b></div>
+      ${macdChart(tf)}
+      <div class="ilab">KDJ (9,3,3) &nbsp; K <b>${last(tf.kdj.k)}</b> D <b>${last(tf.kdj.d)}</b> J <b>${last(tf.kdj.j)}</b></div>
+      ${kdjChart(tf)}
+      <div class="ilab">RSI (14) &nbsp; <b>${last(tf.rsi)}</b> &nbsp;<span class="mut">above 70 overbought, below 30 oversold</span></div>
+      ${rsiChart(tf)}`}
+    </div>`;
   }).join('');
 
-  return `<svg class="ck" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Candlestick chart">
-${grid}${sticks}${line(ma?.ma5 ?? [], 'm5')}${line(ma?.ma10 ?? [], 'm10')}${line(ma?.ma20 ?? [], 'm20')}${vols}</svg>`;
+  return `<style>${rules}</style>${radios}${avail.length > 1 ? `<nav class="tfb">${tabs}</nav>` : ''}<div class="tfp">${panes}</div>`;
 }
 
 // ---------- shared detail fragment ----------
 
 /** Price header, stats, chart, council verdict and insider filings for one stock. */
-export function detailPanel(q: any): string {
+export function detailPanel(q: any, compact = false): string {
   const d = dir(q.changePct);
   const chg = q.last != null && q.prevClose != null ? q.last - q.prevClose : null;
 
@@ -153,11 +235,12 @@ export function detailPanel(q: any): string {
 <div class="grid">${stats}</div>
 
 <h2>Price history</h2>
-<p class="hint">Daily candles, last ${(q.bars ?? []).length} sessions. Green = closed up, red = closed down. Volume below.</p>
-${candles(q.bars, q.maSeries)}
-<div class="lg"><span><i style="background:#f0b90b"></i>MA5 ${num(q.ma5)}</span>
-<span><i style="background:#4a8cff"></i>MA10 ${num(q.ma10)}</span>
-<span><i style="background:#c084fc"></i>MA20 ${num(q.ma20)}</span></div>
+${compact
+  ? `<p class="hint">Daily candles with moving averages and volume.</p>
+     ${chartBlock(q.ticker, chartFile.charts?.[q.ticker], (chartFile.timeframes ?? []).filter((t: any) => t.id === '1d'), true)}
+     <a class="more" href="s/${esc(q.ticker)}.html">Full chart: 1&nbsp;min · daily · weekly · monthly, with MACD, KDJ and RSI &rsaquo;</a>`
+  : `<p class="hint">Candles with moving averages, volume, MACD, KDJ and RSI. Switch timeframe below.</p>
+     ${chartBlock(q.ticker, chartFile.charts?.[q.ticker], chartFile.timeframes ?? [])}`}
 
 <h2>AI council verdict</h2>
 <p class="hint">What each model said about this stock in the most recent session.</p>
@@ -211,6 +294,22 @@ border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);margin-top:14px
 .dt .vb.u{fill:var(--up);opacity:.4}.dt .vb.d{fill:var(--dn);opacity:.4}
 .dt .ma{fill:none;stroke-width:1.4;vector-effect:non-scaling-stroke}
 .dt .m5{stroke:#f0b90b}.dt .m10{stroke:#4a8cff}.dt .m20{stroke:#c084fc}
+.dt .tfb{display:flex;gap:2px;margin:0 0 8px;overflow-x:auto}
+.dt .tfb label{flex:none;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:600;
+color:var(--mu);cursor:pointer;white-space:nowrap;user-select:none;border:1px solid var(--ln)}
+.dt .tfb label:hover{color:var(--fg)}
+.dt input[name^=tf_]{position:absolute;width:0;height:0;opacity:0;pointer-events:none}
+.dt .pane_tf{display:none}
+.dt .ind{width:100%;height:auto;display:block;background:var(--pn);
+border:1px solid var(--ln);border-top:0;border-radius:0 0 8px 8px}
+.dt .ilab{font:10.5px var(--mo);color:var(--mu);background:var(--pn);border:1px solid var(--ln);
+border-bottom:0;border-radius:8px 8px 0 0;padding:6px 10px;margin-top:10px}
+.dt .ilab b{color:var(--fg)} .dt .ilab .mut{color:var(--dm)}
+.dt .mh.u{fill:var(--up)}.dt .mh.d{fill:var(--dn)}
+.dt .m50{stroke:#7d8794}
+.dt .more{display:block;margin-top:10px;padding:10px 12px;text-align:center;font-size:12.5px;
+font-weight:600;color:var(--ac);background:var(--pn);border:1px solid var(--ln);border-radius:8px}
+.dt .more:hover{background:var(--pn2)}
 .dt .lg{display:flex;gap:14px;font:10.5px var(--mo);color:var(--mu);margin-top:7px;flex-wrap:wrap}
 .dt .lg i{display:inline-block;width:9px;height:2px;vertical-align:middle;margin-right:4px}
 .dt .vd{display:flex;align-items:center;gap:12px;padding:11px 12px;background:var(--pn);

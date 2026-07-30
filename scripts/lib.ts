@@ -90,6 +90,41 @@ export async function quoteMeta(symbol: string): Promise<any> {
 export const sma = (xs: number[], p: number): (number | null)[] =>
   xs.map((_, i) => (i < p - 1 ? null : xs.slice(i - p + 1, i + 1).reduce((a, b) => a + b, 0) / p));
 
+/** Exponential moving average. Seeded with the first value. */
+export function ema(xs: number[], p: number): number[] {
+  const k = 2 / (p + 1);
+  const out: number[] = [];
+  xs.forEach((v, i) => out.push(i === 0 ? v : v * k + out[i - 1] * (1 - k)));
+  return out;
+}
+
+/** MACD(12,26,9): the line, its signal, and the histogram between them. */
+export function macd(closes: number[], fast = 12, slow = 26, sig = 9) {
+  const f = ema(closes, fast), sl = ema(closes, slow);
+  const line = closes.map((_, i) => f[i] - sl[i]);
+  const signal = ema(line, sig);
+  return { line, signal, hist: line.map((v, i) => v - signal[i]) };
+}
+
+/**
+ * KDJ(9,3,3). RSV is where the close sits in the n-period high/low range;
+ * K and D smooth it, and J = 3K - 2D exaggerates the turn.
+ */
+export function kdj(high: number[], low: number[], close: number[], n = 9) {
+  const K: number[] = [], D: number[] = [], J: number[] = [];
+  let k = 50, d = 50;
+  for (let i = 0; i < close.length; i++) {
+    const s = Math.max(0, i - n + 1);
+    const hh = Math.max(...high.slice(s, i + 1));
+    const ll = Math.min(...low.slice(s, i + 1));
+    const rsv = hh === ll ? 50 : ((close[i] - ll) / (hh - ll)) * 100;
+    k = (2 / 3) * k + (1 / 3) * rsv;
+    d = (2 / 3) * d + (1 / 3) * k;
+    K.push(k); D.push(d); J.push(3 * k - 2 * d);
+  }
+  return { K, D, J };
+}
+
 /** Wilder's RSI. */
 export function rsi(closes: number[], p = 14): (number | null)[] {
   const out: (number | null)[] = [null];
@@ -275,6 +310,29 @@ if (import.meta.filename === process.argv[1]) {
   assert.equal(regime(90, 95, 100), 'BEAR');
   assert.equal(regime(110, 95, 100), 'RANGE', 'price up but MA5 below MA20 is not a trend');
   assert.equal(regime(null, 1, 1), 'RANGE');
+
+  // EMA: a flat series must stay flat; a step must converge toward the new level.
+  const flat = ema([5, 5, 5, 5, 5], 3);
+  near(flat.at(-1)!, 5, 1e-9);
+  const step = ema([0, 10, 10, 10, 10, 10, 10, 10, 10, 10], 3);
+  assert.ok(step.at(-1)! > 9.5 && step.at(-1)! < 10, `ema converged to ${step.at(-1)}`);
+
+  // MACD on a steadily rising series: line above signal, histogram positive.
+  const rising = Array.from({ length: 60 }, (_, i) => 100 + i);
+  const m = macd(rising);
+  assert.ok(m.line.at(-1)! > 0, 'rising series must give a positive MACD line');
+  assert.ok(m.hist.at(-1)! > -0.001, 'histogram must not be negative while rising');
+  const falling = Array.from({ length: 60 }, (_, i) => 160 - i);
+  assert.ok(macd(falling).line.at(-1)! < 0, 'falling series must give a negative MACD line');
+
+  // KDJ: closing at the top of the range pins K high, at the bottom pins it low.
+  const hi = Array(20).fill(110), lo = Array(20).fill(90);
+  const top = kdj(hi, lo, Array(20).fill(110));
+  assert.ok(top.K.at(-1)! > 95, `closing at the high should push K near 100, got ${top.K.at(-1)}`);
+  const bot = kdj(hi, lo, Array(20).fill(90));
+  assert.ok(bot.K.at(-1)! < 5, `closing at the low should push K near 0, got ${bot.K.at(-1)}`);
+  // J overshoots K when K and D diverge.
+  assert.ok(top.J.at(-1)! >= top.K.at(-1)! - 1e-6, 'J must lead K on a strong move');
 
   console.log('lib self-checks passed');
 }

@@ -62,6 +62,7 @@ jobs:
         run: |
           node scripts/settle.ts
           node scripts/quotes.ts
+          node scripts/charts.ts
           node scripts/render.ts
 
       - name: Commit only if something changed

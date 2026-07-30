@@ -56,7 +56,10 @@ jobs:
           REPO_URL: ${{ github.server_url }}/${{ github.repository }}
         run: |
           node scripts/settle.ts
+          node scripts/quotes.ts
+          node scripts/charts.ts
           node scripts/render.ts
+          node scripts/stockpage.ts
 
       - name: Commit
         run: |

@@ -422,7 +422,7 @@ ${indices.length ? `<div class="idx">${indices.map((i: any) => {
     ${quotes.length ? `${quotes.map((_, i) => `<input type="radio" name="stk" id="k${i}"${i === 0 ? ' checked' : ''}>`).join('')}
     <div class="split">
       <aside class="wl">${quotes.map(sideRow).join('')}</aside>
-      <div class="dt">${quotes.map((q, i) => `<div class="dp dp${i}">${detailPanel(q)}</div>`).join('')}</div>
+      <div class="dt">${quotes.map((q, i) => `<div class="dp dp${i}">${detailPanel(q, true)}</div>`).join('')}</div>
     </div>` : none('Run npm&nbsp;run&nbsp;screen')}
   </div>
 

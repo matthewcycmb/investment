@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node scripts/quotes.ts && node scripts/render.ts && node scripts/stockpage.ts",
+  "buildCommand": "node scripts/quotes.ts && node scripts/charts.ts && node scripts/render.ts && node scripts/stockpage.ts",
   "outputDirectory": "public",
   "framework": null,
   "installCommand": "npm ci"

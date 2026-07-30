@@ -12,3 +12,6 @@ data/form4-cache.json
 # watch-state.json IS tracked: CI needs continuity between runs, otherwise every
 # run re-detects every event and immediately exhausts the daily council budget.
 public/s/
+
+# Multi-timeframe chart data: large and fully rebuildable by scripts/charts.ts.
+data/charts.json
