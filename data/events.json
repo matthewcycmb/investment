@@ -1,6 +1,17 @@
 {
   "events": [
     {
+      "id": "filing:BEN:0000038777",
+      "ts": "2026-07-30T22:35:45.021Z",
+      "source": "filing",
+      "title": "Franklin Resources: Entry into a Material Definitive Agreement; Termination of a Material Definitive Agreement; Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant",
+      "url": "https://www.sec.gov/Archives/edgar/data/38777/000155278126000398/0001552781-26-000398-index.htm",
+      "tickers": [
+        "BEN"
+      ],
+      "detail": "BEN · Financials · SEC 8-K item 1.01, 1.02, 2.03"
+    },
+    {
       "id": "filing:IR:0001699150",
       "ts": "2026-07-30T21:16:13.851Z",
       "source": "filing",

@@ -1,0 +1,330 @@
+{
+  "date": "2026-07-31",
+  "ts": "2026-07-30T22:35:45.021Z",
+  "study": false,
+  "eventKind": "filing",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "filing",
+      "title": "Franklin Resources: Entry into a Material Definitive Agreement; Termination of a Material Definitive Agreement; Creation of a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement of a Registrant",
+      "url": "https://www.sec.gov/Archives/edgar/data/38777/000155278126000398/0001552781-26-000398-index.htm"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 8952,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1099,
+        "inputTokenDetails": {
+          "noCacheTokens": 1099,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 491,
+        "outputTokenDetails": {
+          "textTokens": 330,
+          "reasoningTokens": 161
+        },
+        "totalTokens": 1590,
+        "raw": {
+          "input_tokens": 1099,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 491,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 161
+          }
+        },
+        "reasoningTokens": 161,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "BEN",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Event is an 8-K covering Entry into a Material Definitive Agreement, Termination of a Material Definitive Agreement, and Creation of a direct financial obligation",
+            "No revenue, margin, AUM, flow or earnings figures disclosed in the material",
+            "Shares last 33.17, up 2.4% on the day"
+          ],
+          "risk": "If the creation of a direct financial obligation is a sizable new debt raise funded at high coupons, incremental interest expense could compress EPS and re-rate the multiple lower — a bearish read I am not taking.",
+          "reasoning": "The filing is a financing/credit-agreement swap: terminate one facility, enter another, book the obligation. That is capital-structure housekeeping with no disclosed change to fee revenue, operating margin, or cash flow. Absent quantified terms, there is no fundamental basis to trade a 5-day window against SPY."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 4669,
+      "revised": false,
+      "usage": {
+        "inputTokens": 483,
+        "inputTokenDetails": {
+          "noCacheTokens": 483,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 230,
+        "outputTokenDetails": {
+          "textTokens": 153,
+          "reasoningTokens": 77
+        },
+        "totalTokens": 713,
+        "raw": {
+          "input_tokens": 483,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 230,
+          "output_tokens_details": {
+            "reasoning_tokens": 77
+          }
+        },
+        "reasoningTokens": 77,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "BEN",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Franklin Resources filed disclosures covering entry into and termination of material definitive agreements, plus a creation event.",
+            "BEN last traded at 33.17 and rose 2.4% over one day."
+          ],
+          "risk": "The undisclosed agreement terms could create a substantial positive or negative catalyst that drives BEN relative to SPY over the next five sessions.",
+          "reasoning": "The filing labels alone do not reveal economics, causality, or whether the 2.4% move fully priced the event. With no terms or benchmark reaction provided, a five-day relative-direction trade is not verifiable."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 43325,
+      "revised": false,
+      "usage": {
+        "inputTokens": 644,
+        "inputTokenDetails": {
+          "noCacheTokens": 644,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 2183,
+        "outputTokenDetails": {
+          "textTokens": 208,
+          "reasoningTokens": 1975
+        },
+        "totalTokens": 2827,
+        "raw": {
+          "prompt_tokens": 644,
+          "completion_tokens": 2183,
+          "total_tokens": 2827,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1975
+          }
+        },
+        "reasoningTokens": 1975,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "BEN",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "evidence": [
+            "Franklin Resources filed notice of Entry into a Material Definitive Agreement",
+            "Filing also includes Termination of a Material Definitive Agreement and Creation",
+            "No further details on the nature, counterparty, or financial impact of the agreements disclosed in the material"
+          ],
+          "risk": "The filing is procedurally routine and lacks substantive detail; the terminated agreement could represent loss of a revenue-generating arrangement, and without specifics the net impact on fundamentals over a 5-day window is unknowable.",
+          "reasoning": "The 8-K filing mentions entry and termination of material agreements but provides no detail on financial impact, counterparties, or strategic significance. BEN already moved +2.4% on the day, suggesting the market has priced in available information. With no China/HK policy angle and insufficient detail to assess directional edge, HOLD is warranted."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": true,
+      "error": null,
+      "latencyMs": 91300,
+      "revised": false,
+      "usage": {
+        "inputTokens": 334,
+        "inputTokenDetails": {
+          "noCacheTokens": 78,
+          "cacheReadTokens": 256
+        },
+        "outputTokens": 2717,
+        "outputTokenDetails": {
+          "textTokens": 368,
+          "reasoningTokens": 2349
+        },
+        "totalTokens": 3051,
+        "raw": {
+          "prompt_tokens": 334,
+          "completion_tokens": 2717,
+          "total_tokens": 3051,
+          "prompt_tokens_details": {
+            "cached_tokens": 256
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2349
+          },
+          "cached_tokens": 256
+        },
+        "reasoningTokens": 2349,
+        "cachedInputTokens": 256
+      },
+      "findings": [
+        {
+          "ticker": "BEN",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "evidence": [
+            "Filing announces simultaneous Entry into, Termination of, and Creation of Material Definitive Agreements.",
+            "Stock closed up 2.4% at $33.17 on the session, indicating an initial positive market reaction to the breaking news.",
+            "Franklin Resources is an asset manager (Financials sector), making 'Material Definitive Agreements' likely relate to fund administration, distribution, or strategic partnerships."
+          ],
+          "risk": "The terminated agreement may represent the loss of a high-margin revenue stream (e.g., subadvisory contract), while the 'Creation' could be a costly new regulatory or debt obligation rather than an accretive opportunity, causing the initial +2.4% rally to reverse as details emerge.",
+          "reasoning": "The filing structure suggests a complex transition—terminating an old agreement while creating a new entity or obligation—rather than a simple additive event. While the market has priced in optimism (evidenced by the 2.4% pop), second-order effects create uncertainty: competitors may poach customers during the transition, and the 'Creation' component (potentially a new fund, JV, or debt facility) has unclear economics that analysts have not yet modeled. For the 5-day horizon, the risk-reward is balanced—the headline catalyst is spent, but the fundamental impact remains opaque. HOLD avoids chasing the gap higher while protecting against a reversal if the terminated agreement proves more valuable than the replacement."
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "BEN",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 4,
+      "meanConfidence": 5,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.5,
+          "weight": 0.875,
+          "evidence": [
+            "Event is an 8-K covering Entry into a Material Definitive Agreement, Termination of a Material Definitive Agreement, and Creation of a direct financial obligation",
+            "No revenue, margin, AUM, flow or earnings figures disclosed in the material",
+            "Shares last 33.17, up 2.4% on the day"
+          ],
+          "risk": "If the creation of a direct financial obligation is a sizable new debt raise funded at high coupons, incremental interest expense could compress EPS and re-rate the multiple lower — a bearish read I am not taking.",
+          "reasoning": "The filing is a financing/credit-agreement swap: terminate one facility, enter another, book the obligation. That is capital-structure housekeeping with no disclosed change to fee revenue, operating margin, or cash flow. Absent quantified terms, there is no fundamental basis to trade a 5-day window against SPY."
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.525,
+          "evidence": [
+            "Franklin Resources filed disclosures covering entry into and termination of material definitive agreements, plus a creation event.",
+            "BEN last traded at 33.17 and rose 2.4% over one day."
+          ],
+          "risk": "The undisclosed agreement terms could create a substantial positive or negative catalyst that drives BEN relative to SPY over the next five sessions.",
+          "reasoning": "The filing labels alone do not reveal economics, causality, or whether the 2.4% move fully priced the event. With no terms or benchmark reaction provided, a five-day relative-direction trade is not verifiable."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "verified": 1,
+          "relevance": 0.9,
+          "weight": 0.27,
+          "evidence": [
+            "Franklin Resources filed notice of Entry into a Material Definitive Agreement",
+            "Filing also includes Termination of a Material Definitive Agreement and Creation",
+            "No further details on the nature, counterparty, or financial impact of the agreements disclosed in the material"
+          ],
+          "risk": "The filing is procedurally routine and lacks substantive detail; the terminated agreement could represent loss of a revenue-generating arrangement, and without specifics the net impact on fundamentals over a 5-day window is unknowable.",
+          "reasoning": "The 8-K filing mentions entry and termination of material agreements but provides no detail on financial impact, counterparties, or strategic significance. BEN already moved +2.4% on the day, suggesting the market has priced in available information. With no China/HK policy angle and insufficient detail to assess directional edge, HOLD is warranted."
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.3,
+          "evidence": [
+            "Filing announces simultaneous Entry into, Termination of, and Creation of Material Definitive Agreements.",
+            "Stock closed up 2.4% at $33.17 on the session, indicating an initial positive market reaction to the breaking news.",
+            "Franklin Resources is an asset manager (Financials sector), making 'Material Definitive Agreements' likely relate to fund administration, distribution, or strategic partnerships."
+          ],
+          "risk": "The terminated agreement may represent the loss of a high-margin revenue stream (e.g., subadvisory contract), while the 'Creation' could be a costly new regulatory or debt obligation rather than an accretive opportunity, causing the initial +2.4% rally to reverse as details emerge.",
+          "reasoning": "The filing structure suggests a complex transition—terminating an old agreement while creating a new entity or obligation—rather than a simple additive event. While the market has priced in optimism (evidenced by the 2.4% pop), second-order effects create uncertainty: competitors may poach customers during the transition, and the 'Creation' component (potentially a new fund, JV, or debt facility) has unclear economics that analysts have not yet modeled. For the 5-day horizon, the risk-reward is balanced—the headline catalyst is spent, but the fundamental impact remains opaque. HOLD avoids chasing the gap higher while protecting against a reversal if the terminated agreement proves more valuable than the replacement."
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": null,
+    "armsLive": 4
+  }
+}
