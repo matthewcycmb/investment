@@ -13,11 +13,18 @@ const chartFile = readJSON<any>(`${ROOT}data/charts.json`, { charts: {}, timefra
 const eventLog: any[] = readJSON<any>(`${ROOT}data/events.json`, { events: [] }).events ?? [];
 const positions: any[] = readJSON<any>(`${ROOT}data/outcomes.json`, { positions: [] }).positions ?? [];
 
-const liveFile = lsJSON(`${ROOT}data/live`).pop();
-const studyFile = lsJSON(`${ROOT}data/picks`).pop();
-const deliberation: any = liveFile
-  ? readJSON<any>(`${ROOT}data/live/${liveFile}`, null)
-  : (studyFile ? readJSON<any>(`${ROOT}data/picks/${studyFile}`, null) : null);
+// Newest session that actually reached a verdict. A run where every specialist
+// failed must not blank the Council tab and hide the last good deliberation.
+const withVerdicts = (dir: string, files: string[]) => {
+  for (const f of [...files].reverse()) {
+    const d = readJSON<any>(`${ROOT}${dir}/${f}`, null);
+    if ((d?.verdicts ?? []).length) return d;
+  }
+  return null;
+};
+const deliberation: any =
+  withVerdicts('data/live', lsJSON(`${ROOT}data/live`))
+  ?? withVerdicts('data/picks', lsJSON(`${ROOT}data/picks`));
 
 const esc = (s: unknown) => String(s ?? '')
   .replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));

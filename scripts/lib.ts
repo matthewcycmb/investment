@@ -38,6 +38,10 @@ export async function get(
     try {
       const res = await fetch(url, { headers, signal: AbortSignal.timeout(30_000) });
       if (res.ok) return res;
+      // Release the socket. An unread body keeps the connection open, and after a
+      // few hundred requests undici's pool is exhausted, which stalls every later
+      // request in the process -- including streaming model calls on another host.
+      await res.body?.cancel().catch(() => {});
       // 4xx other than 429 will not fix themselves; fail fast.
       if (res.status < 500 && res.status !== 429) {
         throw new Error(`${res.status} ${res.statusText} for ${url}`);
