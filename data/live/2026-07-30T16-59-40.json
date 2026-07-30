@@ -1,0 +1,501 @@
+{
+  "date": "2026-07-31",
+  "ts": "2026-07-30T16:59:40.853Z",
+  "study": false,
+  "eventKind": "shock",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "shock",
+      "title": "IBKR moved +4.1% on 2026-07-30· possible cause: IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase Y/Y"
+    },
+    {
+      "source": "shock",
+      "title": "ADBE moved -6.2% on 2026-07-30· possible cause: ADBE Stock At Near Two-Month Highs After FTC Grants Early Approval For Adobe’s Acquisition Of Topaz Labs | Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions"
+    },
+    {
+      "source": "shock",
+      "title": "ADSK moved -4.7% on 2026-07-30· possible cause: Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls | Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "IBKR",
+    "ADSK",
+    "ADBE"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": false,
+      "error": "[\n  {\n    \"origin\": \"array\",\n    \"code\": \"too_big\",\n    \"maximum\": 3,\n    \"inclusive\": true,\n    \"path\": [\n      \"findings\",\n      0,\n      \"evidence\"\n    ],\n    \"message\": \"Too big: expected array to have <=3 items\"\n  }\n]",
+      "latencyMs": 37816,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 10019,
+      "revised": false,
+      "usage": {
+        "inputTokens": 628,
+        "inputTokenDetails": {
+          "noCacheTokens": 628,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 525,
+        "outputTokenDetails": {
+          "textTokens": 394,
+          "reasoningTokens": 131
+        },
+        "totalTokens": 1153,
+        "raw": {
+          "input_tokens": 628,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 525,
+          "output_tokens_details": {
+            "reasoning_tokens": 131
+          }
+        },
+        "reasoningTokens": 131,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "IBKR",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "IBKR rose 4.1% on 2026-07-30.",
+            "The possible catalyst was a Q2 earnings beat with year-over-year increases in revenues and DARTs."
+          ],
+          "risk": "The earnings beat and higher activity could produce post-earnings drift and further outperformance over the five-session window.",
+          "reasoning": "The news is fundamentally relevant, but the 4.1% reaction occurred before entry. The material gives no surprise magnitude, guidance change, upgrades, or other evidence that the beat remains underpriced. Claims of fund rotation and follow-through are unsupported."
+        },
+        {
+          "ticker": "ADSK",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "ADSK fell 4.7% on 2026-07-30.",
+            "The possible-cause headline says Autodesk was initiated but provides no rating, price target, or analyst details.",
+            "The same headline mentions a Norwegian Cruise downgrade."
+          ],
+          "risk": "If the omitted Autodesk initiation was bearish, it could prompt estimate revisions or continued institutional selling after entry.",
+          "reasoning": "The material does not establish that the initiation was negative or caused the decline; the Norwegian Cruise item is not evidence about ADSK. Sector rotation and persistent selling are conjecture, so neither continuation nor reversal is verified."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "ADBE fell 6.2% on 2026-07-30.",
+            "The possible-cause headline says ADBE was near two-month highs after the FTC granted early approval, but the headline is incomplete."
+          ],
+          "risk": "The sharp decline may reflect material adverse information omitted from the truncated headline, allowing underperformance to continue.",
+          "reasoning": "The supplied headline appears favorable yet coincides with a sharp decline, so it does not establish causality. Acquisition value destruction, institutional rebalancing, overhead supply, and an oversold rebound are all unsupported by the provided material."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 62362,
+      "revised": false,
+      "usage": {
+        "inputTokens": 811,
+        "inputTokenDetails": {
+          "noCacheTokens": 811,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 3362,
+        "outputTokenDetails": {
+          "textTokens": 549,
+          "reasoningTokens": 2813
+        },
+        "totalTokens": 4173,
+        "raw": {
+          "prompt_tokens": 811,
+          "completion_tokens": 3362,
+          "total_tokens": 4173,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2813
+          }
+        },
+        "reasoningTokens": 2813,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "IBKR",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "IBKR moved +4.1% on 2026-07-30",
+            "IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase Y/Y",
+            "ADBE and ADSK both sold off sharply on the same day"
+          ],
+          "risk": "Post-earnings momentum may fade quickly; the +4.1% move already prices in much of the beat, leaving limited upside over a 5-day window versus SPY.",
+          "reasoning": "As policy/sentiment analyst, I see sector rotation tailwinds: IT names (ADBE -6.2%, ADSK -4.7) are selling off, driving flows into financials. IBKR's earnings beat with rising DARTs signals sustained trading activity. Post-earnings drift and analyst upgrades should provide follow-through buying over 5 days. Kimi's rotation thesis strengthens my conviction."
+        },
+        {
+          "ticker": "ADSK",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "ADSK moved -4.7% on 2026-07-30",
+            "Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analys",
+            "ADBE also sold off -6.2% on the same day"
+          ],
+          "risk": "An initiation (not a downgrade) could be neutral or even positive, meaning the -4.7% drop may reverse as the market digests the actual analyst stance.",
+          "reasoning": "The truncated headline prevents full causal verification, but the -4.7% drop alongside an analyst initiation and ADBE's concurrent -6.2% weakness signals broad IT/design software sector sentiment deterioration. Guilt-by-association selling and institutional rebalancing out of the sector should persist over 5 days. ChatGPT's caution is valid but sector contagion is the dominant force."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "ADBE moved -6.2% on 2026-07-30",
+            "ADBE Stock At Near Two-Month Highs After FTC Grants Early Approval For A",
+            "ADSK also declined -4.7% on the same day"
+          ],
+          "risk": "The -6.2% drop may be an overreaction to a headline, and a mean-reversion bounce could occur if the FTC news is actually neutral or positive.",
+          "reasoning": "The stock sold off sharply despite seemingly positive FTC news, signaling the market is pricing in acquisition-related value destruction or integration risk. Trapped longs near two-month highs create overhead supply. Combined with ADSK weakness, IT sector sentiment is negative. Momentum traders exiting will drive continued underperformance vs SPY over 5 days."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": true,
+      "error": null,
+      "latencyMs": 262049,
+      "revised": false,
+      "usage": {
+        "inputTokens": 536,
+        "inputTokenDetails": {
+          "noCacheTokens": 280,
+          "cacheReadTokens": 256
+        },
+        "outputTokens": 4682,
+        "outputTokenDetails": {
+          "textTokens": 489,
+          "reasoningTokens": 4193
+        },
+        "totalTokens": 5218,
+        "raw": {
+          "prompt_tokens": 536,
+          "completion_tokens": 4682,
+          "total_tokens": 5218,
+          "cached_tokens": 256,
+          "completion_tokens_details": {
+            "reasoning_tokens": 4193
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 256
+          }
+        },
+        "reasoningTokens": 4193,
+        "cachedInputTokens": 256
+      },
+      "findings": [
+        {
+          "ticker": "IBKR",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase Y/Y indicates sustained high trading activity driving fundamental outperformance",
+            "Rotation flows from weak software sector (ADBE, ADSK selloffs) into financials/brokers provide tailwinds for relative strength versus SPY",
+            "Post-earnings drift will drive continued outperformance as sell-side analysts raise estimates on DARTs growth"
+          ],
+          "risk": "The +4.1% single-day earnings pop may have fully priced in the beat, and profit-taking could exhaust near-term buying pressure causing consolidation that underperforms SPY",
+          "reasoning": "Second-order rotation effects dominate: capital flight from the dislocated software/design sector (ADBE -6.2%, ADSK -4.7%) will flow into high-quality financials with proven earnings momentum. The DARTs growth signals structural retail trading share gains that analysts will upgrade over the 5-day window, generating continued outperformance versus SPY despite the initial pop."
+        },
+        {
+          "ticker": "ADSK",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Autodesk initiated alongside Norwegian Cruise downgrade triggered -4.7% decline suggesting the initiation carried a cautious tone or disappointed bulls",
+            "ADBE weakness creates guilt-by-association sector rotation out of design software into other sectors",
+            "Fresh analyst action triggers persistent institutional selling pressure that extends beyond initial shock as portfolios rebalance"
+          ],
+          "risk": "The specific analyst initiation rating and target are omitted from the material; if the initiation was actually bullish or neutral, the -4.7% drop represents an overreaction that could mean-revert and outperform SPY",
+          "reasoning": "Second-order sector contagion will persist: the simultaneous software/design sector breakdown (ADBE -6.2%) creates systematic outflows from IT/design software into financials (IBKR). Institutional rebalancing away from the sector on ambiguous analyst sentiment will drive continued underperformance versus SPY over the 5-day window as the market prices in slower enterprise CAD spending."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "SELL",
+          "confidence": 7,
+          "evidence": [
+            "ADBE Stock At Near Two-Month Highs followed by -6.2% drop on FTC approval signals market prices value destruction from acquisition terms or integration risks",
+            "Negative price action on regulatory approval triggers institutional rebalancing and momentum trader exodus from trapped longs near highs",
+            "Sector rotation out of software/design tools into financials/brokers creates persistent capital flight headwind"
+          ],
+          "risk": "The sharp -6.2% decline from highs may represent an overdone 'sell the news' technical oversold bounce that could outperform SPY briefly if acquisition concerns are overstated",
+          "reasoning": "Second-order consequences of the FTC approval reveal market judgment that the Figma acquisition is value-destructive (overpayment or integration distraction), removing the deal premium and exposing underlying business deceleration. Competitors (Canva, Figma if deal fails) and substitutes benefit while ADBE suffers diverted management attention. The sector rotation momentum combined with trapped long liquidation ensures continued underperformance versus SPY over 5 sessions."
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "IBKR",
+      "action": "BUY",
+      "agreement": 0.574,
+      "weightedShare": {
+        "BUY": 0.574,
+        "SELL": 0,
+        "HOLD": 0.426
+      },
+      "votes": 2,
+      "meanConfidence": 7.33,
+      "invest": false,
+      "panel": 3,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 1,
+          "relevance": 1.3,
+          "weight": 1.04,
+          "evidence": [
+            "IBKR rose 4.1% on 2026-07-30.",
+            "The possible catalyst was a Q2 earnings beat with year-over-year increases in revenues and DARTs."
+          ],
+          "risk": "The earnings beat and higher activity could produce post-earnings drift and further outperformance over the five-session window.",
+          "reasoning": "The news is fundamentally relevant, but the 4.1% reaction occurred before entry. The material gives no surprise magnitude, guidance change, upgrades, or other evidence that the beat remains underpriced. Claims of fund rotation and follow-through are unsupported.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 1,
+          "relevance": 1,
+          "weight": 0.7,
+          "evidence": [
+            "IBKR moved +4.1% on 2026-07-30",
+            "IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase Y/Y",
+            "ADBE and ADSK both sold off sharply on the same day"
+          ],
+          "risk": "Post-earnings momentum may fade quickly; the +4.1% move already prices in much of the beat, leaving limited upside over a 5-day window versus SPY.",
+          "reasoning": "As policy/sentiment analyst, I see sector rotation tailwinds: IT names (ADBE -6.2%, ADSK -4.7) are selling off, driving flows into financials. IBKR's earnings beat with rising DARTs signals sustained trading activity. Post-earnings drift and analyst upgrades should provide follow-through buying over 5 days. Kimi's rotation thesis strengthens my conviction.",
+          "revised": false
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 1,
+          "relevance": 1,
+          "weight": 0.7,
+          "evidence": [
+            "IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase Y/Y indicates sustained high trading activity driving fundamental outperformance",
+            "Rotation flows from weak software sector (ADBE, ADSK selloffs) into financials/brokers provide tailwinds for relative strength versus SPY",
+            "Post-earnings drift will drive continued outperformance as sell-side analysts raise estimates on DARTs growth"
+          ],
+          "risk": "The +4.1% single-day earnings pop may have fully priced in the beat, and profit-taking could exhaust near-term buying pressure causing consolidation that underperforms SPY",
+          "reasoning": "Second-order rotation effects dominate: capital flight from the dislocated software/design sector (ADBE -6.2%, ADSK -4.7%) will flow into high-quality financials with proven earnings momentum. The DARTs growth signals structural retail trading share gains that analysts will upgrade over the 5-day window, generating continued outperformance versus SPY despite the initial pop.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "ADSK",
+      "action": "HOLD",
+      "agreement": 0.565,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.435,
+        "HOLD": 0.565
+      },
+      "votes": 1,
+      "meanConfidence": 7,
+      "invest": false,
+      "panel": 3,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 1,
+          "relevance": 1.3,
+          "weight": 1.17,
+          "evidence": [
+            "ADSK fell 4.7% on 2026-07-30.",
+            "The possible-cause headline says Autodesk was initiated but provides no rating, price target, or analyst details.",
+            "The same headline mentions a Norwegian Cruise downgrade."
+          ],
+          "risk": "If the omitted Autodesk initiation was bearish, it could prompt estimate revisions or continued institutional selling after entry.",
+          "reasoning": "The material does not establish that the initiation was negative or caused the decline; the Norwegian Cruise item is not evidence about ADSK. Sector rotation and persistent selling are conjecture, so neither continuation nor reversal is verified.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1,
+          "weight": 0.5,
+          "evidence": [
+            "ADSK moved -4.7% on 2026-07-30",
+            "Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analys",
+            "ADBE also sold off -6.2% on the same day"
+          ],
+          "risk": "An initiation (not a downgrade) could be neutral or even positive, meaning the -4.7% drop may reverse as the market digests the actual analyst stance.",
+          "reasoning": "The truncated headline prevents full causal verification, but the -4.7% drop alongside an analyst initiation and ADBE's concurrent -6.2% weakness signals broad IT/design software sector sentiment deterioration. Guilt-by-association selling and institutional rebalancing out of the sector should persist over 5 days. ChatGPT's caution is valid but sector contagion is the dominant force.",
+          "revised": false
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.33,
+          "relevance": 1,
+          "weight": 0.4,
+          "evidence": [
+            "Autodesk initiated alongside Norwegian Cruise downgrade triggered -4.7% decline suggesting the initiation carried a cautious tone or disappointed bulls",
+            "ADBE weakness creates guilt-by-association sector rotation out of design software into other sectors",
+            "Fresh analyst action triggers persistent institutional selling pressure that extends beyond initial shock as portfolios rebalance"
+          ],
+          "risk": "The specific analyst initiation rating and target are omitted from the material; if the initiation was actually bullish or neutral, the -4.7% drop represents an overreaction that could mean-revert and outperform SPY",
+          "reasoning": "Second-order sector contagion will persist: the simultaneous software/design sector breakdown (ADBE -6.2%) creates systematic outflows from IT/design software into financials (IBKR). Institutional rebalancing away from the sector on ambiguous analyst sentiment will drive continued underperformance versus SPY over the 5-day window as the market prices in slower enterprise CAD spending.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "ADBE",
+      "action": "HOLD",
+      "agreement": 0.519,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.481,
+        "HOLD": 0.519
+      },
+      "votes": 1,
+      "meanConfidence": 7.33,
+      "invest": false,
+      "panel": 3,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 1,
+          "relevance": 1.3,
+          "weight": 1.17,
+          "evidence": [
+            "ADBE fell 6.2% on 2026-07-30.",
+            "The possible-cause headline says ADBE was near two-month highs after the FTC granted early approval, but the headline is incomplete."
+          ],
+          "risk": "The sharp decline may reflect material adverse information omitted from the truncated headline, allowing underperformance to continue.",
+          "reasoning": "The supplied headline appears favorable yet coincides with a sharp decline, so it does not establish causality. Acquisition value destruction, institutional rebalancing, overhead supply, and an oversold rebound are all unsupported by the provided material.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1,
+          "weight": 0.5,
+          "evidence": [
+            "ADBE moved -6.2% on 2026-07-30",
+            "ADBE Stock At Near Two-Month Highs After FTC Grants Early Approval For A",
+            "ADSK also declined -4.7% on the same day"
+          ],
+          "risk": "The -6.2% drop may be an overreaction to a headline, and a mean-reversion bounce could occur if the FTC news is actually neutral or positive.",
+          "reasoning": "The stock sold off sharply despite seemingly positive FTC news, signaling the market is pricing in acquisition-related value destruction or integration risk. Trapped longs near two-month highs create overhead supply. Combined with ADSK weakness, IT sector sentiment is negative. Momentum traders exiting will drive continued underperformance vs SPY over 5 days.",
+          "revised": false
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "SELL",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1,
+          "weight": 0.583,
+          "evidence": [
+            "ADBE Stock At Near Two-Month Highs followed by -6.2% drop on FTC approval signals market prices value destruction from acquisition terms or integration risks",
+            "Negative price action on regulatory approval triggers institutional rebalancing and momentum trader exodus from trapped longs near highs",
+            "Sector rotation out of software/design tools into financials/brokers creates persistent capital flight headwind"
+          ],
+          "risk": "The sharp -6.2% decline from highs may represent an overdone 'sell the news' technical oversold bounce that could outperform SPY briefly if acquisition concerns are overstated",
+          "reasoning": "Second-order consequences of the FTC approval reveal market judgment that the Figma acquisition is value-destructive (overpayment or integration distraction), removing the deal premium and exposing underlying business deceleration. Competitors (Canva, Figma if deal fails) and substitutes benefit while ADBE suffers diverted management attention. The sector rotation momentum combined with trapped long liquidation ensures continued underperformance versus SPY over 5 sessions.",
+          "revised": false
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 0.667,
+    "armsLive": 3
+  }
+}

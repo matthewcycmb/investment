@@ -11,7 +11,7 @@
     "openPositions": 0,
     "closedPositions": 0
   },
-  "updated": "2026-07-30T15:13:58.753Z",
+  "updated": "2026-07-30T17:06:49.681Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
@@ -58,7 +58,7 @@
         148.73,
         152.72,
         154.28,
-        151.62
+        153.9
       ],
       "status": "pending"
     }

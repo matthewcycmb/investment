@@ -1,6 +1,36 @@
 {
   "events": [
     {
+      "id": "shock:ADSK:2026-07-30",
+      "ts": "2026-07-30T16:59:40.853Z",
+      "source": "shock",
+      "title": "ADSK moved -4.7% on 2026-07-30· possible cause: Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls | Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
+      "tickers": [
+        "ADSK"
+      ],
+      "detail": "close 245.25 → 233.71"
+    },
+    {
+      "id": "shock:ADBE:2026-07-30",
+      "ts": "2026-07-30T16:59:40.853Z",
+      "source": "shock",
+      "title": "ADBE moved -6.2% on 2026-07-30· possible cause: ADBE Stock At Near Two-Month Highs After FTC Grants Early Approval For Adobe’s Acquisition Of Topaz Labs | Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions",
+      "tickers": [
+        "ADBE"
+      ],
+      "detail": "close 263.43 → 247.15"
+    },
+    {
+      "id": "shock:IBKR:2026-07-30",
+      "ts": "2026-07-30T16:59:40.853Z",
+      "source": "shock",
+      "title": "IBKR moved +4.1% on 2026-07-30· possible cause: IBKR Q2 Earnings Beat Estimates as Revenues, DARTs Increase Y/Y",
+      "tickers": [
+        "IBKR"
+      ],
+      "detail": "close 86.26 → 89.81"
+    },
+    {
       "id": "shock:PAYX:2026-07-30",
       "ts": "2026-07-30T15:07:20.109Z",
       "source": "shock",

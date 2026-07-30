@@ -194,10 +194,14 @@
     "shock:PSA:2026-07-30",
     "shock:ACN:2026-07-30",
     "shock:CPRT:2026-07-30",
-    "shock:PAYX:2026-07-30"
+    "shock:PAYX:2026-07-30",
+    "shock:IBKR:2026-07-30",
+    "shock:ADBE:2026-07-30",
+    "shock:ADSK:2026-07-30"
   ],
   "councilRuns": {
-    "2026-07-30": 5
+    "2026-07-30": 5,
+    "2026-07-31": 1
   },
-  "cursor": 20
+  "cursor": 12
 }
