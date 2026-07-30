@@ -67,7 +67,7 @@ const clustered = testSet.length > 1 && new Set(testSet.map((p) => p.weekKey)).s
   ? tTestClustered(testSet.map((p) => p.excess), testSet.map((p) => p.weekKey)) : null;
 
 const trades = positions
-  .filter((p) => p.status !== 'pending' && (p.study === false || p.arm === 'council'))
+  .filter((p) => p.study === false || p.arm === 'council')
   .sort((a, b) => String(b.pickDate).localeCompare(String(a.pickDate)));
 
 const eventsToday = eventLog.filter((e) => hktDateKey(new Date(e.ts)) === todayHK).length;
@@ -103,10 +103,12 @@ const tradeRow = (p: any, i: number) => {
   const price = p.status === 'closed' ? p.exitPrice : (p.markPrice ?? p.entryPrice);
   return `<div class="r" style="--i:${Math.min(i, 14)}">
   <div class="r__n"><span class="tk">${esc(p.ticker)}${p.study === false ? '<i class="auto" title="opened automatically">AUTO</i>' : ''}</span>
-  <span class="sb">${esc(p.entryDate ?? p.pickDate)}${p.exitDate ? ` → ${esc(p.exitDate)}` : ' \u00b7 open'}</span></div>
+  <span class="sb">${p.status === 'pending' ? 'decided \u00b7 fills at the next market open'
+    : `${esc(p.entryDate ?? p.pickDate)}${p.exitDate ? ` → ${esc(p.exitDate)}` : ' \u00b7 open'}`}</span></div>
   ${spark(p.spark, d)}
   <div class="r__p"><span class="px">${price ? Number(price).toFixed(2) : '\u00b7'}</span></div>
-  <span class="pl pl--${d}">${change == null ? '\u00b7' : sign(change * 100)}</span>
+  <span class="pl pl--${p.status === 'pending' ? 'wait' : d}">${p.status === 'pending' ? 'PENDING'
+    : (change == null ? '\u00b7' : sign(change * 100))}</span>
 </div>`;
 };
 
@@ -288,6 +290,7 @@ text-overflow:ellipsis;white-space:nowrap}
 .px{font:14px var(--mo);font-variant-numeric:tabular-nums}
 .pl{font:600 12.5px var(--mo);text-align:center;padding:6px 0;border-radius:5px;color:#fff;font-variant-numeric:tabular-nums}
 .pl--up{background:var(--up)}.pl--down{background:var(--dn)}.pl--flat{background:#333a46}
+.pl--wait{background:rgba(240,185,11,.18);color:var(--am)}
 .sp{width:100%;height:26px;display:block}
 .sp--none{display:block;height:26px;background:repeating-linear-gradient(90deg,var(--ln) 0 1px,transparent 1px 5px);opacity:.35;border-radius:2px}
 .sp polyline{fill:none;stroke-width:1.5;vector-effect:non-scaling-stroke}
