@@ -197,11 +197,13 @@
     "shock:PAYX:2026-07-30",
     "shock:IBKR:2026-07-30",
     "shock:ADBE:2026-07-30",
-    "shock:ADSK:2026-07-30"
+    "shock:ADSK:2026-07-30",
+    "filing:MPWR:0001280452",
+    "shock:FDXF:2026-07-30"
   ],
   "councilRuns": {
     "2026-07-30": 5,
-    "2026-07-31": 1
+    "2026-07-31": 2
   },
-  "cursor": 24
+  "cursor": 16
 }

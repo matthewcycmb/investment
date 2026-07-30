@@ -1,6 +1,27 @@
 {
   "events": [
     {
+      "id": "shock:FDXF:2026-07-30",
+      "ts": "2026-07-30T20:01:42.983Z",
+      "source": "shock",
+      "title": "FDXF moved -4.7% on 2026-07-30· no reported cause",
+      "tickers": [
+        "FDXF"
+      ],
+      "detail": "close 144.36 → 137.56"
+    },
+    {
+      "id": "filing:MPWR:0001280452",
+      "ts": "2026-07-30T20:01:42.983Z",
+      "source": "filing",
+      "title": "Monolithic Power Systems: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026051029/0001628280-26-051029-index.htm",
+      "tickers": [
+        "MPWR"
+      ],
+      "detail": "MPWR · Information Technology · SEC 8-K item 2.02"
+    },
+    {
       "id": "shock:ADSK:2026-07-30",
       "ts": "2026-07-30T16:59:40.853Z",
       "source": "shock",

@@ -11,13 +11,13 @@
     "openPositions": 0,
     "closedPositions": 0
   },
-  "updated": "2026-07-30T18:17:43.112Z",
+  "updated": "2026-07-30T20:06:19.091Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
     "closed": 0,
     "open": 0,
-    "pending": 1
+    "pending": 2
   },
   "positions": [
     {
@@ -58,7 +58,49 @@
         148.73,
         152.72,
         154.28,
-        154.05
+        156.37
+      ],
+      "status": "pending"
+    },
+    {
+      "arm": "council",
+      "study": false,
+      "horizon": 5,
+      "pickDate": "2026-07-31",
+      "ticker": "MPWR",
+      "rank": 1,
+      "weekKey": "2026-W31",
+      "spark": [
+        1448.21,
+        1563.7,
+        1537.88,
+        1423.76,
+        1434.95,
+        1438.3,
+        1313.32,
+        1312.77,
+        1382.36,
+        1331.73,
+        1288.16,
+        1346.13,
+        1272.81,
+        1315.51,
+        1374.13,
+        1352.74,
+        1291.38,
+        1376.41,
+        1352.66,
+        1305.65,
+        1312,
+        1328.8,
+        1383.26,
+        1398.45,
+        1397.15,
+        1333.81,
+        1339.08,
+        1282.01,
+        1248.76,
+        1316.18
       ],
       "status": "pending"
     }

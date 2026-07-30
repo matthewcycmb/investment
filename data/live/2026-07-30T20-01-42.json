@@ -1,0 +1,486 @@
+{
+  "date": "2026-07-31",
+  "ts": "2026-07-30T20:01:42.983Z",
+  "study": false,
+  "eventKind": "mixed",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "filing",
+      "title": "Monolithic Power Systems: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1280452/000162828026051029/0001628280-26-051029-index.htm"
+    },
+    {
+      "source": "shock",
+      "title": "FDXF moved -4.7% on 2026-07-30· no reported cause"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "MPWR",
+    "FDXF"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 14346,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1153,
+        "inputTokenDetails": {
+          "noCacheTokens": 1153,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 881,
+        "outputTokenDetails": {
+          "textTokens": 558,
+          "reasoningTokens": 323
+        },
+        "totalTokens": 2034,
+        "raw": {
+          "input_tokens": 1153,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 881,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 323
+          }
+        },
+        "reasoningTokens": 323,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "MPWR",
+          "verdict": "BUY",
+          "confidence": 5,
+          "evidence": [
+            "Filing: 'Results of Operations and Financial Condition' just released",
+            "Shares +5.4% in one day on that filing",
+            "Last price 1316.18"
+          ],
+          "risk": "The material contains no revenue, margin, cash-flow or guidance figures, so the +5.4% may fully discount the earnings improvement and a high absolute price implies a rich multiple with no verified support.",
+          "reasoning": "The only hard fundamental datapoint is an 8-K results filing the market repriced +5.4%, which normally reflects a real change in reported earnings power. Post-earnings drift is a fundamentals-grounded effect, not momentum. Sol is right that figures are absent, so I keep conviction low rather than abandon the long."
+        },
+        {
+          "ticker": "FDXF",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "No filing or results disclosure accompanies FDXF in the material",
+            "Move stated as -4.7% on 2026-07-30 with 'no reported cause'"
+          ],
+          "risk": "Unexplained selling in a cyclical LTL carrier can be informed flow ahead of a volume or yield disclosure, which would extend underperformance versus SPY.",
+          "reasoning": "Kimi's freight-recession chain and Qwen's informed-flow claim are inferences, not disclosed economics: no revenue, tonnage, margin, cash flow or balance sheet item changed in the material. Reported earnings power is unaltered, so a fundamentals lens gives no directional edge either way over five sessions."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 8700,
+      "revised": false,
+      "usage": {
+        "inputTokens": 528,
+        "inputTokenDetails": {
+          "noCacheTokens": 528,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 402,
+        "outputTokenDetails": {
+          "textTokens": 253,
+          "reasoningTokens": 149
+        },
+        "totalTokens": 930,
+        "raw": {
+          "input_tokens": 528,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 402,
+          "output_tokens_details": {
+            "reasoning_tokens": 149
+          }
+        },
+        "reasoningTokens": 149,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "MPWR",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "MPWR filed results of operations and financial condition.",
+            "MPWR rose 5.4% in one day to 1316.18.",
+            "The material provides no revenue, margin, earnings-surprise or guidance figures."
+          ],
+          "risk": "The filing may contain a durable positive earnings surprise that triggers continued institutional buying and analyst estimate increases.",
+          "reasoning": "The filing and rally establish timing, not a verified positive surprise or further catalyst. Claims about AI demand and analyst revisions lack support in the supplied material. With entry after a 5.4% rise, positive information may already be priced in."
+        },
+        {
+          "ticker": "FDXF",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "FDXF fell 4.7% on 2026-07-30.",
+            "No cause for the move was reported.",
+            "FDXF's last stated price is 137.56."
+          ],
+          "risk": "The unexplained decline may reflect informed selling ahead of adverse information, leading to further SPY-relative losses.",
+          "reasoning": "A cause-free drop supports neither continuation nor mean reversion. Assertions about contract losses, freight weakness or informed flow are unsupported, while the completed 4.7% decline may already reflect any hidden information. No verifiable five-day edge exists."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 46394,
+      "revised": false,
+      "usage": {
+        "inputTokens": 697,
+        "inputTokenDetails": {
+          "noCacheTokens": 697,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 2380,
+        "outputTokenDetails": {
+          "textTokens": 329,
+          "reasoningTokens": 2051
+        },
+        "totalTokens": 3077,
+        "raw": {
+          "prompt_tokens": 697,
+          "completion_tokens": 2380,
+          "total_tokens": 3077,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2051
+          }
+        },
+        "reasoningTokens": 2051,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "MPWR",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "MPWR moved +5.4% on a results-of-operations filing",
+            "Filing is titled 'Results of Operations and Financial Condition'",
+            "MPWR is a China-exposed semiconductor name with power-management ICs levered to AI data-center buildouts"
+          ],
+          "risk": "The +5.4% gap already embeds the headline beat; with shares near all-time highs (>1300), any China export restriction commentary or algorithmic profit-taking could trigger underperformance versus SPY over 5 days.",
+          "reasoning": "As the policy/sentiment specialist, I maintain BUY. The filing-driven +5.4% move signals positive earnings surprise. Kimi's second-order point about the 48-72hr analyst revision cycle is valid—estimate raises create positive drift. China supply chain risk exists but no negative policy shock materialized. The counter-argument (priced-in) fails because institutional accumulation typically extends post-earnings drift beyond day one, especially for AI infrastructure names where sell-side coverage is still revising."
+        },
+        {
+          "ticker": "FDXF",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "FDXF moved -4.7% on 2026-07-30 with no reported cause",
+            "FDXF is a freight/industrials name sensitive to trade policy and supply chain sentiment",
+            "No fundamental disclosure accompanied the price shock"
+          ],
+          "risk": "The drop may be a liquidity-driven overshoot or technical artifact with no fundamental basis; a rapid mean-reversion bounce of 2-4% would cause the short to underperform SPY over the 5-day window.",
+          "reasoning": "I maintain SELL. As the policy/sentiment analyst, unexplained selling in a trade-sensitive industrial name is a negative signal—informed flow often precedes disclosure. Kimi's K-shaped rotation thesis (AI up, cyclicals down) aligns with my lens: capital is rotating from Old Economy to AI infrastructure. The counter-argument (mean-reversion bounce) fails because unexplained industrials drops without a technical catalyst (index rebalance, fat finger) typically reflect informed positioning ahead of negative operational data."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": true,
+      "error": null,
+      "latencyMs": 197264,
+      "revised": false,
+      "usage": {
+        "inputTokens": 378,
+        "inputTokenDetails": {
+          "noCacheTokens": 378,
+          "cacheReadTokens": 0
+        },
+        "outputTokens": 6780,
+        "outputTokenDetails": {
+          "textTokens": 1672,
+          "reasoningTokens": 5108
+        },
+        "totalTokens": 7158,
+        "raw": {
+          "prompt_tokens": 378,
+          "completion_tokens": 6780,
+          "total_tokens": 7158,
+          "completion_tokens_details": {
+            "reasoning_tokens": 5108
+          }
+        },
+        "reasoningTokens": 5108,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "MPWR",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "The 5.4% post-filing rally reflects a genuine earnings inflection, but the market has not yet priced the 48-72 hour analyst revision cycle that typically follows a 'Results of Operations' surprise in semiconductor names.",
+            "Second-order network effects: MPWR's power-management ICs are critical voltage-regulation sockets in AI GPU/TPU server racks; this filing validates upstream wafer demand and downstream hyperscaler capex, creating a 'read-through' bid for the entire AI infrastructure complex that spills over into MPWR's forward multiple.",
+            "Competitor displacement: Analog Devices and Texas Instruments face relative share-loss pressure if MPWR's integrated modules are gaining density-optimized sockets in high-wattage servers, a dynamic that will be quantified in revised Q3/Q4 estimates over the next five sessions."
+          ],
+          "risk": "The +5.4% gap already embeds the headline beat; with shares near all-time highs, any Q3 seasonality caution or China export restriction commentary from management could trigger immediate algorithmic profit-taking, causing underperformance versus SPY.",
+          "reasoning": "While the headline move prices the immediate surprise, second-order analysis identifies an information-diffusion lag. The filing confirms AI data-center demand durability, but the sell-side estimate revision cascade and institutional accumulation phase typically extend 2-3 trading days beyond the initial gap. Competitors (ADI, TI) will face relative de-rating as investors re-allocate to the MPWR/AI-levered exposure, reinforcing relative strength. The market has priced the beat, but not the subsequent estimate raises and sector-rotation flows."
+        },
+        {
+          "ticker": "FDXF",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Unexplained -4.7% shocks in economically sensitive LTL (less-than-truckload) freight equities historically front-run operational disclosures (earnings misses, yield compression, or lost major accounts) within 24-48 hours.",
+            "Customer diversion knock-on: Industrial shippers and retail customers are likely diverting freight volumes to competitors (Old Dominion, Saia) or substituting toward truckload carriers, signaling a freight-demand inflection not yet priced into transport indices.",
+            "Cross-asset confirmation: The simultaneous MPWR strength (AI/tech infrastructure) and FDXF weakness (Old Economy cyclical) validates a 'K-shaped' rotation where capital flees cyclical industrials for secular growth, exacerbating relative underperformance."
+          ],
+          "risk": "The drop may be a technical 'fat finger,' index rebalancing artifact, or liquidity dislocation with no fundamental basis; if so, a rapid mean-reversion bounce of 2-4% would occur as arbitrageurs correct the dislocation, causing the short position to underperform SPY.",
+          "reasoning": "In the absence of reported news, the price action itself is the signal. Second-order analysis treats the unexplained drop as informed flow discounting pending negative catalysts. The LTL freight market is oligopolistic with transparent pricing; a move of this magnitude suggests volume or yield degradation that will surface as a pre-announcement or operational update before the 5-day exit window closes. Suppliers (truck OEMs, diesel) and substitutes (rail, truckload) are already pricing demand weakness, confirming the directional signal. The market has not yet priced the withheld catalyst."
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "MPWR",
+      "action": "BUY",
+      "agreement": 0.714,
+      "weightedShare": {
+        "BUY": 0.714,
+        "SELL": 0,
+        "HOLD": 0.286
+      },
+      "votes": 3,
+      "meanConfidence": 6.75,
+      "invest": true,
+      "panel": 4,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "BUY",
+          "confidence": 5,
+          "verified": 0.33,
+          "relevance": 1.2,
+          "weight": 0.4,
+          "evidence": [
+            "Filing: 'Results of Operations and Financial Condition' just released",
+            "Shares +5.4% in one day on that filing",
+            "Last price 1316.18"
+          ],
+          "risk": "The material contains no revenue, margin, cash-flow or guidance figures, so the +5.4% may fully discount the earnings improvement and a high absolute price implies a rich multiple with no verified support.",
+          "reasoning": "The only hard fundamental datapoint is an 8-K results filing the market repriced +5.4%, which normally reflects a real change in reported earnings power. Post-earnings drift is a fundamentals-grounded effect, not momentum. Sol is right that figures are absent, so I keep conviction low rather than abandon the long.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.8,
+          "evidence": [
+            "MPWR filed results of operations and financial condition.",
+            "MPWR rose 5.4% in one day to 1316.18.",
+            "The material provides no revenue, margin, earnings-surprise or guidance figures."
+          ],
+          "risk": "The filing may contain a durable positive earnings surprise that triggers continued institutional buying and analyst estimate increases.",
+          "reasoning": "The filing and rally establish timing, not a verified positive surprise or further catalyst. Claims about AI demand and analyst revisions lack support in the supplied material. With entry after a 5.4% rise, positive information may already be priced in.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.84,
+          "evidence": [
+            "MPWR moved +5.4% on a results-of-operations filing",
+            "Filing is titled 'Results of Operations and Financial Condition'",
+            "MPWR is a China-exposed semiconductor name with power-management ICs levered to AI data-center buildouts"
+          ],
+          "risk": "The +5.4% gap already embeds the headline beat; with shares near all-time highs (>1300), any China export restriction commentary or algorithmic profit-taking could trigger underperformance versus SPY over 5 days.",
+          "reasoning": "As the policy/sentiment specialist, I maintain BUY. The filing-driven +5.4% move signals positive earnings surprise. Kimi's second-order point about the 48-72hr analyst revision cycle is valid—estimate raises create positive drift. China supply chain risk exists but no negative policy shock materialized. The counter-argument (priced-in) fails because institutional accumulation typically extends post-earnings drift beyond day one, especially for AI infrastructure names where sell-side coverage is still revising.",
+          "revised": false
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.3,
+          "weight": 0.758,
+          "evidence": [
+            "The 5.4% post-filing rally reflects a genuine earnings inflection, but the market has not yet priced the 48-72 hour analyst revision cycle that typically follows a 'Results of Operations' surprise in semiconductor names.",
+            "Second-order network effects: MPWR's power-management ICs are critical voltage-regulation sockets in AI GPU/TPU server racks; this filing validates upstream wafer demand and downstream hyperscaler capex, creating a 'read-through' bid for the entire AI infrastructure complex that spills over into MPWR's forward multiple.",
+            "Competitor displacement: Analog Devices and Texas Instruments face relative share-loss pressure if MPWR's integrated modules are gaining density-optimized sockets in high-wattage servers, a dynamic that will be quantified in revised Q3/Q4 estimates over the next five sessions."
+          ],
+          "risk": "The +5.4% gap already embeds the headline beat; with shares near all-time highs, any Q3 seasonality caution or China export restriction commentary from management could trigger immediate algorithmic profit-taking, causing underperformance versus SPY.",
+          "reasoning": "While the headline move prices the immediate surprise, second-order analysis identifies an information-diffusion lag. The filing confirms AI data-center demand durability, but the sell-side estimate revision cascade and institutional accumulation phase typically extend 2-3 trading days beyond the initial gap. Competitors (ADI, TI) will face relative de-rating as investors re-allocate to the MPWR/AI-levered exposure, reinforcing relative strength. The market has priced the beat, but not the subsequent estimate raises and sector-rotation flows.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "FDXF",
+      "action": "HOLD",
+      "agreement": 0.517,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.483,
+        "HOLD": 0.517
+      },
+      "votes": 2,
+      "meanConfidence": 6.5,
+      "invest": false,
+      "panel": 4,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "No filing or results disclosure accompanies FDXF in the material",
+            "Move stated as -4.7% on 2026-07-30 with 'no reported cause'"
+          ],
+          "risk": "Unexplained selling in a cyclical LTL carrier can be informed flow ahead of a volume or yield disclosure, which would extend underperformance versus SPY.",
+          "reasoning": "Kimi's freight-recession chain and Qwen's informed-flow claim are inferences, not disclosed economics: no revenue, tonnage, margin, cash flow or balance sheet item changed in the material. Reported earnings power is unaltered, so a fundamentals lens gives no directional edge either way over five sessions.",
+          "revised": false
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.8,
+          "evidence": [
+            "FDXF fell 4.7% on 2026-07-30.",
+            "No cause for the move was reported.",
+            "FDXF's last stated price is 137.56."
+          ],
+          "risk": "The unexplained decline may reflect informed selling ahead of adverse information, leading to further SPY-relative losses.",
+          "reasoning": "A cause-free drop supports neither continuation nor mean reversion. Assertions about contract losses, freight weakness or informed flow are unsupported, while the completed 4.7% decline may already reflect any hidden information. No verifiable five-day edge exists.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.6,
+          "evidence": [
+            "FDXF moved -4.7% on 2026-07-30 with no reported cause",
+            "FDXF is a freight/industrials name sensitive to trade policy and supply chain sentiment",
+            "No fundamental disclosure accompanied the price shock"
+          ],
+          "risk": "The drop may be a liquidity-driven overshoot or technical artifact with no fundamental basis; a rapid mean-reversion bounce of 2-4% would cause the short to underperform SPY over the 5-day window.",
+          "reasoning": "I maintain SELL. As the policy/sentiment analyst, unexplained selling in a trade-sensitive industrial name is a negative signal—informed flow often precedes disclosure. Kimi's K-shaped rotation thesis (AI up, cyclicals down) aligns with my lens: capital is rotating from Old Economy to AI infrastructure. The counter-argument (mean-reversion bounce) fails because unexplained industrials drops without a technical catalyst (index rebalance, fat finger) typically reflect informed positioning ahead of negative operational data.",
+          "revised": false
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1.3,
+          "weight": 0.65,
+          "evidence": [
+            "Unexplained -4.7% shocks in economically sensitive LTL (less-than-truckload) freight equities historically front-run operational disclosures (earnings misses, yield compression, or lost major accounts) within 24-48 hours.",
+            "Customer diversion knock-on: Industrial shippers and retail customers are likely diverting freight volumes to competitors (Old Dominion, Saia) or substituting toward truckload carriers, signaling a freight-demand inflection not yet priced into transport indices.",
+            "Cross-asset confirmation: The simultaneous MPWR strength (AI/tech infrastructure) and FDXF weakness (Old Economy cyclical) validates a 'K-shaped' rotation where capital flees cyclical industrials for secular growth, exacerbating relative underperformance."
+          ],
+          "risk": "The drop may be a technical 'fat finger,' index rebalancing artifact, or liquidity dislocation with no fundamental basis; if so, a rapid mean-reversion bounce of 2-4% would occur as arbitrageurs correct the dislocation, causing the short position to underperform SPY.",
+          "reasoning": "In the absence of reported news, the price action itself is the signal. Second-order analysis treats the unexplained drop as informed flow discounting pending negative catalysts. The LTL freight market is oligopolistic with transparent pricing; a move of this magnitude suggests volume or yield degradation that will surface as a pre-announcement or operational update before the 5-day exit window closes. Suppliers (truck OEMs, diesel) and substitutes (rail, truckload) are already pricing demand weakness, confirming the directional signal. The market has not yet priced the withheld catalyst.",
+          "revised": false
+        }
+      ]
+    }
+  ],
+  "council": [
+    {
+      "ticker": "MPWR",
+      "rank": 1,
+      "votes": 3,
+      "agreement": 0.714,
+      "meanConfidence": 6.75
+    }
+  ],
+  "exploratory": {
+    "disagreementRate": 0.5,
+    "armsLive": 4
+  }
+}
