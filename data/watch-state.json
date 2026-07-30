@@ -187,10 +187,17 @@
     "headline:JPM:In 12 Words, JPMorgan CEO Jamie Dimon Just Issued a Stark Wa",
     "filing:VLO:0001035002",
     "filing:SO:0000092122",
-    "filing:MA:0001141391"
+    "filing:MA:0001141391",
+    "filing:LIN:0001707925",
+    "filing:EME:0000105634",
+    "headline:JPM:JPMorgan downgrades Pirelli to Neutral despite solid first-h",
+    "shock:PSA:2026-07-30",
+    "shock:ACN:2026-07-30",
+    "shock:CPRT:2026-07-30",
+    "shock:PAYX:2026-07-30"
   ],
   "councilRuns": {
-    "2026-07-30": 4
+    "2026-07-30": 5
   },
-  "cursor": 28
+  "cursor": 20
 }
