@@ -52,11 +52,16 @@ const universe = readJSON<{ constituents: any[] }>(`${ROOT}data/universe.json`, 
 const byCik = new Map(universe.constituents.map((c) => [String(Number(c.cik)), c]));
 const byTicker = new Map(universe.constituents.map((c) => [c.ticker, c]));
 
+const eventsPath = `${ROOT}data/events.json`;
+const log = readJSON<{ events: Event[] }>(eventsPath, { events: [] });
+
 const STATE_PATH = `${ROOT}data/watch-state.json`;
 const state = readJSON<{ seen: string[]; councilRuns: Record<string, number>; cursor: number }>(
   STATE_PATH, { seen: [], councilRuns: {}, cursor: 0 },
 );
-const seen = new Set(state.seen);
+// Self-healing: the seen-set is derivable from the event log, so a lost or
+// merge-mangled state file rebuilds itself instead of re-detecting everything.
+const seen = new Set(state.seen?.length ? state.seen : log.events.map((e: Event) => e.id));
 // Hong Kong date, matching what the dashboard shows. Using UTC here would roll the
 // daily council budget over at 08:00 local and disagree with the "AI votes today" figure.
 const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Hong_Kong' });
@@ -79,8 +84,6 @@ const decodeEntities = (t: string): string => String(t).replace(
   },
 );
 
-const eventsPath = `${ROOT}data/events.json`;
-const log = readJSON<{ events: Event[] }>(eventsPath, { events: [] });
 const found: Event[] = [];
 const note = (m: string) => console.error(`  ${m}`);
 
