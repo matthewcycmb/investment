@@ -283,7 +283,13 @@ if (!found.length && !FORCE) {
   // Cap the review set: every extra ticker lengthens all four responses, and long
   // generations hit the gateway's stream limit and kill specialists mid-run.
   const MAX_REVIEW_TICKERS = 5;
-  const tickers = [...new Set(review.flatMap((e: any) => e.tickers ?? []))].slice(0, MAX_REVIEW_TICKERS);
+  // Policy events are sector-wide by construction: an Airbus airworthiness
+  // directive tags every Industrials name, including door locks and water
+  // heaters. They belong in the brief as context, but must not decide WHICH
+  // stocks get reviewed, or the council is asked about companies the news has
+  // nothing to do with and correctly answers HOLD every time.
+  const named = review.filter((e: any) => e.source !== 'policy');
+  const tickers = [...new Set(named.flatMap((e: any) => e.tickers ?? []))].slice(0, MAX_REVIEW_TICKERS);
   // With --force and no new events, fall back to the current screened watchlist
   // rather than an arbitrary slice of the universe.
   const latestCand = lsJSON(`${ROOT}data/candidates`).pop();
@@ -291,6 +297,9 @@ if (!found.length && !FORCE) {
     ? readJSON<any>(`${ROOT}data/candidates/${latestCand}`, { candidates: [] }).candidates.map((c: any) => c.ticker)
     : [];
   const pool = tickers.length ? tickers : watchlist.slice(0, MAX_REVIEW_TICKERS);
+  if (!named.length && found.length) {
+    console.log('only sector-wide policy events; nothing company-specific to review');
+  }
 
   const priced: string[] = [];
   for (const t of pool) {

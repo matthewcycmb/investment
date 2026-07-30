@@ -1,0 +1,564 @@
+{
+  "date": "2026-07-30",
+  "ts": "2026-07-30T09:27:28.701Z",
+  "study": false,
+  "eventKind": "mixed",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "policy",
+      "title": "Airworthiness Directives; Airbus Canada Limited Partnership (Type Certificate Previously Held by C Series Aircraft Limited Partnership (CSALP); Bombardier, Inc.) Airplanes",
+      "url": "https://www.federalregister.gov/documents/2026/07/30/2026-15411/airworthiness-directives-airbus-canada-limited-partnership-type-certificate-previously-held-by-c"
+    },
+    {
+      "source": "policy",
+      "title": "Airworthiness Directives; MHI RJ Aviation ULC (Type Certificate Previously Held by Bombardier, Inc.) Airplanes",
+      "url": "https://www.federalregister.gov/documents/2026/07/30/2026-15412/airworthiness-directives-mhi-rj-aviation-ulc-type-certificate-previously-held-by-bombardier-inc"
+    },
+    {
+      "source": "policy",
+      "title": "Waiver of Specified Statutory Requirements for Commercial Space Launch and Reentry Actions",
+      "url": "https://www.federalregister.gov/documents/2026/07/30/2026-15415/waiver-of-specified-statutory-requirements-for-commercial-space-launch-and-reentry-actions"
+    },
+    {
+      "source": "policy",
+      "title": "Medicare Program; Updates to the Master List of Items Potentially Subject to Face-to-Face Encounter and Written Order Prior to Delivery and/or Prior Authorization Requirements; Updates to the Required Face-to-Face Encounter and Written Order Prior to Delivery List; and Updates to the Required Prior Authorization List",
+      "url": "https://www.federalregister.gov/documents/2026/07/30/2026-15446/medicare-program-updates-to-the-master-list-of-items-potentially-subject-to-face-to-face-encounter"
+    },
+    {
+      "source": "policy",
+      "title": "Airworthiness Directives; Airbus SAS Airplanes",
+      "url": "https://www.federalregister.gov/documents/2026/07/30/2026-15455/airworthiness-directives-airbus-sas-airplanes"
+    },
+    {
+      "source": "policy",
+      "title": "Airworthiness Directives; Stemme GmbH Gliders",
+      "url": "https://www.federalregister.gov/documents/2026/07/30/2026-15466/airworthiness-directives-stemme-gmbh-gliders"
+    },
+    {
+      "source": "policy",
+      "title": "Airworthiness Directives; Pilatus Aircraft Ltd. Airplanes",
+      "url": "https://www.federalregister.gov/documents/2026/07/30/2026-15467/airworthiness-directives-pilatus-aircraft-ltd-airplanes"
+    },
+    {
+      "source": "headline",
+      "title": "Why JPMorgan CEO Jamie Dimon Says Investors Should Skip 4.6% Yields — ‘I Would Not Be A Buyer’",
+      "url": "https://finance.yahoo.com/m/2dce90f4-89db-3e17-b0eb-4be6620dff4d/bank-stocks-drop-from-record.html?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "Public Storage Reports Second Quarter 2026 Results and Raises Guidance",
+      "url": "https://www.credaily.com/briefs/self-storage-investment-surges-as-sector-finds-its-floor/?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "ADBE Stock At Near Two-Month Highs After FTC Grants Early Approval For Adobe’s Acquisition Of Topaz Labs",
+      "url": "https://www.marketbeat.com/instant-alerts/arch-capital-group-q2-earnings-call-highlights-2026-07-29/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss"
+    },
+    {
+      "source": "filing",
+      "title": "Fair Isaac: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/814547/000081454726000031/0000814547-26-000031-index.htm"
+    },
+    {
+      "source": "filing",
+      "title": "Everest Group: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1095073/000109507326000029/0001095073-26-000029-index.htm"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "JPM",
+    "ADBE"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 16277,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1686,
+        "inputTokenDetails": {
+          "noCacheTokens": 1686,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 1017,
+        "outputTokenDetails": {
+          "textTokens": 1017,
+          "reasoningTokens": 0
+        },
+        "totalTokens": 2703,
+        "raw": {
+          "input_tokens": 1686,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 1017,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          }
+        },
+        "reasoningTokens": 0,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "PSA",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "Public Storage reported Q2 2026 results and raised guidance",
+            "Shares only -0.3% on the day despite the raise"
+          ],
+          "risk": "Self-storage fundamentals are rate-sensitive; a guidance raise may already be priced in and REITs can lag SPY if yields back up.",
+          "reasoning": "A guidance raise is a direct upward revision to reported earnings/FFO with no price response yet. Balance-sheet-heavy REIT with stable cash flow; the fundamental delta is positive and unabsorbed by the tape."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "FTC granted early antitrust approval for Adobe's acquisition of Topaz Labs",
+            "Stock +5.7% to near two-month highs"
+          ],
+          "risk": "Adobe trades well below its historical multiple, so a cleared deal plus cheap valuation could extend the move.",
+          "reasoning": "A tuck-in acquisition of a small private tool vendor is immaterial to Adobe's revenue, margins or cash flow. The 5.7% pop already exceeds any plausible earnings impact, leaving no fundamental edge for the next five sessions."
+        },
+        {
+          "ticker": "FICO",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "Fair Isaac filed Results of Operations and Financial Condition",
+            "Stock +2.8% on the day"
+          ],
+          "risk": "If the print showed accelerating Scores pricing and margin expansion, the high-multiple compounder can continue to re-rate upward.",
+          "reasoning": "The filing is flagged but no revenue, margin or guidance figures are given in the material. With a very high valuation versus history and a 2.8% move already banked, I cannot justify a directional fundamental call."
+        },
+        {
+          "ticker": "EG",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "Everest Group filed Results of Operations and Financial Condition",
+            "Stock -1.2% on the day"
+          ],
+          "risk": "Reinsurers reporting adverse casualty reserve development often see multi-day drift lower, so HOLD forgoes a plausible SELL.",
+          "reasoning": "No loss ratio, reserve development or book value detail provided. Everest trades near/below book historically, but without figures on the actual print there is no fundamental basis to take a side over five sessions."
+        },
+        {
+          "ticker": "JPM",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Headline: Dimon says investors should skip 4.6% yields, 'I would not be a buyer'",
+            "JPM fell 3.5% on the day"
+          ],
+          "risk": "A 3.5% drop with no change to JPM's own earnings power could mean-revert quickly, making HOLD a missed BUY.",
+          "reasoning": "Dimon's rate commentary is macro narrative, not a change to JPM's revenue, credit costs, capital or accounting. No fundamental event to trade; the drop reflects sentiment rather than a revision to reported earnings."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": false,
+      "error": "timed out after 330s (ChatGPT 5.6 Sol)",
+      "latencyMs": 878704,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 79485,
+      "revised": false,
+      "usage": {
+        "inputTokens": 997,
+        "inputTokenDetails": {
+          "noCacheTokens": 997,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 4094,
+        "outputTokenDetails": {
+          "textTokens": 1045,
+          "reasoningTokens": 3049
+        },
+        "totalTokens": 5091,
+        "raw": {
+          "prompt_tokens": 997,
+          "completion_tokens": 4094,
+          "total_tokens": 5091,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 3049
+          }
+        },
+        "reasoningTokens": 3049,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "JPM",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Headline: 'Why JPMorgan CEO Jamie Dimon Says Investors Should Skip 4.6% Yields — I Would Not Be A Buyer'",
+            "JPM last price 344.71, down 3.5% in the last session"
+          ],
+          "risk": "Dimon's comments may be about bond yields rather than JPM equity, and the stock may have already priced in the negative sentiment with the 3.5% drop.",
+          "reasoning": "Dimon publicly warning investors away from current yield levels signals macro caution from the most influential banking CEO. This bearish macro signal likely pressures financials broadly. JPM already dropped 3.5%, but the headline's chilling effect on sentiment toward bank exposure and rate-sensitive assets should persist over a 5-day window, underperforming SPY."
+        },
+        {
+          "ticker": "PSA",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "Headline: 'Public Storage Reports Second Quarter 2026 Results and Raises Guidance'",
+            "PSA last price 329.44, down only 0.3% in the last session"
+          ],
+          "risk": "The stock may have already rallied on the earnings beat and guidance raise prior to this session, leaving limited upside and potential for profit-taking over the 5-day window.",
+          "reasoning": "Raised guidance is a strong fundamental catalyst. PSA only dipped 0.3% despite broader market weakness, showing resilience. In a macro-cautious environment (Dimon warning), defensive real estate with strong earnings momentum should attract rotation. The guidance raise provides a multi-day tailwind as analysts revise estimates upward."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "Headline: 'ADBE Stock At Near Two-Month Highs After FTC Grants Early Approval For Adobe's Acquisition Of Topaz Labs'",
+            "ADBE last price 263.43, up 5.7% in the last session"
+          ],
+          "risk": "After a 5.7% single-day surge, mean reversion and profit-taking could dominate the next 5 sessions, especially if broader market sentiment deteriorates.",
+          "reasoning": "FTC early approval for the Topaz Labs acquisition removes a major regulatory overhang and signals deal certainty. This is a clear positive catalyst with multi-day momentum potential. The stock is near two-month highs, indicating breakout momentum. Regulatory de-risking in tech M&A is a strong sentiment driver that should sustain outperformance vs SPY."
+        },
+        {
+          "ticker": "FICO",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "Filing: 'Fair Isaac: Results of Operations and Financial Condition'",
+            "FICO last price 1373.08, up 2.8% in the last session"
+          ],
+          "risk": "The filing may contain positive results that could drive further upside, meaning a HOLD verdict could miss gains; alternatively, Dimon's yield warning could pressure rate-sensitive credit scoring names.",
+          "reasoning": "The material only references a routine FICO filing on results of operations with no specific details on performance. FICO rose 2.8% last session, suggesting the market already reacted to whatever was disclosed. Without material detail to assess direction, no edge exists over a 5-day horizon. HOLD is appropriate given information insufficiency."
+        },
+        {
+          "ticker": "EG",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "Filing: 'Everest Group: Results of Operations and Financial Condition'",
+            "EG last price 393.89, down 1.2% in the last session"
+          ],
+          "risk": "The filing may reveal strong insurance underwriting results that could catalyze a rally, meaning HOLD could miss upside; conversely, macro caution from Dimon's comments could weigh on financials.",
+          "reasoning": "The material only references a routine EG filing on results of operations with no specific details. EG declined 1.2% last session, possibly reflecting broader financial sector weakness from Dimon's macro warning. Without material detail on the filing's content, no directional edge exists. HOLD is appropriate given information insufficiency."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": false,
+      "error": "timed out after 330s (Kimi K2.5)",
+      "latencyMs": 878696,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "EG",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 2,
+      "meanConfidence": 4,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "Everest Group filed Results of Operations and Financial Condition",
+            "Stock -1.2% on the day"
+          ],
+          "risk": "Reinsurers reporting adverse casualty reserve development often see multi-day drift lower, so HOLD forgoes a plausible SELL.",
+          "reasoning": "No loss ratio, reserve development or book value detail provided. Everest trades near/below book historically, but without figures on the actual print there is no fundamental basis to take a side over five sessions."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "Filing: 'Everest Group: Results of Operations and Financial Condition'",
+            "EG last price 393.89, down 1.2% in the last session"
+          ],
+          "risk": "The filing may reveal strong insurance underwriting results that could catalyze a rally, meaning HOLD could miss upside; conversely, macro caution from Dimon's comments could weigh on financials.",
+          "reasoning": "The material only references a routine EG filing on results of operations with no specific details. EG declined 1.2% last session, possibly reflecting broader financial sector weakness from Dimon's macro warning. Without material detail on the filing's content, no directional edge exists. HOLD is appropriate given information insufficiency."
+        }
+      ]
+    },
+    {
+      "ticker": "FICO",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 2,
+      "meanConfidence": 4,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "Fair Isaac filed Results of Operations and Financial Condition",
+            "Stock +2.8% on the day"
+          ],
+          "risk": "If the print showed accelerating Scores pricing and margin expansion, the high-multiple compounder can continue to re-rate upward.",
+          "reasoning": "The filing is flagged but no revenue, margin or guidance figures are given in the material. With a very high valuation versus history and a 2.8% move already banked, I cannot justify a directional fundamental call."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "Filing: 'Fair Isaac: Results of Operations and Financial Condition'",
+            "FICO last price 1373.08, up 2.8% in the last session"
+          ],
+          "risk": "The filing may contain positive results that could drive further upside, meaning a HOLD verdict could miss gains; alternatively, Dimon's yield warning could pressure rate-sensitive credit scoring names.",
+          "reasoning": "The material only references a routine FICO filing on results of operations with no specific details on performance. FICO rose 2.8% last session, suggesting the market already reacted to whatever was disclosed. Without material detail to assess direction, no edge exists over a 5-day horizon. HOLD is appropriate given information insufficiency."
+        }
+      ]
+    },
+    {
+      "ticker": "PSA",
+      "action": "BUY",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 1,
+        "SELL": 0,
+        "HOLD": 0
+      },
+      "votes": 2,
+      "meanConfidence": 6.5,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "Public Storage reported Q2 2026 results and raised guidance",
+            "Shares only -0.3% on the day despite the raise"
+          ],
+          "risk": "Self-storage fundamentals are rate-sensitive; a guidance raise may already be priced in and REITs can lag SPY if yields back up.",
+          "reasoning": "A guidance raise is a direct upward revision to reported earnings/FFO with no price response yet. Balance-sheet-heavy REIT with stable cash flow; the fundamental delta is positive and unabsorbed by the tape."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.63,
+          "evidence": [
+            "Headline: 'Public Storage Reports Second Quarter 2026 Results and Raises Guidance'",
+            "PSA last price 329.44, down only 0.3% in the last session"
+          ],
+          "risk": "The stock may have already rallied on the earnings beat and guidance raise prior to this session, leaving limited upside and potential for profit-taking over the 5-day window.",
+          "reasoning": "Raised guidance is a strong fundamental catalyst. PSA only dipped 0.3% despite broader market weakness, showing resilience. In a macro-cautious environment (Dimon warning), defensive real estate with strong earnings momentum should attract rotation. The guidance raise provides a multi-day tailwind as analysts revise estimates upward."
+        }
+      ]
+    },
+    {
+      "ticker": "JPM",
+      "action": "SELL",
+      "agreement": 0.545,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.545,
+        "HOLD": 0.455
+      },
+      "votes": 1,
+      "meanConfidence": 5.5,
+      "invest": false,
+      "panel": 2,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.45,
+          "evidence": [
+            "Headline: Dimon says investors should skip 4.6% yields, 'I would not be a buyer'",
+            "JPM fell 3.5% on the day"
+          ],
+          "risk": "A 3.5% drop with no change to JPM's own earnings power could mean-revert quickly, making HOLD a missed BUY.",
+          "reasoning": "Dimon's rate commentary is macro narrative, not a change to JPM's revenue, credit costs, capital or accounting. No fundamental event to trade; the drop reflects sentiment rather than a revision to reported earnings."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.54,
+          "evidence": [
+            "Headline: 'Why JPMorgan CEO Jamie Dimon Says Investors Should Skip 4.6% Yields — I Would Not Be A Buyer'",
+            "JPM last price 344.71, down 3.5% in the last session"
+          ],
+          "risk": "Dimon's comments may be about bond yields rather than JPM equity, and the stock may have already priced in the negative sentiment with the 3.5% drop.",
+          "reasoning": "Dimon publicly warning investors away from current yield levels signals macro caution from the most influential banking CEO. This bearish macro signal likely pressures financials broadly. JPM already dropped 3.5%, but the headline's chilling effect on sentiment toward bank exposure and rate-sensitive assets should persist over a 5-day window, underperforming SPY."
+        }
+      ]
+    },
+    {
+      "ticker": "ADBE",
+      "action": "HOLD",
+      "agreement": 0.533,
+      "weightedShare": {
+        "BUY": 0.467,
+        "SELL": 0,
+        "HOLD": 0.533
+      },
+      "votes": 1,
+      "meanConfidence": 6.5,
+      "invest": false,
+      "panel": 2,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.72,
+          "evidence": [
+            "FTC granted early antitrust approval for Adobe's acquisition of Topaz Labs",
+            "Stock +5.7% to near two-month highs"
+          ],
+          "risk": "Adobe trades well below its historical multiple, so a cleared deal plus cheap valuation could extend the move.",
+          "reasoning": "A tuck-in acquisition of a small private tool vendor is immaterial to Adobe's revenue, margins or cash flow. The 5.7% pop already exceeds any plausible earnings impact, leaving no fundamental edge for the next five sessions."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.63,
+          "evidence": [
+            "Headline: 'ADBE Stock At Near Two-Month Highs After FTC Grants Early Approval For Adobe's Acquisition Of Topaz Labs'",
+            "ADBE last price 263.43, up 5.7% in the last session"
+          ],
+          "risk": "After a 5.7% single-day surge, mean reversion and profit-taking could dominate the next 5 sessions, especially if broader market sentiment deteriorates.",
+          "reasoning": "FTC early approval for the Topaz Labs acquisition removes a major regulatory overhang and signals deal certainty. This is a clear positive catalyst with multi-day momentum potential. The stock is near two-month highs, indicating breakout momentum. Regulatory de-risking in tech M&A is a strong sentiment driver that should sustain outperformance vs SPY."
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 0.5,
+    "armsLive": 2
+  }
+}

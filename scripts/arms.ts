@@ -342,7 +342,11 @@ export async function convene(evidence: string, valid: Set<string>, kind: EventK
   const contested = verdicts.filter(credibleSplit);
   let results = first;
 
-  if (contested.length) {
+  // A panel too small to trade cannot benefit from a debate: spending four more
+  // calls on it only lengthens the run and worsens the odds the survivors finish.
+  if (contested.length && live.length < ACT_MIN_PANEL) {
+    console.error(`  step 4: ${contested.length} disagreement(s) but only ${live.length} specialists responded, debate skipped`);
+  } else if (contested.length) {
     console.error(`  step 4: ${contested.length} credible disagreement(s) -> debate round`);
     results = await debate(first, contested, evidence, valid);
     const names = new Set(contested.map((v) => v.ticker));
