@@ -51,7 +51,7 @@ type Arm = {
 
 const SPECIALISTS: Arm[] = [
   {
-    id: 'A', model: process.env.ARM_A ?? 'anthropic/claude-opus-5', name: 'Claude Opus 5', role_title: 'The Analyst',
+    id: 'A', model: process.env.ARM_A || 'anthropic/claude-opus-5', name: 'Claude Opus 5', role_title: 'The Analyst',
     specialty: 'Fundamentals, accounting, valuation and earnings impact',
     role: 'You are the FUNDAMENTALS analyst. Judge only on business economics: revenue and margin '
       + 'impact, balance sheet, cash flow, accounting quality, valuation versus history, and how the '
@@ -59,7 +59,7 @@ const SPECIALISTS: Arm[] = [
     relevance: { filing: 1.5, policy: 1.0, headline: 1.0, shock: 0.9, mixed: 1.2 },
   },
   {
-    id: 'B', model: process.env.ARM_B ?? 'openai/gpt-5.6-sol', name: 'ChatGPT 5.6 Sol', role_title: 'The Auditor',
+    id: 'B', model: process.env.ARM_B || 'openai/gpt-5.6-sol', name: 'ChatGPT 5.6 Sol', role_title: 'The Auditor',
     specialty: 'Evidence verification and causal reasoning',
     role: 'You are the VERIFIER. Test whether the evidence actually supports the conclusion, in '
       + 'either direction: check that the claimed cause drives the price rather than coinciding with '
@@ -68,7 +68,7 @@ const SPECIALISTS: Arm[] = [
     relevance: { headline: 1.5, shock: 1.3, filing: 1.0, policy: 1.0, mixed: 1.2 },
   },
   {
-    id: 'C', model: process.env.ARM_C ?? 'alibaba/qwen3.7-max', name: 'Qwen 3.7 Max', role_title: 'The Strategist',
+    id: 'C', model: process.env.ARM_C || 'alibaba/qwen3.7-max', name: 'Qwen 3.7 Max', role_title: 'The Strategist',
     specialty: 'Policy, market sentiment and China/Hong Kong exposure',
     role: 'You are the POLICY and SENTIMENT analyst, with particular depth on China and Hong Kong '
       + 'exposure. Judge regulatory direction, supply chain and trade policy, and how positioning and '
@@ -76,7 +76,7 @@ const SPECIALISTS: Arm[] = [
     relevance: { policy: 1.5, headline: 1.1, filing: 0.9, shock: 1.0, mixed: 1.2 },
   },
   {
-    id: 'D', model: process.env.ARM_D ?? 'moonshotai/kimi-k2.5', name: 'Kimi K2.5', role_title: 'The Forecaster',
+    id: 'D', model: process.env.ARM_D || 'moonshotai/kimi-k2.5', name: 'Kimi K2.5', role_title: 'The Forecaster',
     specialty: 'Second-order consequences and long-document synthesis',
     role: 'You are the SECOND-ORDER analyst. Synthesise across everything provided and reason about '
       + 'knock-on effects: suppliers, customers, competitors, substitutes, and what the market has not '
@@ -436,6 +436,13 @@ if (import.meta.filename === process.argv[1]) {
   ], 'filing');
   assert.equal(healthy[0].panel, 3);
   assert.equal(healthy[0].invest, true, 'a healthy panel in agreement must act');
+
+  // An unset environment override must fall back, not produce an empty model id.
+  // GitHub Actions passes undefined repo variables as "", which ?? does not catch.
+  assert.ok(ARMS.length === 4, `expected 4 arms, got ${ARMS.length}`);
+  for (const a of ARMS) {
+    assert.ok(a.model && a.model.includes('/'), `arm ${a.id} has an invalid model id: "${a.model}"`);
+  }
 
   console.log('council rubric self-checks passed');
 }
