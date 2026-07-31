@@ -1,6 +1,16 @@
 {
   "events": [
     {
+      "id": "shock:FDXF:2026-07-31",
+      "ts": "2026-07-31T17:02:55.368Z",
+      "source": "shock",
+      "title": "FDXF moved +3.1% on 2026-07-31· no reported cause",
+      "tickers": [
+        "FDXF"
+      ],
+      "detail": "close 137.55 → 141.84"
+    },
+    {
       "id": "filing:ARES:0001176948",
       "ts": "2026-07-31T15:17:22.196Z",
       "source": "filing",
@@ -5655,17 +5665,6 @@
         "ACN"
       ],
       "detail": "close 138.74 → 146.99"
-    },
-    {
-      "id": "headline:PSA:Public Storage Prices Public Offering of $900 Million of Sen",
-      "ts": "2026-07-27T08:12:40.049Z",
-      "source": "headline",
-      "title": "Public Storage Prices Public Offering of $900 Million of Senior Notes at an Effective Interest Rate of 4.855% to Fund the Acquisition of National Storage Affiliates Trust",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-keeps-overweight-rating-164419457.html?.tsrc=rss",
-      "tickers": [
-        "PSA"
-      ],
-      "detail": "PSA · matched \"acquisition\""
     }
   ]
 }
