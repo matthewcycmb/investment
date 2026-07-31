@@ -1,6 +1,17 @@
 {
   "events": [
     {
+      "id": "filing:AMGN:0000318154",
+      "ts": "2026-07-31T20:16:52.059Z",
+      "source": "filing",
+      "title": "Amgen: Material Cybersecurity Incidents",
+      "url": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000119/0000318154-26-000119-index.htm",
+      "tickers": [
+        "AMGN"
+      ],
+      "detail": "AMGN · Health Care · SEC 8-K item 1.05"
+    },
+    {
       "id": "shock:FDXF:2026-07-31",
       "ts": "2026-07-31T17:02:55.368Z",
       "source": "shock",
@@ -5655,16 +5666,6 @@
         "CPRT"
       ],
       "detail": "CPRT · matched \"ceo\""
-    },
-    {
-      "id": "shock:ACN:2026-07-24",
-      "ts": "2026-07-27T08:12:40.049Z",
-      "source": "shock",
-      "title": "ACN moved +5.9% on 2026-07-24",
-      "tickers": [
-        "ACN"
-      ],
-      "detail": "close 138.74 → 146.99"
     }
   ]
 }

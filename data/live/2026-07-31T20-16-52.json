@@ -1,0 +1,271 @@
+{
+  "date": "2026-08-01",
+  "ts": "2026-07-31T20:16:52.059Z",
+  "study": false,
+  "eventKind": "filing",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "filing",
+      "title": "Amgen: Material Cybersecurity Incidents",
+      "url": "https://www.sec.gov/Archives/edgar/data/318154/000031815426000119/0000318154-26-000119-index.htm"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 10070,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1073,
+        "inputTokenDetails": {
+          "noCacheTokens": 1073,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 560,
+        "outputTokenDetails": {
+          "textTokens": 318,
+          "reasoningTokens": 242
+        },
+        "totalTokens": 1633,
+        "raw": {
+          "input_tokens": 1073,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 560,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 242
+          }
+        },
+        "reasoningTokens": 242,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "AMGN",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "Sole event is an Amgen filing under the material cybersecurity incident disclosure item",
+            "Filing as presented gives no quantified revenue, margin, cash-flow or impairment figure",
+            "Shares last 385.16, down 0.6% on the day — no disorderly repricing"
+          ],
+          "risk": "If the incident later proves to involve manufacturing/supply or data remediation costs, guidance and gross margin could be cut, and a 5-day drift lower versus SPY would make HOLD a missed SELL.",
+          "reasoning": "On business economics alone, a cyber filing with no disclosed financial magnitude does not change Amgen's revenue base, product margins, leverage or free cash conversion within five sessions. Costs of such incidents are typically expensed and immaterial to a large-cap biotech's earnings. No fundamental basis to trade either direction."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": false,
+      "error": "timed out after 330s (ChatGPT 5.6 Sol)",
+      "latencyMs": 330001,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 41422,
+      "revised": false,
+      "usage": {
+        "inputTokens": 630,
+        "inputTokenDetails": {
+          "noCacheTokens": 630,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 2117,
+        "outputTokenDetails": {
+          "textTokens": 181,
+          "reasoningTokens": 1936
+        },
+        "totalTokens": 2747,
+        "raw": {
+          "prompt_tokens": 630,
+          "completion_tokens": 2117,
+          "total_tokens": 2747,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1936
+          }
+        },
+        "reasoningTokens": 1936,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "AMGN",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Amgen disclosed material cybersecurity incidents in a regulatory filing",
+            "Filing classified the incidents as material, indicating significant potential impact on operations, financial condition, or stock price"
+          ],
+          "risk": "The cybersecurity incident may have already been priced in if rumors circulated before the filing, or the material impact could prove less severe than feared once details emerge.",
+          "reasoning": "Material cybersecurity disclosures typically trigger immediate negative sentiment and institutional de-risking. The 5-day horizon captures the initial shock and analyst downgrades. As a healthcare/biotech firm, Amgen holds sensitive patient and R&D data, amplifying breach severity perception. China/HK exposure is minimal here, but the filing alone warrants short-term selling pressure vs SPY."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": true,
+      "error": null,
+      "latencyMs": 58367,
+      "revised": false,
+      "usage": {
+        "inputTokens": 319,
+        "inputTokenDetails": {
+          "noCacheTokens": 63,
+          "cacheReadTokens": 256
+        },
+        "outputTokens": 4201,
+        "outputTokenDetails": {
+          "textTokens": 567,
+          "reasoningTokens": 3634
+        },
+        "totalTokens": 4520,
+        "raw": {
+          "prompt_tokens": 319,
+          "completion_tokens": 4201,
+          "total_tokens": 4520,
+          "prompt_tokens_details": {
+            "cached_tokens": 256
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 3634
+          },
+          "cached_tokens": 256
+        },
+        "reasoningTokens": 3634,
+        "cachedInputTokens": 256
+      },
+      "findings": [
+        {
+          "ticker": "AMGN",
+          "verdict": "SELL",
+          "confidence": 3,
+          "evidence": [
+            "Amgen disclosed 'Material Cybersecurity Incidents' via filing, triggering mandatory reporting obligations that signal severity beyond routine IT outages.",
+            "Prior-day close of 385.16 (-0.6%) suggests initial market awareness but insufficient price discovery for an event classified as 'material' under disclosure regulations."
+          ],
+          "risk": "The modest -0.6% decline may indicate the incident was partially leaked or that the market interprets 'material' as regulatory caution rather than operational impairment; if the investigation reveals containment with no impact to manufacturing or clinical data, the defensive nature of Amgen's revenue (essential biologics) could drive relative outperformance versus SPY during a risk-off rotation.",
+          "reasoning": "Second-order effects will dominate the 5-day window. **Suppliers**: Amgen will impose emergency vendor lockdowns and payment holds, disrupting the cold-chain logistics and just-in-time biologics supply network; this creates working capital squeezes for contract manufacturers that feed back into Amgen's production scheduling. **Customers**: Hospital systems and specialty pharmacies rely on Amgen's Hub services for prior authorizations and patient assistance; system downtime will force immediate prescription switches to competitors' immunology agents (e.g., AbbVie's Skyrizi, J&J's Stelara) creating transient but measurable market share loss captured in weekly prescription data. **Competitors**: Rivals will accelerate field force targeting of Amgen's accounts while Amgen's sales reps lack CRM access, capturing sticky formulary positions. **Substitutes**: While biologic substitution is limited, the administrative burden of Amgen's compromised portals will push administrators toward simpler-to-access alternatives for new patient starts. **Unpriced**: The filing provides no granularity on whether Good Manufacturing Practice (GxP) data or active clinical trial records were exfiltrated; the 5-day window captures the forensic 'black box' period where investors must price tail risks of FDA enforcement actions or trial invalidation without confirmation of safety. **What happens next**: AMGN will gap down at the open and underperform SPY over the 5-session window as (1) systematic risk models cut healthcare exposure to active cyber names, (2) earnings estimates face downward revision for remediation and cyber-insurance deductible costs, and (3) governance-focused funds reduce positions pending third-party forensic reports. The negative drift continues until a clarifying 8-K amendment or conference call provides containment evidence, which is unlikely within this tight horizon."
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "AMGN",
+      "action": "SELL",
+      "agreement": 0.6,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.6,
+        "HOLD": 0.4
+      },
+      "votes": 2,
+      "meanConfidence": 5,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.33,
+          "relevance": 1.5,
+          "weight": 0.6,
+          "evidence": [
+            "Sole event is an Amgen filing under the material cybersecurity incident disclosure item",
+            "Filing as presented gives no quantified revenue, margin, cash-flow or impairment figure",
+            "Shares last 385.16, down 0.6% on the day — no disorderly repricing"
+          ],
+          "risk": "If the incident later proves to involve manufacturing/supply or data remediation costs, guidance and gross margin could be cut, and a 5-day drift lower versus SPY would make HOLD a missed SELL.",
+          "reasoning": "On business economics alone, a cyber filing with no disclosed financial magnitude does not change Amgen's revenue base, product margins, leverage or free cash conversion within five sessions. Costs of such incidents are typically expensed and immaterial to a large-cap biotech's earnings. No fundamental basis to trade either direction."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 1,
+          "relevance": 0.9,
+          "weight": 0.54,
+          "evidence": [
+            "Amgen disclosed material cybersecurity incidents in a regulatory filing",
+            "Filing classified the incidents as material, indicating significant potential impact on operations, financial condition, or stock price"
+          ],
+          "risk": "The cybersecurity incident may have already been priced in if rumors circulated before the filing, or the material impact could prove less severe than feared once details emerge.",
+          "reasoning": "Material cybersecurity disclosures typically trigger immediate negative sentiment and institutional de-risking. The 5-day horizon captures the initial shock and analyst downgrades. As a healthcare/biotech firm, Amgen holds sensitive patient and R&D data, amplifying breach severity perception. China/HK exposure is minimal here, but the filing alone warrants short-term selling pressure vs SPY."
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "SELL",
+          "confidence": 3,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "Amgen disclosed 'Material Cybersecurity Incidents' via filing, triggering mandatory reporting obligations that signal severity beyond routine IT outages.",
+            "Prior-day close of 385.16 (-0.6%) suggests initial market awareness but insufficient price discovery for an event classified as 'material' under disclosure regulations."
+          ],
+          "risk": "The modest -0.6% decline may indicate the incident was partially leaked or that the market interprets 'material' as regulatory caution rather than operational impairment; if the investigation reveals containment with no impact to manufacturing or clinical data, the defensive nature of Amgen's revenue (essential biologics) could drive relative outperformance versus SPY during a risk-off rotation.",
+          "reasoning": "Second-order effects will dominate the 5-day window. **Suppliers**: Amgen will impose emergency vendor lockdowns and payment holds, disrupting the cold-chain logistics and just-in-time biologics supply network; this creates working capital squeezes for contract manufacturers that feed back into Amgen's production scheduling. **Customers**: Hospital systems and specialty pharmacies rely on Amgen's Hub services for prior authorizations and patient assistance; system downtime will force immediate prescription switches to competitors' immunology agents (e.g., AbbVie's Skyrizi, J&J's Stelara) creating transient but measurable market share loss captured in weekly prescription data. **Competitors**: Rivals will accelerate field force targeting of Amgen's accounts while Amgen's sales reps lack CRM access, capturing sticky formulary positions. **Substitutes**: While biologic substitution is limited, the administrative burden of Amgen's compromised portals will push administrators toward simpler-to-access alternatives for new patient starts. **Unpriced**: The filing provides no granularity on whether Good Manufacturing Practice (GxP) data or active clinical trial records were exfiltrated; the 5-day window captures the forensic 'black box' period where investors must price tail risks of FDA enforcement actions or trial invalidation without confirmation of safety. **What happens next**: AMGN will gap down at the open and underperform SPY over the 5-session window as (1) systematic risk models cut healthcare exposure to active cyber names, (2) earnings estimates face downward revision for remediation and cyber-insurance deductible costs, and (3) governance-focused funds reduce positions pending third-party forensic reports. The negative drift continues until a clarifying 8-K amendment or conference call provides containment evidence, which is unlikely within this tight horizon."
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": null,
+    "armsLive": 3
+  }
+}
