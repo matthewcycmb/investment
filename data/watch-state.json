@@ -211,11 +211,45 @@
     "filing:ES:0000072741",
     "filing:AJG:0000354190",
     "filing:IR:0001699150",
-    "filing:BEN:0000038777"
+    "filing:BEN:0000038777",
+    "policy:2026-15605",
+    "policy:2026-15603",
+    "policy:2026-15602",
+    "policy:2026-15599",
+    "policy:2026-15588",
+    "policy:2026-15585",
+    "policy:2026-15584",
+    "policy:2026-15583",
+    "policy:2026-15582",
+    "policy:2026-15581",
+    "policy:2026-15580",
+    "policy:2026-15579",
+    "policy:2026-15578",
+    "policy:2026-15577",
+    "policy:2026-15576",
+    "policy:2026-15575",
+    "policy:2026-15574",
+    "policy:2026-15573",
+    "policy:2026-15572",
+    "policy:2026-15571",
+    "policy:2026-15570",
+    "policy:2026-15569",
+    "policy:2026-15568",
+    "filing:CL:0000021665",
+    "filing:ABBV:0001551152",
+    "filing:FRT:0000034903",
+    "filing:D:0000715957",
+    "filing:CHD:0000313927",
+    "filing:TROW:0001113169",
+    "filing:MRNA:0001682852",
+    "filing:ETN:0001551182",
+    "filing:LYB:0001489393",
+    "filing:CVX:0000093410",
+    "filing:ARES:0001176948"
   ],
   "councilRuns": {
     "2026-07-30": 5,
-    "2026-07-31": 4
+    "2026-07-31": 5
   },
-  "cursor": 12
+  "cursor": 24
 }

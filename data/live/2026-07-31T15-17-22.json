@@ -1,0 +1,901 @@
+{
+  "date": "2026-07-31",
+  "ts": "2026-07-31T15:17:22.196Z",
+  "study": false,
+  "eventKind": "policy",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "policy",
+      "title": "Qualification and Certification of Locomotive Engineers and Conductors; English Language Proficiency and Other Requirements",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15605/qualification-and-certification-of-locomotive-engineers-and-conductors-english-language-proficiency"
+    },
+    {
+      "source": "policy",
+      "title": "Amendment of United States Area Navigation Routes (RNAV) T-285 and T-286 in the Vicinity of Thedford, NE",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15603/amendment-of-united-states-area-navigation-routes-rnav-t-285-and-t-286-in-the-vicinity-of-thedford"
+    },
+    {
+      "source": "policy",
+      "title": "Amendment of Jet Route J-24 and Very High Frequency Omnidirectional Range Federal Airways V-244, V-508 and Revocation of Very High Frequency Omnidirectional Range Federal Airway V-255 in the Vicinity of Hays, Kansas.",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15602/amendment-of-jet-route-j-24-and-very-high-frequency-omnidirectional-range-federal-airways-v-244"
+    },
+    {
+      "source": "policy",
+      "title": "Amendment of United States Area Navigation Route T-388 in the Vicinity of Kodiak, Alaska",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15599/amendment-of-united-states-area-navigation-route-t-388-in-the-vicinity-of-kodiak-alaska"
+    },
+    {
+      "source": "policy",
+      "title": "Medicare Program; FY 2027 Inpatient Psychiatric Facilities Prospective Payment System-Rate Update",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15588/medicare-program-fy-2027-inpatient-psychiatric-facilities-prospective-payment-system-rate-update"
+    },
+    {
+      "source": "policy",
+      "title": "Requirements for Interference-Tolerant Radio Altimeter Systems",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15585/requirements-for-interference-tolerant-radio-altimeter-systems"
+    },
+    {
+      "source": "policy",
+      "title": "Pipeline Safety: Standards Update-ASTM A53/A53M",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15584/pipeline-safety-standards-update-astm-a53a53m"
+    },
+    {
+      "source": "policy",
+      "title": "Pipeline Safety: Standards Update-ASTM A333/A333M",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15583/pipeline-safety-standards-update-astm-a333a333m"
+    },
+    {
+      "source": "policy",
+      "title": "Pipeline Safety: Clarifying Hazardous Liquid Pipeline Integrity Management Guidance",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15582/pipeline-safety-clarifying-hazardous-liquid-pipeline-integrity-management-guidance"
+    },
+    {
+      "source": "policy",
+      "title": "Pipeline Safety: Standards Update-ASTM A372/A372M",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15581/pipeline-safety-standards-update-astm-a372a372m"
+    },
+    {
+      "source": "policy",
+      "title": "Pipeline Safety: Standards Update-ASTM F1055",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15580/pipeline-safety-standards-update-astm-f1055"
+    },
+    {
+      "source": "policy",
+      "title": "Pipeline Safety: Standards Update-ASME B31.4",
+      "url": "https://www.federalregister.gov/documents/2026/07/31/2026-15579/pipeline-safety-standards-update-asme-b314"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 21729,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1660,
+        "inputTokenDetails": {
+          "noCacheTokens": 1660,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 1367,
+        "outputTokenDetails": {
+          "textTokens": 1196,
+          "reasoningTokens": 171
+        },
+        "totalTokens": 3027,
+        "raw": {
+          "input_tokens": 1660,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 1367,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 171
+          }
+        },
+        "reasoningTokens": 171,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "SPG",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Events listed are rail engineer certification, FAA route amendments, radio altimeter rules, Medicare IPF payment update and pipeline standards updates",
+            "No event references retail real estate, REIT taxation, or mall operations"
+          ],
+          "risk": "A macro or rate-driven move could swamp the no-news read and make a flat stance a missed directional trade over 5 sessions.",
+          "reasoning": "Nothing in the docket touches SPG's rent roll, occupancy, FFO, leverage or cap rates. No change to reported earnings or cash flow; valuation versus history is unaffected by these filings. Default to no position."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "Medicare Program; FY 2027 Inpatient Psychiatric Facilities Prospective Payment System-Rate Update is in the docket",
+            "No event addresses Medicare Advantage benchmarks, risk adjustment, or MLR"
+          ],
+          "risk": "IPF rate updates flow into Medicare Advantage facility contracting and behavioral-health cost trend, so a sizable update could nudge medical cost assumptions.",
+          "reasoning": "ELV is a payer, not an inpatient psych facility; FY2027 IPF rates are a distant, second-order input to unit cost and change nothing in current-year revenue, MLR or free cash flow. Immaterial to reported earnings in this window."
+        },
+        {
+          "ticker": "CASY",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Pipeline Safety standards updates (ASTM A53, A333, A372, F1055, ASME B31.4) and hazardous liquid integrity management guidance are incorporation-by-reference/clarification items",
+            "No event addresses fuel retailing, motor fuel margins, or inside-store sales"
+          ],
+          "risk": "Pipeline standards touch hazardous liquid transport; any refined-product logistics cost change could pressure fuel gross margin per gallon, CASY's most volatile earnings line.",
+          "reasoning": "These are technical standards-adoption items for pipeline operators, not fuel retailers. No effect on CASY's fuel CPG, inside margin, capex or store-growth economics in a five-day window."
+        },
+        {
+          "ticker": "IBKR",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "All twelve events are transportation, aviation, Medicare and pipeline safety rules",
+            "No event touches brokerage regulation, margin rules, payment for order flow or interest rates"
+          ],
+          "risk": "Brokerage earnings are highly rate- and volume-sensitive, so unrelated macro moves during the window can dominate regardless of this docket.",
+          "reasoning": "Zero read-through to IBKR's net interest income, commission revenue, account growth or pristine balance sheet. No accounting or earnings impact; stand aside."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "Docket consists of FAA route/altimeter rules, FRA engineer certification, Medicare IPF rates and pipeline standards",
+            "No event references software, subscription pricing or IT spending"
+          ],
+          "risk": "ADBE trades on AI-monetization and ARR expectations that can reprice sharply on unrelated headlines within five sessions.",
+          "reasoning": "Nothing here changes ADBE's ARR, gross margin, buyback cadence or free cash flow conversion. Any move over the window would be valuation sentiment, which is outside a fundamentals mandate. No trade."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 18407,
+      "revised": false,
+      "usage": {
+        "inputTokens": 810,
+        "inputTokenDetails": {
+          "noCacheTokens": 810,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 863,
+        "outputTokenDetails": {
+          "textTokens": 649,
+          "reasoningTokens": 214
+        },
+        "totalTokens": 1673,
+        "raw": {
+          "input_tokens": 810,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 863,
+          "output_tokens_details": {
+            "reasoning_tokens": 214
+          }
+        },
+        "reasoningTokens": 214,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "SPG",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "SPG last traded at 231.13, up 0.3% over one day.",
+            "The listed events concern rail, aviation, Medicare psychiatric facilities, radio altimeters, and pipeline standards or guidance."
+          ],
+          "risk": "The 0.3% gain could develop into relative momentum even without a disclosed event catalyst.",
+          "reasoning": "No event identifies malls, tenants, rents, financing, or SPG. The material therefore provides no causal basis for expecting SPG to outperform or underperform SPY over five sessions."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "ELV last traded at 377.33, up 0.2% over one day.",
+            "One event is an FY 2027 Medicare inpatient psychiatric facilities prospective payment system rate update.",
+            "No rate details or quantified effects are provided."
+          ],
+          "risk": "The Medicare psychiatric-facility update could contain reimbursement changes that materially alter ELV's claims costs or Medicare economics.",
+          "reasoning": "ELV has the closest event exposure, but the notice concerns facility payment rates and supplies no direction or magnitude for insurer economics. Causality and whether any effect is priced in cannot be verified."
+        },
+        {
+          "ticker": "CASY",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "CASY last traded at 876.95, up 1.1% over one day.",
+            "The listed events concern rail, aviation, Medicare psychiatric facilities, radio altimeters, and pipeline standards or guidance."
+          ],
+          "risk": "The 1.1% one-day rise could signal continuing relative momentum not explained by the event list.",
+          "reasoning": "No event directly addresses convenience retail, fuel sales, food service, or CASY. Its one-day gain coincides with the announcements but is not evidence that they caused it or that it will beat SPY."
+        },
+        {
+          "ticker": "IBKR",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "IBKR last traded at 89.81, down 0.7% over one day.",
+            "None of the listed events is identified as a brokerage, trading, capital-markets, or financial regulation action."
+          ],
+          "risk": "The 0.7% decline could persist as relative weakness due to information absent from the supplied material.",
+          "reasoning": "The events provide no identified transmission channel to IBKR revenue, trading activity, rates, or regulation. The decline alone does not establish causation or a five-day SPY-relative trade."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "ADBE last traded at 244.80, down 1.2% over one day.",
+            "The listed policy events address transportation, Medicare psychiatric facilities, radio altimeters, and pipelines."
+          ],
+          "risk": "The 1.2% drop could reflect adverse company-specific information or momentum omitted from the event material.",
+          "reasoning": "No event concerns software, digital media, AI, subscriptions, or ADBE. The one-day decline has no verified connection to these policies, leaving no supported five-session relative-performance signal."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 76122,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1019,
+        "inputTokenDetails": {
+          "noCacheTokens": 1019,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 4070,
+        "outputTokenDetails": {
+          "textTokens": 849,
+          "reasoningTokens": 3221
+        },
+        "totalTokens": 5089,
+        "raw": {
+          "prompt_tokens": 1019,
+          "completion_tokens": 4070,
+          "total_tokens": 5089,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 3221
+          }
+        },
+        "reasoningTokens": 3221,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "SPG",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "No events in the material relate to real estate, REITs, or retail property.",
+            "All 12 events concern transportation, healthcare payment systems, or pipeline safety standards."
+          ],
+          "risk": "A broader market selloff driven by unrelated policy uncertainty could drag SPG below SPY despite no direct exposure.",
+          "reasoning": "None of the 12 policy events touch real estate or consumer retail foot traffic. SPG has no direct exposure to pipeline, aviation, or Medicare rate changes. HOLD as the material provides no actionable signal."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Medicare FY 2027 Inpatient Psychiatric Facilities Prospective Payment System rate update is the only healthcare-related event.",
+            "ELV is a managed care/health insurance company, not an inpatient psychiatric facility operator."
+          ],
+          "risk": "If the psychiatric facility rate update signals broader Medicare reimbursement tightening sentiment, ELV could face indirect sentiment drag.",
+          "reasoning": "The Medicare event targets inpatient psychiatric facility payment rates, not managed care or insurance reimbursement. ELV's core business is health insurance/managed care, making direct impact negligible. HOLD."
+        },
+        {
+          "ticker": "CASY",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Pipeline safety standards updates (ASTM A53, A333, A372, F1055, ASME B31.4) and hazardous liquid pipeline integrity guidance are the dominant events.",
+            "CASY is a convenience store and gas station chain, not a pipeline operator or manufacturer."
+          ],
+          "risk": "If pipeline safety rules tighten supply logistics and raise fuel transport costs, CASY could face margin pressure on fuel sales.",
+          "reasoning": "Pipeline safety standards updates affect pipeline operators and steel manufacturers, not downstream fuel retailers. CASY's exposure is indirect at best through potential fuel cost pass-through. HOLD as no direct material impact."
+        },
+        {
+          "ticker": "IBKR",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "No events relate to financial services, brokerage regulation, or capital markets.",
+            "All 12 events concern aviation routes, locomotive certification, Medicare rates, radio altimeters, or pipeline safety."
+          ],
+          "risk": "Market volatility from policy uncertainty in other sectors could reduce trading volumes or sentiment for brokerage stocks.",
+          "reasoning": "None of the 12 events touch financial services, trading platforms, or brokerage regulation. IBKR has zero direct exposure to transportation, healthcare payment, or pipeline policy. HOLD as material is irrelevant."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "No events relate to software, digital media, cloud services, or technology regulation.",
+            "All 12 events are physical infrastructure or healthcare payment policy updates with no technology sector nexus."
+          ],
+          "risk": "If broad market sentiment sours on regulatory activity, growth/tech names like ADBE could underperform SPY disproportionately.",
+          "reasoning": "None of the 12 policy events affect software, digital content, or enterprise technology. ADBE has no exposure to aviation, pipeline, locomotive, or Medicare policy. HOLD as the material provides no actionable signal."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": true,
+      "error": null,
+      "latencyMs": 193628,
+      "revised": false,
+      "usage": {
+        "inputTokens": 664,
+        "inputTokenDetails": {
+          "noCacheTokens": 664,
+          "cacheReadTokens": 0
+        },
+        "outputTokens": 6381,
+        "outputTokenDetails": {
+          "textTokens": 1558,
+          "reasoningTokens": 4823
+        },
+        "totalTokens": 7045,
+        "raw": {
+          "prompt_tokens": 664,
+          "completion_tokens": 6381,
+          "total_tokens": 7045,
+          "completion_tokens_details": {
+            "reasoning_tokens": 4823
+          }
+        },
+        "reasoningTokens": 4823,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "SPG",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "evidence": [
+            "Event #1 (Locomotive Engineer Certification) affects rail freight labor",
+            "Events #7-12 (Pipeline Safety Standards) affect energy transport costs",
+            "SPG is a retail REIT with no direct Medicare, rail, or aviation exposure"
+          ],
+          "risk": "Second-order supply-chain disruption: stricter English-proficiency rules for engineers could constrain rail labor, delaying inventory restocking for retail tenants and temporarily depressing sales; pipeline compliance costs could increase common-area energy expenses for malls.",
+          "reasoning": "Simon Property Group’s tenants depend on rail freight for inventory and on stable energy costs for operations. Event #1 tightens locomotive-engineer qualifications, risking labor shortages that raise freight rates or cause stockouts for apparel/consumer goods tenants—compressing tenant sales and rent coverage ratios. Pipeline safety standard updates (ASTM/ASME) increase compliance capex for operators, which may be passed through as higher fuel/energy tariffs, raising HVAC costs for climate-controlled malls. However, these effects are diffuse, lagged, and offset by SPG’s pricing power via percentage rent clauses. Relative to SPY, SPG lacks a catalyst to outperform or underperform on this news alone. HOLD is appropriate as the market has not priced in acute supply-chain shocks, but no immediate alpha is available."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "SELL",
+          "confidence": 4,
+          "evidence": [
+            "Event #5: Medicare FY 2027 Inpatient Psychiatric Facilities Prospective Payment System-Rate Update",
+            "ELV operates Medicare Advantage plans and Carelon Behavioral Health services",
+            "Psychiatric facility reimbursement rates directly affect medical loss ratios for managed care organizations"
+          ],
+          "risk": "Rate update could include quality-based incentive payments that favor large diversified insurers like ELV, or the market may have already priced in the statutory inflation adjustment, limiting downside.",
+          "reasoning": "Event #5 updates FY 2027 reimbursement for inpatient psychiatric facilities. As a major Medicare Advantage payer and behavioral health manager, ELV faces direct margin pressure: higher Medicare fee-for-service benchmarks strengthen provider negotiating leverage, forcing ELV to accept elevated per-diem rates in its psychiatric networks or risk network adequacy penalties. Competitors (UNH, CVS, CI) face identical pressure, but ELV’s above-average behavioral health exposure (Carelon) leaves it more sensitive to psychiatric unit economics. What happens next: sell-side analysts will scrub the rate notice for market-basket adjustments; any deviation from expected inflation will trigger FY2027 EPS revision downgrades. Over the 5-day window, ELV will underperform SPY as the market reprices Medicare margin risk. SELL."
+        },
+        {
+          "ticker": "CASY",
+          "verdict": "SELL",
+          "confidence": 4,
+          "evidence": [
+            "Event #1: Locomotive Engineer English-proficiency requirements tighten rail labor supply",
+            "Events #7-12: Pipeline ASTM/ASME standards updates raise compliance costs for refined-product transport",
+            "CASY operates 2,500+ convenience stores in rural Midwest markets heavily dependent on rail for merchandise and pipeline for fuel supply"
+          ],
+          "risk": "Pipeline updates are routine technical adoptions with no marginal cost impact; CASY’s fuel pricing power may allow immediate pass-through of freight costs to consumers, neutralizing margin impact.",
+          "reasoning": "Casey’s rural footprint relies on Class I rail for general merchandise distribution and on refined-product pipelines for fuel supply. Event #1 restricts the pool of qualified locomotive engineers, exacerbating existing rail labor shortages and raising freight tariffs for inbound store inventory. Simultaneously, Events #7-12 mandate tighter ASTM pipe specifications and integrity management, increasing maintenance capex for pipeline operators who will seek tariff increases via FERC or contract renegotiation, raising CASY’s wholesale fuel landed cost. Competitors (7-Eleven, Circle K) have denser urban footprints less exposed to rail bottlenecks, giving them a relative cost advantage. What happens next: margin guidance compression fears will dominate the tape as investors model 50-100bps COGS inflation from logistics headwinds. SELL for 5-day underperformance vs SPY."
+        },
+        {
+          "ticker": "IBKR",
+          "verdict": "BUY",
+          "confidence": 3,
+          "evidence": [
+            "Events #1, #5, #7-12 create sector-specific dispersion in rail, healthcare, and energy equities",
+            "IBKR generates revenue from commissions and margin lending, both positively correlated with volatility and trading volume"
+          ],
+          "risk": "Infrastructure regulations are technical and may be ignored by retail traders; IBKR’s sophisticated client base may already be positioned, resulting in no net volume uplift despite the news flow.",
+          "reasoning": "The cluster of breaking regulatory events—rail labor certification, Medicare rate-setting, and five distinct pipeline safety standard updates—generates idiosyncratic volatility in the transportation, healthcare, and energy sectors. This dispersion drives active rebalancing and hedging demand. IBKR’s commission revenue and margin loan spreads expand when market fragmentation increases. Substitutes (passive ETFs) underperform in high-dispersion regimes, driving flows to active trading platforms. What happens next: elevated volume in healthcare payers (ELV reaction), rail carriers, and MLPs will boost IBKR’s daily average revenue trades (DARTs) for the week, causing the stock to outperform SPY as top-line beats get priced in. BUY."
+        },
+        {
+          "ticker": "ADBE",
+          "verdict": "HOLD",
+          "confidence": 2,
+          "evidence": [
+            "No events directly mention software, IT services, or creative cloud",
+            "Event #1 requires certification documentation; Events #7-12 require compliance record-keeping",
+            "Adobe Document Cloud (Acrobat, Sign) is used for regulatory compliance workflows"
+          ],
+          "risk": "Adobe is currently under distribution (-1.2% vs market) and may continue to sag on macro rotation out of software; the regulatory documentation catalyst is too indirect to halt downside.",
+          "reasoning": "Adobe lacks direct exposure to rail, Medicare, or pipeline regulation. Second-order, Event #1 mandates enhanced qualification records for locomotive engineers, and Events #7-12 require updated integrity management documentation for pipeline operators—both increasing enterprise demand for secure digital document management (Adobe Acrobat/Sign). However, this procurement cycle is multi-quarter and immaterial for a 5-day horizon. Competitors (DocuSign, Microsoft) capture similar compliance spend, and substitutes (legacy paper) still dominate heavy industry. What happens next: ADBE trades sideways, driven by rates/growth dynamics rather than infrastructure policy. No edge vs SPY. HOLD."
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "ADBE",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 4,
+      "meanConfidence": 6,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 0,
+          "relevance": 1,
+          "weight": 0.4,
+          "evidence": [
+            "Docket consists of FAA route/altimeter rules, FRA engineer certification, Medicare IPF rates and pipeline standards",
+            "No event references software, subscription pricing or IT spending"
+          ],
+          "risk": "ADBE trades on AI-monetization and ARR expectations that can reprice sharply on unrelated headlines within five sessions.",
+          "reasoning": "Nothing here changes ADBE's ARR, gross margin, buyback cadence or free cash flow conversion. Any move over the window would be valuation sentiment, which is outside a fundamentals mandate. No trade."
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.675,
+          "evidence": [
+            "ADBE last traded at 244.80, down 1.2% over one day.",
+            "The listed policy events address transportation, Medicare psychiatric facilities, radio altimeters, and pipelines."
+          ],
+          "risk": "The 1.2% drop could reflect adverse company-specific information or momentum omitted from the event material.",
+          "reasoning": "No event concerns software, digital media, AI, subscriptions, or ADBE. The one-day decline has no verified connection to these policies, leaving no supported five-session relative-performance signal."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 0.75,
+          "evidence": [
+            "No events relate to software, digital media, cloud services, or technology regulation.",
+            "All 12 events are physical infrastructure or healthcare payment policy updates with no technology sector nexus."
+          ],
+          "risk": "If broad market sentiment sours on regulatory activity, growth/tech names like ADBE could underperform SPY disproportionately.",
+          "reasoning": "None of the 12 policy events affect software, digital content, or enterprise technology. ADBE has no exposure to aviation, pipeline, locomotive, or Medicare policy. HOLD as the material provides no actionable signal."
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "HOLD",
+          "confidence": 2,
+          "verified": 0.33,
+          "relevance": 1.2,
+          "weight": 0.16,
+          "evidence": [
+            "No events directly mention software, IT services, or creative cloud",
+            "Event #1 requires certification documentation; Events #7-12 require compliance record-keeping",
+            "Adobe Document Cloud (Acrobat, Sign) is used for regulatory compliance workflows"
+          ],
+          "risk": "Adobe is currently under distribution (-1.2% vs market) and may continue to sag on macro rotation out of software; the regulatory documentation catalyst is too indirect to halt downside.",
+          "reasoning": "Adobe lacks direct exposure to rail, Medicare, or pipeline regulation. Second-order, Event #1 mandates enhanced qualification records for locomotive engineers, and Events #7-12 require updated integrity management documentation for pipeline operators—both increasing enterprise demand for secure digital document management (Adobe Acrobat/Sign). However, this procurement cycle is multi-quarter and immaterial for a 5-day horizon. Competitors (DocuSign, Microsoft) capture similar compliance spend, and substitutes (legacy paper) still dominate heavy industry. What happens next: ADBE trades sideways, driven by rates/growth dynamics rather than infrastructure policy. No edge vs SPY. HOLD."
+        }
+      ]
+    },
+    {
+      "ticker": "SPG",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 4,
+      "meanConfidence": 6,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 1,
+          "relevance": 1,
+          "weight": 0.7,
+          "evidence": [
+            "Events listed are rail engineer certification, FAA route amendments, radio altimeter rules, Medicare IPF payment update and pipeline standards updates",
+            "No event references retail real estate, REIT taxation, or mall operations"
+          ],
+          "risk": "A macro or rate-driven move could swamp the no-news read and make a flat stance a missed directional trade over 5 sessions.",
+          "reasoning": "Nothing in the docket touches SPG's rent roll, occupancy, FFO, leverage or cap rates. No change to reported earnings or cash flow; valuation versus history is unaffected by these filings. Default to no position."
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.675,
+          "evidence": [
+            "SPG last traded at 231.13, up 0.3% over one day.",
+            "The listed events concern rail, aviation, Medicare psychiatric facilities, radio altimeters, and pipeline standards or guidance."
+          ],
+          "risk": "The 0.3% gain could develop into relative momentum even without a disclosed event catalyst.",
+          "reasoning": "No event identifies malls, tenants, rents, financing, or SPG. The material therefore provides no causal basis for expecting SPG to outperform or underperform SPY over five sessions."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 0.75,
+          "evidence": [
+            "No events in the material relate to real estate, REITs, or retail property.",
+            "All 12 events concern transportation, healthcare payment systems, or pipeline safety standards."
+          ],
+          "risk": "A broader market selloff driven by unrelated policy uncertainty could drag SPG below SPY despite no direct exposure.",
+          "reasoning": "None of the 12 policy events touch real estate or consumer retail foot traffic. SPG has no direct exposure to pipeline, aviation, or Medicare rate changes. HOLD as the material provides no actionable signal."
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "Event #1 (Locomotive Engineer Certification) affects rail freight labor",
+            "Events #7-12 (Pipeline Safety Standards) affect energy transport costs",
+            "SPG is a retail REIT with no direct Medicare, rail, or aviation exposure"
+          ],
+          "risk": "Second-order supply-chain disruption: stricter English-proficiency rules for engineers could constrain rail labor, delaying inventory restocking for retail tenants and temporarily depressing sales; pipeline compliance costs could increase common-area energy expenses for malls.",
+          "reasoning": "Simon Property Group’s tenants depend on rail freight for inventory and on stable energy costs for operations. Event #1 tightens locomotive-engineer qualifications, risking labor shortages that raise freight rates or cause stockouts for apparel/consumer goods tenants—compressing tenant sales and rent coverage ratios. Pipeline safety standard updates (ASTM/ASME) increase compliance capex for operators, which may be passed through as higher fuel/energy tariffs, raising HVAC costs for climate-controlled malls. However, these effects are diffuse, lagged, and offset by SPG’s pricing power via percentage rent clauses. Relative to SPY, SPG lacks a catalyst to outperform or underperform on this news alone. HOLD is appropriate as the market has not priced in acute supply-chain shocks, but no immediate alpha is available."
+        }
+      ]
+    },
+    {
+      "ticker": "IBKR",
+      "action": "HOLD",
+      "agreement": 0.925,
+      "weightedShare": {
+        "BUY": 0.075,
+        "SELL": 0,
+        "HOLD": 0.925
+      },
+      "votes": 3,
+      "meanConfidence": 6.25,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 1,
+          "relevance": 1,
+          "weight": 0.8,
+          "evidence": [
+            "All twelve events are transportation, aviation, Medicare and pipeline safety rules",
+            "No event touches brokerage regulation, margin rules, payment for order flow or interest rates"
+          ],
+          "risk": "Brokerage earnings are highly rate- and volume-sensitive, so unrelated macro moves during the window can dominate regardless of this docket.",
+          "reasoning": "Zero read-through to IBKR's net interest income, commission revenue, account growth or pristine balance sheet. No accounting or earnings impact; stand aside."
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.675,
+          "evidence": [
+            "IBKR last traded at 89.81, down 0.7% over one day.",
+            "None of the listed events is identified as a brokerage, trading, capital-markets, or financial regulation action."
+          ],
+          "risk": "The 0.7% decline could persist as relative weakness due to information absent from the supplied material.",
+          "reasoning": "The events provide no identified transmission channel to IBKR revenue, trading activity, rates, or regulation. The decline alone does not establish causation or a five-day SPY-relative trade."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 0.75,
+          "evidence": [
+            "No events relate to financial services, brokerage regulation, or capital markets.",
+            "All 12 events concern aviation routes, locomotive certification, Medicare rates, radio altimeters, or pipeline safety."
+          ],
+          "risk": "Market volatility from policy uncertainty in other sectors could reduce trading volumes or sentiment for brokerage stocks.",
+          "reasoning": "None of the 12 events touch financial services, trading platforms, or brokerage regulation. IBKR has zero direct exposure to transportation, healthcare payment, or pipeline policy. HOLD as material is irrelevant."
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "BUY",
+          "confidence": 3,
+          "verified": 0,
+          "relevance": 1.2,
+          "weight": 0.18,
+          "evidence": [
+            "Events #1, #5, #7-12 create sector-specific dispersion in rail, healthcare, and energy equities",
+            "IBKR generates revenue from commissions and margin lending, both positively correlated with volatility and trading volume"
+          ],
+          "risk": "Infrastructure regulations are technical and may be ignored by retail traders; IBKR’s sophisticated client base may already be positioned, resulting in no net volume uplift despite the news flow.",
+          "reasoning": "The cluster of breaking regulatory events—rail labor certification, Medicare rate-setting, and five distinct pipeline safety standard updates—generates idiosyncratic volatility in the transportation, healthcare, and energy sectors. This dispersion drives active rebalancing and hedging demand. IBKR’s commission revenue and margin loan spreads expand when market fragmentation increases. Substitutes (passive ETFs) underperform in high-dispersion regimes, driving flows to active trading platforms. What happens next: elevated volume in healthcare payers (ELV reaction), rail carriers, and MLPs will boost IBKR’s daily average revenue trades (DARTs) for the week, causing the stock to outperform SPY as top-line beats get priced in. BUY."
+        }
+      ]
+    },
+    {
+      "ticker": "CASY",
+      "action": "HOLD",
+      "agreement": 0.83,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.17,
+        "HOLD": 0.83
+      },
+      "votes": 3,
+      "meanConfidence": 6.25,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.525,
+          "evidence": [
+            "Pipeline Safety standards updates (ASTM A53, A333, A372, F1055, ASME B31.4) and hazardous liquid integrity management guidance are incorporation-by-reference/clarification items",
+            "No event addresses fuel retailing, motor fuel margins, or inside-store sales"
+          ],
+          "risk": "Pipeline standards touch hazardous liquid transport; any refined-product logistics cost change could pressure fuel gross margin per gallon, CASY's most volatile earnings line.",
+          "reasoning": "These are technical standards-adoption items for pipeline operators, not fuel retailers. No effect on CASY's fuel CPG, inside margin, capex or store-growth economics in a five-day window."
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 0.5,
+          "relevance": 1,
+          "weight": 0.675,
+          "evidence": [
+            "CASY last traded at 876.95, up 1.1% over one day.",
+            "The listed events concern rail, aviation, Medicare psychiatric facilities, radio altimeters, and pipeline standards or guidance."
+          ],
+          "risk": "The 1.1% one-day rise could signal continuing relative momentum not explained by the event list.",
+          "reasoning": "No event directly addresses convenience retail, fuel sales, food service, or CASY. Its one-day gain coincides with the announcements but is not evidence that they caused it or that it will beat SPY."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 0.75,
+          "evidence": [
+            "Pipeline safety standards updates (ASTM A53, A333, A372, F1055, ASME B31.4) and hazardous liquid pipeline integrity guidance are the dominant events.",
+            "CASY is a convenience store and gas station chain, not a pipeline operator or manufacturer."
+          ],
+          "risk": "If pipeline safety rules tighten supply logistics and raise fuel transport costs, CASY could face margin pressure on fuel sales.",
+          "reasoning": "Pipeline safety standards updates affect pipeline operators and steel manufacturers, not downstream fuel retailers. CASY's exposure is indirect at best through potential fuel cost pass-through. HOLD as no direct material impact."
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "SELL",
+          "confidence": 4,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.4,
+          "evidence": [
+            "Event #1: Locomotive Engineer English-proficiency requirements tighten rail labor supply",
+            "Events #7-12: Pipeline ASTM/ASME standards updates raise compliance costs for refined-product transport",
+            "CASY operates 2,500+ convenience stores in rural Midwest markets heavily dependent on rail for merchandise and pipeline for fuel supply"
+          ],
+          "risk": "Pipeline updates are routine technical adoptions with no marginal cost impact; CASY’s fuel pricing power may allow immediate pass-through of freight costs to consumers, neutralizing margin impact.",
+          "reasoning": "Casey’s rural footprint relies on Class I rail for general merchandise distribution and on refined-product pipelines for fuel supply. Event #1 restricts the pool of qualified locomotive engineers, exacerbating existing rail labor shortages and raising freight tariffs for inbound store inventory. Simultaneously, Events #7-12 mandate tighter ASTM pipe specifications and integrity management, increasing maintenance capex for pipeline operators who will seek tariff increases via FERC or contract renegotiation, raising CASY’s wholesale fuel landed cost. Competitors (7-Eleven, Circle K) have denser urban footprints less exposed to rail bottlenecks, giving them a relative cost advantage. What happens next: margin guidance compression fears will dominate the tape as investors model 50-100bps COGS inflation from logistics headwinds. SELL for 5-day underperformance vs SPY."
+        }
+      ]
+    },
+    {
+      "ticker": "ELV",
+      "action": "HOLD",
+      "agreement": 0.785,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.215,
+        "HOLD": 0.785
+      },
+      "votes": 3,
+      "meanConfidence": 5.25,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 1,
+          "relevance": 1,
+          "weight": 0.6,
+          "evidence": [
+            "Medicare Program; FY 2027 Inpatient Psychiatric Facilities Prospective Payment System-Rate Update is in the docket",
+            "No event addresses Medicare Advantage benchmarks, risk adjustment, or MLR"
+          ],
+          "risk": "IPF rate updates flow into Medicare Advantage facility contracting and behavioral-health cost trend, so a sizable update could nudge medical cost assumptions.",
+          "reasoning": "ELV is a payer, not an inpatient psych facility; FY2027 IPF rates are a distant, second-order input to unit cost and change nothing in current-year revenue, MLR or free cash flow. Immaterial to reported earnings in this window."
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.33,
+          "relevance": 1,
+          "weight": 0.4,
+          "evidence": [
+            "ELV last traded at 377.33, up 0.2% over one day.",
+            "One event is an FY 2027 Medicare inpatient psychiatric facilities prospective payment system rate update.",
+            "No rate details or quantified effects are provided."
+          ],
+          "risk": "The Medicare psychiatric-facility update could contain reimbursement changes that materially alter ELV's claims costs or Medicare economics.",
+          "reasoning": "ELV has the closest event exposure, but the notice concerns facility payment rates and supplies no direction or magnitude for insurer economics. Causality and whether any effect is priced in cannot be verified."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 0.75,
+          "evidence": [
+            "Medicare FY 2027 Inpatient Psychiatric Facilities Prospective Payment System rate update is the only healthcare-related event.",
+            "ELV is a managed care/health insurance company, not an inpatient psychiatric facility operator."
+          ],
+          "risk": "If the psychiatric facility rate update signals broader Medicare reimbursement tightening sentiment, ELV could face indirect sentiment drag.",
+          "reasoning": "The Medicare event targets inpatient psychiatric facility payment rates, not managed care or insurance reimbursement. ELV's core business is health insurance/managed care, making direct impact negligible. HOLD."
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "SELL",
+          "confidence": 4,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.48,
+          "evidence": [
+            "Event #5: Medicare FY 2027 Inpatient Psychiatric Facilities Prospective Payment System-Rate Update",
+            "ELV operates Medicare Advantage plans and Carelon Behavioral Health services",
+            "Psychiatric facility reimbursement rates directly affect medical loss ratios for managed care organizations"
+          ],
+          "risk": "Rate update could include quality-based incentive payments that favor large diversified insurers like ELV, or the market may have already priced in the statutory inflation adjustment, limiting downside.",
+          "reasoning": "Event #5 updates FY 2027 reimbursement for inpatient psychiatric facilities. As a major Medicare Advantage payer and behavioral health manager, ELV faces direct margin pressure: higher Medicare fee-for-service benchmarks strengthen provider negotiating leverage, forcing ELV to accept elevated per-diem rates in its psychiatric networks or risk network adequacy penalties. Competitors (UNH, CVS, CI) face identical pressure, but ELV’s above-average behavioral health exposure (Carelon) leaves it more sensitive to psychiatric unit economics. What happens next: sell-side analysts will scrub the rate notice for market-basket adjustments; any deviation from expected inflation will trigger FY2027 EPS revision downgrades. Over the 5-day window, ELV will underperform SPY as the market reprices Medicare margin risk. SELL."
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 1,
+    "armsLive": 4
+  }
+}
