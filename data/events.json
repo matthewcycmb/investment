@@ -1,6 +1,17 @@
 {
   "events": [
     {
+      "id": "filing:ON:0001097864",
+      "ts": "2026-08-03T22:02:04.440Z",
+      "source": "filing",
+      "title": "ON Semiconductor: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126030989/0001140361-26-030989-index.htm",
+      "tickers": [
+        "ON"
+      ],
+      "detail": "ON · Information Technology · SEC 8-K item 2.02"
+    },
+    {
       "id": "headline:CBOE:CBOE Q2 Earnings Beat on Options Strength, Revenue Outlook R",
       "ts": "2026-08-03T20:44:14.223Z",
       "source": "headline",
@@ -5771,17 +5782,6 @@
       "ts": "2026-06-30",
       "source": "insider",
       "title": "SMITH DANIEL C. bought 314 SPG shares at $223.14 (US$70,066)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
-      "tickers": [
-        "SPG"
-      ],
-      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "insider:SPG:STEWART MARTA R:2026-06-30:179",
-      "ts": "2026-06-30",
-      "source": "insider",
-      "title": "STEWART MARTA R bought 179 SPG shares at $223.14 (US$39,942)",
       "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
       "tickers": [
         "SPG"

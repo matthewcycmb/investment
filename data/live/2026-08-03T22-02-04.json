@@ -1,0 +1,328 @@
+{
+  "date": "2026-08-04",
+  "ts": "2026-08-03T22:02:04.440Z",
+  "study": false,
+  "eventKind": "filing",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "filing",
+      "title": "ON Semiconductor: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1097864/000114036126030989/0001140361-26-030989-index.htm"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 7579,
+      "revised": false,
+      "usage": {
+        "inputTokens": 1080,
+        "inputTokenDetails": {
+          "noCacheTokens": 1080,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 440,
+        "outputTokenDetails": {
+          "textTokens": 314,
+          "reasoningTokens": 126
+        },
+        "totalTokens": 1520,
+        "raw": {
+          "input_tokens": 1080,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 440,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 126
+          }
+        },
+        "reasoningTokens": 126,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ON",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Event is an 8-K filing titled 'Results of Operations and Financial Condition' for ON Semiconductor",
+            "No revenue, gross margin, EPS, guidance, cash flow or balance sheet figures were disclosed in the material provided",
+            "Last price 80.40, down 1.5% on the day"
+          ],
+          "risk": "Earnings 8-Ks are high-variance catalysts; the 1.5% decline may already encode a negative print, and a 5-day post-earnings drift trade in either direction could be given up by standing aside.",
+          "reasoning": "The filing headline alone gives me nothing to underwrite on business economics: no top-line trend, no gross/operating margin path, no inventory or FCF detail, no guidance, and no way to compare valuation versus history. Without reported numbers I cannot judge whether earnings power changed, so no position."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 6378,
+      "revised": false,
+      "usage": {
+        "inputTokens": 471,
+        "inputTokenDetails": {
+          "noCacheTokens": 471,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 243,
+        "outputTokenDetails": {
+          "textTokens": 143,
+          "reasoningTokens": 100
+        },
+        "totalTokens": 714,
+        "raw": {
+          "input_tokens": 471,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 243,
+          "output_tokens_details": {
+            "reasoning_tokens": 100
+          }
+        },
+        "reasoningTokens": 100,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ON",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "ON Semiconductor filed a Results of Operations and Financial Condition disclosure.",
+            "ON was last quoted at 80.40, down 1.5% over one day."
+          ],
+          "risk": "The filing may contain a material earnings or guidance surprise that drives significant five-day relative performance, but its contents were not provided.",
+          "reasoning": "The filing title and one-day move do not reveal whether results beat expectations, changed guidance, or caused the decline. Without the underlying figures or market-expectation comparison, neither direction nor whether the news is priced in can be verified."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 33826,
+      "revised": false,
+      "usage": {
+        "inputTokens": 629,
+        "inputTokenDetails": {
+          "noCacheTokens": 629,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 1732,
+        "outputTokenDetails": {
+          "textTokens": 176,
+          "reasoningTokens": 1556
+        },
+        "totalTokens": 2361,
+        "raw": {
+          "prompt_tokens": 629,
+          "completion_tokens": 1732,
+          "total_tokens": 2361,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 1556
+          }
+        },
+        "reasoningTokens": 1556,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ON",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "ON Semiconductor filed Results of Operations and Financial Condition",
+            "Stock last traded at 80.40, down 1.5% on the day",
+            "No specific financial figures or guidance details provided in the material"
+          ],
+          "risk": "Without access to the actual earnings numbers, guidance changes, or segment breakdowns from the filing, any directional call is essentially a coin flip against an already-moving market.",
+          "reasoning": "The material only confirms a filing occurred and shows the stock was already down 1.5%. No earnings figures, revenue, margins, or guidance are provided to assess whether results beat or missed expectations. Lacking substance to evaluate, HOLD is the only defensible position."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": true,
+      "error": null,
+      "latencyMs": 62541,
+      "revised": false,
+      "usage": {
+        "inputTokens": 319,
+        "inputTokenDetails": {
+          "noCacheTokens": 63,
+          "cacheReadTokens": 256
+        },
+        "outputTokens": 2685,
+        "outputTokenDetails": {
+          "textTokens": 491,
+          "reasoningTokens": 2194
+        },
+        "totalTokens": 3004,
+        "raw": {
+          "prompt_tokens": 319,
+          "completion_tokens": 2685,
+          "total_tokens": 3004,
+          "prompt_tokens_details": {
+            "cached_tokens": 256
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2194
+          },
+          "cached_tokens": 256
+        },
+        "reasoningTokens": 2194,
+        "cachedInputTokens": 256
+      },
+      "findings": [
+        {
+          "ticker": "ON",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "evidence": [
+            "Material cites '[filing] ON Semiconductor: Results of Operations and Financial Condition' but provides no specific revenue, EPS, or guidance figures.",
+            "Stock closed down 1.5% on the session (last 80.40, 1d -1.5%), indicating a modestly negative initial market reaction to unspecified filing details."
+          ],
+          "risk": "The unreported details within the filing may contain material guidance cuts, automotive demand destruction, or inventory write-downs that trigger sustained selling pressure and underperformance versus SPY as analysts digest the full 8-K text and management commentary over the next 48 hours.",
+          "reasoning": "Without explicit financial metrics or guidance revisions in the provided material, the second-order supply chain impacts remain unquantified. Customers (automotive/industrial OEMs) and competitors (STMicroelectronics, Infineon) lack the data needed to adjust procurement or pricing strategies, creating an information vacuum. Suppliers to ON's wafer fabrication network will delay capacity commitments until demand trends are clarified. What happens next: Over the 5-day window, ON will exhibit volatility drift as sell-side models are updated to reflect the actual filing contents, but without evidence of a significant beat or miss in the material, the stock lacks near-term alpha catalysts and will likely track the SOX index with a slight negative bias given the initial -1.5% reaction. HOLD reflects the inability to determine directional edge from the sparse provided data while acknowledging event-risk asymmetry."
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "ON",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 4,
+      "meanConfidence": 5.5,
+      "invest": false,
+      "panel": 4,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 0.75,
+          "evidence": [
+            "Event is an 8-K filing titled 'Results of Operations and Financial Condition' for ON Semiconductor",
+            "No revenue, gross margin, EPS, guidance, cash flow or balance sheet figures were disclosed in the material provided",
+            "Last price 80.40, down 1.5% on the day"
+          ],
+          "risk": "Earnings 8-Ks are high-variance catalysts; the 1.5% decline may already encode a negative print, and a 5-day post-earnings drift trade in either direction could be given up by standing aside.",
+          "reasoning": "The filing headline alone gives me nothing to underwrite on business economics: no top-line trend, no gross/operating margin path, no inventory or FCF detail, no guidance, and no way to compare valuation versus history. Without reported numbers I cannot judge whether earnings power changed, so no position."
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 1,
+          "relevance": 1,
+          "weight": 0.9,
+          "evidence": [
+            "ON Semiconductor filed a Results of Operations and Financial Condition disclosure.",
+            "ON was last quoted at 80.40, down 1.5% over one day."
+          ],
+          "risk": "The filing may contain a material earnings or guidance surprise that drives significant five-day relative performance, but its contents were not provided.",
+          "reasoning": "The filing title and one-day move do not reveal whether results beat expectations, changed guidance, or caused the decline. Without the underlying figures or market-expectation comparison, neither direction nor whether the news is priced in can be verified."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 1,
+          "relevance": 0.9,
+          "weight": 0.45,
+          "evidence": [
+            "ON Semiconductor filed Results of Operations and Financial Condition",
+            "Stock last traded at 80.40, down 1.5% on the day",
+            "No specific financial figures or guidance details provided in the material"
+          ],
+          "risk": "Without access to the actual earnings numbers, guidance changes, or segment breakdowns from the filing, any directional call is essentially a coin flip against an already-moving market.",
+          "reasoning": "The material only confirms a filing occurred and shows the stock was already down 1.5%. No earnings figures, revenue, margins, or guidance are provided to assess whether results beat or missed expectations. Lacking substance to evaluate, HOLD is the only defensible position."
+        },
+        {
+          "arm": "D",
+          "name": "Kimi K2.5",
+          "roleTitle": "The Forecaster",
+          "specialty": "Second-order consequences and long-document synthesis",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "verified": 1,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "Material cites '[filing] ON Semiconductor: Results of Operations and Financial Condition' but provides no specific revenue, EPS, or guidance figures.",
+            "Stock closed down 1.5% on the session (last 80.40, 1d -1.5%), indicating a modestly negative initial market reaction to unspecified filing details."
+          ],
+          "risk": "The unreported details within the filing may contain material guidance cuts, automotive demand destruction, or inventory write-downs that trigger sustained selling pressure and underperformance versus SPY as analysts digest the full 8-K text and management commentary over the next 48 hours.",
+          "reasoning": "Without explicit financial metrics or guidance revisions in the provided material, the second-order supply chain impacts remain unquantified. Customers (automotive/industrial OEMs) and competitors (STMicroelectronics, Infineon) lack the data needed to adjust procurement or pricing strategies, creating an information vacuum. Suppliers to ON's wafer fabrication network will delay capacity commitments until demand trends are clarified. What happens next: Over the 5-day window, ON will exhibit volatility drift as sell-side models are updated to reflect the actual filing contents, but without evidence of a significant beat or miss in the material, the stock lacks near-term alpha catalysts and will likely track the SOX index with a slight negative bias given the initial -1.5% reaction. HOLD reflects the inability to determine directional edge from the sparse provided data while acknowledging event-risk asymmetry."
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": null,
+    "armsLive": 4
+  }
+}
