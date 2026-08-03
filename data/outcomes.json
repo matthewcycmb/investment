@@ -3,15 +3,15 @@
     "startEquity": 100000,
     "stakePerPosition": 10000,
     "cash": 80000,
-    "invested": 19325.71,
-    "equity": 99325.71,
+    "invested": 19274.5,
+    "equity": 99274.5,
     "realized": 0,
-    "unrealized": -674.29,
-    "totalReturnPct": -0.674,
+    "unrealized": -725.5,
+    "totalReturnPct": -0.725,
     "openPositions": 2,
     "closedPositions": 0
   },
-  "updated": "2026-08-03T17:52:57.347Z",
+  "updated": "2026-08-03T20:52:21.627Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
@@ -58,7 +58,7 @@
         375.98,
         376.4,
         375.84,
-        379.58
+        382.77
       ],
       "status": "pending"
     },
@@ -100,14 +100,14 @@
         154.28,
         156.27,
         152.48,
-        151.84
+        151.8
       ],
       "status": "open",
       "entryDate": "2026-07-31",
       "entryPrice": 155.02000427246094,
       "markDate": "2026-08-03",
-      "markPrice": 151.8350067138672,
-      "markExcess": -0.037748
+      "markPrice": 151.8000030517578,
+      "markExcess": -0.038215
     },
     {
       "arm": "council",
@@ -147,14 +147,14 @@
         1248.76,
         1316.18,
         1426.03,
-        1351.31
+        1344.37
       ],
       "status": "open",
       "entryDate": "2026-08-03",
       "entryPrice": 1417.780029296875,
       "markDate": "2026-08-03",
-      "markPrice": 1351.31005859375,
-      "markExcess": -0.057624
+      "markPrice": 1344.3699951171875,
+      "markExcess": -0.06276
     },
     {
       "arm": "council",
@@ -194,7 +194,7 @@
         672.48,
         802.37,
         797.43,
-        815.77
+        817.42
       ],
       "status": "pending"
     },
@@ -236,7 +236,7 @@
         672.48,
         802.37,
         797.43,
-        815.77
+        817.42
       ],
       "status": "pending"
     }

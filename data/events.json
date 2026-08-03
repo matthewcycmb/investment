@@ -1,6 +1,105 @@
 {
   "events": [
     {
+      "id": "headline:CBOE:CBOE Q2 Earnings Beat on Options Strength, Revenue Outlook R",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "headline",
+      "title": "CBOE Q2 Earnings Beat on Options Strength, Revenue Outlook Raised",
+      "url": "https://finance.yahoo.com/m/e3fc9463-e417-34c6-9504-413a822348d8/wall-street-braces-for-big.html?.tsrc=rss",
+      "tickers": [
+        "CBOE"
+      ],
+      "detail": "CBOE · matched \"earnings beat\""
+    },
+    {
+      "id": "headline:APD:APD Q3 Earnings Beat on Volume Growth, Sales Miss Estimates",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "headline",
+      "title": "APD Q3 Earnings Beat on Volume Growth, Sales Miss Estimates",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/air-products-chemicals-apd-q3-133006729.html?.tsrc=rss",
+      "tickers": [
+        "APD"
+      ],
+      "detail": "APD · matched \"earnings beat\""
+    },
+    {
+      "id": "headline:APD:Is Air Products And Chemicals (APD) Undervalued After Its Ea",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "headline",
+      "title": "Is Air Products And Chemicals (APD) Undervalued After Its Earnings Beat And Raised Outlook?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/neom-charges-raised-eps-guidance-161103593.html?.tsrc=rss",
+      "tickers": [
+        "APD"
+      ],
+      "detail": "APD · matched \"earnings beat\""
+    },
+    {
+      "id": "filing:CLX:0000021076",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "filing",
+      "title": "Clorox: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/21076/000002107626000028/0000021076-26-000028-index.htm",
+      "tickers": [
+        "CLX"
+      ],
+      "detail": "CLX · Consumer Staples · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:CTAS:0000723254",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "filing",
+      "title": "Cintas: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/723254/000095010326011666/0000950103-26-011666-index.htm",
+      "tickers": [
+        "CTAS"
+      ],
+      "detail": "CTAS · Industrials · SEC 8-K item 5.02"
+    },
+    {
+      "id": "filing:WMB:0000107263",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "filing",
+      "title": "Williams Companies: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/107263/000010726326000024/0000107263-26-000024-index.htm",
+      "tickers": [
+        "WMB"
+      ],
+      "detail": "WMB · Energy · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:OKE:0001039684",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "filing",
+      "title": "Oneok: Completion of Acquisition or Disposition of Assets",
+      "url": "https://www.sec.gov/Archives/edgar/data/1039684/000103968426000027/0001039684-26-000027-index.htm",
+      "tickers": [
+        "OKE"
+      ],
+      "detail": "OKE · Energy · SEC 8-K item 2.01"
+    },
+    {
+      "id": "filing:SBAC:0001034054",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "filing",
+      "title": "SBA Communications: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1034054/000119312526330639/0001193125-26-330639-index.htm",
+      "tickers": [
+        "SBAC"
+      ],
+      "detail": "SBAC · Real Estate · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:DHR:0000313616",
+      "ts": "2026-08-03T20:44:14.223Z",
+      "source": "filing",
+      "title": "Danaher Corporation: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/313616/000119312526330652/0001193125-26-330652-index.htm",
+      "tickers": [
+        "DHR"
+      ],
+      "detail": "DHR · Health Care · SEC 8-K item 5.02"
+    },
+    {
       "id": "headline:EME:EME Q2 Deep Dive: Data Center Demand and Strategic Acquisiti",
       "ts": "2026-08-03T17:48:21.679Z",
       "source": "headline",
@@ -5688,103 +5787,6 @@
         "SPG"
       ],
       "detail": "SPG · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "insider:SPG:GLASSCOCK LARRY C:2026-06-30:330",
-      "ts": "2026-06-30",
-      "source": "insider",
-      "title": "GLASSCOCK LARRY C bought 330 SPG shares at $223.14 (US$73,636)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
-      "tickers": [
-        "SPG"
-      ],
-      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "insider:SPG:LEIBOWITZ REUBEN S:2026-06-30:430",
-      "ts": "2026-06-30",
-      "source": "insider",
-      "title": "LEIBOWITZ REUBEN S bought 430 SPG shares at $223.14 (US$95,950)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
-      "tickers": [
-        "SPG"
-      ],
-      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "insider:SPG:SELIG STEFAN M:2026-06-30:187",
-      "ts": "2026-06-30",
-      "source": "insider",
-      "title": "SELIG STEFAN M bought 187 SPG shares at $223.14 (US$41,727)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
-      "tickers": [
-        "SPG"
-      ],
-      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "shock:OXY:2026-07-27",
-      "ts": "2026-07-27T23:57:13.673Z",
-      "source": "shock",
-      "title": "OXY moved -4.1% on 2026-07-27· no reported cause",
-      "tickers": [
-        "OXY"
-      ],
-      "detail": "close 57.30 → 54.93"
-    },
-    {
-      "id": "shock:HONA:2026-07-27",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "shock",
-      "title": "HONA moved +3.3% on 2026-07-27· no reported cause",
-      "tickers": [
-        "HONA"
-      ],
-      "detail": "close 204.07 → 210.83"
-    },
-    {
-      "id": "headline:ADSK:Autodesk initiated, Norwegian Cruise downgrade: Wall Street'",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "headline",
-      "title": "Autodesk initiated, Norwegian Cruise downgrade: Wall Street's top analyst calls",
-      "url": "https://247wallst.com/investing/2026/07/23/here-are-thursdays-top-wall-street-analyst-research-calls-att-applied-digital-autodesk-duke-energy-exxon-mobil-jpmorgan-chase-company-live-nation-entertainment-and-more/?.tsrc=rss",
-      "tickers": [
-        "ADSK"
-      ],
-      "detail": "ADSK · matched \"downgrade\""
-    },
-    {
-      "id": "headline:ADBE:Stagwell (STGW) to Acquire QStrauss Consulting to Expand Cod",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "headline",
-      "title": "Stagwell (STGW) to Acquire QStrauss Consulting to Expand Code and Theory's Implementation of Adobe's Suite of Solutions",
-      "url": "https://www.fool.com/coverage/filings/2026/07/27/adobe-president-wadhwani-sells-1-498-shares-for-tax-withholding/?.tsrc=rss",
-      "tickers": [
-        "ADBE"
-      ],
-      "detail": "ADBE · matched \"acquire\""
-    },
-    {
-      "id": "headline:ELV:Elevance Health CEO Snaps Up Stock After Post-Earnings Slide",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "headline",
-      "title": "Elevance Health CEO Snaps Up Stock After Post-Earnings Slide",
-      "url": "https://www.trefis.com/articles/607732/what-a-patient-holder-is-really-paying-for-cvs-health-stock/2026-07-17?.tsrc=rss",
-      "tickers": [
-        "ELV"
-      ],
-      "detail": "ELV · matched \"ceo\""
-    },
-    {
-      "id": "filing:BSX:0000885725",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Boston Scientific: Cost Associated with Exit or Disposal Activities",
-      "url": "https://www.sec.gov/Archives/edgar/data/885725/000088572526000049/0000885725-26-000049-index.htm",
-      "tickers": [
-        "BSX"
-      ],
-      "detail": "BSX · Health Care · SEC 8-K item 2.05"
     }
   ]
 }

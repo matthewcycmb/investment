@@ -278,14 +278,23 @@
     "headline:ICE:MarketAxess Stock Soars 30% on $6 Billion ICE Buyout Deal",
     "shock:MPWR:2026-08-03",
     "headline:EME:Can EMCOR's Record Backlog and Raised Guidance Power More Gr",
-    "headline:EME:EME Q2 Deep Dive: Data Center Demand and Strategic Acquisiti"
+    "headline:EME:EME Q2 Deep Dive: Data Center Demand and Strategic Acquisiti",
+    "filing:DHR:0000313616",
+    "filing:SBAC:0001034054",
+    "filing:OKE:0001039684",
+    "filing:WMB:0000107263",
+    "filing:CTAS:0000723254",
+    "filing:CLX:0000021076",
+    "headline:APD:Is Air Products And Chemicals (APD) Undervalued After Its Ea",
+    "headline:APD:APD Q3 Earnings Beat on Volume Growth, Sales Miss Estimates",
+    "headline:CBOE:CBOE Q2 Earnings Beat on Options Strength, Revenue Outlook R"
   ],
   "councilRuns": {
     "2026-07-30": 5,
     "2026-07-31": 5,
     "2026-08-01": 2,
     "2026-08-03": 3,
-    "2026-08-04": 1
+    "2026-08-04": 2
   },
-  "cursor": 33
+  "cursor": 23
 }
