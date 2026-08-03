@@ -1,6 +1,254 @@
 {
   "events": [
     {
+      "id": "headline:CFG:Citizens Financial Group (CFG) Beat Q2 Earnings And Reaffirm",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "headline",
+      "title": "Citizens Financial Group (CFG) Beat Q2 Earnings And Reaffirmed Guidance, Is It Fully Valued?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/citizens-financial-group-cfg-stock-181048872.html?.tsrc=rss",
+      "tickers": [
+        "CFG"
+      ],
+      "detail": "CFG · matched \"guidance\""
+    },
+    {
+      "id": "headline:CFG:Is Citizens Financial Group (CFG) Undervalued As Its CEO Sel",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "headline",
+      "title": "Is Citizens Financial Group (CFG) Undervalued As Its CEO Sells Shares And Makes A Donation?",
+      "url": "https://www.fool.com/coverage/filings/2026/07/31/ceo-of-regional-bank-sells-168-000-shares-for-usd12-1-million-according-to-latest-sec-filing/?.tsrc=rss",
+      "tickers": [
+        "CFG"
+      ],
+      "detail": "CFG · matched \"ceo\""
+    },
+    {
+      "id": "shock:CBOE:2026-07-31",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "shock",
+      "title": "CBOE moved +4.6% on 2026-07-31· no reported cause",
+      "tickers": [
+        "CBOE"
+      ],
+      "detail": "close 296.52 → 310.23"
+    },
+    {
+      "id": "headline:APD:Air Products and Chemicals Inc (APD) (Q3 2026) Earnings Call",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "headline",
+      "title": "Air Products and Chemicals Inc (APD) (Q3 2026) Earnings Call Highlights: EPS Beats Guidance, ...",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/apd-q3-earnings-beat-volume-172600933.html?.tsrc=rss",
+      "tickers": [
+        "APD"
+      ],
+      "detail": "APD · matched \"guidance\""
+    },
+    {
+      "id": "headline:APD:Is NEOM Charges, Raised EPS Guidance and Yara Deal Altering ",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "headline",
+      "title": "Is NEOM Charges, Raised EPS Guidance and Yara Deal Altering The Investment Case For Air Products (APD)?",
+      "url": "https://www.marketbeat.com/instant-alerts/air-products-and-chemicals-q3-earnings-call-highlights-2026-07-30/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "tickers": [
+        "APD"
+      ],
+      "detail": "APD · matched \"guidance\""
+    },
+    {
+      "id": "headline:EME:EME Q2 Earnings Beat Estimates on Broad-Based Growth, Stock ",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "headline",
+      "title": "EME Q2 Earnings Beat Estimates on Broad-Based Growth, Stock Up",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sterling-q2-earnings-buy-sell-135500720.html?.tsrc=rss",
+      "tickers": [
+        "EME"
+      ],
+      "detail": "EME · matched \"earnings beat\""
+    },
+    {
+      "id": "headline:EME:Will Record Q2 Results And Higher 2026 Guidance Change EMCOR",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "headline",
+      "title": "Will Record Q2 Results And Higher 2026 Guidance Change EMCOR Group's (EME) Narrative",
+      "url": "https://www.marketbeat.com/instant-alerts/emcor-group-q2-earnings-call-highlights-2026-07-31/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "tickers": [
+        "EME"
+      ],
+      "detail": "EME · matched \"guidance\""
+    },
+    {
+      "id": "insider:NTRS:MORITZ ROBERT EDWARD JR.:2026-07-29:255",
+      "ts": "2026-07-29",
+      "source": "insider",
+      "title": "MORITZ ROBERT EDWARD JR. bought 255 NTRS shares at $179.57 (US$45,790)",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000073124&type=4",
+      "tickers": [
+        "NTRS"
+      ],
+      "detail": "NTRS · officer or director open-market purchase · SEC Form 4"
+    },
+    {
+      "id": "filing:DTE:0000936340",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "filing",
+      "title": "DTE Energy: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/936340/000093634026000148/0000936340-26-000148-index.htm",
+      "tickers": [
+        "DTE"
+      ],
+      "detail": "DTE · Utilities · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:CNP:0001130310",
+      "ts": "2026-08-03T04:26:02.884Z",
+      "source": "filing",
+      "title": "CenterPoint Energy: Entry into a Material Definitive Agreement",
+      "url": "https://www.sec.gov/Archives/edgar/data/1130310/000110465926089263/0001104659-26-089263-index.htm",
+      "tickers": [
+        "CNP"
+      ],
+      "detail": "CNP · Utilities · SEC 8-K item 1.01"
+    },
+    {
+      "id": "policy:2026-15686",
+      "ts": "2026-08-03",
+      "source": "policy",
+      "title": "Medicare Program; FY 2027 Hospice Wage Index and Payment Rate Update and Hospice Quality Reporting Program Requirements",
+      "url": "https://www.federalregister.gov/documents/2026/08/03/2026-15686/medicare-program-fy-2027-hospice-wage-index-and-payment-rate-update-and-hospice-quality-reporting",
+      "tickers": [
+        "ABT",
+        "ABBV",
+        "A",
+        "ALGN",
+        "AMGN",
+        "BAX",
+        "BDX",
+        "TECH",
+        "BIIB",
+        "BSX",
+        "BMY",
+        "CAH",
+        "COR",
+        "CNC",
+        "CRL",
+        "CI",
+        "COO",
+        "CVS",
+        "DHR",
+        "DVA",
+        "DXCM",
+        "EW",
+        "ELV",
+        "GEHC",
+        "GILD",
+        "HCA",
+        "HSIC",
+        "HUM",
+        "IDXX",
+        "INCY",
+        "PODD",
+        "ISRG",
+        "IQV",
+        "JNJ",
+        "LH",
+        "LLY",
+        "MCK",
+        "MDT",
+        "MRK",
+        "MTD",
+        "MRNA",
+        "PFE",
+        "DGX",
+        "REGN",
+        "RMD",
+        "RVTY",
+        "SOLV",
+        "STE",
+        "SYK",
+        "TMO",
+        "UNH",
+        "UHS",
+        "VEEV",
+        "VRTX",
+        "VTRS",
+        "WAT",
+        "WST",
+        "ZBH",
+        "ZTS"
+      ],
+      "detail": "Rule · Health and Human Services Department, Centers for Medicare & Medicaid Services · sectors: Health Care"
+    },
+    {
+      "id": "policy:2026-15724",
+      "ts": "2026-08-03",
+      "source": "policy",
+      "title": "High-Speed Train Noise Emission Standards",
+      "url": "https://www.federalregister.gov/documents/2026/08/03/2026-15724/high-speed-train-noise-emission-standards",
+      "tickers": [
+        "MMM",
+        "AOS",
+        "AES",
+        "ALLE",
+        "LNT",
+        "AEE",
+        "AEP",
+        "AWK",
+        "AME",
+        "APA",
+        "ATO",
+        "ADP",
+        "AXON",
+        "BKR",
+        "BA",
+        "BR",
+        "BLDR",
+        "CHRW",
+        "CARR",
+        "CAT",
+        "CNP",
+        "CVX",
+        "CTAS",
+        "CMS",
+        "FIX",
+        "COP",
+        "ED",
+        "CEG",
+        "CPRT",
+        "CSX",
+        "CMI",
+        "DE",
+        "DAL",
+        "DVN",
+        "FANG",
+        "D",
+        "DOV",
+        "DTE",
+        "DUK",
+        "ETN",
+        "EIX",
+        "EME",
+        "EMR",
+        "ETR",
+        "EOG",
+        "EQT",
+        "EFX",
+        "EVRG",
+        "ES",
+        "EXC",
+        "EXE",
+        "EXPD",
+        "XOM",
+        "FAST",
+        "FDX",
+        "FDXF",
+        "FE",
+        "FTV",
+        "GE",
+        "GEV"
+      ],
+      "detail": "Proposed Rule · Transportation Department, Federal Railroad Administration · sectors: Energy, Industrials, Utilities"
+    },
+    {
       "id": "filing:AMGN:0000318154",
       "ts": "2026-07-31T20:16:52.059Z",
       "source": "filing",
@@ -5536,136 +5784,6 @@
         "NWS"
       ],
       "detail": "NWS · Communication Services"
-    },
-    {
-      "id": "headline:CPRT:Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and",
-      "ts": "2026-07-27T11:25:48.361Z",
-      "source": "headline",
-      "title": "Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and AI Focus",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/copart-announces-promotion-jane-pocock-203000140.html?.tsrc=rss",
-      "tickers": [
-        "CPRT"
-      ],
-      "detail": "CPRT · matched \"ceo\""
-    },
-    {
-      "id": "headline:ACN:MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Iss",
-      "ts": "2026-07-27T11:25:48.361Z",
-      "source": "headline",
-      "title": "MCO Q2 Earnings Beat on Rising Analytics Demand & Higher Issuances",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-q2-earnings-preview-expect-145910983.html?.tsrc=rss",
-      "tickers": [
-        "ACN"
-      ],
-      "detail": "ACN · matched \"earnings beat\""
-    },
-    {
-      "id": "filing:BKR:0001701605",
-      "ts": "2026-07-27T11:25:48.361Z",
-      "source": "filing",
-      "title": "Baker Hughes filed an 8-K (material corporate event)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001701605&type=8-K",
-      "tickers": [
-        "BKR"
-      ],
-      "detail": "BKR · Energy"
-    },
-    {
-      "id": "filing:EXE:0000895126",
-      "ts": "2026-07-27T11:25:48.361Z",
-      "source": "filing",
-      "title": "Expand Energy filed an 8-K (material corporate event)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000895126&type=8-K",
-      "tickers": [
-        "EXE"
-      ],
-      "detail": "EXE · Energy"
-    },
-    {
-      "id": "filing:TDG:0001260221",
-      "ts": "2026-07-27T11:25:48.361Z",
-      "source": "filing",
-      "title": "TransDigm Group filed an 8-K (material corporate event)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001260221&type=8-K",
-      "tickers": [
-        "TDG"
-      ],
-      "detail": "TDG · Industrials"
-    },
-    {
-      "id": "headline:IBM:Jim Cramer Discussed A Surprise For International Business M",
-      "ts": "2026-07-27T09:08:49.299Z",
-      "source": "headline",
-      "title": "Jim Cramer Discussed A Surprise For International Business Machines Corporation (NYSE:IBM) CEO",
-      "url": "https://www.fool.com/investing/2026/07/24/big-banks-cash-in-ibm-crashes-out/?.tsrc=rss",
-      "tickers": [
-        "IBM"
-      ],
-      "detail": "IBM · matched \"ceo\""
-    },
-    {
-      "id": "headline:DLR:Is Digital Realty Trust (DLR) Fully Priced As Higher Guidanc",
-      "ts": "2026-07-27T09:08:49.299Z",
-      "source": "headline",
-      "title": "Is Digital Realty Trust (DLR) Fully Priced As Higher Guidance Lifts Optimism?",
-      "url": "https://finance.yahoo.com/technology/ai/articles/freeport-mcmoran-inc-fcx-digital-104751465.html?.tsrc=rss",
-      "tickers": [
-        "DLR"
-      ],
-      "detail": "DLR · matched \"guidance\""
-    },
-    {
-      "id": "shock:IBM:2026-07-24",
-      "ts": "2026-07-27T08:12:40.049Z",
-      "source": "shock",
-      "title": "IBM moved +3.6% on 2026-07-24",
-      "tickers": [
-        "IBM"
-      ],
-      "detail": "close 206.65 → 214.19"
-    },
-    {
-      "id": "headline:IBM:IBM CEO makes bold AI strategy claim",
-      "ts": "2026-07-27T08:12:40.049Z",
-      "source": "headline",
-      "title": "IBM CEO makes bold AI strategy claim",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/international-business-machines-corporation-ibm-084616985.html?.tsrc=rss",
-      "tickers": [
-        "IBM"
-      ],
-      "detail": "IBM · matched \"ceo\""
-    },
-    {
-      "id": "shock:DLR:2026-07-24",
-      "ts": "2026-07-27T08:12:40.049Z",
-      "source": "shock",
-      "title": "DLR moved +11.0% on 2026-07-24",
-      "tickers": [
-        "DLR"
-      ],
-      "detail": "close 179.34 → 199.08"
-    },
-    {
-      "id": "headline:DLR:SpaceX initiated, PayPal upgraded: Wall Street's top analyst",
-      "ts": "2026-07-27T08:12:40.049Z",
-      "source": "headline",
-      "title": "SpaceX initiated, PayPal upgraded: Wall Street's top analyst calls",
-      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-digital-realty-trust-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
-      "tickers": [
-        "DLR"
-      ],
-      "detail": "DLR · matched \"upgrade\""
-    },
-    {
-      "id": "headline:CPRT:Copart's Incoming CEO Jay Adair Signals Growth Push, M&amp;A",
-      "ts": "2026-07-27T08:12:40.049Z",
-      "source": "headline",
-      "title": "Copart's Incoming CEO Jay Adair Signals Growth Push, M&A and AI Focus",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/copart-announces-promotion-jane-pocock-203000140.html?.tsrc=rss",
-      "tickers": [
-        "CPRT"
-      ],
-      "detail": "CPRT · matched \"ceo\""
     }
   ]
 }

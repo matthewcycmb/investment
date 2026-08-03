@@ -247,12 +247,25 @@
     "filing:CVX:0000093410",
     "filing:ARES:0001176948",
     "shock:FDXF:2026-07-31",
-    "filing:AMGN:0000318154"
+    "filing:AMGN:0000318154",
+    "policy:2026-15724",
+    "policy:2026-15686",
+    "filing:CNP:0001130310",
+    "filing:DTE:0000936340",
+    "insider:NTRS:MORITZ ROBERT EDWARD JR.:2026-07-29:255",
+    "headline:EME:Will Record Q2 Results And Higher 2026 Guidance Change EMCOR",
+    "headline:EME:EME Q2 Earnings Beat Estimates on Broad-Based Growth, Stock ",
+    "headline:APD:Is NEOM Charges, Raised EPS Guidance and Yara Deal Altering ",
+    "headline:APD:Air Products and Chemicals Inc (APD) (Q3 2026) Earnings Call",
+    "shock:CBOE:2026-07-31",
+    "headline:CFG:Is Citizens Financial Group (CFG) Undervalued As Its CEO Sel",
+    "headline:CFG:Citizens Financial Group (CFG) Beat Q2 Earnings And Reaffirm"
   ],
   "councilRuns": {
     "2026-07-30": 5,
     "2026-07-31": 5,
-    "2026-08-01": 2
+    "2026-08-01": 2,
+    "2026-08-03": 1
   },
-  "cursor": 27
+  "cursor": 18
 }
