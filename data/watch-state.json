@@ -273,13 +273,19 @@
     "headline:BEN:Franklin Q3 Earnings Beat on Higher Revenues, AUM Hits Recor",
     "shock:BEN:2026-08-03",
     "headline:GEHC:GE HealthCare Technologies (GEHC) Is Up 17.1% After Raising ",
-    "shock:CBOE:2026-08-03"
+    "shock:CBOE:2026-08-03",
+    "headline:ICE:NYSE Content Update: Intercontinental Exchange to Acquire Ma",
+    "headline:ICE:MarketAxess Stock Soars 30% on $6 Billion ICE Buyout Deal",
+    "shock:MPWR:2026-08-03",
+    "headline:EME:Can EMCOR's Record Backlog and Raised Guidance Power More Gr",
+    "headline:EME:EME Q2 Deep Dive: Data Center Demand and Strategic Acquisiti"
   ],
   "councilRuns": {
     "2026-07-30": 5,
     "2026-07-31": 5,
     "2026-08-01": 2,
-    "2026-08-03": 3
+    "2026-08-03": 3,
+    "2026-08-04": 1
   },
-  "cursor": 21
+  "cursor": 33
 }

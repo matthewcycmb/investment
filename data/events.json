@@ -1,6 +1,60 @@
 {
   "events": [
     {
+      "id": "headline:EME:EME Q2 Deep Dive: Data Center Demand and Strategic Acquisiti",
+      "ts": "2026-08-03T17:48:21.679Z",
+      "source": "headline",
+      "title": "EME Q2 Deep Dive: Data Center Demand and Strategic Acquisitions Drive Growth",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/eme-q2-earnings-call-highlights-140000419.html?.tsrc=rss",
+      "tickers": [
+        "EME"
+      ],
+      "detail": "EME · matched \"acquisition\""
+    },
+    {
+      "id": "headline:EME:Can EMCOR's Record Backlog and Raised Guidance Power More Gr",
+      "ts": "2026-08-03T17:48:21.679Z",
+      "source": "headline",
+      "title": "Can EMCOR's Record Backlog and Raised Guidance Power More Growth?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/emcor-group-eme-buy-wall-133002191.html?.tsrc=rss",
+      "tickers": [
+        "EME"
+      ],
+      "detail": "EME · matched \"guidance\""
+    },
+    {
+      "id": "shock:MPWR:2026-08-03",
+      "ts": "2026-08-03T17:48:21.679Z",
+      "source": "shock",
+      "title": "MPWR moved -5.2% on 2026-08-03· no reported cause",
+      "tickers": [
+        "MPWR"
+      ],
+      "detail": "close 1426.03 → 1351.65"
+    },
+    {
+      "id": "headline:ICE:MarketAxess Stock Soars 30% on $6 Billion ICE Buyout Deal",
+      "ts": "2026-08-03T17:48:21.679Z",
+      "source": "headline",
+      "title": "MarketAxess Stock Soars 30% on $6 Billion ICE Buyout Deal",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nyse-content-reformation-scores-winning-125500972.html?.tsrc=rss",
+      "tickers": [
+        "ICE"
+      ],
+      "detail": "ICE · matched \"buyout\""
+    },
+    {
+      "id": "headline:ICE:NYSE Content Update: Intercontinental Exchange to Acquire Ma",
+      "ts": "2026-08-03T17:48:21.679Z",
+      "source": "headline",
+      "title": "NYSE Content Update: Intercontinental Exchange to Acquire MarketAxess in $6 Billion Deal",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/marketaxess-holdings-mktx-ice-deal-190814199.html?.tsrc=rss",
+      "tickers": [
+        "ICE"
+      ],
+      "detail": "ICE · matched \"acquire\""
+    },
+    {
       "id": "shock:CBOE:2026-08-03",
       "ts": "2026-08-03T15:41:03.285Z",
       "source": "shock",
@@ -5731,61 +5785,6 @@
         "BSX"
       ],
       "detail": "BSX · Health Care · SEC 8-K item 2.05"
-    },
-    {
-      "id": "filing:FFIV:0001048695",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "F5, Inc.: Results of Operations and Financial Condition",
-      "url": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000063/0001048695-26-000063-index.htm",
-      "tickers": [
-        "FFIV"
-      ],
-      "detail": "FFIV · Information Technology · SEC 8-K item 2.02"
-    },
-    {
-      "id": "filing:CINF:0000020286",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Cincinnati Financial: Results of Operations and Financial Condition",
-      "url": "https://www.sec.gov/Archives/edgar/data/20286/000002028626000043/0000020286-26-000043-index.htm",
-      "tickers": [
-        "CINF"
-      ],
-      "detail": "CINF · Financials · SEC 8-K item 2.02"
-    },
-    {
-      "id": "filing:ISRG:0001035267",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Intuitive Surgical: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
-      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000063/0001035267-26-000063-index.htm",
-      "tickers": [
-        "ISRG"
-      ],
-      "detail": "ISRG · Health Care · SEC 8-K item 5.03"
-    },
-    {
-      "id": "filing:PFG:0001126328",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Principal Financial Group: Results of Operations and Financial Condition",
-      "url": "https://www.sec.gov/Archives/edgar/data/1126328/000110465926087091/0001104659-26-087091-index.htm",
-      "tickers": [
-        "PFG"
-      ],
-      "detail": "PFG · Financials · SEC 8-K item 2.02"
-    },
-    {
-      "id": "filing:UDR:0000074208",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "UDR, Inc.: Results of Operations and Financial Condition",
-      "url": "https://www.sec.gov/Archives/edgar/data/74208/000007420826000070/0000074208-26-000070-index.htm",
-      "tickers": [
-        "UDR"
-      ],
-      "detail": "UDR · Real Estate · SEC 8-K item 2.02"
     }
   ]
 }
