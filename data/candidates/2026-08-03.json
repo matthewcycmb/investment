@@ -1,0 +1,576 @@
+{
+  "date": "2026-08-03",
+  "rule": "PREREGISTRATION.md §4: score = 2*distinct_form4_P_buyers(35d) + min(8K_ratio, 3)",
+  "universeSnapshot": "2026-07-27",
+  "screened": 503,
+  "eligible": 251,
+  "candidates": [
+    {
+      "ticker": "SPG",
+      "yahoo": "SPG",
+      "name": "Simon Property Group",
+      "sector": "Real Estate",
+      "cik": "0001063761",
+      "score": 22,
+      "buyCount": 11,
+      "buyers": [
+        "SELIG STEFAN M",
+        "ROE PEGGY",
+        "LEIBOWITZ REUBEN S",
+        "GLASSCOCK LARRY C",
+        "CICCO MARTIN J",
+        "STEWART MARTA R",
+        "SMITH DANIEL C.",
+        "RODKIN GARY M",
+        "LEWIS RANDALL J",
+        "JONES NINA P",
+        "AEPPEL GLYN"
+      ],
+      "purchases": [
+        {
+          "date": "2026-06-30",
+          "shares": 187,
+          "price": 223.14,
+          "owners": [
+            "SELIG STEFAN M"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 33,
+          "price": 224.01,
+          "owners": [
+            "SELIG STEFAN M"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 80,
+          "price": 223.14,
+          "owners": [
+            "ROE PEGGY"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 6,
+          "price": 223.27,
+          "owners": [
+            "ROE PEGGY"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 3,
+          "price": 223.31,
+          "owners": [
+            "ROE PEGGY"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 430,
+          "price": 223.14,
+          "owners": [
+            "LEIBOWITZ REUBEN S"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 53,
+          "price": 225.03,
+          "owners": [
+            "LEIBOWITZ REUBEN S"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 25,
+          "price": 223.94,
+          "owners": [
+            "LEIBOWITZ REUBEN S"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 330,
+          "price": 223.14,
+          "owners": [
+            "GLASSCOCK LARRY C"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 54,
+          "price": 224.92,
+          "owners": [
+            "GLASSCOCK LARRY C"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 13,
+          "price": 223.1,
+          "owners": [
+            "GLASSCOCK LARRY C"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 13,
+          "price": 223.14,
+          "owners": [
+            "CICCO MARTIN J"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 2,
+          "price": 223.37,
+          "owners": [
+            "CICCO MARTIN J"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 179,
+          "price": 223.14,
+          "owners": [
+            "STEWART MARTA R"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 1,
+          "price": 224.1,
+          "owners": [
+            "STEWART MARTA R"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 2,
+          "price": 224.07,
+          "owners": [
+            "STEWART MARTA R"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 314,
+          "price": 223.14,
+          "owners": [
+            "SMITH DANIEL C."
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 47,
+          "price": 224.41,
+          "owners": [
+            "SMITH DANIEL C."
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 11,
+          "price": 223.32,
+          "owners": [
+            "SMITH DANIEL C."
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 209,
+          "price": 223.14,
+          "owners": [
+            "RODKIN GARY M"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 43,
+          "price": 224.31,
+          "owners": [
+            "RODKIN GARY M"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 4,
+          "price": 223.25,
+          "owners": [
+            "RODKIN GARY M"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 58,
+          "price": 223.14,
+          "owners": [
+            "LEWIS RANDALL J"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 4,
+          "price": 223.51,
+          "owners": [
+            "LEWIS RANDALL J"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 41,
+          "price": 223.14,
+          "owners": [
+            "JONES NINA P"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 2,
+          "price": 223.49,
+          "owners": [
+            "JONES NINA P"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 199,
+          "price": 223.14,
+          "owners": [
+            "AEPPEL GLYN"
+          ]
+        },
+        {
+          "date": "2026-06-30",
+          "shares": 44,
+          "price": 224.33,
+          "owners": [
+            "AEPPEL GLYN"
+          ]
+        }
+      ],
+      "count8k35": 0,
+      "rate35": 0.959,
+      "ratio": 0
+    },
+    {
+      "ticker": "IBKR",
+      "yahoo": "IBKR",
+      "name": "Interactive Brokers",
+      "sector": "Financials",
+      "cik": "0001381197",
+      "score": 5,
+      "buyCount": 1,
+      "buyers": [
+        "CONKLING LORI A"
+      ],
+      "purchases": [
+        {
+          "date": "2026-07-01",
+          "shares": 25,
+          "price": 88.03,
+          "owners": [
+            "CONKLING LORI A"
+          ]
+        }
+      ],
+      "count8k35": 3,
+      "rate35": 0.671,
+      "ratio": 3
+    },
+    {
+      "ticker": "ELV",
+      "yahoo": "ELV",
+      "name": "Elevance Health",
+      "sector": "Health Care",
+      "cik": "0001156039",
+      "score": 4.802,
+      "buyCount": 2,
+      "buyers": [
+        "PERU RAMIRO G",
+        "BOUDREAUX GAIL"
+      ],
+      "purchases": [
+        {
+          "date": "2026-07-17",
+          "shares": 1000,
+          "price": 366.05,
+          "owners": [
+            "PERU RAMIRO G"
+          ]
+        },
+        {
+          "date": "2026-07-17",
+          "shares": 680,
+          "price": 366.41,
+          "owners": [
+            "BOUDREAUX GAIL"
+          ]
+        },
+        {
+          "date": "2026-07-17",
+          "shares": 2045,
+          "price": 368.25,
+          "owners": [
+            "BOUDREAUX GAIL"
+          ]
+        }
+      ],
+      "count8k35": 1,
+      "rate35": 1.247,
+      "ratio": 0.802
+    },
+    {
+      "ticker": "NTRS",
+      "yahoo": "NTRS",
+      "name": "Northern Trust",
+      "sector": "Financials",
+      "cik": "0000073124",
+      "score": 3.159,
+      "buyCount": 1,
+      "buyers": [
+        "MORITZ ROBERT EDWARD JR."
+      ],
+      "purchases": [
+        {
+          "date": "2026-07-29",
+          "shares": 255,
+          "price": 179.57,
+          "owners": [
+            "MORITZ ROBERT EDWARD JR."
+          ]
+        }
+      ],
+      "count8k35": 1,
+      "rate35": 0.863,
+      "ratio": 1.159
+    },
+    {
+      "ticker": "JNJ",
+      "yahoo": "JNJ",
+      "name": "Johnson & Johnson",
+      "sector": "Health Care",
+      "cik": "0000200406",
+      "score": 3,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 3,
+      "rate35": 0.767,
+      "ratio": 3
+    },
+    {
+      "ticker": "SBAC",
+      "yahoo": "SBAC",
+      "name": "SBA Communications",
+      "sector": "Real Estate",
+      "cik": "0001034054",
+      "score": 3,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 3,
+      "rate35": 0.863,
+      "ratio": 3
+    },
+    {
+      "ticker": "CARR",
+      "yahoo": "CARR",
+      "name": "Carrier Global",
+      "sector": "Industrials",
+      "cik": "0001783180",
+      "score": 2.98,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 2,
+      "rate35": 0.671,
+      "ratio": 2.98
+    },
+    {
+      "ticker": "EME",
+      "yahoo": "EME",
+      "name": "Emcor",
+      "sector": "Industrials",
+      "cik": "0000105634",
+      "score": 2.98,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 2,
+      "rate35": 0.671,
+      "ratio": 2.98
+    },
+    {
+      "ticker": "HONA",
+      "yahoo": "HONA",
+      "name": "Honeywell Aerospace",
+      "sector": "Industrials",
+      "cik": "0002089271",
+      "score": 2.914,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 1,
+      "rate35": 0.343,
+      "ratio": 2.914
+    },
+    {
+      "ticker": "BEN",
+      "yahoo": "BEN",
+      "name": "Franklin Resources",
+      "sector": "Financials",
+      "cik": "0000038777",
+      "score": 2.844,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 3,
+      "rate35": 1.055,
+      "ratio": 2.844
+    },
+    {
+      "ticker": "GEHC",
+      "yahoo": "GEHC",
+      "name": "GE HealthCare",
+      "sector": "Health Care",
+      "cik": "0001932393",
+      "score": 2.844,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 3,
+      "rate35": 1.055,
+      "ratio": 2.844
+    },
+    {
+      "ticker": "ALGN",
+      "yahoo": "ALGN",
+      "name": "Align Technology",
+      "sector": "Health Care",
+      "cik": "0001097149",
+      "score": 2.607,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 3,
+      "rate35": 1.151,
+      "ratio": 2.607
+    },
+    {
+      "ticker": "APD",
+      "yahoo": "APD",
+      "name": "Air Products",
+      "sector": "Materials",
+      "cik": "0000002969",
+      "score": 2.607,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 2,
+      "rate35": 0.767,
+      "ratio": 2.607
+    },
+    {
+      "ticker": "CBOE",
+      "yahoo": "CBOE",
+      "name": "Cboe Global Markets",
+      "sector": "Financials",
+      "cik": "0001374310",
+      "score": 2.607,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 2,
+      "rate35": 0.767,
+      "ratio": 2.607
+    },
+    {
+      "ticker": "CFG",
+      "yahoo": "CFG",
+      "name": "Citizens Financial Group",
+      "sector": "Financials",
+      "cik": "0000759944",
+      "score": 2.607,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 3,
+      "rate35": 1.151,
+      "ratio": 2.607
+    },
+    {
+      "ticker": "CPRT",
+      "yahoo": "CPRT",
+      "name": "Copart",
+      "sector": "Industrials",
+      "cik": "0000900075",
+      "score": 2.607,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 2,
+      "rate35": 0.767,
+      "ratio": 2.607
+    },
+    {
+      "ticker": "EFX",
+      "yahoo": "EFX",
+      "name": "Equifax",
+      "sector": "Industrials",
+      "cik": "0000033185",
+      "score": 2.607,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 2,
+      "rate35": 0.767,
+      "ratio": 2.607
+    },
+    {
+      "ticker": "GL",
+      "yahoo": "GL",
+      "name": "Globe Life",
+      "sector": "Financials",
+      "cik": "0000320335",
+      "score": 2.607,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 2,
+      "rate35": 0.767,
+      "ratio": 2.607
+    },
+    {
+      "ticker": "EXE",
+      "yahoo": "EXE",
+      "name": "Expand Energy",
+      "sector": "Energy",
+      "cik": "0000895126",
+      "score": 2.407,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 3,
+      "rate35": 1.247,
+      "ratio": 2.407
+    },
+    {
+      "ticker": "HCA",
+      "yahoo": "HCA",
+      "name": "HCA Healthcare",
+      "sector": "Health Care",
+      "cik": "0000860730",
+      "score": 2.407,
+      "buyCount": 0,
+      "buyers": [],
+      "purchases": [],
+      "count8k35": 3,
+      "rate35": 1.247,
+      "ratio": 2.407
+    }
+  ]
+}

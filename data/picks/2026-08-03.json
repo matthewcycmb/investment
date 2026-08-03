@@ -1,0 +1,739 @@
+{
+  "date": "2026-08-03",
+  "candidateFile": "2026-08-03.json",
+  "horizonTradingDays": 10,
+  "eventKind": "mixed",
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "SPG"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": true,
+      "error": null,
+      "latencyMs": 27249,
+      "revised": true,
+      "usage": {
+        "inputTokens": 4591,
+        "inputTokenDetails": {
+          "noCacheTokens": 4591,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 1509,
+        "outputTokenDetails": {
+          "textTokens": 1232,
+          "reasoningTokens": 277
+        },
+        "totalTokens": 6100,
+        "raw": {
+          "input_tokens": 4591,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 0,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "output_tokens": 1509,
+          "service_tier": "standard",
+          "inference_geo": "global",
+          "output_tokens_details": {
+            "thinking_tokens": 277
+          }
+        },
+        "reasoningTokens": 277,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "ELV",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "CEO Gail Boudreaux bought 2,725 shares at ~$366-368 on 2026-07-17, plus director Peru 1,000 shares",
+            "Stock -9.7% over 1 month and -11.9% from 52w high",
+            "2 insider buyers in 35 days alongside an 8-K"
+          ],
+          "risk": "Managed-care insiders have repeatedly bought into further medical-cost-ratio deterioration; a fresh MLR guide-down would cut reported EPS regardless of insider conviction.",
+          "reasoning": "Sizeable CEO open-market purchase after a double-digit drawdown is the strongest earnings-quality signal here: management is buying with visibility on cost trend and reserve adequacy. Valuation is depressed versus its own history on a beaten-down earnings base."
+        },
+        {
+          "ticker": "CBOE",
+          "verdict": "SELL",
+          "confidence": 5,
+          "evidence": [
+            "+25.2% in one month, far outpacing its 3m gain of 3.4%",
+            "No insider open-market buying in 35 days",
+            "2 8-K filings in 35 days"
+          ],
+          "risk": "Exchange volumes are genuinely counter-cyclical and a volatility spike could keep transaction revenue and earnings beating, extending the move.",
+          "reasoning": "A 25% one-month re-rating in a low-growth, high-multiple exchange business outruns any plausible near-term revenue/margin change; multiple expansion, not earnings, drove it, and no insider is buying at these levels."
+        },
+        {
+          "ticker": "CARR",
+          "verdict": "SELL",
+          "confidence": 4,
+          "evidence": [
+            "-14.2% in one month and -18.7% from 52w high",
+            "2 8-K filings in 35 days with no offsetting insider purchases",
+            "3m return -8.0%"
+          ],
+          "risk": "After a 14% one-month derating the bad news may already be in the reported numbers, and a cheap multiple plus buyback could produce a snapback within 10 days.",
+          "reasoning": "Sharp one-month decline with 8-K activity and zero insider buying points to a guidance/margin problem in HVAC volumes; no one with cost-structure visibility is stepping in, which argues estimates still have to come down."
+        },
+        {
+          "ticker": "HCA",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "evidence": [
+            "3 8-K filings in 35 days but zero insider buyers",
+            "-26.1% from 52w high, -7.3% over 3 months",
+            "Last close 402.59, +2.4% over 1 month"
+          ],
+          "risk": "A large drawdown in a high-ROIC, heavily buyback-levered hospital operator can mean-revert fast if payer-mix and volume data stay firm.",
+          "reasoning": "Disclosure volume without any insider purchase gives no read on revenue, margin or leverage direction. Balance sheet is levered and policy-driven reimbursement risk is unquantifiable from the material provided, so no edge over SPY in 10 days."
+        },
+        {
+          "ticker": "SPG",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "evidence": [
+            "All 11 insider buyers transacted on the same date 2026-06-30, the bulk at the identical price $223.14",
+            "0 8-K filings in 35 days — no new disclosure altering reported earnings or guidance",
+            "Stock at 229.37, only -3.1% from its 52-week high after +12.6% in 3 months"
+          ],
+          "risk": "Eleven distinct insiders adding capital with zero adverse filings is an unusually broad vote of confidence in FFO durability, and such clusters have historically preceded outperformance.",
+          "reasoning": "The verification lens caught what my lens missed: uniform date and identical price point to a director fee-election/deferred-comp mechanic, not discretionary conviction — so it carries no earnings or accounting information. With no 8-K, there is no fundamental event to reprice, and the stock is already near its high, leaving no valuation gap versus history. Downgrade to HOLD."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 32529,
+      "revised": false,
+      "usage": {
+        "inputTokens": 3169,
+        "inputTokenDetails": {
+          "noCacheTokens": 3,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 3166
+        },
+        "outputTokens": 1997,
+        "outputTokenDetails": {
+          "textTokens": 711,
+          "reasoningTokens": 1286
+        },
+        "totalTokens": 5166,
+        "raw": {
+          "input_tokens": 3169,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 3166
+          },
+          "output_tokens": 1997,
+          "output_tokens_details": {
+            "reasoning_tokens": 1286
+          }
+        },
+        "reasoningTokens": 1286,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "IBKR",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "One insider bought 25 shares at $88.03 on 2026-07-01.",
+            "The last close was $87.99.",
+            "IBKR fell 5.6% over one month but gained 10.7% over three months."
+          ],
+          "risk": "Trading near the insider's purchase price after a monthly decline could support a rebound.",
+          "reasoning": "The purchase was only 25 shares and occurred a month ago, so it is weak evidence of price-driving conviction. Three 8-K filings lack disclosed content or direction."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "Two insiders bought a combined 3,725 shares on 2026-07-17 at prices from $366.05 to $368.25.",
+            "The last close was $375.84.",
+            "ELV declined 9.7% over one month and was 11.9% below its 52-week high."
+          ],
+          "risk": "The 9.7% monthly decline may reflect persistent negative forces that insider purchases cannot reverse within 10 sessions.",
+          "reasoning": "The large, recent purchases by two insiders provide the strongest conviction signal in the list. The stock remains depressed and only modestly above their purchase prices, reducing the concern that the signal is fully priced."
+        },
+        {
+          "ticker": "NTRS",
+          "verdict": "BUY",
+          "confidence": 5,
+          "evidence": [
+            "One insider bought 255 shares at $179.57 on 2026-07-29.",
+            "The last close was $182.19.",
+            "NTRS gained 3.8% over one month and was 4.7% below its 52-week high."
+          ],
+          "risk": "The single purchase is modest, while recent gains and proximity to the 52-week high may mean the bullish case is already priced.",
+          "reasoning": "The insider purchase is very recent and the price has moved only modestly above it, making the timing relevant to the 10-day window. Conviction is limited because only one buyer and 255 shares are involved."
+        },
+        {
+          "ticker": "JNJ",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "No insider open-market purchases were reported.",
+            "JNJ had three 8-K filings in 35 days.",
+            "The stock gained 11.5% over three months and was 4.1% below its 52-week high."
+          ],
+          "risk": "The strong three-month trend could continue and produce near-term outperformance.",
+          "reasoning": "The 8-K count provides no directional content, and there is no insider-buying confirmation. Recent appreciation also makes it unclear whether any favorable information is already reflected in the price."
+        },
+        {
+          "ticker": "SPG",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Eleven insiders purchased shares on 2026-06-30, mostly near $223.14.",
+            "The last close was $229.37, above the disclosed purchase prices.",
+            "SPG was 3.1% below its 52-week high and had gained 12.6% over three months."
+          ],
+          "risk": "The unusually broad buying cluster and positive momentum could still support near-term outperformance.",
+          "reasoning": "I retain HOLD. Breadth is bullish, but every purchase occurred over a month earlier and the stock has already risen above the clustered prices. Identical timing weakens independent-signal value; zero 8-K filings supplies no fresh catalyst."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 138744,
+      "revised": false,
+      "usage": {
+        "inputTokens": 3932,
+        "inputTokenDetails": {
+          "noCacheTokens": 3932,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 7386,
+        "outputTokenDetails": {
+          "textTokens": 1130,
+          "reasoningTokens": 6256
+        },
+        "totalTokens": 11318,
+        "raw": {
+          "prompt_tokens": 3932,
+          "completion_tokens": 7386,
+          "total_tokens": 11318,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 6256
+          }
+        },
+        "reasoningTokens": 6256,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "IBKR",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "Only 1 insider bought (25 shares at $88.03) while stock fell -5.6% over 1 month",
+            "3 8-K filings in 35 days with only 1 buyer yields a high disclosure-to-buying ratio of 3",
+            "Stock is -9.7% from 52-week high with negative recent momentum"
+          ],
+          "risk": "As a brokerage with significant international and Asia-Pacific operations, any US-China financial decoupling or capital flow restrictions could disproportionately impact IBKR's cross-border revenue",
+          "reasoning": "Minimal insider conviction (25 shares) against 3 regulatory filings is bearish. IBKR has meaningful Hong Kong/China trading exposure making it vulnerable to capital controls or sanctions escalation in the current policy environment."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "CEO Boudreaux bought 2,725 shares and Peru bought 1,000 shares on 2026-07-17 at ~$366-368",
+            "Stock down -9.7% in 1 month and -11.9% from 52-week high, suggesting insiders buying a dip",
+            "Only 1 8-K filing in 35 days indicates no major adverse corporate developments"
+          ],
+          "risk": "Healthcare sector faces ongoing policy uncertainty around Medicare Advantage rates; stock's -9.7% monthly decline may reflect sector-wide headwinds that persist beyond 10 days",
+          "reasoning": "CEO and another insider buying heavily into a -10% monthly drawdown is a strong contrarian signal. Minimal China/HK exposure. Domestic healthcare is insulated from trade policy. Insiders buying near $366-368 vs current $375 shows conviction."
+        },
+        {
+          "ticker": "NTRS",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Single insider bought 255 shares at $179.57 on 2026-07-29, just 2 days before last close",
+            "Stock up +3.8% in 1 month and +9.5% in 3 months, already reflecting positive momentum",
+            "1 8-K filing with 1 buyer yields a neutral ratio of 1.159"
+          ],
+          "risk": "Purchase is very small (255 shares) and extremely recent, providing insufficient signal; stock already near 52-week high (-4.7%) with limited upside catalyst in 10 days",
+          "reasoning": "One small insider purchase is insufficient to drive conviction either way. Stock has run up already. Northern Trust has minimal China exposure. No clear edge for a 10-day trade."
+        },
+        {
+          "ticker": "JNJ",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "evidence": [
+            "Zero insider buyers in 35 days despite 3 8-K filings",
+            "Stock up +11.5% over 3 months and only -4.1% from 52-week high",
+            "Screen score of 3 driven entirely by disclosure volume, not insider conviction"
+          ],
+          "risk": "3 8-K filings with zero insider buying could signal insiders are aware of upcoming challenges; JNJ's China pharmaceutical supply chain exposure creates regulatory risk",
+          "reasoning": "No insider buying removes the primary bullish signal from the screen. JNJ has moderate China API supply chain exposure. Stock near highs with no fresh catalyst. HOLD is the honest answer."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": false,
+      "error": "timed out after 330s (Kimi K2.5)",
+      "latencyMs": 330001,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "CARR",
+      "action": "SELL",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 1,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 4,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 4,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.36,
+          "evidence": [
+            "-14.2% in one month and -18.7% from 52w high",
+            "2 8-K filings in 35 days with no offsetting insider purchases",
+            "3m return -8.0%"
+          ],
+          "risk": "After a 14% one-month derating the bad news may already be in the reported numbers, and a cheap multiple plus buyback could produce a snapback within 10 days.",
+          "reasoning": "Sharp one-month decline with 8-K activity and zero insider buying points to a guidance/margin problem in HVAC volumes; no one with cost-structure visibility is stepping in, which argues estimates still have to come down.",
+          "revised": true
+        }
+      ]
+    },
+    {
+      "ticker": "CBOE",
+      "action": "SELL",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 1,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 5,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "SELL",
+          "confidence": 5,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.45,
+          "evidence": [
+            "+25.2% in one month, far outpacing its 3m gain of 3.4%",
+            "No insider open-market buying in 35 days",
+            "2 8-K filings in 35 days"
+          ],
+          "risk": "Exchange volumes are genuinely counter-cyclical and a volatility spike could keep transaction revenue and earnings beating, extending the move.",
+          "reasoning": "A 25% one-month re-rating in a low-growth, high-multiple exchange business outruns any plausible near-term revenue/margin change; multiple expansion, not earnings, drove it, and no insider is buying at these levels.",
+          "revised": true
+        }
+      ]
+    },
+    {
+      "ticker": "ELV",
+      "action": "BUY",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 1,
+        "SELL": 0,
+        "HOLD": 0
+      },
+      "votes": 3,
+      "meanConfidence": 6.67,
+      "invest": true,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.6,
+          "evidence": [
+            "CEO Gail Boudreaux bought 2,725 shares at ~$366-368 on 2026-07-17, plus director Peru 1,000 shares",
+            "Stock -9.7% over 1 month and -11.9% from 52w high",
+            "2 insider buyers in 35 days alongside an 8-K"
+          ],
+          "risk": "Managed-care insiders have repeatedly bought into further medical-cost-ratio deterioration; a fresh MLR guide-down would cut reported EPS regardless of insider conviction.",
+          "reasoning": "Sizeable CEO open-market purchase after a double-digit drawdown is the strongest earnings-quality signal here: management is buying with visibility on cost trend and reserve adequacy. Valuation is depressed versus its own history on a beaten-down earnings base.",
+          "revised": true
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.7,
+          "evidence": [
+            "Two insiders bought a combined 3,725 shares on 2026-07-17 at prices from $366.05 to $368.25.",
+            "The last close was $375.84.",
+            "ELV declined 9.7% over one month and was 11.9% below its 52-week high."
+          ],
+          "risk": "The 9.7% monthly decline may reflect persistent negative forces that insider purchases cannot reverse within 10 sessions.",
+          "reasoning": "The large, recent purchases by two insiders provide the strongest conviction signal in the list. The stock remains depressed and only modestly above their purchase prices, reducing the concern that the signal is fully priced.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.7,
+          "evidence": [
+            "CEO Boudreaux bought 2,725 shares and Peru bought 1,000 shares on 2026-07-17 at ~$366-368",
+            "Stock down -9.7% in 1 month and -11.9% from 52-week high, suggesting insiders buying a dip",
+            "Only 1 8-K filing in 35 days indicates no major adverse corporate developments"
+          ],
+          "risk": "Healthcare sector faces ongoing policy uncertainty around Medicare Advantage rates; stock's -9.7% monthly decline may reflect sector-wide headwinds that persist beyond 10 days",
+          "reasoning": "CEO and another insider buying heavily into a -10% monthly drawdown is a strong contrarian signal. Minimal China/HK exposure. Domestic healthcare is insulated from trade policy. Insiders buying near $366-368 vs current $375 shows conviction.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "HCA",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 1,
+      "meanConfidence": 3,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 3,
+          "verified": 0.5,
+          "relevance": 1.2,
+          "weight": 0.27,
+          "evidence": [
+            "3 8-K filings in 35 days but zero insider buyers",
+            "-26.1% from 52w high, -7.3% over 3 months",
+            "Last close 402.59, +2.4% over 1 month"
+          ],
+          "risk": "A large drawdown in a high-ROIC, heavily buyback-levered hospital operator can mean-revert fast if payer-mix and volume data stay firm.",
+          "reasoning": "Disclosure volume without any insider purchase gives no read on revenue, margin or leverage direction. Balance sheet is levered and policy-driven reimbursement risk is unquantifiable from the material provided, so no edge over SPY in 10 days.",
+          "revised": true
+        }
+      ]
+    },
+    {
+      "ticker": "JNJ",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 2,
+      "meanConfidence": 6.5,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.8,
+          "evidence": [
+            "No insider open-market purchases were reported.",
+            "JNJ had three 8-K filings in 35 days.",
+            "The stock gained 11.5% over three months and was 4.1% below its 52-week high."
+          ],
+          "risk": "The strong three-month trend could continue and produce near-term outperformance.",
+          "reasoning": "The 8-K count provides no directional content, and there is no insider-buying confirmation. Recent appreciation also makes it unclear whether any favorable information is already reflected in the price.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.5,
+          "evidence": [
+            "Zero insider buyers in 35 days despite 3 8-K filings",
+            "Stock up +11.5% over 3 months and only -4.1% from 52-week high",
+            "Screen score of 3 driven entirely by disclosure volume, not insider conviction"
+          ],
+          "risk": "3 8-K filings with zero insider buying could signal insiders are aware of upcoming challenges; JNJ's China pharmaceutical supply chain exposure creates regulatory risk",
+          "reasoning": "No insider buying removes the primary bullish signal from the screen. JNJ has moderate China API supply chain exposure. Stock near highs with no fresh catalyst. HOLD is the honest answer.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "SPG",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 2,
+      "meanConfidence": 6.5,
+      "invest": false,
+      "panel": 3,
+      "debated": true,
+      "opinions": [
+        {
+          "arm": "A",
+          "name": "Claude Opus 5",
+          "roleTitle": "The Analyst",
+          "specialty": "Fundamentals, accounting, valuation and earnings impact",
+          "verdict": "HOLD",
+          "confidence": 6,
+          "verified": 0.33,
+          "relevance": 1.2,
+          "weight": 0.48,
+          "evidence": [
+            "All 11 insider buyers transacted on the same date 2026-06-30, the bulk at the identical price $223.14",
+            "0 8-K filings in 35 days — no new disclosure altering reported earnings or guidance",
+            "Stock at 229.37, only -3.1% from its 52-week high after +12.6% in 3 months"
+          ],
+          "risk": "Eleven distinct insiders adding capital with zero adverse filings is an unusually broad vote of confidence in FFO durability, and such clusters have historically preceded outperformance.",
+          "reasoning": "The verification lens caught what my lens missed: uniform date and identical price point to a director fee-election/deferred-comp mechanic, not discretionary conviction — so it carries no earnings or accounting information. With no 8-K, there is no fundamental event to reprice, and the stock is already near its high, leaving no valuation gap versus history. Downgrade to HOLD.",
+          "revised": true
+        },
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.33,
+          "relevance": 1.2,
+          "weight": 0.56,
+          "evidence": [
+            "Eleven insiders purchased shares on 2026-06-30, mostly near $223.14.",
+            "The last close was $229.37, above the disclosed purchase prices.",
+            "SPG was 3.1% below its 52-week high and had gained 12.6% over three months."
+          ],
+          "risk": "The unusually broad buying cluster and positive momentum could still support near-term outperformance.",
+          "reasoning": "I retain HOLD. Breadth is bullish, but every purchase occurred over a month earlier and the stock has already risen above the clustered prices. Identical timing weakens independent-signal value; zero 8-K filings supplies no fresh catalyst.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "IBKR",
+      "action": "HOLD",
+      "agreement": 0.593,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0.407,
+        "HOLD": 0.593
+      },
+      "votes": 1,
+      "meanConfidence": 6.5,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.7,
+          "evidence": [
+            "One insider bought 25 shares at $88.03 on 2026-07-01.",
+            "The last close was $87.99.",
+            "IBKR fell 5.6% over one month but gained 10.7% over three months."
+          ],
+          "risk": "Trading near the insider's purchase price after a monthly decline could support a rebound.",
+          "reasoning": "The purchase was only 25 shares and occurred a month ago, so it is weak evidence of price-driving conviction. Three 8-K filings lack disclosed content or direction.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.33,
+          "relevance": 1.2,
+          "weight": 0.48,
+          "evidence": [
+            "Only 1 insider bought (25 shares at $88.03) while stock fell -5.6% over 1 month",
+            "3 8-K filings in 35 days with only 1 buyer yields a high disclosure-to-buying ratio of 3",
+            "Stock is -9.7% from 52-week high with negative recent momentum"
+          ],
+          "risk": "As a brokerage with significant international and Asia-Pacific operations, any US-China financial decoupling or capital flow restrictions could disproportionately impact IBKR's cross-border revenue",
+          "reasoning": "Minimal insider conviction (25 shares) against 3 regulatory filings is bearish. IBKR has meaningful Hong Kong/China trading exposure making it vulnerable to capital controls or sanctions escalation in the current policy environment.",
+          "revised": false
+        }
+      ]
+    },
+    {
+      "ticker": "NTRS",
+      "action": "BUY",
+      "agreement": 0.556,
+      "weightedShare": {
+        "BUY": 0.556,
+        "SELL": 0,
+        "HOLD": 0.444
+      },
+      "votes": 1,
+      "meanConfidence": 5,
+      "invest": false,
+      "panel": 3,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "BUY",
+          "confidence": 5,
+          "verified": 0.67,
+          "relevance": 1.2,
+          "weight": 0.5,
+          "evidence": [
+            "One insider bought 255 shares at $179.57 on 2026-07-29.",
+            "The last close was $182.19.",
+            "NTRS gained 3.8% over one month and was 4.7% below its 52-week high."
+          ],
+          "risk": "The single purchase is modest, while recent gains and proximity to the 52-week high may mean the bullish case is already priced.",
+          "reasoning": "The insider purchase is very recent and the price has moved only modestly above it, making the timing relevant to the 10-day window. Conviction is limited because only one buyer and 255 shares are involved.",
+          "revised": false
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 5,
+          "verified": 0.33,
+          "relevance": 1.2,
+          "weight": 0.4,
+          "evidence": [
+            "Single insider bought 255 shares at $179.57 on 2026-07-29, just 2 days before last close",
+            "Stock up +3.8% in 1 month and +9.5% in 3 months, already reflecting positive momentum",
+            "1 8-K filing with 1 buyer yields a neutral ratio of 1.159"
+          ],
+          "risk": "Purchase is very small (255 shares) and extremely recent, providing insufficient signal; stock already near 52-week high (-4.7%) with limited upside catalyst in 10 days",
+          "reasoning": "One small insider purchase is insufficient to drive conviction either way. Stock has run up already. Northern Trust has minimal China exposure. No clear edge for a 10-day trade.",
+          "revised": false
+        }
+      ]
+    }
+  ],
+  "council": [
+    {
+      "ticker": "ELV",
+      "rank": 1,
+      "votes": 3,
+      "agreement": 1,
+      "meanConfidence": 6.67
+    }
+  ],
+  "exploratory": {
+    "disagreementRate": 0.333,
+    "armsLive": 3
+  }
+}
