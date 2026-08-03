@@ -1,6 +1,102 @@
 {
   "events": [
     {
+      "id": "shock:CBOE:2026-08-03",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "shock",
+      "title": "CBOE moved -4.1% on 2026-08-03· no reported cause",
+      "tickers": [
+        "CBOE"
+      ],
+      "detail": "close 310.23 → 297.42"
+    },
+    {
+      "id": "headline:GEHC:GE HealthCare Technologies (GEHC) Is Up 17.1% After Raising ",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "headline",
+      "title": "GE HealthCare Technologies (GEHC) Is Up 17.1% After Raising EPS Guidance And Reporting Record Backlog – Has The Bull Case Changed?",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-ge-healthcare-gehc-stock-120502820.html?.tsrc=rss",
+      "tickers": [
+        "GEHC"
+      ],
+      "detail": "GEHC · matched \"guidance\""
+    },
+    {
+      "id": "shock:BEN:2026-08-03",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "shock",
+      "title": "BEN moved +3.6% on 2026-08-03· possible cause: Franklin Q3 Earnings Beat on Higher Revenues, AUM Hits Record High",
+      "tickers": [
+        "BEN"
+      ],
+      "detail": "close 33.86 → 35.10"
+    },
+    {
+      "id": "headline:BEN:Franklin Q3 Earnings Beat on Higher Revenues, AUM Hits Recor",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "headline",
+      "title": "Franklin Q3 Earnings Beat on Higher Revenues, AUM Hits Record High",
+      "url": "https://www.marketbeat.com/instant-alerts/franklin-resources-q3-earnings-call-highlights-2026-07-31/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "tickers": [
+        "BEN"
+      ],
+      "detail": "BEN · matched \"earnings beat\""
+    },
+    {
+      "id": "shock:HONA:2026-08-03",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "shock",
+      "title": "HONA moved -3.1% on 2026-08-03· possible cause: Why Honeywell Tech’s Earnings Beat Is Weighing on Aerospace Shares | Why Honeywell Tech’s Earnings Beat Is Weighing on Aerospace Shares",
+      "tickers": [
+        "HONA"
+      ],
+      "detail": "close 206.74 → 200.34"
+    },
+    {
+      "id": "filing:ECHO:0001415404",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "filing",
+      "title": "EchoStar: Bankruptcy or Receivership; Triggering Events That Accelerate or Increase a Direct Financial Obligation or an Obligation under an Off-Balance Sheet Arrangement; Departure of Directors or Certain Officers; Election of Dir",
+      "url": "https://www.sec.gov/Archives/edgar/data/1415404/000141540426000038/0001415404-26-000038-index.htm",
+      "tickers": [
+        "ECHO"
+      ],
+      "detail": "ECHO · Communication Services · SEC 8-K item 1.03, 2.04, 5.02"
+    },
+    {
+      "id": "filing:MAR:0001048286",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "filing",
+      "title": "Marriott International: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/1048286/000104828626000033/0001048286-26-000033-index.htm",
+      "tickers": [
+        "MAR"
+      ],
+      "detail": "MAR · Consumer Discretionary · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:TSN:0000100493",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "filing",
+      "title": "Tyson Foods: Results of Operations and Financial Condition",
+      "url": "https://www.sec.gov/Archives/edgar/data/100493/000010049326000057/0000100493-26-000057-index.htm",
+      "tickers": [
+        "TSN"
+      ],
+      "detail": "TSN · Consumer Staples · SEC 8-K item 2.02"
+    },
+    {
+      "id": "filing:GWW:0000277135",
+      "ts": "2026-08-03T15:41:03.285Z",
+      "source": "filing",
+      "title": "W. W. Grainger: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
+      "url": "https://www.sec.gov/Archives/edgar/data/277135/000110465926089478/0001104659-26-089478-index.htm",
+      "tickers": [
+        "GWW"
+      ],
+      "detail": "GWW · Industrials · SEC 8-K item 5.02"
+    },
+    {
       "id": "headline:NTRS:NTRS Q2 Earnings Beat on Higher NII & AUM Growth, Dividend R",
       "ts": "2026-08-03T07:57:22.057Z",
       "source": "headline",
@@ -5690,103 +5786,6 @@
         "UDR"
       ],
       "detail": "UDR · Real Estate · SEC 8-K item 2.02"
-    },
-    {
-      "id": "filing:GS:0000886982",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Goldman Sachs: Material Modifications to Rights of Security Holders; Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
-      "url": "https://www.sec.gov/Archives/edgar/data/886982/000119312526318147/0001193125-26-318147-index.htm",
-      "tickers": [
-        "GS"
-      ],
-      "detail": "GS · Financials · SEC 8-K item 3.03, 5.03"
-    },
-    {
-      "id": "filing:AES:0000874761",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "AES Corporation: Changes in Registrant's Certifying Accountant",
-      "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000138/0000874761-26-000138-index.htm",
-      "tickers": [
-        "AES"
-      ],
-      "detail": "AES · Utilities · SEC 8-K item 4.01"
-    },
-    {
-      "id": "filing:KHC:0001637459",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Kraft Heinz: Amendments to Articles of Incorporation or Bylaws; Change in Fiscal Year",
-      "url": "https://www.sec.gov/Archives/edgar/data/1637459/000163745926000047/0001637459-26-000047-index.htm",
-      "tickers": [
-        "KHC"
-      ],
-      "detail": "KHC · Consumer Staples · SEC 8-K item 5.03"
-    },
-    {
-      "id": "filing:NUE:0000073309",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Nucor: Results of Operations and Financial Condition",
-      "url": "https://www.sec.gov/Archives/edgar/data/73309/000119312526318190/0001193125-26-318190-index.htm",
-      "tickers": [
-        "NUE"
-      ],
-      "detail": "NUE · Materials · SEC 8-K item 2.02"
-    },
-    {
-      "id": "filing:BRO:0000079282",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Brown & Brown: Results of Operations and Financial Condition",
-      "url": "https://www.sec.gov/Archives/edgar/data/79282/000119312526318245/0001193125-26-318245-index.htm",
-      "tickers": [
-        "BRO"
-      ],
-      "detail": "BRO · Financials · SEC 8-K item 2.02"
-    },
-    {
-      "id": "filing:HAS:0000046080",
-      "ts": "2026-07-27T23:41:50.054Z",
-      "source": "filing",
-      "title": "Hasbro: Departure of Directors or Certain Officers; Election of Directors; Appointment of Certain Officers: Compensatory Arrangements of Certain Officers",
-      "url": "https://www.sec.gov/Archives/edgar/data/46080/000004608026000047/0000046080-26-000047-index.htm",
-      "tickers": [
-        "HAS"
-      ],
-      "detail": "HAS · Consumer Discretionary · SEC 8-K item 5.02"
-    },
-    {
-      "id": "shock:ACN:2026-07-27",
-      "ts": "2026-07-27T14:30:44.346Z",
-      "source": "shock",
-      "title": "ACN moved +4.2% on 2026-07-27",
-      "tickers": [
-        "ACN"
-      ],
-      "detail": "close 146.99 → 153.17"
-    },
-    {
-      "id": "headline:JPM:JPMorgan and Goldman Posted Record Quarters — Their Own CEOs",
-      "ts": "2026-07-27T14:30:44.346Z",
-      "source": "headline",
-      "title": "JPMorgan and Goldman Posted Record Quarters — Their Own CEOs Aren’t Sure It Lasts",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/invested-1000-jpmorgan-chase-co-123002913.html?.tsrc=rss",
-      "tickers": [
-        "JPM"
-      ],
-      "detail": "JPM · matched \"ceo\""
-    },
-    {
-      "id": "shock:FDXF:2026-07-27",
-      "ts": "2026-07-27T14:22:15.717Z",
-      "source": "shock",
-      "title": "FDXF moved -3.8% on 2026-07-27",
-      "tickers": [
-        "FDXF"
-      ],
-      "detail": "close 158.00 → 152.04"
     }
   ]
 }

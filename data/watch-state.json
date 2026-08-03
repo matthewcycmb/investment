@@ -264,13 +264,22 @@
     "headline:EXE:Expand Energy Announces $1.25 Billion Twin Eagle Acquisition",
     "headline:ICE:ICE Q2 Earnings Beat on Data Growth and Mortgage Strength",
     "headline:ELV:Elevance Health’s CEO started her career as a pro basketball",
-    "headline:NTRS:NTRS Q2 Earnings Beat on Higher NII & AUM Growth, Dividend R"
+    "headline:NTRS:NTRS Q2 Earnings Beat on Higher NII & AUM Growth, Dividend R",
+    "filing:GWW:0000277135",
+    "filing:TSN:0000100493",
+    "filing:MAR:0001048286",
+    "filing:ECHO:0001415404",
+    "shock:HONA:2026-08-03",
+    "headline:BEN:Franklin Q3 Earnings Beat on Higher Revenues, AUM Hits Recor",
+    "shock:BEN:2026-08-03",
+    "headline:GEHC:GE HealthCare Technologies (GEHC) Is Up 17.1% After Raising ",
+    "shock:CBOE:2026-08-03"
   ],
   "councilRuns": {
     "2026-07-30": 5,
     "2026-07-31": 5,
     "2026-08-01": 2,
-    "2026-08-03": 2
+    "2026-08-03": 3
   },
-  "cursor": 30
+  "cursor": 21
 }
