@@ -1,0 +1,537 @@
+{
+  "date": "2026-08-03",
+  "ts": "2026-08-03T07:57:22.057Z",
+  "study": false,
+  "eventKind": "headline",
+  "fallback": false,
+  "horizonTradingDays": 5,
+  "trigger": [
+    {
+      "source": "headline",
+      "title": "Globe Life (GL) Is Down 6.1% After Raising 2026 Earnings Guidance And Expanding Buybacks – Has The Bull Case Changed?",
+      "url": "https://www.trefis.com/articles/608766/howmet-aerospace-stock-and-the-sound-of-one-hand-clapping/2026-07-24?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "Expand Energy Announces $1.25 Billion Twin Eagle Acquisition Deal",
+      "url": "https://finance.yahoo.com/energy/articles/sector-energy-stocks-fall-afternoon-193653763.html?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "ICE Q2 Earnings Beat on Data Growth and Mortgage Strength",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/top-midday-stories-microsoft-shares-154633721.html?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "Elevance Health’s CEO started her career as a pro basketball player. Now she’s the highest‑ranking woman on the Global 500, leading a $199B giant",
+      "url": "https://finance.yahoo.com/healthcare/articles/teladoc-health-q2-earnings-beat-163300800.html?.tsrc=rss"
+    },
+    {
+      "source": "headline",
+      "title": "NTRS Q2 Earnings Beat on Higher NII & AUM Growth, Dividend Raised",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-northern-trust-corporation-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss"
+    }
+  ],
+  "rubric": {
+    "steps": [
+      "verify evidence",
+      "weight votes",
+      "measure agreement",
+      "investigate credible disagreement"
+    ],
+    "actMinAgreement": 0.6,
+    "actMinVotes": 2
+  },
+  "debatedTickers": [
+    "EXE",
+    "NTRS",
+    "GL",
+    "ICE"
+  ],
+  "specialists": [
+    {
+      "id": "A",
+      "model": "anthropic/claude-opus-5",
+      "name": "Claude Opus 5",
+      "specialty": "Fundamentals, accounting, valuation and earnings impact",
+      "ok": false,
+      "error": "[\n  {\n    \"origin\": \"array\",\n    \"code\": \"too_big\",\n    \"maximum\": 3,\n    \"inclusive\": true,\n    \"path\": [\n      \"findings\",\n      4,\n      \"evidence\"\n    ],\n    \"message\": \"Too big: expected array to have <=3 items\"\n  }\n]",
+      "latencyMs": 37752,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    },
+    {
+      "id": "B",
+      "model": "openai/gpt-5.6-sol",
+      "name": "ChatGPT 5.6 Sol",
+      "specialty": "Evidence verification and causal reasoning",
+      "ok": true,
+      "error": null,
+      "latencyMs": 30719,
+      "revised": false,
+      "usage": {
+        "inputTokens": 676,
+        "inputTokenDetails": {
+          "noCacheTokens": 676,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 983,
+        "outputTokenDetails": {
+          "textTokens": 678,
+          "reasoningTokens": 305
+        },
+        "totalTokens": 1659,
+        "raw": {
+          "input_tokens": 676,
+          "input_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          },
+          "output_tokens": 983,
+          "output_tokens_details": {
+            "reasoning_tokens": 305
+          }
+        },
+        "reasoningTokens": 305,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "GL",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "evidence": [
+            "Globe Life raised 2026 earnings guidance and expanded buybacks.",
+            "The event headline says shares fell 6.1% despite those actions.",
+            "The supplied latest price is 182.25, with a 1-day move of -0.4%."
+          ],
+          "risk": "The guidance increase and expanded buybacks could drive a sharp rebound once the initial selling subsides.",
+          "reasoning": "The catalysts are bullish, but the adverse reaction means the material does not verify that they will drive near-term outperformance. The conflicting decline figures also make timing and whether the news is already priced unclear."
+        },
+        {
+          "ticker": "EXE",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "Expand Energy announced a $1.25 billion Twin Eagle acquisition deal.",
+            "The supplied latest price is 94.03, up 1.7% over one day."
+          ],
+          "risk": "The positive one-day reaction may signal that investors expect the acquisition to create meaningful value, supporting further gains.",
+          "reasoning": "Deal size alone does not establish accretion, financing impact, synergies, or valuation. The 1.7% rise suggests some optimism is already reflected, leaving no verified five-day edge."
+        },
+        {
+          "ticker": "ICE",
+          "verdict": "SELL",
+          "confidence": 6,
+          "evidence": [
+            "ICE's second-quarter earnings beat expectations.",
+            "The headline attributes strength to data growth and mortgage operations.",
+            "The supplied latest price is 152.48, down 2.4% over one day."
+          ],
+          "risk": "The earnings beat and growth in data and mortgage operations could prompt a rebound and relative outperformance after the initial decline.",
+          "reasoning": "The stock fell 2.4% despite an earnings beat, indicating the reported strengths were likely expected or outweighed by concerns absent from the headline. That negative event response is the clearest short-term signal, though evidence is limited."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "evidence": [
+            "The Elevance Health headline profiles the CEO's career path from professional basketball to becoming the highest-ranking woman on the Global 5.",
+            "The supplied latest price is 375.84, down 0.1% over one day."
+          ],
+          "risk": "The executive-profile attention could improve sentiment, while an unrelated unreported development could move the shares materially.",
+          "reasoning": "The material contains no earnings, guidance, capital-allocation, regulatory, or operating catalyst linking the profile to ELV's price. It provides no basis for forecasting relative performance over five sessions."
+        },
+        {
+          "ticker": "NTRS",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "evidence": [
+            "Northern Trust's second-quarter earnings beat expectations.",
+            "The headline cites higher net interest income and assets-under-management growth.",
+            "Northern Trust raised its dividend according to the headline entry, which states “Dividend Raised.”"
+          ],
+          "risk": "The combination of an earnings beat, higher net interest income, AUM growth, and a dividend increase could produce delayed bullish repricing.",
+          "reasoning": "Several fundamentals are positive, but the supplied one-day move is -0.2%, suggesting little incremental surprise or that benefits were priced in. With no size of the beat, outlook, or dividend increase, a five-day edge is not verified."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "model": "alibaba/qwen3.7-max",
+      "name": "Qwen 3.7 Max",
+      "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+      "ok": true,
+      "error": null,
+      "latencyMs": 78097,
+      "revised": false,
+      "usage": {
+        "inputTokens": 858,
+        "inputTokenDetails": {
+          "noCacheTokens": 858,
+          "cacheReadTokens": 0,
+          "cacheWriteTokens": 0
+        },
+        "outputTokens": 3869,
+        "outputTokenDetails": {
+          "textTokens": 977,
+          "reasoningTokens": 2892
+        },
+        "totalTokens": 4727,
+        "raw": {
+          "prompt_tokens": 858,
+          "completion_tokens": 3869,
+          "total_tokens": 4727,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 2892
+          }
+        },
+        "reasoningTokens": 2892,
+        "cachedInputTokens": 0
+      },
+      "findings": [
+        {
+          "ticker": "GL",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "Globe Life raised 2026 earnings guidance",
+            "Globe Life expanded its buyback program",
+            "GL stock is down 6.1% despite these positive announcements"
+          ],
+          "risk": "The 6.1% decline despite guidance raise and buyback expansion suggests the market may be skeptical of sustainability or pricing in undisclosed concerns, creating potential for further downside.",
+          "reasoning": "GL dropped 6.1% on what is ostensibly positive news (raised guidance + expanded buybacks). This disconnect likely reflects short-term overreaction or profit-taking. Over 5 sessions, the fundamental positives should reassert as the market digests the guidance raise and capital return expansion. Entry on weakness offers favorable risk/reward vs SPY."
+        },
+        {
+          "ticker": "EXE",
+          "verdict": "BUY",
+          "confidence": 6,
+          "evidence": [
+            "Expand Energy announced a $1.25 billion Twin Eagle acquisition deal",
+            "EXE stock was up 1.7% on the day of the announcement"
+          ],
+          "risk": "The $1.25B acquisition carries integration risk and potential overpayment concerns; the market's muted 1.7% response suggests limited enthusiasm, and deal-related uncertainty could weigh over the 5-day window.",
+          "reasoning": "The Twin Eagle acquisition signals strategic expansion and scale-building in energy infrastructure. The modest 1.7% pop suggests the deal hasn't been fully priced in. Over 5 sessions, analyst coverage and deal rationale digestion should provide upward momentum. However, acquisition integration uncertainty caps conviction."
+        },
+        {
+          "ticker": "ICE",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "ICE Q2 earnings beat expectations",
+            "Earnings beat driven by data growth and mortgage strength",
+            "ICE stock is down 2.4% despite the earnings beat"
+          ],
+          "risk": "The 2.4% post-earnings decline despite a beat suggests sell-the-news dynamics or forward guidance disappointment not captured in headlines, risking further drift lower over 5 sessions.",
+          "reasoning": "ICE beat on two durable growth drivers—data and mortgage—yet fell 2.4%, a classic sell-the-news overreaction. Over 5 sessions, institutional repositioning toward the fundamental beat should close the gap. The dual revenue drivers (data secular growth + mortgage cyclical recovery) provide a strong earnings narrative vs SPY."
+        },
+        {
+          "ticker": "ELV",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "evidence": [
+            "Elevance Health's CEO started her career as a pro basketball player and is now the highest-ranking woman on the Global 5"
+          ],
+          "risk": "No material catalyst exists in the provided information; the human-interest headline about the CEO's background is not price-moving, making any directional bet speculative and likely to underperform SPY.",
+          "reasoning": "The only event is a profile piece on ELV's CEO—interesting but not a tradeable catalyst. Stock moved -0.1%, confirming no market reaction. With no earnings, guidance, or M&A catalyst in the material, there is no edge to exploit over 5 sessions. HOLD is the honest call."
+        },
+        {
+          "ticker": "NTRS",
+          "verdict": "BUY",
+          "confidence": 7,
+          "evidence": [
+            "NTRS Q2 earnings beat expectations",
+            "Beat driven by higher net interest income and AUM growth",
+            "NTRS raised its dividend"
+          ],
+          "risk": "NII growth may be peaking if rate cuts are ahead, and the -0.2% flat reaction suggests the market views the beat as expected, limiting upside surprise potential over 5 sessions.",
+          "reasoning": "NTRS delivered a trifecta: earnings beat, NII + AUM growth, and a dividend raise—signaling management confidence in sustained earnings power. The muted -0.2% reaction means this hasn't been fully absorbed. Over 5 sessions, income-oriented flows and analyst upgrades should drive outperformance vs SPY."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "model": "moonshotai/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "specialty": "Second-order consequences and long-document synthesis",
+      "ok": false,
+      "error": "timed out after 330s (Kimi K2.5)",
+      "latencyMs": 330097,
+      "revised": false,
+      "usage": null,
+      "findings": []
+    }
+  ],
+  "verdicts": [
+    {
+      "ticker": "ELV",
+      "action": "HOLD",
+      "agreement": 1,
+      "weightedShare": {
+        "BUY": 0,
+        "SELL": 0,
+        "HOLD": 1
+      },
+      "votes": 2,
+      "meanConfidence": 6.5,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 9,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 1.012,
+          "evidence": [
+            "The Elevance Health headline profiles the CEO's career path from professional basketball to becoming the highest-ranking woman on the Global 5.",
+            "The supplied latest price is 375.84, down 0.1% over one day."
+          ],
+          "risk": "The executive-profile attention could improve sentiment, while an unrelated unreported development could move the shares materially.",
+          "reasoning": "The material contains no earnings, guidance, capital-allocation, regulatory, or operating catalyst linking the profile to ELV's price. It provides no basis for forecasting relative performance over five sessions."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "HOLD",
+          "confidence": 4,
+          "verified": 1,
+          "relevance": 1.1,
+          "weight": 0.44,
+          "evidence": [
+            "Elevance Health's CEO started her career as a pro basketball player and is now the highest-ranking woman on the Global 5"
+          ],
+          "risk": "No material catalyst exists in the provided information; the human-interest headline about the CEO's background is not price-moving, making any directional bet speculative and likely to underperform SPY.",
+          "reasoning": "The only event is a profile piece on ELV's CEO—interesting but not a tradeable catalyst. Stock moved -0.1%, confirming no market reaction. With no earnings, guidance, or M&A catalyst in the material, there is no edge to exploit over 5 sessions. HOLD is the honest call."
+        }
+      ]
+    },
+    {
+      "ticker": "EXE",
+      "action": "HOLD",
+      "agreement": 0.645,
+      "weightedShare": {
+        "BUY": 0.355,
+        "SELL": 0,
+        "HOLD": 0.645
+      },
+      "votes": 1,
+      "meanConfidence": 7,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 0.5,
+          "relevance": 1.5,
+          "weight": 0.9,
+          "evidence": [
+            "Expand Energy announced a $1.25 billion Twin Eagle acquisition deal.",
+            "The supplied latest price is 94.03, up 1.7% over one day."
+          ],
+          "risk": "The positive one-day reaction may signal that investors expect the acquisition to create meaningful value, supporting further gains.",
+          "reasoning": "Deal size alone does not establish accretion, financing impact, synergies, or valuation. The 1.7% rise suggests some optimism is already reflected, leaving no verified five-day edge."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 6,
+          "verified": 0.5,
+          "relevance": 1.1,
+          "weight": 0.495,
+          "evidence": [
+            "Expand Energy announced a $1.25 billion Twin Eagle acquisition deal",
+            "EXE stock was up 1.7% on the day of the announcement"
+          ],
+          "risk": "The $1.25B acquisition carries integration risk and potential overpayment concerns; the market's muted 1.7% response suggests limited enthusiasm, and deal-related uncertainty could weigh over the 5-day window.",
+          "reasoning": "The Twin Eagle acquisition signals strategic expansion and scale-building in energy infrastructure. The modest 1.7% pop suggests the deal hasn't been fully priced in. Over 5 sessions, analyst coverage and deal rationale digestion should provide upward momentum. However, acquisition integration uncertainty caps conviction."
+        }
+      ]
+    },
+    {
+      "ticker": "NTRS",
+      "action": "HOLD",
+      "agreement": 0.609,
+      "weightedShare": {
+        "BUY": 0.391,
+        "SELL": 0,
+        "HOLD": 0.609
+      },
+      "votes": 1,
+      "meanConfidence": 7.5,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 8,
+          "verified": 1,
+          "relevance": 1.5,
+          "weight": 1.2,
+          "evidence": [
+            "Northern Trust's second-quarter earnings beat expectations.",
+            "The headline cites higher net interest income and assets-under-management growth.",
+            "Northern Trust raised its dividend according to the headline entry, which states “Dividend Raised.”"
+          ],
+          "risk": "The combination of an earnings beat, higher net interest income, AUM growth, and a dividend increase could produce delayed bullish repricing.",
+          "reasoning": "Several fundamentals are positive, but the supplied one-day move is -0.2%, suggesting little incremental surprise or that benefits were priced in. With no size of the beat, outlook, or dividend increase, a five-day edge is not verified."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 1,
+          "relevance": 1.1,
+          "weight": 0.77,
+          "evidence": [
+            "NTRS Q2 earnings beat expectations",
+            "Beat driven by higher net interest income and AUM growth",
+            "NTRS raised its dividend"
+          ],
+          "risk": "NII growth may be peaking if rate cuts are ahead, and the -0.2% flat reaction suggests the market views the beat as expected, limiting upside surprise potential over 5 sessions.",
+          "reasoning": "NTRS delivered a trifecta: earnings beat, NII + AUM growth, and a dividend raise—signaling management confidence in sustained earnings power. The muted -0.2% reaction means this hasn't been fully absorbed. Over 5 sessions, income-oriented flows and analyst upgrades should drive outperformance vs SPY."
+        }
+      ]
+    },
+    {
+      "ticker": "GL",
+      "action": "HOLD",
+      "agreement": 0.522,
+      "weightedShare": {
+        "BUY": 0.478,
+        "SELL": 0,
+        "HOLD": 0.522
+      },
+      "votes": 1,
+      "meanConfidence": 7,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "HOLD",
+          "confidence": 7,
+          "verified": 0.33,
+          "relevance": 1.5,
+          "weight": 0.7,
+          "evidence": [
+            "Globe Life raised 2026 earnings guidance and expanded buybacks.",
+            "The event headline says shares fell 6.1% despite those actions.",
+            "The supplied latest price is 182.25, with a 1-day move of -0.4%."
+          ],
+          "risk": "The guidance increase and expanded buybacks could drive a sharp rebound once the initial selling subsides.",
+          "reasoning": "The catalysts are bullish, but the adverse reaction means the material does not verify that they will drive near-term outperformance. The conflicting decline figures also make timing and whether the news is already priced unclear."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 0.67,
+          "relevance": 1.1,
+          "weight": 0.642,
+          "evidence": [
+            "Globe Life raised 2026 earnings guidance",
+            "Globe Life expanded its buyback program",
+            "GL stock is down 6.1% despite these positive announcements"
+          ],
+          "risk": "The 6.1% decline despite guidance raise and buyback expansion suggests the market may be skeptical of sustainability or pricing in undisclosed concerns, creating potential for further downside.",
+          "reasoning": "GL dropped 6.1% on what is ostensibly positive news (raised guidance + expanded buybacks). This disconnect likely reflects short-term overreaction or profit-taking. Over 5 sessions, the fundamental positives should reassert as the market digests the guidance raise and capital return expansion. Entry on weakness offers favorable risk/reward vs SPY."
+        }
+      ]
+    },
+    {
+      "ticker": "ICE",
+      "action": "BUY",
+      "agreement": 0.507,
+      "weightedShare": {
+        "BUY": 0.507,
+        "SELL": 0.493,
+        "HOLD": 0
+      },
+      "votes": 1,
+      "meanConfidence": 6.5,
+      "invest": false,
+      "panel": 2,
+      "debated": false,
+      "opinions": [
+        {
+          "arm": "B",
+          "name": "ChatGPT 5.6 Sol",
+          "roleTitle": "The Auditor",
+          "specialty": "Evidence verification and causal reasoning",
+          "verdict": "SELL",
+          "confidence": 6,
+          "verified": 0.67,
+          "relevance": 1.5,
+          "weight": 0.75,
+          "evidence": [
+            "ICE's second-quarter earnings beat expectations.",
+            "The headline attributes strength to data growth and mortgage operations.",
+            "The supplied latest price is 152.48, down 2.4% over one day."
+          ],
+          "risk": "The earnings beat and growth in data and mortgage operations could prompt a rebound and relative outperformance after the initial decline.",
+          "reasoning": "The stock fell 2.4% despite an earnings beat, indicating the reported strengths were likely expected or outweighed by concerns absent from the headline. That negative event response is the clearest short-term signal, though evidence is limited."
+        },
+        {
+          "arm": "C",
+          "name": "Qwen 3.7 Max",
+          "roleTitle": "The Strategist",
+          "specialty": "Policy, market sentiment and China/Hong Kong exposure",
+          "verdict": "BUY",
+          "confidence": 7,
+          "verified": 1,
+          "relevance": 1.1,
+          "weight": 0.77,
+          "evidence": [
+            "ICE Q2 earnings beat expectations",
+            "Earnings beat driven by data growth and mortgage strength",
+            "ICE stock is down 2.4% despite the earnings beat"
+          ],
+          "risk": "The 2.4% post-earnings decline despite a beat suggests sell-the-news dynamics or forward guidance disappointment not captured in headlines, risking further drift lower over 5 sessions.",
+          "reasoning": "ICE beat on two durable growth drivers—data and mortgage—yet fell 2.4%, a classic sell-the-news overreaction. Over 5 sessions, institutional repositioning toward the fundamental beat should close the gap. The dual revenue drivers (data secular growth + mortgage cyclical recovery) provide a strong earnings narrative vs SPY."
+        }
+      ]
+    }
+  ],
+  "council": [],
+  "exploratory": {
+    "disagreementRate": 1,
+    "armsLive": 2
+  }
+}

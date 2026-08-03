@@ -259,13 +259,18 @@
     "headline:APD:Air Products and Chemicals Inc (APD) (Q3 2026) Earnings Call",
     "shock:CBOE:2026-07-31",
     "headline:CFG:Is Citizens Financial Group (CFG) Undervalued As Its CEO Sel",
-    "headline:CFG:Citizens Financial Group (CFG) Beat Q2 Earnings And Reaffirm"
+    "headline:CFG:Citizens Financial Group (CFG) Beat Q2 Earnings And Reaffirm",
+    "headline:GL:Globe Life (GL) Is Down 6.1% After Raising 2026 Earnings Gui",
+    "headline:EXE:Expand Energy Announces $1.25 Billion Twin Eagle Acquisition",
+    "headline:ICE:ICE Q2 Earnings Beat on Data Growth and Mortgage Strength",
+    "headline:ELV:Elevance Health’s CEO started her career as a pro basketball",
+    "headline:NTRS:NTRS Q2 Earnings Beat on Higher NII & AUM Growth, Dividend R"
   ],
   "councilRuns": {
     "2026-07-30": 5,
     "2026-07-31": 5,
     "2026-08-01": 2,
-    "2026-08-03": 1
+    "2026-08-03": 2
   },
-  "cursor": 18
+  "cursor": 30
 }

@@ -1,6 +1,61 @@
 {
   "events": [
     {
+      "id": "headline:NTRS:NTRS Q2 Earnings Beat on Higher NII & AUM Growth, Dividend R",
+      "ts": "2026-08-03T07:57:22.057Z",
+      "source": "headline",
+      "title": "NTRS Q2 Earnings Beat on Higher NII & AUM Growth, Dividend Raised",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-northern-trust-corporation-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "tickers": [
+        "NTRS"
+      ],
+      "detail": "NTRS · matched \"earnings beat\""
+    },
+    {
+      "id": "headline:ELV:Elevance Health’s CEO started her career as a pro basketball",
+      "ts": "2026-08-03T07:57:22.057Z",
+      "source": "headline",
+      "title": "Elevance Health’s CEO started her career as a pro basketball player. Now she’s the highest‑ranking woman on the Global 500, leading a $199B giant",
+      "url": "https://finance.yahoo.com/healthcare/articles/teladoc-health-q2-earnings-beat-163300800.html?.tsrc=rss",
+      "tickers": [
+        "ELV"
+      ],
+      "detail": "ELV · matched \"ceo\""
+    },
+    {
+      "id": "headline:ICE:ICE Q2 Earnings Beat on Data Growth and Mortgage Strength",
+      "ts": "2026-08-03T07:57:22.057Z",
+      "source": "headline",
+      "title": "ICE Q2 Earnings Beat on Data Growth and Mortgage Strength",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/top-midday-stories-microsoft-shares-154633721.html?.tsrc=rss",
+      "tickers": [
+        "ICE"
+      ],
+      "detail": "ICE · matched \"earnings beat\""
+    },
+    {
+      "id": "headline:EXE:Expand Energy Announces $1.25 Billion Twin Eagle Acquisition",
+      "ts": "2026-08-03T07:57:22.057Z",
+      "source": "headline",
+      "title": "Expand Energy Announces $1.25 Billion Twin Eagle Acquisition Deal",
+      "url": "https://finance.yahoo.com/energy/articles/sector-energy-stocks-fall-afternoon-193653763.html?.tsrc=rss",
+      "tickers": [
+        "EXE"
+      ],
+      "detail": "EXE · matched \"acquisition\""
+    },
+    {
+      "id": "headline:GL:Globe Life (GL) Is Down 6.1% After Raising 2026 Earnings Gui",
+      "ts": "2026-08-03T07:57:22.057Z",
+      "source": "headline",
+      "title": "Globe Life (GL) Is Down 6.1% After Raising 2026 Earnings Guidance And Expanding Buybacks – Has The Bull Case Changed?",
+      "url": "https://www.trefis.com/articles/608766/howmet-aerospace-stock-and-the-sound-of-one-hand-clapping/2026-07-24?.tsrc=rss",
+      "tickers": [
+        "GL"
+      ],
+      "detail": "GL · matched \"guidance\""
+    },
+    {
       "id": "headline:CFG:Citizens Financial Group (CFG) Beat Q2 Earnings And Reaffirm",
       "ts": "2026-08-03T04:26:02.884Z",
       "source": "headline",
@@ -5732,58 +5787,6 @@
         "FDXF"
       ],
       "detail": "close 158.00 → 152.04"
-    },
-    {
-      "id": "shock:ADSK:2026-07-27",
-      "ts": "2026-07-27T14:22:15.717Z",
-      "source": "shock",
-      "title": "ADSK moved +5.2% on 2026-07-27",
-      "tickers": [
-        "ADSK"
-      ],
-      "detail": "close 209.75 → 220.57"
-    },
-    {
-      "id": "shock:ADBE:2026-07-27",
-      "ts": "2026-07-27T14:22:15.717Z",
-      "source": "shock",
-      "title": "ADBE moved +4.8% on 2026-07-27",
-      "tickers": [
-        "ADBE"
-      ],
-      "detail": "close 225.11 → 236.02"
-    },
-    {
-      "id": "headline:IBM:CRCL Stock Rallies After Circle Acquires Nearly 1,000 Blockc",
-      "ts": "2026-07-27T14:22:15.717Z",
-      "source": "headline",
-      "title": "CRCL Stock Rallies After Circle Acquires Nearly 1,000 Blockchain Patents From IBM",
-      "url": "https://investorshub.advfn.com/market-news/article/32741/circle-shares-rise-after-acquiring-ibms-blockchain-patent-portfolio?.tsrc=rss",
-      "tickers": [
-        "IBM"
-      ],
-      "detail": "IBM · matched \"acquire\""
-    },
-    {
-      "id": "shock:CPRT:2026-07-27",
-      "ts": "2026-07-27T14:22:15.717Z",
-      "source": "shock",
-      "title": "CPRT moved +4.2% on 2026-07-27",
-      "tickers": [
-        "CPRT"
-      ],
-      "detail": "close 27.94 → 29.10"
-    },
-    {
-      "id": "filing:NWS:0001564708",
-      "ts": "2026-07-27T12:48:39.951Z",
-      "source": "filing",
-      "title": "News Corp (Class B) filed an 8-K (material corporate event)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001564708&type=8-K",
-      "tickers": [
-        "NWS"
-      ],
-      "detail": "NWS · Communication Services"
     }
   ]
 }
