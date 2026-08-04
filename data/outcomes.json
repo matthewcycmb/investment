@@ -3,15 +3,15 @@
     "startEquity": 100000,
     "stakePerPosition": 10000,
     "cash": 70000,
-    "invested": 29068.66,
-    "equity": 99068.66,
+    "invested": 28979.57,
+    "equity": 98979.57,
     "realized": 0,
-    "unrealized": -931.34,
-    "totalReturnPct": -0.931,
+    "unrealized": -1020.43,
+    "totalReturnPct": -1.02,
     "openPositions": 3,
     "closedPositions": 0
   },
-  "updated": "2026-08-04T15:34:19.840Z",
+  "updated": "2026-08-04T22:52:04.852Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
@@ -58,14 +58,14 @@
         376.4,
         375.84,
         382.77,
-        379.4
+        378
       ],
       "status": "open",
       "entryDate": "2026-08-04",
       "entryPrice": 381.0199890136719,
       "markDate": "2026-08-04",
-      "markPrice": 379.4049987792969,
-      "markExcess": -0.012889
+      "markPrice": 378,
+      "markExcess": -0.021993
     },
     {
       "arm": "council",
@@ -105,14 +105,14 @@
         156.27,
         152.48,
         151.8,
-        148.77
+        149.2
       ],
       "status": "open",
       "entryDate": "2026-07-31",
       "entryPrice": 155.02000427246094,
       "markDate": "2026-08-04",
-      "markPrice": 148.77499389648438,
-      "markExcess": -0.070539
+      "markPrice": 149.1999969482422,
+      "markExcess": -0.073331
     },
     {
       "arm": "council",
@@ -152,14 +152,14 @@
         1316.18,
         1426.03,
         1344.37,
-        1353.9
+        1335.03
       ],
       "status": "open",
       "entryDate": "2026-08-03",
       "entryPrice": 1417.780029296875,
       "markDate": "2026-08-04",
-      "markPrice": 1353.89501953125,
-      "markExcess": -0.06877
+      "markPrice": 1335.030029296875,
+      "markExcess": -0.087574
     },
     {
       "arm": "council",
@@ -199,14 +199,14 @@
         802.37,
         797.43,
         817.42,
-        818.52
+        819.88
       ],
       "status": "open",
       "entryDate": "2026-08-04",
       "entryPrice": 824.9400024414062,
       "markDate": "2026-08-04",
-      "markPrice": 818.5150146484375,
-      "markExcess": -0.016438
+      "markPrice": 819.8800048828125,
+      "markExcess": -0.020201
     },
     {
       "arm": "council",
@@ -246,7 +246,7 @@
         802.37,
         797.43,
         817.42,
-        818.52
+        819.88
       ],
       "status": "pending"
     }
