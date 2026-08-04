@@ -288,14 +288,18 @@
     "headline:APD:Is Air Products And Chemicals (APD) Undervalued After Its Ea",
     "headline:APD:APD Q3 Earnings Beat on Volume Growth, Sales Miss Estimates",
     "headline:CBOE:CBOE Q2 Earnings Beat on Options Strength, Revenue Outlook R",
-    "filing:ON:0001097864"
+    "filing:ON:0001097864",
+    "headline:CBOE:TMX Group Completes Acquisition of Cboe Australia",
+    "headline:GL:NYSE Texas: Globe Life's Co-CEOs on Building a Resilient Ins",
+    "headline:GL:Globe Life Q2 Earnings Miss Estimates on Escalating Expenses",
+    "shock:MPWR:2026-07-31"
   ],
   "councilRuns": {
     "2026-07-30": 5,
     "2026-07-31": 5,
     "2026-08-01": 2,
     "2026-08-03": 3,
-    "2026-08-04": 3
+    "2026-08-04": 4
   },
-  "cursor": 13
+  "cursor": 25
 }

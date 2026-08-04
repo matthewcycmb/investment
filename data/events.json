@@ -1,6 +1,49 @@
 {
   "events": [
     {
+      "id": "shock:MPWR:2026-07-31",
+      "ts": "2026-08-04T04:00:57.656Z",
+      "source": "shock",
+      "title": "MPWR moved +8.3% on 2026-07-31· no reported cause",
+      "tickers": [
+        "MPWR"
+      ],
+      "detail": "close 1316.18 → 1426.03"
+    },
+    {
+      "id": "headline:GL:Globe Life Q2 Earnings Miss Estimates on Escalating Expenses",
+      "ts": "2026-08-04T04:00:57.656Z",
+      "source": "headline",
+      "title": "Globe Life Q2 Earnings Miss Estimates on Escalating Expenses",
+      "url": "https://app.moby.co/home/research/tools/earningsCalendar/earnings-globe-life-inc-q2-2026-earnings-call-summary?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+      "tickers": [
+        "GL"
+      ],
+      "detail": "GL · matched \"earnings miss\""
+    },
+    {
+      "id": "headline:GL:NYSE Texas: Globe Life's Co-CEOs on Building a Resilient Ins",
+      "ts": "2026-08-04T04:00:57.656Z",
+      "source": "headline",
+      "title": "NYSE Texas: Globe Life's Co-CEOs on Building a Resilient Insurance Giant",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/globe-life-gl-down-6-221139812.html?.tsrc=rss",
+      "tickers": [
+        "GL"
+      ],
+      "detail": "GL · matched \"ceo\""
+    },
+    {
+      "id": "headline:CBOE:TMX Group Completes Acquisition of Cboe Australia",
+      "ts": "2026-08-04T04:00:57.656Z",
+      "source": "headline",
+      "title": "TMX Group Completes Acquisition of Cboe Australia",
+      "url": "https://www.marketbeat.com/instant-alerts/tmx-group-q2-earnings-call-highlights-2026-08-01/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "tickers": [
+        "CBOE"
+      ],
+      "detail": "CBOE · matched \"acquisition\""
+    },
+    {
       "id": "filing:ON:0001097864",
       "ts": "2026-08-03T22:02:04.440Z",
       "source": "filing",
@@ -5743,50 +5786,6 @@
         "ELV"
       ],
       "detail": "ELV · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "insider:ELV:PERU RAMIRO G:2026-07-17:1000",
-      "ts": "2026-07-17",
-      "source": "insider",
-      "title": "PERU RAMIRO G bought 1,000 ELV shares at $366.05 (US$366,050)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001156039&type=4",
-      "tickers": [
-        "ELV"
-      ],
-      "detail": "ELV · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "insider:SPG:AEPPEL GLYN:2026-06-30:199",
-      "ts": "2026-06-30",
-      "source": "insider",
-      "title": "AEPPEL GLYN bought 199 SPG shares at $223.14 (US$44,405)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
-      "tickers": [
-        "SPG"
-      ],
-      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "insider:SPG:RODKIN GARY M:2026-06-30:209",
-      "ts": "2026-06-30",
-      "source": "insider",
-      "title": "RODKIN GARY M bought 209 SPG shares at $223.14 (US$46,636)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
-      "tickers": [
-        "SPG"
-      ],
-      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
-    },
-    {
-      "id": "insider:SPG:SMITH DANIEL C.:2026-06-30:314",
-      "ts": "2026-06-30",
-      "source": "insider",
-      "title": "SMITH DANIEL C. bought 314 SPG shares at $223.14 (US$70,066)",
-      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001063761&type=4",
-      "tickers": [
-        "SPG"
-      ],
-      "detail": "SPG · officer or director open-market purchase · SEC Form 4"
     }
   ]
 }
