@@ -2,22 +2,22 @@
   "portfolio": {
     "startEquity": 100000,
     "stakePerPosition": 10000,
-    "cash": 90000,
-    "invested": 9836.15,
-    "equity": 99836.15,
+    "cash": 70000,
+    "invested": 29068.66,
+    "equity": 99068.66,
     "realized": 0,
-    "unrealized": -163.85,
-    "totalReturnPct": -0.164,
-    "openPositions": 1,
+    "unrealized": -931.34,
+    "totalReturnPct": -0.931,
+    "openPositions": 3,
     "closedPositions": 0
   },
-  "updated": "2026-08-04T06:31:35.383Z",
+  "updated": "2026-08-04T15:34:19.840Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
     "closed": 0,
-    "open": 1,
-    "pending": 4
+    "open": 4,
+    "pending": 1
   },
   "positions": [
     {
@@ -29,8 +29,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        388.5,
-        394.82,
         395.1,
         384,
         387.32,
@@ -58,9 +56,16 @@
         385.73,
         375.98,
         376.4,
-        375.84
+        375.84,
+        382.77,
+        379.4
       ],
-      "status": "pending"
+      "status": "open",
+      "entryDate": "2026-08-04",
+      "entryPrice": 381.0199890136719,
+      "markDate": "2026-08-04",
+      "markPrice": 379.4049987792969,
+      "markExcess": -0.012889
     },
     {
       "arm": "council",
@@ -71,8 +76,6 @@
       "rank": 1,
       "weekKey": "2026-W31",
       "spark": [
-        133.88,
-        131.34,
         133,
         130.02,
         124.49,
@@ -100,14 +103,16 @@
         152.72,
         154.28,
         156.27,
-        152.48
+        152.48,
+        151.8,
+        148.77
       ],
       "status": "open",
       "entryDate": "2026-07-31",
       "entryPrice": 155.02000427246094,
-      "markDate": "2026-07-31",
-      "markPrice": 152.47999572753906,
-      "markExcess": -0.019541
+      "markDate": "2026-08-04",
+      "markPrice": 148.77499389648438,
+      "markExcess": -0.070539
     },
     {
       "arm": "council",
@@ -118,8 +123,6 @@
       "rank": 1,
       "weekKey": "2026-W31",
       "spark": [
-        1563.7,
-        1537.88,
         1423.76,
         1434.95,
         1438.3,
@@ -147,9 +150,16 @@
         1282.01,
         1248.76,
         1316.18,
-        1426.03
+        1426.03,
+        1344.37,
+        1353.9
       ],
-      "status": "pending"
+      "status": "open",
+      "entryDate": "2026-08-03",
+      "entryPrice": 1417.780029296875,
+      "markDate": "2026-08-04",
+      "markPrice": 1353.89501953125,
+      "markExcess": -0.06877
     },
     {
       "arm": "council",
@@ -160,8 +170,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        836.59,
-        868.88,
         838.61,
         847.17,
         862.66,
@@ -189,9 +197,16 @@
         705.82,
         672.48,
         802.37,
-        797.43
+        797.43,
+        817.42,
+        818.52
       ],
-      "status": "pending"
+      "status": "open",
+      "entryDate": "2026-08-04",
+      "entryPrice": 824.9400024414062,
+      "markDate": "2026-08-04",
+      "markPrice": 818.5150146484375,
+      "markExcess": -0.016438
     },
     {
       "arm": "council",
@@ -202,8 +217,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        836.59,
-        868.88,
         838.61,
         847.17,
         862.66,
@@ -231,7 +244,9 @@
         705.82,
         672.48,
         802.37,
-        797.43
+        797.43,
+        817.42,
+        818.52
       ],
       "status": "pending"
     }
