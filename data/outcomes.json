@@ -2,21 +2,21 @@
   "portfolio": {
     "startEquity": 100000,
     "stakePerPosition": 10000,
-    "cash": 60000,
-    "invested": 38819.21,
-    "equity": 98819.21,
-    "realized": 0,
-    "unrealized": -1180.79,
-    "totalReturnPct": -1.181,
-    "openPositions": 4,
-    "closedPositions": 0
+    "cash": 69676.17,
+    "invested": 29663.72,
+    "equity": 99339.89,
+    "realized": -323.83,
+    "unrealized": -336.28,
+    "totalReturnPct": -0.66,
+    "openPositions": 3,
+    "closedPositions": 1
   },
-  "updated": "2026-08-07T01:27:37.414Z",
+  "updated": "2026-08-07T22:24:47.159Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
-    "closed": 0,
-    "open": 5,
+    "closed": 1,
+    "open": 4,
     "pending": 0
   },
   "positions": [
@@ -29,7 +29,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        387.32,
         395.18,
         388.03,
         386.73,
@@ -58,14 +57,15 @@
         382.77,
         378,
         391.24,
-        391.4
+        391.4,
+        394.2
       ],
       "status": "open",
       "entryDate": "2026-08-04",
       "entryPrice": 381.0199890136719,
-      "markDate": "2026-08-06",
-      "markPrice": 391.3999938964844,
-      "markExcess": 0.016817
+      "markDate": "2026-08-07",
+      "markPrice": 394.20001220703125,
+      "markExcess": 0.017987
     },
     {
       "arm": "council",
@@ -76,7 +76,6 @@
       "rank": 1,
       "weekKey": "2026-W31",
       "spark": [
-        124.49,
         123.86,
         122.91,
         123.11,
@@ -105,14 +104,19 @@
         151.8,
         149.2,
         149.84,
-        149.75
+        149.75,
+        150.3
       ],
-      "status": "open",
+      "status": "closed",
       "entryDate": "2026-07-31",
       "entryPrice": 155.02000427246094,
-      "markDate": "2026-08-06",
-      "markPrice": 149.75,
-      "markExcess": -0.066063
+      "exitDate": "2026-08-07",
+      "exitPrice": 150,
+      "spyEntry": 744.6799926757812,
+      "spyExit": 771.02001953125,
+      "ret": -0.032383,
+      "spyRet": 0.035371,
+      "excess": -0.067754
     },
     {
       "arm": "council",
@@ -123,7 +127,6 @@
       "rank": 1,
       "weekKey": "2026-W31",
       "spark": [
-        1438.3,
         1313.32,
         1312.77,
         1382.36,
@@ -152,14 +155,15 @@
         1344.37,
         1335.03,
         1345.46,
-        1359.08
+        1359.08,
+        1401.54
       ],
       "status": "open",
       "entryDate": "2026-08-03",
       "entryPrice": 1417.780029296875,
-      "markDate": "2026-08-06",
-      "markPrice": 1359.0799560546875,
-      "markExcess": -0.066915
+      "markDate": "2026-08-07",
+      "markPrice": 1401.5400390625,
+      "markExcess": -0.043238
     },
     {
       "arm": "council",
@@ -170,7 +174,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        862.66,
         798.1,
         814.41,
         829.88,
@@ -199,14 +202,15 @@
         817.42,
         819.88,
         822.16,
-        808.43
+        808.43,
+        816.9
       ],
       "status": "open",
       "entryDate": "2026-08-04",
       "entryPrice": 824.9400024414062,
-      "markDate": "2026-08-06",
-      "markPrice": 808.4299926757812,
-      "markExcess": -0.030439
+      "markDate": "2026-08-07",
+      "markPrice": 816.9000244140625,
+      "markExcess": -0.026351
     },
     {
       "arm": "council",
@@ -217,7 +221,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        862.66,
         798.1,
         814.41,
         829.88,
@@ -246,14 +249,15 @@
         817.42,
         819.88,
         822.16,
-        808.43
+        808.43,
+        816.9
       ],
       "status": "open",
       "entryDate": "2026-08-05",
       "entryPrice": 827.1799926757812,
-      "markDate": "2026-08-06",
-      "markPrice": 808.4299926757812,
-      "markExcess": -0.013271
+      "markDate": "2026-08-07",
+      "markPrice": 816.9000244140625,
+      "markExcess": -0.009089
     }
   ]
 }
