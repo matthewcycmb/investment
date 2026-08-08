@@ -11,7 +11,7 @@
     "openPositions": 3,
     "closedPositions": 1
   },
-  "updated": "2026-08-07T22:24:47.159Z",
+  "updated": "2026-08-08T22:17:27.602Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
