@@ -2,21 +2,21 @@
   "portfolio": {
     "startEquity": 100000,
     "stakePerPosition": 10000,
-    "cash": 89635.74,
-    "invested": 9875.24,
-    "equity": 99510.98,
-    "realized": -364.26,
-    "unrealized": -124.76,
-    "totalReturnPct": -0.489,
-    "openPositions": 1,
-    "closedPositions": 3
+    "cash": 99675.63,
+    "invested": 0,
+    "equity": 99675.63,
+    "realized": -324.37,
+    "unrealized": 0,
+    "totalReturnPct": -0.324,
+    "openPositions": 0,
+    "closedPositions": 4
   },
-  "updated": "2026-08-11T22:31:17.173Z",
+  "updated": "2026-08-12T22:29:40.208Z",
   "horizonTradingDays": 10,
   "rule": "entry = open of first session after pick; exit = open 10 sessions later; excess vs SPY over identical sessions",
   "counts": {
-    "closed": 3,
-    "open": 2,
+    "closed": 4,
+    "open": 1,
     "pending": 0
   },
   "positions": [
@@ -29,7 +29,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        386.73,
         416.19,
         417.89,
         408.17,
@@ -58,14 +57,15 @@
         391.4,
         394.2,
         397.7,
-        390.37
+        390.37,
+        399.14
       ],
       "status": "open",
       "entryDate": "2026-08-04",
       "entryPrice": 381.0199890136719,
-      "markDate": "2026-08-11",
-      "markPrice": 390.3699951171875,
-      "markExcess": 0.011484
+      "markDate": "2026-08-12",
+      "markPrice": 399.1400146484375,
+      "markExcess": 0.031964
     },
     {
       "arm": "council",
@@ -76,7 +76,6 @@
       "rank": 1,
       "weekKey": "2026-W31",
       "spark": [
-        123.11,
         126.73,
         132.99,
         134.91,
@@ -105,7 +104,8 @@
         149.75,
         150.3,
         150.54,
-        151.25
+        151.25,
+        151.33
       ],
       "status": "closed",
       "entryDate": "2026-07-31",
@@ -127,7 +127,6 @@
       "rank": 1,
       "weekKey": "2026-W31",
       "spark": [
-        1382.36,
         1331.73,
         1288.16,
         1346.13,
@@ -156,7 +155,8 @@
         1359.08,
         1401.54,
         1381.1,
-        1402.11
+        1402.11,
+        1425.01
       ],
       "status": "closed",
       "entryDate": "2026-08-03",
@@ -178,7 +178,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        829.88,
         804.33,
         774.66,
         787.29,
@@ -207,7 +206,8 @@
         808.43,
         816.9,
         809.33,
-        816.86
+        816.86,
+        833.4
       ],
       "status": "closed",
       "entryDate": "2026-08-04",
@@ -229,7 +229,6 @@
       "rank": 1,
       "weekKey": "2026-W32",
       "spark": [
-        829.88,
         804.33,
         774.66,
         787.29,
@@ -258,14 +257,19 @@
         808.43,
         816.9,
         809.33,
-        816.86
+        816.86,
+        833.4
       ],
-      "status": "open",
+      "status": "closed",
       "entryDate": "2026-08-05",
       "entryPrice": 827.1799926757812,
-      "markDate": "2026-08-11",
-      "markPrice": 816.8599853515625,
-      "markExcess": -0.005658
+      "exitDate": "2026-08-12",
+      "exitPrice": 830.47998046875,
+      "spyEntry": 775.8499755859375,
+      "spyExit": 774.7100219726562,
+      "ret": 0.003989,
+      "spyRet": -0.001469,
+      "excess": 0.005459
     }
   ]
 }
